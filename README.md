@@ -1,10 +1,16 @@
-# envoyproxy_doc_ZH_CN
-envoy 智能代理中文参考文档 v1.5.0 </br>
+# envoy 智能代理中文参考文档 v1.5.0
 FROM: https://www.envoyproxy.io/docs/envoy/v1.5.0/
 
 ## 关于本文档
 
-## 章节
+主要的章节<br>
+- 简介: 介绍Envoy相关概念，以及总体的架构设计和常用的部署方式等
+- 安装：如何通过Docker构建、安装Envoy
+- 配置：既有的V1/V2 API的详细配置说明，以及相关的统计、运行时的APIs
+- 操作：关于Envoy操作方式，如命令行、热更新、管理接口、统计概况等
+- 扩展：关于如何为Envoy编写自定义过滤器
+- V1 API 参考：遗留的V1 API的详细配置说明
+- V2 API 参考：新的V2 API的详细配置说明
 
 ### Introduction
 - What is Envoy
@@ -13,11 +19,13 @@ FROM: https://www.envoyproxy.io/docs/envoy/v1.5.0/
 - Comparison to similar systems
 - Getting help
 - Version history
+
 ### Building and installation
 - Building
 - Reference configurations
 - Sandboxes
 - Tools
+
 ### Configuration reference
 - Overview (v1 API)
 - Overview (v2 API)
