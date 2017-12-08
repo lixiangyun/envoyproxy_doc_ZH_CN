@@ -10,13 +10,13 @@ FROM: https://www.envoyproxy.io/docs/envoy/v1.5.0/
 - **V1 API 参考**：遗留的V1 API的详细配置说明
 - **V2 API 参考**：新的V2 API的详细配置说明
 
-### [Introduction](Introduction.md)
+### [简介](Introduction.md)
 - [Envoy是什么](Introduction/WhatisEnvoy.md)
-- Architecture overview
-- Deployment types
-- Comparison to similar systems
-- Getting help
-- Version history
+- [架构介绍](Introduction/Architectureoverview.md)
+- [部署](Introduction/Deploymenttypes.md)
+- [对比相似系统](Introduction/Comparisontosimilarsystems.md)
+- [获得帮助](Introduction/Gettinghelp.md)
+- [历史版本](Introduction/Versionhistory.md)
 
 ### Building and installation
 - Building
