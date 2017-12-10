@@ -13,10 +13,9 @@
 
 **网格（Mesh）**：协调一致以提供一致的网络拓扑的一组主机。在本文档中，“Envoy mesh”是一组Envoy代理，它们构成了由多种不同服务和应用程序平台组成的分布式系统的消息传递基础。
 
-![参考](Terminology01.png "参考图片")
-
 **运行时配置（Runtime configuration）**：与Envoy一起部署的外置实时配置系统。可以更改配置设置，可以无需重启Envoy或更改主要配置。
 
+![参考](Terminology01.png "参考图片")
 
 ### 返回
 - [架构介绍](../Architectureoverview.md)
