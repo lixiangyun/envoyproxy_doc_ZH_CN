@@ -57,6 +57,7 @@ FROM: https://www.envoyproxy.io/docs/envoy/v1.5.0/
 - Rate limit service
 - Runtime
 - Tracing
+
 ### v2 API reference
 - Bootstrap
 - Listeners and LDS
@@ -72,6 +73,7 @@ FROM: https://www.envoyproxy.io/docs/envoy/v1.5.0/
 - Common discovery API components
 - Common rate limit components
 - Filters
+
 ### FAQ
 - How fast is Envoy?
 - Where do I get binaries?
