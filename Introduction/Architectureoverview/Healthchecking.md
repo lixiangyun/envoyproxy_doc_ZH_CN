@@ -1,8 +1,6 @@
-### ĞÄÌø¼ì²â
+### å¥åº·æ£€æŸ¥
 
-
-
-### ·µ»Ø
-- [¼Ü¹¹½éÉÜ](../Architectureoverview.md)
-- [¼ò½é](../../Introduction.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+### è¿”å›
+- [æ¶æ„ä»‹ç»](../Architectureoverview.md)
+- [ç®€ä»‹](../../Introduction.md)
+- [é¦–é¡µç›®å½•](../../README.md)
