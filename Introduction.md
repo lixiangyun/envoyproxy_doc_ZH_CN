@@ -13,7 +13,7 @@
 	- [WebSocket支持](Introduction/Architectureoverview/WebSocketsupport.md)
 	- [集群管理](Introduction/Architectureoverview/Clustermanager.md)
 	- [服务发现](Introduction/Architectureoverview/Servicediscovery.md)
-	- [心跳检测](Introduction/Architectureoverview/Healthchecking.md)
+	- [健康检查](Introduction/Architectureoverview/Healthchecking.md)
 	- [连接池](Introduction/Architectureoverview/Connectionpooling.md)
 	- [负载均衡](Introduction/Architectureoverview/Loadbalancing.md)
 	- [异常检测](Introduction/Architectureoverview/Outlierdetection.md)
