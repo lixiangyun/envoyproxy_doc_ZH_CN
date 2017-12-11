@@ -29,7 +29,7 @@
 - 支持的服务发现类型
 - 最终一致的服务发现
 
-### [心跳检测](Architectureoverview/Healthchecking.md)
+### [健康检查](Architectureoverview/Healthchecking.md)
 - 被动健康检查
 - 连接池交互
 - HTTP健康检查过滤器
