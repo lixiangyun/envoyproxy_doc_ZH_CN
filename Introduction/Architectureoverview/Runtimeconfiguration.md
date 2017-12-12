@@ -1,8 +1,10 @@
-### ����ʱ����
+### 运行时配置
 
+Envoy支持“运行时”配置（也称为“功能标志”和“决策者”）。可以更改配置设置，这将影响操作，而无需重启Envoy或更改主配置。当前支持的实现使用文件系统文件。Envoy监视配置目录中的符号链接交换，并在发生这种情况时重新加载。这种类型的系统通常在大型分布式系统中部署。其他实现并不难实现。受支持的运行时配置设置记录在操作指南的相关部分。Envoy将使用默认运行时值和“空”提供程序正确运行，因此不需要运行Envoy这样的系统。
 
+[运行时配置](../../Configurationreference/Runtime.md)
 
-### ����
-- [�ܹ�����](../Architectureoverview.md)
-- [���](../../Introduction.md)
-- [��ҳĿ¼](../../README.md)
+### 返回
+- [架构介绍](../Architectureoverview.md)
+- [简介](../../Introduction.md)
+- [首页目录](../../README.md)
