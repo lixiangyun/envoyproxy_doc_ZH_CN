@@ -17,7 +17,7 @@
 - [获得帮助](Introduction/Gettinghelp.md)
 - [历史版本](Introduction/Versionhistory.md)
 
-### [编译安装](Buildingandinstallation.md)
+### [编译&安装](Buildingandinstallation.md)
 - [编译](Buildingandinstallation/Building.md)
 - [参考配置](Buildingandinstallation/Referenceconfigurations.md)
 - [沙盒](Buildingandinstallation/Sandboxes.md)
@@ -36,7 +36,7 @@
 - [运行](Configurationreference/Runtime.md)
 - [路由表检查工具](Configurationreference/Routetablechecktool.md)
 
-### [运营&管理](Operationsandadministration.md)
+### [运维&管理](Operationsandadministration.md)
 - [命令行选项](Operationsandadministration/Commandlineoptions.md)
 - [热重启](Operationsandadministration/HotrestartPythonwrapper.md)
 - [管理接口](Operationsandadministration/Administrationinterface.md)
