@@ -4,7 +4,7 @@ Envoy可用于各种不同的场景，但是在跨基础架构中进行所有主
 
 ### 服务间
 
-![部署图](https://www.envoyproxy.io/docs/envoy/latest/_images/service_to_service.svg)
+![部署图](service_to_service.svg)
 
 上图显示了最简单的Envoy部署方式，使用Envoy作为通信总线，承担面向服务架构（SOA）内部所有的流量。在这种情况下，Envoy公开了几个用于本地来源流量的监听器，以及用于处理服务的流量。
 
@@ -29,7 +29,7 @@ Envoy可用于各种不同的场景，但是在跨基础架构中进行所有主
 
 ### 服务间+前端代理
 
-![部署图](https://www.envoyproxy.io/docs/envoy/latest/_images/front_proxy.svg)
+![部署图](front_proxy.svg)
 
 上图显示了服务部署，Envoy作为HTTP L7前端反向代理的群集。反向代理提供以下功能：
 
@@ -45,7 +45,7 @@ Envoy可用于各种不同的场景，但是在跨基础架构中进行所有主
 ### 服务间、前端代理和双重代理
 
 
-![部署图](https://www.envoyproxy.io/docs/envoy/latest/_images/double_proxy.svg)
+![部署图](double_proxy.svg)
 
 上图显示了作为双重代理，运行了另一个Envoy做为前端代理。双重代理背后的想法是，尽可能地将TLS和客户端连接终止到用户（TLS握手的更短的往返时间，更快的TCP CWND扩展，更少的数据包丢失机会等），会更高效。在双重代理中终止的连接，然后被复用到在主数据中心中运行的HTTP/2长连接。
 
