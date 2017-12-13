@@ -25,7 +25,7 @@
 
 ### [参考配置](Configurationreference.md)
 - [V1 API概述](Configurationreference/Overviewv1API.md)
-- [V1 API概述](Configurationreference/Overviewv2API.md)
+- [V2 API概述](Configurationreference/Overviewv2API.md)
 - [监听器](Configurationreference/Listeners.md)
 - [网络过滤器](Configurationreference/Networkfilters.md)
 - [HTTP连接管理器](Configurationreference/HTTPconnectionmanager.md)
