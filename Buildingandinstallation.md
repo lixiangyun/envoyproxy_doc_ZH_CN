@@ -8,7 +8,7 @@
 - 配置生成器
 - 烟雾测试配置
  
-### [沙盒](Buildingandinstallation/Sandboxes.md)
+### [沙箱](Buildingandinstallation/Sandboxes.md)
 - 前端代理
 - Zipkin跟踪
 - Jaeger跟踪

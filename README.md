@@ -20,7 +20,7 @@
 ### [编译&安装](Buildingandinstallation.md)
 - [编译](Buildingandinstallation/Building.md)
 - [参考配置](Buildingandinstallation/Referenceconfigurations.md)
-- [沙盒](Buildingandinstallation/Sandboxes.md)
+- [沙箱](Buildingandinstallation/Sandboxes.md)
 - [工具](Buildingandinstallation/Tools.md)
 
 ### [参考配置](Configurationreference.md)
