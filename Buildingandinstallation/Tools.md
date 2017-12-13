@@ -85,6 +85,7 @@ Test_6
 模式验证程序工具验证传入的JSON是否符合配置规范。要验证整个配置，请参阅上述配置加载检查工具章节。目前只支持[路由配置](../v1APIreference/HTTPRouteconfiguration.md)模式验证。
 
 **输入**
+
 该工具需要两个输入：
 
 1. 检查在JSON中传递的模式类型。支持的类型是：
@@ -96,6 +97,7 @@ Test_6
 如果JSON符合模式，则该工具将以状态`EXIT_SUCCESS`退出。 如果JSON不符合模式，则会输出错误消息，详细说明不符合模式的内容。该工具将以状态`EXIT_FAILURE`退出。
 
 **构建**
+
 使用Bazel在本地构建该工具。
 
 `bazel build //test/tools/schema_validator:schema_validator_tool`
