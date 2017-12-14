@@ -2,9 +2,9 @@
 
 Envoy可以做为Redis代理，在集群中的实例之间对命令进行分区。在这种模式下，Envoy的目标是保持可用性和分区容错的一致性。将Envoy与Redis集群进行比较时，这是重点。Envoy的缓存设计的不足够强大，这意味着它不会尝试协调不一致的数据，无法保持全局一致的群集成员关系视图。
 
-Redis项目提供了与Redis相关的分区的全面参考。请参阅“[分区：如何在多个Redis实例之间分割数据](https://redis.io/topics/partitioning)”。
+Redis项目提供了与Redis相关的分区的全面参考。请参阅“[分区](https://redis.io/topics/partitioning)：如何在多个Redis实例之间分割数据”。
 
-**Envoy Redis的特点：**
+**Envoy Redis的特点**：
 
 - [Redis协议](https://redis.io/topics/protocol)编解码
 - 基于Hash散列的分区
@@ -12,8 +12,7 @@ Redis项目提供了与Redis相关的分区的全面参考。请参阅“[分区
 - 详细的命令统计
 - 主动和被动健康检查
 
-</br>
-**未来计划增强特性：**
+**未来计划增强特性**：
 
 - 补充时间统计
 - 断路
@@ -23,16 +22,15 @@ Redis项目提供了与Redis相关的分区的全面参考。请参阅“[分区
 - 跟踪
 - 哈希标记
 
-</br>
 #### 配置
 
-有关过滤器配置的详细信息，请参阅[Redis代理过滤器]()配置参考。
+有关过滤器配置的详细信息，请参阅[Redis代理过滤器](../../Configurationreference/Networkfilters/Redisproxy.md)配置参考。
 
-配置相应集群所定义的[Hash环负载平衡]()。
+配置相应集群所定义的[Hash环负载平衡](../../v1APIreference/Clustermanager/Cluster.md)。
 
-如果需要进行主动健康检查，则应该对群集使用[Redis健康检查]()配置。
+如果需要进行主动健康检查，则应该对群集使用[Redis健康检查](../../Configurationreference/Clustermanager/Healthchecking.md)配置。
 
-如果需要被动健康检查，还要配置[异常检测]()。
+如果需要被动健康检查，还要配置[异常检测](../../v1APIreference/Clustermanager/Cluster.md)。
 
 为了进行被动健康检查，将超时，命令超时和连接关闭映射连接到5xx。来自Redis的所有其他响应被视为成功。
 
@@ -160,7 +158,7 @@ Envoy也可以产生自己的错误来回应客户。
 |	upstream protocol error	|	碎片命令接收到意外的数据类型或后端以不符合Redis协议的响应进行响应。	|
 |	wrong number of arguments for command	|	特定的命令检查Envoy参数的数量是正确的。	|
 
-</br>
+
 在MGET的情况下，无法提取单独Key所产生错误响应。例如，如果我们获取五个Keys和两个Keys的后端超时，我们会得到一个错误的响应代替每个值。
 
 ```
