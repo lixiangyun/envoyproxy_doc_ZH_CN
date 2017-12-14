@@ -1,16 +1,16 @@
 ## 配置参考
 
 ### [V1 API概述](Configurationreference/Overviewv1API.md)
-### [V1 API概述](Configurationreference/Overviewv2API.md)
-- 配置引导
+### [V2 API概述](Configurationreference/Overviewv2API.md)
+- 引导配置
 - 示例
 - 管理服务
-- 发现服务集合
+- 聚合服务发现
 - 状态
 
 ### [监听器](Configurationreference/Listeners.md)
 - 统计
-- 运行
+- 运行时
 - 监听服务发现 (LDS)
 
 ### [网络过滤器](Configurationreference/Networkfilters.md)
@@ -27,7 +27,7 @@
 - HTTP头域操作
 - HTTP头域清理
 - 统计
-- 运行
+- 运行时
 - 路由服务发现 (RDS)
 
 ### [HTTP过滤器](Configurationreference/HTTPfilters.md)
