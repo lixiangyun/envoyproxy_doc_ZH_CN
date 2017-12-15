@@ -7,9 +7,9 @@
 
 ### [路由匹配](HTTPconnectionmanager/Routematching.md)
 
-### [流量转发/分配](HTTPconnectionmanager/TrafficShiftingSplitting.md)
-- 上游主机间的流量转发
-- 多上游主机的流量分配
+### [流量转移/分流](HTTPconnectionmanager/TrafficShiftingSplitting.md)
+- 上游主机间的流量转移
+- 多上游主机的流量分流
 
 ### [HTTP头域操作](HTTPconnectionmanager/HTTPheadermanipulation.md)
 - user-agent                        
