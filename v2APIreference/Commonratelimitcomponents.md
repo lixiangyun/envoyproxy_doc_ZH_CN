@@ -1,6 +1,7 @@
-## To Be Do
+## 通用的限速API
 
-
+### RateLimitDescriptor
+### RateLimitDescriptor.Entry
 
 ## 返回
 - [上一级](../v2APIreference.md)

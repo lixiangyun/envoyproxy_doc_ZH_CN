@@ -1,6 +1,7 @@
-## To Be Do
+## 发现API
 
-
+### DiscoveryRequest
+### DiscoveryResponse
 
 ## 返回
 - [上一级](../v2APIreference.md)

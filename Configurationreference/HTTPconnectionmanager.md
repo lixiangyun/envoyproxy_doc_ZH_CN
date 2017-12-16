@@ -56,9 +56,9 @@
 - 按代理客户统计
 - 按监听端口统计
 
-### [运行设置](HTTPconnectionmanager/Runtime.md)
+### [运行时设置](HTTPconnectionmanager/Runtime.md)
 
-### [路由服务发现](HTTPconnectionmanager/RoutediscoveryserviceRDS.md)
+### [路由发现服务](HTTPconnectionmanager/RoutediscoveryserviceRDS.md)
 - 统计
 
 ## 返回
