@@ -56,7 +56,7 @@
 - 默认格式
 
 ### [限速服务](Configurationreference/Ratelimitservice.md)
-- gRPC服务IDL
+- gRPC IDL
 
 ### [运行](Configurationreference/Runtime.md)
 - 文件系统层
