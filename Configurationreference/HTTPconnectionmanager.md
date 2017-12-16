@@ -11,7 +11,7 @@
 - 上游主机间的流量转移
 - 多上游主机的流量分流
 
-### [HTTP头域操作](HTTPconnectionmanager/HTTPheadermanipulation.md)
+### [HTTP头部操作](HTTPconnectionmanager/HTTPheadermanipulation.md)
 - user-agent                        
 - server                            
 - x-client-trace-id                 
@@ -32,25 +32,25 @@
 - x-b3-flags                        
 - Custom request/response headers 
 
-### [HTTP头域清理](HTTPconnectionmanager/HTTPheadersanitizing.md)
-- x-envoy-decorator-operation             
-- x-envoy-downstream-service-cluster      
-- x-envoy-downstream-service-node         
-- x-envoy-expected-rq-timeout-ms          
-- x-envoy-external-address                
-- x-envoy-force-trace                     
-- x-envoy-internal                        
-- x-envoy-max-retries                     
-- x-envoy-retry-grpc-on                   
-- x-envoy-retry-on                        
-- x-envoy-upstream-alt-stat-name          
-- x-envoy-upstream-rq-per-try-timeout-ms  
-- x-envoy-upstream-rq-timeout-alt-response
-- x-envoy-upstream-rq-timeout-ms          
-- x-forwarded-client-cert                 
-- x-forwarded-for                         
-- x-forwarded-proto                       
-- x-request-id                            
+### [HTTP头部清理](HTTPconnectionmanager/HTTPheadersanitizing.md)
+- [x-envoy-decorator-operation](HTTPfilters/Router.md)
+- [x-envoy-downstream-service-cluster](HTTPconnectionmanager/HTTPheadermanipulation.md)
+- [x-envoy-downstream-service-node](HTTPconnectionmanager/HTTPheadermanipulation.md)
+- [x-envoy-expected-rq-timeout-ms](HTTPfilters/Router.md)
+- [x-envoy-external-address](HTTPconnectionmanager/HTTPheadermanipulation.md)
+- [x-envoy-force-trace](HTTPconnectionmanager/HTTPheadermanipulation.md)
+- [x-envoy-internal](HTTPconnectionmanager/HTTPheadermanipulation.md)
+- [x-envoy-max-retries](HTTPfilters/Router.md)
+- [x-envoy-retry-grpc-on](HTTPfilters/Router.md)
+- [x-envoy-retry-on](HTTPfilters/Router.md)
+- [x-envoy-upstream-alt-stat-name](HTTPfilters/Router.md)
+- [x-envoy-upstream-rq-per-try-timeout-ms](HTTPfilters/Router.md)
+- [x-envoy-upstream-rq-timeout-alt-response](HTTPfilters/Router.md)
+- [x-envoy-upstream-rq-timeout-ms](HTTPfilters/Router.md)
+- [x-forwarded-client-cert](HTTPconnectionmanager/HTTPheadermanipulation.md)
+- [x-forwarded-for](HTTPconnectionmanager/HTTPheadermanipulation.md)
+- [x-forwarded-proto](HTTPconnectionmanager/HTTPheadermanipulation.md)
+- [x-request-id](HTTPconnectionmanager/HTTPheadermanipulation.md)
 
 ### [统计](HTTPconnectionmanager/Statistics.md)
 - 按代理客户统计
