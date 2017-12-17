@@ -25,7 +25,7 @@
 - 运行时配置
 
 ### [路由](HTTPfilters/Router.md)
-- HTTP头
+- HTTP头部
 - 统计
 - 运行时配置
 
