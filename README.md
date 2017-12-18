@@ -1,8 +1,8 @@
 # ENVOY智能代理中文参考文档 v1.5.0
 
-**欢迎大家一起翻译，目前完成了前三个章节，争取17年年底完成初稿。**
+**目前还有V1/V2 API参考未完成，计划先翻译V2 API，预计年底完成全部。**
 
-### 关于本文档
+## 关于本文档
 - **简介**：介绍Envoy相关概念，以及总体的架构设计和常用的部署方式等
 - **安装**：如何通过Docker构建、安装Envoy
 - **配置**：既有的V1/V2 API的详细配置说明，以及相关的统计、运行时的APIs
@@ -10,6 +10,12 @@
 - **扩展**：关于如何为Envoy编写自定义过滤器
 - **V1 API 参考**：遗留的V1 API的详细配置说明
 - **V2 API 参考**：新的V2 API的详细配置说明
+
+## 相关连接
+- [官方手册](https://www.envoyproxy.io/docs/envoy/v1.5.0/)
+- [官方内源项目](https://github.com/envoyproxy/envoy)
+
+## 正文目录
 
 ### [简介](Introduction.md)
 - [Envoy是什么](Introduction/WhatisEnvoy.md)
@@ -78,4 +84,4 @@
 
 ### [FAQ](FAQ.md)
 
-### [官方手册](https://www.envoyproxy.io/docs/envoy/v1.5.0/)
+
