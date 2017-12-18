@@ -1,12 +1,11 @@
-## 运维&管理
+## 杩愮淮&绠＄悊
 
-- [命令行选项](Operationsandadministration/Commandlineoptions.md)
-- [热重启](Operationsandadministration/HotrestartPythonwrapper.md)
-- [管理接口](Operationsandadministration/Administrationinterface.md)
-- [统计概述](Operationsandadministration/Statisticsoverview.md)
-- [运行](Operationsandadministration/Runtime.md)
-- [文件系统](Operationsandadministration/Filesystemflags.md)
+- [鍛戒护琛岄�夐」](Operationsandadministration/Commandlineoptions.md)
+- [鐑噸鍚痌(Operationsandadministration/HotrestartPythonwrapper.md)
+- [绠＄悊鎺ュ彛](Operationsandadministration/Administrationinterface.md)
+- [缁熻姒傝堪](Operationsandadministration/Statisticsoverview.md)
+- [杩愯鏃堕厤缃甝(Operationsandadministration/Runtime.md)
+- [鏂囦欢绯荤粺鏍囩ず](Operationsandadministration/Filesystemflags.md)
 
-
-## 返回
-- [首页目录](README.md)
+## 杩斿洖
+- [棣栭〉鐩綍](README.md)
