@@ -1,6 +1,6 @@
-## V2 API²Î¿¼
+## V2 APIå‚è€ƒ
 
-- [Æô¶¯Òıµ¼](v2APIreference/Bootstrap.md)
+- [å¯åŠ¨å¼•å¯¼](v2APIreference/Bootstrap.md)
 	- Bootstrap 
 	- Bootstrap.StaticResources 
 	- Bootstrap.DynamicResources 
@@ -19,42 +19,47 @@
 	- Watchdog 
 	- Runtime 
 	- RateLimitServiceConfig 
-- [¼àÌı&¼àÌı·¢ÏÖ](v2APIreference/ListenersandLDS.md)
+
+- [ç›‘å¬&ç›‘å¬å‘ç°](v2APIreference/ListenersandLDS.md)
 	- Listener 
-	- Enum Listener.DrainType
+	- Listener.DrainType(Enum)
 	- Filter 
 	- FilterChainMatch 
 	- FilterChain 
-- [¼¯Èº&¼¯Èº·¢ÏÖ](v2APIreference/ClustersandCDS.md)
+
+- [é›†ç¾¤&é›†ç¾¤å‘ç°](v2APIreference/ClustersandCDS.md)
 	- Cluster 
 	- Cluster.EdsClusterConfig 
 	- Cluster.OutlierDetection 
 	- Cluster.LbSubsetConfig 
 	- Cluster.LbSubsetConfig.LbSubsetSelector 
-	- Enum Cluster.LbSubsetConfig.LbSubsetFallbackPolicy
+	- Cluster.LbSubsetConfig.LbSubsetFallbackPolicy(Enum)
 	- Cluster.RingHashLbConfig 
 	- Cluster.RingHashLbConfig.DeprecatedV1 
-	- Enum Cluster.DiscoveryType 
-	- Enum Cluster.LbPolicy 
-	- Enum Cluster.DnsLookupFamily 
+	- Cluster.DiscoveryType(Enum)
+	- Cluster.LbPolicy(Enum)
+	- Cluster.DnsLookupFamily(Enum)
 	- UpstreamBindConfig 
 	- CircuitBreakers 
 	- CircuitBreakers.Thresholds 
-- [·şÎñ·¢ÏÖ](v2APIreference/EndpointsandEDS.md)
+
+- [æœåŠ¡å‘ç°](v2APIreference/EndpointsandEDS.md)
 	- LbEndpoint 
 	- LocalityLbEndpoints 
 	- ClusterLoadAssignment 
 	- ClusterLoadAssignment.Policy
-- [½¡¿µ¼ì²é](v2APIreference/Healthcheck.md)
+
+- [å¥åº·æ£€æŸ¥](v2APIreference/Healthcheck.md)
 	- HealthCheck 
 	- HealthCheck.Payload 
 	- HealthCheck.HttpHealthCheck 
 	- HealthCheck.TcpHealthCheck 
 	- HealthCheck.RedisHealthCheck
-- [HTTPÂ·ÓÉ¹ÜÀí&·¢ÏÖ](v2APIreference/HTTProutemanagementandRDS.md)
+
+- [HTTPè·¯ç”±ç®¡ç†&å‘ç°](v2APIreference/HTTProutemanagementandRDS.md)
 	- RouteConfiguration 
 	- VirtualHost 
-	- Enum VirtualHost.TlsRequirementType 
+	- VirtualHost.TlsRequirementType(Enum)
 	- Route 
 	- WeightedCluster 
 	- WeightedCluster.ClusterWeight 
@@ -67,9 +72,9 @@
 	- RouteAction.HashPolicy.Header 
 	- RouteAction.HashPolicy.Cookie 
 	- RouteAction.HashPolicy.ConnectionProperties 
-	- Enum RouteAction.ClusterNotFoundResponseCode
+	- RouteAction.ClusterNotFoundResponseCode(Enum)
 	- RedirectAction 
-	- Enum RedirectAction.RedirectResponseCode 
+	- RedirectAction.RedirectResponseCode(Enum)
 	- Decorator 
 	- VirtualCluster 
 	- RateLimit 
@@ -82,52 +87,58 @@
 	- RateLimit.Action.HeaderValueMatch 
 	- HeaderMatcher 
 
-- [TLSÅäÖÃ](v2APIreference/CommonTLSconfiguration.md)
- - DataSource
- - TlsParameters
- - Enum TlsParameters.TlsProtocol
- - TlsCertificate
- - TlsSessionTicketKeys
- - CertificateValidationContext
- - CommonTlsContext
- - UpstreamTlsContext
- - DownstreamTlsContext
-- [Í¨ÓÃÀàĞÍ](v2APIreference/Commontypes.md)
- - Locality
- - Node
- - Endpoint
- - Metadata
- - RuntimeUInt32
- - HeaderValue
- - HeaderValueOption
- - ApiConfigSource
- - Enum ApiConfigSource.ApiType
- - AggregatedConfigSource
- - ConfigSource
- - TransportSocket
- - Enum RoutingPriority
- - Enum RequestMethod
-- [ÍøÂçµØÖ·](v2APIreference/Networkaddresses.md)
- - Pipe
- - SocketAddress
- - Enum SocketAddress.Protocol
- - BindConfig
- - Address
- - CidrRange
-- [Ğ­ÒéÑ¡Ïî](v2APIreference/Protocoloptions.md)
- - Http1ProtocolOptions
- - Http2ProtocolOptions
-- [·¢ÏÖAPI](v2APIreference/CommondiscoveryAPIcomponents.md)
- - DiscoveryRequest
- - DiscoveryResponse
-- [ÏŞËÙAPI](v2APIreference/Commonratelimitcomponents.md)
- - RateLimitDescriptor
- - RateLimitDescriptor.Entry
-- [¹ıÂËÆ÷](v2APIreference/Filters.md)
-	- [ÍøÂç¹ıÂËÆ÷](v2APIreference/Filters/Networkfilters.md)
-	- [HTTP¹ıÂËÆ÷](v2APIreference/Filters/HTTPfilters.md)
-	- [³£¼û·ÃÎÊÈÕÖ¾ÀàĞÍ](v2APIreference/Filters/Commonaccesslogtypes.md)
-	- [³£¼û¹ÊÕÏ×¢ÈëÀàĞÍ](v2APIreference/Filters/Commonfaultinjectiontypes.md)
+- [TLSé…ç½®](v2APIreference/CommonTLSconfiguration.md)
+	 - DataSource
+	 - TlsParameters
+	 - TlsParameters.TlsProtocol(Enum)
+	 - TlsCertificate
+	 - TlsSessionTicketKeys
+	 - CertificateValidationContext
+	 - CommonTlsContext
+	 - UpstreamTlsContext
+	 - DownstreamTlsContext
 
-## ·µ»Ø
-- [Ê×Ò³Ä¿Â¼](README.md)
+- [é€šç”¨ç±»å‹](v2APIreference/Commontypes.md)
+	 - Locality
+	 - Node
+	 - Endpoint
+	 - Metadata
+	 - RuntimeUInt32
+	 - HeaderValue
+	 - HeaderValueOption
+	 - ApiConfigSource
+	 - ApiConfigSource.ApiType(Enum)
+	 - AggregatedConfigSource
+	 - ConfigSource
+	 - TransportSocket
+	 - RoutingPriority(Enum)
+	 - RequestMethod(Enum)
+
+- [ç½‘ç»œåœ°å€](v2APIreference/Networkaddresses.md)
+	 - Pipe
+	 - SocketAddress
+	 - SocketAddress.Protocol(Enum)
+	 - BindConfig
+	 - Address
+	 - CidrRange
+
+- [HTTPåè®®é€‰é¡¹](v2APIreference/Protocoloptions.md)
+	 - Http1ProtocolOptions
+	 - Http2ProtocolOptions
+
+- [é€šç”¨å‘ç°æ¥å£](v2APIreference/CommondiscoveryAPIcomponents.md)
+	 - DiscoveryRequest
+	 - DiscoveryResponse
+
+- [é€šç”¨é€Ÿç‡é™åˆ¶](v2APIreference/Commonratelimitcomponents.md)
+	 - RateLimitDescriptor
+	 - RateLimitDescriptor.Entry
+
+- [è¿‡æ»¤å™¨](v2APIreference/Filters.md)
+	- [ç½‘ç»œè¿‡æ»¤å™¨](v2APIreference/Filters/Networkfilters.md)
+	- [HTTPè¿‡æ»¤å™¨](v2APIreference/Filters/HTTPfilters.md)
+	- [å¸¸è§è®¿é—®æ—¥å¿—ç±»å‹](v2APIreference/Filters/Commonaccesslogtypes.md)
+	- [å¸¸è§æ•…éšœæ³¨å…¥ç±»å‹](v2APIreference/Filters/Commonfaultinjectiontypes.md)
+
+## è¿”å›
+- [é¦–é¡µç›®å½•](README.md)
