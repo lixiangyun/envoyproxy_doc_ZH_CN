@@ -1,5 +1,12 @@
-## To Be do
+### CORS filter
+Cors configuration overview.
 
+```
+{
+  "name": "cors",
+  "config": {}
+}
+```
 
 ## 返回
 - [上一级](../HTTPfilters.md)

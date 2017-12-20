@@ -74,7 +74,6 @@
 - [健康检查](v2APIreference/Healthcheck.md)
 - [HTTP路由管理&发现](v2APIreference/HTTProutemanagementandRDS.md)
 - [TLS配置](v2APIreference/CommonTLSconfiguration.md)
-- [统计](v2APIreference/Stats.md)
 - [通用的类型](v2APIreference/Commontypes.md)
 - [网络地址](v2APIreference/Networkaddresses.md)
 - [协议选项](v2APIreference/Protocoloptions.md)
