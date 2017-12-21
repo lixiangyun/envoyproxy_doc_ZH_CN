@@ -1,30 +1,28 @@
-## ¹¹½¨
+## æ„å»º
+Envoyä½¿ç”¨[Bazel](https://bazel.build/)å·¥å…·æ„å»ºç³»ç»Ÿã€‚ä¸ºäº†ç®€åŒ–åˆæ¬¡æ„å»ºä»¥åŠå¿«é€Ÿå…¥é—¨ï¼Œæˆ‘ä»¬æä¾›äº†ä¸€ä¸ªåŸºäºUbuntu16çš„Dockerå®¹å™¨é•œåƒï¼Œå…¶ä¸­åŒ…å«äº†æ„å»ºé™æ€é“¾æ¥Envoyæ‰€éœ€çš„æ‰€æœ‰å†…å®¹ï¼Œè¯·å‚é˜…[ci/README.md](https://github.com/envoyproxy/envoy/blob/master/ci/README.md)ã€‚
 
-EnvoyÊ¹ÓÃ[Bazel](https://bazel.build/)¹¤¾ß¹¹½¨ÏµÍ³¡£ÎªÁË¼ò»¯³õ´Î¹¹½¨ÒÔ¼°¿ìËÙÈëÃÅ£¬ÎÒÃÇÌá¹©ÁËÒ»¸ö»ùÓÚUbuntu16µÄDockerÈİÆ÷¾µÏñ£¬ÆäÖĞ°üº¬ÁË¹¹½¨¾²Ì¬Á´½ÓEnvoyËùĞèµÄËùÓĞÄÚÈİ£¬Çë²ÎÔÄ[ci/README.md](https://github.com/envoyproxy/envoy/blob/master/ci/README.md)¡£
+å¦‚æœéœ€è¦æ‰‹åŠ¨æ„å»ºï¼Œè¯·æŒ‰ç…§[bazel/README.md](https://github.com/envoyproxy/envoy/blob/master/bazel/README.md)ä¸­çš„è¯´æ˜è¿›è¡Œæ“ä½œã€‚
 
-Èç¹ûĞèÒªÊÖ¶¯¹¹½¨£¬Çë°´ÕÕ[bazel/README.md](https://github.com/envoyproxy/envoy/blob/master/bazel/README.md)ÖĞµÄËµÃ÷½øĞĞ²Ù×÷¡£
+### è¦æ±‚
+Envoyæœ€åˆæ˜¯åœ¨Ubuntu 14 LTSä¸Šå¼€å‘å’Œéƒ¨ç½²çš„ã€‚å®ƒä¹Ÿå¯ä»¥åœ¨ä»»ä½•çš„æœ€æ–°Linuxä¸Šè¿è¡Œï¼ŒåŒ…æ‹¬Ubuntu 16 LTSã€‚
 
-### ÒªÇó
-Envoy×î³õÊÇÔÚUbuntu 14 LTSÉÏ¿ª·¢ºÍ²¿ÊğµÄ¡£ËüÒ²¿ÉÒÔÔÚÈÎºÎµÄ×îĞÂLinuxÉÏÔËĞĞ£¬°üÀ¨Ubuntu 16 LTS¡£
+æ„å»ºEnvoyéœ€è¦æ»¡è¶³ä»¥ä¸‹è¦æ±‚ï¼š
 
-¹¹½¨EnvoyĞèÒªÂú×ãÒÔÏÂÒªÇó£º
+- GCC 5+ï¼ˆç”¨äºæ”¯æŒC++14ï¼‰ã€‚
+- [é¢„æ„å»º](https://github.com/envoyproxy/envoy/tree/master/ci/build_container/build_recipes)çš„ç¬¬ä¸‰æ–¹ä¾èµ–ã€‚
+- ä¾èµ–æœ¬åœ°Bazelå·¥å…·ã€‚
 
-- GCC 5+£¨ÓÃÓÚÖ§³ÖC++14£©¡£
-- [Ô¤¹¹½¨](https://github.com/envoyproxy/envoy/tree/master/ci/build_container/build_recipes)µÄµÚÈı·½ÒÀÀµ¡£
-- ÒÀÀµ±¾µØBazel¹¤¾ß¡£
+æœ‰å…³æ‰‹åŠ¨æ„å»ºçš„æ›´å¤šä¿¡æ¯æ“ä½œï¼Œè¯·å‚é˜…[CI](https://github.com/envoyproxy/envoy/blob/master/ci/README.md)å’Œ[Bazel](https://github.com/envoyproxy/envoy/blob/master/bazel/README.md)æ–‡æ¡£é“¾æ¥ã€‚
 
-ÓĞ¹ØÊÖ¶¯¹¹½¨µÄ¸ü¶àĞÅÏ¢²Ù×÷£¬Çë²ÎÔÄ[CI](https://github.com/envoyproxy/envoy/blob/master/ci/README.md)ºÍ[Bazel](https://github.com/envoyproxy/envoy/blob/master/bazel/README.md)ÎÄµµÁ´½Ó¡£
+### é¢„æ„å»ºçš„äºŒè¿›åˆ¶æ–‡ä»¶
+åœ¨æ¯ä¸ªä¸»æäº¤ä¸Šï¼Œæˆ‘ä»¬åˆ›å»ºä¸€ç»„åŒ…å«EnvoyäºŒè¿›åˆ¶æ–‡ä»¶çš„è½»é‡çº§Dockeré•œåƒã€‚ å½“æˆ‘ä»¬æ­£å¼å‘å¸ƒçš„æ—¶å€™ï¼Œæˆ‘ä»¬è¿˜ä¼šç”¨å‘å¸ƒç‰ˆæœ¬æ ‡è®°Dockeré•œåƒã€‚
 
+- [envoyproxy/envoy](https://hub.docker.com/r/envoyproxy/envoy/tags/)ï¼šåŸºäºUbuntu Xenialå­˜æ”¾å¸¦æœ‰ç¬¦å·çš„äºŒè¿›åˆ¶æ–‡ä»¶ç‰ˆæœ¬ã€‚
+- [envoyproxy/envoy-alpine](https://hub.docker.com/r/envoyproxy/envoy-alpine/tags/)ï¼šåŸºäºglibc alpineæ— ç¬¦å·äºŒè¿›åˆ¶æ–‡ä»¶ç‰ˆæœ¬ã€‚
+- [envoyproxy/envoy-alpine-debug](https://hub.docker.com/r/envoyproxy/envoy-alpine-debug/tags/)ï¼šåŸºäºglibc alpineå¯è°ƒè¯•çš„äºŒè¿›åˆ¶æ–‡ä»¶ç‰ˆæœ¬ã€‚
 
-### Ô¤¹¹½¨µÄ¶ş½øÖÆÎÄ¼ş
-ÔÚÃ¿¸öÖ÷Ìá½»ÉÏ£¬ÎÒÃÇ´´½¨Ò»×é°üº¬Envoy¶ş½øÖÆÎÄ¼şµÄÇáÁ¿¼¶Docker¾µÏñ¡£ µ±ÎÒÃÇÕıÊ½·¢²¼µÄÊ±ºò£¬ÎÒÃÇ»¹»áÓÃ·¢²¼°æ±¾±ê¼ÇDocker¾µÏñ¡£
+æˆ‘ä»¬ä¹Ÿä¼šè€ƒè™‘é€šè¿‡ç¤¾åŒºåŒ–è¿ä½œï¼Œå‘æŒ¥å¤§å®¶å…´è¶£æ¥å¸®åŠ©CIï¼ŒåŒ…è£…å’Œæä¾›é¢å¤–çš„äºŒè¿›åˆ¶ç±»å‹ã€‚å¦‚æœéœ€è¦ï¼Œè¯·åœ¨GitHubä¸­æ·»åŠ ä¸€ä¸ª[issue](https://github.com/envoyproxy/envoy/issues)ã€‚
 
-- [envoyproxy/envoy](https://hub.docker.com/r/envoyproxy/envoy/tags/)£º»ùÓÚUbuntu Xenial´æ·Å´øÓĞ·ûºÅµÄ¶ş½øÖÆÎÄ¼ş°æ±¾¡£
-- [envoyproxy/envoy-alpine](https://hub.docker.com/r/envoyproxy/envoy-alpine/tags/)£º»ùÓÚglibc alpineÎŞ·ûºÅ¶ş½øÖÆÎÄ¼ş°æ±¾¡£
-- [envoyproxy/envoy-alpine-debug](https://hub.docker.com/r/envoyproxy/envoy-alpine-debug/tags/)£º»ùÓÚglibc alpine¿Éµ÷ÊÔµÄ¶ş½øÖÆÎÄ¼ş°æ±¾¡£
-
-ÎÒÃÇÒ²»á¿¼ÂÇÍ¨¹ıÉçÇø»¯ÔË×÷£¬·¢»Ó´ó¼ÒĞËÈ¤À´°ïÖúCI£¬°ü×°ºÍÌá¹©¶îÍâµÄ¶ş½øÖÆÀàĞÍ¡£Èç¹ûĞèÒª£¬ÇëÔÚGitHubÖĞÌí¼ÓÒ»¸ö[issue](https://github.com/envoyproxy/envoy/issues)¡£
-
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../Buildingandinstallation.md)
-- [Ê×Ò³Ä¿Â¼](../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../Buildingandinstallation.md)
+- [é¦–é¡µç›®å½•](../README.md)
