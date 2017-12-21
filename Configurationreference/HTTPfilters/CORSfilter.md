@@ -1,11 +1,11 @@
-## CORS¹ıÂËÆ÷
-ÕâÊÇÒ»¸ö»ùÓÚÂ·ÓÉ»òĞéÄâÖ÷»úµÄ´¦Àí¿çÔ´¹²Ïí×ÊÔ´ÇëÇó(Cross-Origin Resource Sharing)µÄ¹ıÂËÆ÷ÉèÖÃ¡£±êÌâÏà¹ØµÄº¬Òå£¬Çë²ÎÔÄÏÂÃæµÄÁ¬½Ó¡£
+## CORSè¿‡æ»¤å™¨
+è¿™æ˜¯ä¸€ä¸ªåŸºäºè·¯ç”±æˆ–è™šæ‹Ÿä¸»æœºçš„å¤„ç†è·¨æºå…±äº«èµ„æºè¯·æ±‚(Cross-Origin Resource Sharing)çš„è¿‡æ»¤å™¨è®¾ç½®ã€‚æ ‡é¢˜ç›¸å…³çš„å«ä¹‰ï¼Œè¯·å‚é˜…ä¸‹é¢çš„è¿æ¥ã€‚
 
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
 - https://www.w3.org/TR/cors/
-- [v1 API ²Î¿¼](../../v1APIreference/HTTPfilters/CORSfilter.md)
-- [v2 API ²Î¿¼](../../v2APIreference/Filters/Networkfilters/HTTPconnectionmanager.md)
+- [v1 API å‚è€ƒ](../../v1APIreference/HTTPfilters/CORSfilter.md)
+- [v2 API å‚è€ƒ](../../v2APIreference/Filters/Networkfilters/HTTPconnectionmanager.md)
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../HTTPfilters.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../HTTPfilters.md)
+- [é¦–é¡µç›®å½•](../../README.md)
