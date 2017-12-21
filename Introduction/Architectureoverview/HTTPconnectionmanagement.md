@@ -1,23 +1,23 @@
-### HTTPÁ¬½Ó¹ÜÀí
+### HTTPè¿žæŽ¥ç®¡ç†
 
-HTTPÊÇÏÖ´ú·þÎñ¼Ü¹¹µÄ¹Ø¼ü×é¼þ£¬EnvoyÊµÏÖÁË´óÁ¿HTTP¶¨ÖÆµÄ¹¦ÄÜ¡£EnvoyÓÐÒ»¸öÄÚÖÃµÄÍøÂç¼¶¹ýÂËÆ÷£¬³ÆÎªHTTPÁ¬½Ó¹ÜÀíÆ÷¡£¸Ã¹ýÂËÆ÷½«Ô­Ê¼×Ö½Ú×ª»»ÎªHTTP¼¶±ðÏûÏ¢ºÍÊÂ¼þ£¨ÀýÈç£¬½ÓÊÕµ½µÄÍ·Óò£¬½ÓÊÕµ½µÄbodyÊý¾Ý£¬½ÓÊÕµÄÎ²²¿µÈ£©¡£Ëü»¹»á´¦ÀíËùÓÐHTTPÁ¬½ÓºÍ·ÃÎÊ¼ÇÂ¼£¬ÇëÇóIDÉú³ÉºÍ¸ú×Ù£¬ÇëÇó/ÏìÓ¦Í·Óò´¦Àí£¬Â·ÓÉ±í¹ÜÀíºÍÍ³¼ÆµÈÇëÇó¡£
+HTTPæ˜¯çŽ°ä»£æœåŠ¡æž¶æž„çš„å…³é”®ç»„ä»¶ï¼ŒEnvoyå®žçŽ°äº†å¤§é‡HTTPå®šåˆ¶çš„åŠŸèƒ½ã€‚Envoyæœ‰ä¸€ä¸ªå†…ç½®çš„ç½‘ç»œçº§è¿‡æ»¤å™¨ï¼Œç§°ä¸ºHTTPè¿žæŽ¥ç®¡ç†å™¨ã€‚è¯¥è¿‡æ»¤å™¨å°†åŽŸå§‹å­—èŠ‚è½¬æ¢ä¸ºHTTPçº§åˆ«æ¶ˆæ¯å’Œäº‹ä»¶ï¼ˆä¾‹å¦‚ï¼ŒæŽ¥æ”¶åˆ°çš„å¤´åŸŸï¼ŒæŽ¥æ”¶åˆ°çš„bodyæ•°æ®ï¼ŒæŽ¥æ”¶çš„å°¾éƒ¨ç­‰ï¼‰ã€‚å®ƒè¿˜ä¼šå¤„ç†æ‰€æœ‰HTTPè¿žæŽ¥å’Œè®¿é—®è®°å½•ï¼Œè¯·æ±‚IDç”Ÿæˆå’Œè·Ÿè¸ªï¼Œè¯·æ±‚/å“åº”å¤´åŸŸå¤„ç†ï¼Œè·¯ç”±è¡¨ç®¡ç†å’Œç»Ÿè®¡ç­‰è¯·æ±‚ã€‚
 
-**HTTPÁ¬½Ó¹ÜÀíÆ÷ÅäÖÃ**
+**HTTPè¿žæŽ¥ç®¡ç†å™¨é…ç½®**
 
-#### HTTPÐ­Òé
+#### HTTPåè®®
 
-EnvoyµÄHTTPÁ¬½Ó¹ÜÀíÆ÷Ö§³ÖHTTP/1.1£¬WebSockets£¬ºÍHTTP/2£¬µ«Ëü²»Ö§³ÖSPDY¡£EnvoyµÄHTTPÄ¬ÈÏ±»Éè¼Æ³ÉÒ»¸öHTTP/2¶àÂ·¸´ÓÃ´úÀí¡£ÔÚÆäÄÚ²¿ÓÃHTTP/2ÊõÓïÓÃÓÚÃèÊöÏµÍ³×é¼þ¡£ÀýÈç£¬HTTPÇëÇóºÍÏìÓ¦·¢ÉúÔÚÁ÷ÉÏ¡£±à½âÂëÆ÷APIÓÃÓÚ´Ó²»Í¬µÄÐ­Òé×ª»»£¬ÓÃÓÚstream¡¢ÇëÇó¡¢ÏìÓ¦µÈµÄ²»¿ÉÖªµÄÐÎÊ½¡£ÔÚHTTP/1.1µÄÇé¿öÏÂ£¬±à½âÂëÆ÷½«Ð­ÒéµÄserial/pipeline¹¦ÄÜ×ª»»ÎªÀàËÆÓÚHTTP/2µ½¸ü¸ß²ãµÄ¶«Î÷¡£ÕâÒâÎ¶×Å´ó¶àÊý´úÂë²»ÐèÒªÀí½âstreamÊÇ·ñÊÇHTTP/1.1»¹ÊÇHTTP/2¡£
+Envoyçš„HTTPè¿žæŽ¥ç®¡ç†å™¨æ”¯æŒHTTP/1.1ï¼ŒWebSocketsï¼Œå’ŒHTTP/2ï¼Œä½†å®ƒä¸æ”¯æŒSPDYã€‚Envoyçš„HTTPé»˜è®¤è¢«è®¾è®¡æˆä¸€ä¸ªHTTP/2å¤šè·¯å¤ç”¨ä»£ç†ã€‚åœ¨å…¶å†…éƒ¨ç”¨HTTP/2æœ¯è¯­ç”¨äºŽæè¿°ç³»ç»Ÿç»„ä»¶ã€‚ä¾‹å¦‚ï¼ŒHTTPè¯·æ±‚å’Œå“åº”å‘ç”Ÿåœ¨æµä¸Šã€‚ç¼–è§£ç å™¨APIç”¨äºŽä»Žä¸åŒçš„åè®®è½¬æ¢ï¼Œç”¨äºŽstreamã€è¯·æ±‚ã€å“åº”ç­‰çš„ä¸å¯çŸ¥çš„å½¢å¼ã€‚åœ¨HTTP/1.1çš„æƒ…å†µä¸‹ï¼Œç¼–è§£ç å™¨å°†åè®®çš„serial/pipelineåŠŸèƒ½è½¬æ¢ä¸ºç±»ä¼¼äºŽHTTP/2åˆ°æ›´é«˜å±‚çš„ä¸œè¥¿ã€‚è¿™æ„å‘³ç€å¤§å¤šæ•°ä»£ç ä¸éœ€è¦ç†è§£streamæ˜¯å¦æ˜¯HTTP/1.1è¿˜æ˜¯HTTP/2ã€‚
 
-#### HTTPÍ·ÓòÇåÀí
-³öÓÚ°²È«Ô­Òò£¬HTTPÁ¬½Ó¹ÜÀíÆ÷½«»áÇåÀí¸÷ÖÖÍ·ÓòÃô¸ÐÊý¾Ý¡£
+#### HTTPå¤´åŸŸæ¸…ç†
+å‡ºäºŽå®‰å…¨åŽŸå› ï¼ŒHTTPè¿žæŽ¥ç®¡ç†å™¨å°†ä¼šæ¸…ç†å„ç§å¤´åŸŸæ•æ„Ÿæ•°æ®ã€‚
 
-#### Â·ÓÉ±íÅäÖÃ
-Ã¿¸öHTTPÁ¬½Ó¹ÜÀíÆ÷¹ýÂËÆ÷¶¼ÓÐÒ»¸ö¹ØÁªµÄÂ·ÓÉ±í¡£Â·ÓÉ±í¿ÉÒÔÍ¨¹ýÒÔÏÂÁ½ÖÖ·½Ê½Ö®Ò»À´Ö¸¶¨£º
+#### è·¯ç”±è¡¨é…ç½®
+æ¯ä¸ª[HTTPè¿žæŽ¥ç®¡ç†å™¨](../../Configurationreference/HTTPconnectionmanager.md)è¿‡æ»¤å™¨éƒ½æœ‰ä¸€ä¸ªå…³è”çš„è·¯ç”±è¡¨ã€‚è·¯ç”±è¡¨å¯ä»¥é€šè¿‡ä»¥ä¸‹ä¸¤ç§æ–¹å¼ä¹‹ä¸€æ¥æŒ‡å®šï¼š
 
-- ¾²Ì¬ÅäÖÃ
-- Í¨¹ýRDS API¶¯Ì¬ÅäÖÃ
+- é™æ€é…ç½®
+- é€šè¿‡[RDS APIåŠ¨æ€é…ç½®](../../Configurationreference/HTTPconnectionmanager/RoutediscoveryserviceRDS.md)
 
-### ·µ»Ø
-- [¼Ü¹¹½éÉÜ](../Architectureoverview.md)
-- [¼ò½é](../../Introduction.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+### è¿”å›ž
+- [æž¶æž„ä»‹ç»](../Architectureoverview.md)
+- [ç®€ä»‹](../../Introduction.md)
+- [é¦–é¡µç›®å½•](../../README.md)
