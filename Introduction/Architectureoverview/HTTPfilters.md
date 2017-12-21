@@ -1,16 +1,14 @@
-### HTTP¹ýÂËÆ÷
+### HTTPè¿‡æ»¤å™¨
 
-¾ÍÏñÍøÂç¼¶±ðµÄ¹ýÂËÆ÷Ò»Ñù£¬EnvoyÔÚÁ¬½Ó¹ÜÀíÆ÷ÖÐÖ§³ÖHTTP¼¶±ðµÄ¹ýÂËÆ÷¡£¹ýÂËÆ÷Ö§³Ö¿É±àÐ´£¬ÎÞÐè¹ØÐÄµ×²ãÁ´Â·Ð­Òé£¨HTTP/1.1£¬HTTP/2µÈ£©»òÊÇ·ñÊ¹ÄÜ¶àÂ·¸´ÓÃµÄÇé¿öÏÂ£¬¿ÉÖ±½Ó¶ÔHTTP²ãÏûÏ¢½øÐÐ²Ù×÷¡£ÓÐÈýÖÖÀàÐÍµÄHTTP¼¶±ð¹ýÂËÆ÷£º
+å°±åƒç½‘ç»œçº§åˆ«çš„è¿‡æ»¤å™¨ä¸€æ ·ï¼ŒEnvoyåœ¨è¿žæŽ¥ç®¡ç†å™¨ä¸­æ”¯æŒHTTPçº§åˆ«çš„è¿‡æ»¤å™¨ã€‚è¿‡æ»¤å™¨æ”¯æŒå¯ç¼–å†™ï¼Œæ— éœ€å…³å¿ƒåº•å±‚é“¾è·¯åè®®ï¼ˆHTTP/1.1ï¼ŒHTTP/2ç­‰ï¼‰æˆ–æ˜¯å¦ä½¿èƒ½å¤šè·¯å¤ç”¨çš„æƒ…å†µä¸‹ï¼Œå¯ç›´æŽ¥å¯¹HTTPå±‚æ¶ˆæ¯è¿›è¡Œæ“ä½œã€‚æœ‰ä¸‰ç§ç±»åž‹çš„HTTPçº§åˆ«è¿‡æ»¤å™¨ï¼š
 
-- ½âÂëÆ÷£¨Decoder£©£º½âÂëÆ÷¹ýÂËÆ÷ÔÚÁ¬½Ó¹ÜÀíÆ÷ÕýÔÚ½âÂëÇëÇóÁ÷µÄ²¿·Ö£¨Í·Óò£¬ÕýÎÄºÍÎ²²¿£©Ê±±»µ÷ÓÃ¡£
-- ±àÂëÆ÷£¨Encoder£©£º±àÂëÆ÷¹ýÂËÆ÷ÔÚÁ¬½Ó¹ÜÀíÆ÷¼´½«±àÂë²¿·ÖÏìÓ¦Á÷£¨Í·Óò£¬ÕýÎÄºÍÎ²²¿£©Ê±±»µ÷ÓÃ¡£
-- ½âÂëÆ÷/±àÂëÆ÷£¨Decoder/Encoder£©£º½âÂëÆ÷/±àÂëÆ÷¹ýÂËÆ÷ÔÚÁ¬½Ó¹ÜÀíÆ÷ÕýÔÚ½âÂëÇëÇóÁ÷µÄ²¿·ÖÊ±ÒÔ¼°Á¬½Ó¹ÜÀíÆ÷½«Òª¶Ô²¿·ÖÏìÓ¦Á÷½øÐÐ±àÂëÊ±±»µ÷ÓÃ¡£</br>
+- è§£ç å™¨ï¼ˆDecoderï¼‰ï¼šè§£ç å™¨è¿‡æ»¤å™¨åœ¨è¿žæŽ¥ç®¡ç†å™¨æ­£åœ¨è§£ç è¯·æ±‚æµçš„éƒ¨åˆ†ï¼ˆå¤´åŸŸï¼Œæ­£æ–‡å’Œå°¾éƒ¨ï¼‰æ—¶è¢«è°ƒç”¨ã€‚
+- ç¼–ç å™¨ï¼ˆEncoderï¼‰ï¼šç¼–ç å™¨è¿‡æ»¤å™¨åœ¨è¿žæŽ¥ç®¡ç†å™¨å³å°†ç¼–ç éƒ¨åˆ†å“åº”æµï¼ˆå¤´åŸŸï¼Œæ­£æ–‡å’Œå°¾éƒ¨ï¼‰æ—¶è¢«è°ƒç”¨ã€‚
+- è§£ç å™¨/ç¼–ç å™¨ï¼ˆDecoder/Encoderï¼‰ï¼šè§£ç å™¨/ç¼–ç å™¨è¿‡æ»¤å™¨åœ¨è¿žæŽ¥ç®¡ç†å™¨æ­£åœ¨è§£ç è¯·æ±‚æµçš„éƒ¨åˆ†æ—¶ä»¥åŠè¿žæŽ¥ç®¡ç†å™¨å°†è¦å¯¹éƒ¨åˆ†å“åº”æµè¿›è¡Œç¼–ç æ—¶è¢«è°ƒç”¨ã€‚</br>
 
+HTTPçº§åˆ«è¿‡æ»¤å™¨APIå…è®¸åœ¨ä¸çŸ¥é“åº•å±‚åè®®çš„æƒ…å†µä¸‹è¿è¡Œã€‚ åƒç½‘ç»œçº§åˆ«çš„è¿‡æ»¤å™¨ä¸€æ ·ï¼ŒHTTPè¿‡æ»¤å™¨å¯ä»¥åœæ­¢å¹¶ç»§ç»­è¿­ä»£åˆ°åŽç»­çš„è¿‡æ»¤å™¨ã€‚è¿™å¯ä»¥å®žçŽ°æ›´å¤æ‚çš„åœºæ™¯ï¼Œä¾‹å¦‚è¿è¡ŒçŠ¶å†µæ£€æŸ¥å¤„ç†ï¼Œè°ƒç”¨é€ŸçŽ‡é™åˆ¶æœåŠ¡ï¼Œç¼“å†²ï¼Œè·¯ç”±ï¼Œä¸ºåº”ç”¨ç¨‹åºæµé‡ï¼ˆä¾‹å¦‚DynamoDBç­‰ï¼‰ç”Ÿæˆç»Ÿè®¡ä¿¡æ¯ã€‚Envoyå·²ç»åŒ…å«äº†å‡ ä¸ªHTTPçº§åˆ«çš„è¿‡æ»¤å™¨ï¼Œ[é…ç½®å‚è€ƒ](../../Configurationreference/HTTPfilters.md)ã€‚
 
-HTTP¼¶±ð¹ýÂËÆ÷APIÔÊÐíÔÚ²»ÖªµÀµ×²ãÐ­ÒéµÄÇé¿öÏÂÔËÐÐ¡£ ÏñÍøÂç¼¶±ðµÄ¹ýÂËÆ÷Ò»Ñù£¬HTTP¹ýÂËÆ÷¿ÉÒÔÍ£Ö¹²¢¼ÌÐøµü´úµ½ºóÐøµÄ¹ýÂËÆ÷¡£Õâ¿ÉÒÔÊµÏÖ¸ü¸´ÔÓµÄ³¡¾°£¬ÀýÈçÔËÐÐ×´¿ö¼ì²é´¦Àí£¬µ÷ÓÃËÙÂÊÏÞÖÆ·þÎñ£¬»º³å£¬Â·ÓÉ£¬ÎªÓ¦ÓÃ³ÌÐòÁ÷Á¿£¨ÀýÈçDynamoDBµÈ£©Éú³ÉÍ³¼ÆÐÅÏ¢¡£EnvoyÒÑ¾­°üº¬ÁË¼¸¸öHTTP¼¶±ðµÄ¹ýÂËÆ÷£¬ÅäÖÃ²Î¿¼¡£
-
-
-### ·µ»Ø
-- [¼Ü¹¹½éÉÜ](../Architectureoverview.md)
-- [¼ò½é](../../Introduction.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+### è¿”å›ž
+- [æž¶æž„ä»‹ç»](../Architectureoverview.md)
+- [ç®€ä»‹](../../Introduction.md)
+- [é¦–é¡µç›®å½•](../../README.md)
