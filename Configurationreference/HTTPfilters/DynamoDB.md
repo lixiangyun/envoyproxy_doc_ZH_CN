@@ -31,7 +31,7 @@ DynamoDB过滤器输出统计信息命名空间为`http.<stat_prefix>.dynamodb.`
 
 |	名称	|	类型	|	描述	|
 |	 -------------	|	 -------------	|	 -------------	|
-|	`capacity.<operation_name>.__partition_id=<last_seven_characters_from_partition_id>`	|	Counter	|	Total number of capacity for `<operation_name>` on `<table_name>` table for a given `<partition_id>`	|
+|	capacity.\<operation_name>.__partition_id=\<last_seven_characters_from_partition_id>	|	Counter	|	Total number of capacity for \<operation_name> on \<table_name> table for a given \<partition_id>	|
 
 其他详细统计信息：
 
@@ -39,8 +39,8 @@ DynamoDB过滤器输出统计信息命名空间为`http.<stat_prefix>.dynamodb.`
 
 |	名称	|	类型	|	描述	|
 |	 -------------	|	 -------------	|	 -------------	|
-|	`<error_type>`	|	Counter	|	Total number of specific `<error_type>` for a given `<table_name>`	|
-|	BatchFailureUnprocessedKeys	|	Counter	|	Total number of partial batch failures for a given `<table_name>`	|
+|	\<error_type>	|	Counter	|	Total number of specific \<error_type> for a given \<table_name>	|
+|	BatchFailureUnprocessedKeys	|	Counter	|	Total number of partial batch failures for a given \<table_name>	|
 
 ### 运行时设置
 DynamoDB过滤器支持以下运行时设置：
