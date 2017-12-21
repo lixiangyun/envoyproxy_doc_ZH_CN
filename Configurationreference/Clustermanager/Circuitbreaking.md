@@ -1,13 +1,11 @@
-## ÈÛ¶Ï
+## ç†”æ–­
+- ç†”æ–­[æ¶æ„æ¦‚è¿°](../../Introduction/Architectureoverview/Circuitbreaking.md)
+- [v1 API æ–‡æ¡£](../../v1APIreference/Clustermanager/Cluster/Circuitbreakers.md)
+- [v2 API æ–‡æ¡£](../../v2APIreference/ClustersandCDS.md)
 
-- ÈÛ¶Ï[¼Ü¹¹¸ÅÊö](../../Introduction/Architectureoverview/Circuitbreaking.md)
-- [v1 API ÎÄµµ](../../v1APIreference/Clustermanager/Cluster/Circuitbreakers.md)
-- [v2 API ÎÄµµ](../../v2APIreference/ClustersandCDS.md)
+### è¿è¡Œæ—¶é…ç½®
+æ‰€æœ‰çš„æ–­è·¯è®¾ç½®éƒ½å¯ä»¥æ ¹æ®é›†ç¾¤åç§°å®šä¹‰æ‰€æœ‰è¿è¡Œæ—¶é…ç½®ã€‚ä»–ä»¬éµå¾ªä»¥ä¸‹å‘½åè§„åˆ™`circuit_breakers.<cluster_name>.<priority>.<setting>`ï¼Œå…¶ä¸­`cluster_name`è¡¨ç¤ºæ¯ä¸ªé›†ç¾¤çš„åç§°ï¼Œå¯ä»¥åœ¨Envoyé…ç½®æ–‡ä»¶ä¸­è¿›è¡Œè®¾ç½®ã€‚ä¹Ÿå¯ç”¨çš„è¿è¡Œæ—¶é…ç½®è¦†ç›–Envoyé…ç½®æ–‡ä»¶ä¸­è®¾ç½®çš„å€¼ã€‚
 
-### ÔËĞĞÊ±ÅäÖÃ
-
-ËùÓĞµÄ¶ÏÂ·ÉèÖÃ¶¼¿ÉÒÔ¸ù¾İ¼¯ÈºÃû³Æ¶¨ÒåËùÓĞÔËĞĞÊ±ÅäÖÃ¡£ËûÃÇ×ñÑ­ÒÔÏÂÃüÃû¹æÔò`circuit_breakers.<cluster_name>.<priority>.<setting>`£¬ÆäÖĞ`cluster_name`±íÊ¾Ã¿¸ö¼¯ÈºµÄÃû³Æ£¬¿ÉÒÔÔÚEnvoyÅäÖÃÎÄ¼şÖĞ½øĞĞÉèÖÃ¡£Ò²¿ÉÓÃµÄÔËĞĞÊ±ÅäÖÃ¸²¸ÇEnvoyÅäÖÃÎÄ¼şÖĞÉèÖÃµÄÖµ¡£
-
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../Clustermanager.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../Clustermanager.md)
+- [é¦–é¡µç›®å½•](../../README.md)
