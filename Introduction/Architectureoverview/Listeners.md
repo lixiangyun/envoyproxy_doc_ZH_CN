@@ -1,14 +1,14 @@
-### ¼àÌýÆ÷
+### ç›‘å¬å™¨
 
-EnvoyÅäÖÃÖ§³Öµ¥¸ö½ø³ÌÖÐµÄÈÎÒâÊýÁ¿µÄ¼àÌýÆ÷¡£Í¨³£ÎÒÃÇ½¨ÒéÃ¿Ì¨»úÆ÷ÔËÐÐÒ»¸öEnvoy£¬¶ø²»¹ØÐÄ¼àÌýÆ÷ÊýÁ¿¡£ÕâÑù¿ÉÒÔÊ¹²Ù×÷¸ü¼òµ¥£¬Í³¼ÆÒ²¸ü¼òµ¥¡£Ä¿Ç°EnvoyÖ»Ö§³Ö¼àÌýTCP¡£
+Envoyé…ç½®æ”¯æŒå•ä¸ªè¿›ç¨‹ä¸­çš„ä»»æ„æ•°é‡çš„ç›‘å¬å™¨ã€‚é€šå¸¸æˆ‘ä»¬å»ºè®®æ¯å°æœºå™¨è¿è¡Œä¸€ä¸ªEnvoyï¼Œè€Œä¸å…³å¿ƒç›‘å¬å™¨æ•°é‡ã€‚è¿™æ ·å¯ä»¥ä½¿æ“ä½œæ›´ç®€å•ï¼Œç»Ÿè®¡ä¹Ÿæ›´ç®€å•ã€‚ç›®å‰Envoyåªæ”¯æŒç›‘å¬TCPã€‚
 
-Ã¿¸ö¼àÌýÆ÷¶¼¶ÀÁ¢ÅäÖÃÒ»¶¨ÊýÁ¿µÄ£¨L3 / L4£©ÍøÂç¹ýÂËÆ÷¡£µ±¼àÌýÆ÷½ÓÊÕµ½ÐÂÁ¬½ÓÊ±£¬ÊµÀý»¯ÏàÓ¦¹ýÂËÆ÷£¬²¢¿ªÊ¼´¦ÀíºóÐøÊÂÎñ¡£Í¨ÓÃ¼àÌýÆ÷ÓÃÓÚÖ´ÐÐ²»Í¬´úÀíÈÎÎñ£¨ÀýÈç£¬ËÙÂÊÏÞÖÆ£¬TLS¿Í»§»úÈÏÖ¤£¬HTTPÁ¬½Ó¹ÜÀí£¬MongoDBÐáÌ½£¬Ô­Ê¼TCP´úÀíµÈ£©¡£
+æ¯ä¸ªç›‘å¬å™¨éƒ½ç‹¬ç«‹é…ç½®ä¸€å®šæ•°é‡çš„ï¼ˆL3 / L4ï¼‰ç½‘ç»œè¿‡æ»¤å™¨ã€‚å½“ç›‘å¬å™¨æŽ¥æ”¶åˆ°æ–°è¿žæŽ¥æ—¶ï¼Œå®žä¾‹åŒ–ç›¸åº”è¿‡æ»¤å™¨ï¼Œå¹¶å¼€å§‹å¤„ç†åŽç»­äº‹åŠ¡ã€‚é€šç”¨ç›‘å¬å™¨ç”¨äºŽæ‰§è¡Œä¸åŒä»£ç†ä»»åŠ¡ï¼ˆä¾‹å¦‚ï¼Œé€ŸçŽ‡é™åˆ¶ï¼ŒTLSå®¢æˆ·æœºè®¤è¯ï¼ŒHTTPè¿žæŽ¥ç®¡ç†ï¼ŒMongoDBå—…æŽ¢ï¼ŒåŽŸå§‹TCPä»£ç†ç­‰ï¼‰ã€‚
 
-¼àÌýÆ÷Ò²¿ÉÒÔÍ¨¹ý¼àÌýÆ÷·¢ÏÖ·þÎñ£¨LDS£©¶¯Ì¬»ñÈ¡¡£
+ç›‘å¬å™¨ä¹Ÿå¯ä»¥é€šè¿‡ç›‘å¬å™¨å‘çŽ°æœåŠ¡ï¼ˆLDSï¼‰åŠ¨æ€èŽ·å–ã€‚
 
-### Ïà¹ØÅäÖÃ
+[ç›¸å…³é…ç½®](../../Configurationreference/Listeners.md)
 
-### ·µ»Ø
-- [¼Ü¹¹½éÉÜ](../Architectureoverview.md)
-- [¼ò½é](../../Introduction.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+### è¿”å›ž
+- [æž¶æž„ä»‹ç»](../Architectureoverview.md)
+- [ç®€ä»‹](../../Introduction.md)
+- [é¦–é¡µç›®å½•](../../README.md)
