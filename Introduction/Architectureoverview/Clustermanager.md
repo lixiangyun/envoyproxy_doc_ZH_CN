@@ -1,15 +1,15 @@
-### ¼¯Èº¹ÜÀí
+### é›†ç¾¤ç®¡ç†
 
-EnvoyµÄ¼¯Èº¹ÜÀíÆ÷¹ÜÀíËùÓÐÅäÖÃµÄÉÏÓÎ¼¯Èº¡£¾ÍÏñEnvoyÅäÖÃ¿ÉÒÔ°üº¬ÈÎÒâÊýÁ¿µÄ¼àÌýÆ÷Ò»Ñù£¬ÅäÖÃÒ²¿ÉÒÔ°üº¬ÈÎÒâÊýÁ¿µÄ¶ÀÁ¢ÅäÖÃµÄÉÏÓÎ¼¯Èº¡£
+Envoyçš„é›†ç¾¤ç®¡ç†å™¨ç®¡ç†æ‰€æœ‰é…ç½®çš„ä¸Šæ¸¸é›†ç¾¤ã€‚å°±åƒEnvoyé…ç½®å¯ä»¥åŒ…å«ä»»æ„æ•°é‡çš„ç›‘å¬å™¨ä¸€æ ·ï¼Œé…ç½®ä¹Ÿå¯ä»¥åŒ…å«ä»»æ„æ•°é‡çš„ç‹¬ç«‹é…ç½®çš„ä¸Šæ¸¸é›†ç¾¤ã€‚
 
-ÉÏÓÎ¼¯ÈººÍÖ÷»ú´ÓÍøÂç/HTTP¹ýÂËÆ÷¶ÑÕ»ÖÐ³éÏó³öÀ´£¬ÒòÎªÉÏÓÎ¼¯ÈººÍÖ÷»ú¿ÉÒÔÓÃÓÚÈÎÒâÊýÁ¿µÄ²»Í¬´úÀíÈÎÎñ¡£¼¯Èº¹ÜÀíÆ÷Ïò¹ýÂËÆ÷¶ÑÕ»¹«¿ªAPI£¬ÔÊÐí¹ýÂËÆ÷»ñµÃµ½ÉÏÓÎ¼¯ÈºµÄL3/L4Á¬½Ó£¬»òÕßµ½ÉÏÓÎ¼¯ÈºµÄ³éÏóHTTPÁ¬½Ó³ØµÄ¾ä±ú£¨ÎÞÂÛÉÏÓÎÖ÷»úÊÇÖ§³ÖHTTP/1.1»¹ÊÇHTTP/2±»Òþ²Ø£©¡£É¸Ñ¡Æ÷½×¶ÎÈ·¶¨ÊÇ·ñÐèÒªL3/L4Á¬½Ó»òÐÂµÄHTTPÁ÷£¬²¢ÇÒ¼¯Èº¹ÜÀíÆ÷´¦ÀíÁËÖªµÀÄÄÐ©Ö÷»ú¿ÉÓÃÇÒ½¡¿µ£¬¸ºÔØÆ½ºâ£¬ÉÏÓÎÁ¬½ÓÊý¾ÝµÄÏß³Ì±¾µØ´æ´¢µÄËùÓÐ¸´ÔÓÐÔ£¨ÒòÎª´ó¶àÊýEnvoy´úÂë±»Ð´Îªµ¥Ïß³Ì£©£¬ÉÏÓÎÁ¬½ÓÀàÐÍ£¨TCP/IP£¬UDS£©£¬ÊÊÓÃµÄÉÏÓÎÐ­Òé£¨HTTP/1.1£¬HTTP/2£©µÈ
+ä¸Šæ¸¸é›†ç¾¤å’Œä¸»æœºä»Žç½‘ç»œ/HTTPè¿‡æ»¤å™¨å †æ ˆä¸­æŠ½è±¡å‡ºæ¥ï¼Œå› ä¸ºä¸Šæ¸¸é›†ç¾¤å’Œä¸»æœºå¯ä»¥ç”¨äºŽä»»æ„æ•°é‡çš„ä¸åŒä»£ç†ä»»åŠ¡ã€‚é›†ç¾¤ç®¡ç†å™¨å‘è¿‡æ»¤å™¨å †æ ˆå…¬å¼€APIï¼Œå…è®¸è¿‡æ»¤å™¨èŽ·å¾—åˆ°ä¸Šæ¸¸é›†ç¾¤çš„L3/L4è¿žæŽ¥ï¼Œæˆ–è€…åˆ°ä¸Šæ¸¸é›†ç¾¤çš„æŠ½è±¡HTTPè¿žæŽ¥æ± çš„å¥æŸ„ï¼ˆæ— è®ºä¸Šæ¸¸ä¸»æœºæ˜¯æ”¯æŒHTTP/1.1è¿˜æ˜¯HTTP/2è¢«éšè—ï¼‰ã€‚ç­›é€‰å™¨é˜¶æ®µç¡®å®šæ˜¯å¦éœ€è¦L3/L4è¿žæŽ¥æˆ–æ–°çš„HTTPæµï¼Œå¹¶ä¸”é›†ç¾¤ç®¡ç†å™¨å¤„ç†äº†çŸ¥é“å“ªäº›ä¸»æœºå¯ç”¨ä¸”å¥åº·ï¼Œè´Ÿè½½å¹³è¡¡ï¼Œä¸Šæ¸¸è¿žæŽ¥æ•°æ®çš„çº¿ç¨‹æœ¬åœ°å­˜å‚¨çš„æ‰€æœ‰å¤æ‚æ€§ï¼ˆå› ä¸ºå¤§å¤šæ•°Envoyä»£ç è¢«å†™ä¸ºå•çº¿ç¨‹ï¼‰ï¼Œä¸Šæ¸¸è¿žæŽ¥ç±»åž‹ï¼ˆTCP/IPï¼ŒUDSï¼‰ï¼Œé€‚ç”¨çš„ä¸Šæ¸¸åè®®ï¼ˆHTTP/1.1ï¼ŒHTTP/2ï¼‰ç­‰
 
-Èº¼¯¹ÜÀíÆ÷ÒÑÖªµÄÈº¼¯¿ÉÒÔ¾²Ì¬ÅäÖÃ£¬Ò²¿ÉÒÔÍ¨¹ýÈº¼¯·¢ÏÖ·þÎñ£¨CDS£©API¶¯Ì¬»ñÈ¡¡£¶¯Ì¬¼¯ÈºÌáÈ¡ÔÊÐí½«¸ü¶àÅäÖÃ´æ´¢ÔÚÖÐÑëÅäÖÃ·þÎñÆ÷ÖÐ£¬Òò´ËÐèÒª¸üÉÙµÄEnvoyÖØÐÂÆô¶¯ºÍÅäÖÃ·ÖÅä¡£
+ç¾¤é›†ç®¡ç†å™¨å·²çŸ¥çš„ç¾¤é›†å¯ä»¥é™æ€é…ç½®ï¼Œä¹Ÿå¯ä»¥é€šè¿‡ç¾¤é›†å‘çŽ°æœåŠ¡ï¼ˆCDSï¼‰APIåŠ¨æ€èŽ·å–ã€‚åŠ¨æ€é›†ç¾¤æå–å…è®¸å°†æ›´å¤šé…ç½®å­˜å‚¨åœ¨ä¸­å¤®é…ç½®æœåŠ¡å™¨ä¸­ï¼Œå› æ­¤éœ€è¦æ›´å°‘çš„Envoyé‡æ–°å¯åŠ¨å’Œé…ç½®åˆ†é…ã€‚
 
-- ¼¯Èº¹ÜÀíÆ÷ÅäÖÃ
-- CDSÅäÖÃ
+- é›†ç¾¤ç®¡ç†å™¨[é…ç½®](../../Configurationreference/Clustermanager.md)
+- CDS[é…ç½®](../../Configurationreference/Clustermanager/Clusterdiscoveryservice.md)
 
-### ·µ»Ø
-- [¼Ü¹¹½éÉÜ](../Architectureoverview.md)
-- [¼ò½é](../../Introduction.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+### è¿”å›ž
+- [æž¶æž„ä»‹ç»](../Architectureoverview.md)
+- [ç®€ä»‹](../../Introduction.md)
+- [é¦–é¡µç›®å½•](../../README.md)
