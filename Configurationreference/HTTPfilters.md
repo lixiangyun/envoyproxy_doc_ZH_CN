@@ -1,43 +1,43 @@
-## HTTP¹ıÂËÆ÷
+## HTTPè¿‡æ»¤å™¨
 
-### [»º´æ](HTTPfilters/Buffer.md)
-- Í³¼Æ
+### [ç¼“å­˜](HTTPfilters/Buffer.md)
+- ç»Ÿè®¡
 
-### [CORS¹ıÂËÆ÷](HTTPfilters/CORSfilter.md)
-### [¹ÊÕÏ×¢Èë](HTTPfilters/FaultInjection.md)
-- ÅäÖÃ
-- ÔËĞĞÊ±ÅäÖÃ
-- Í³¼Æ
+### [CORSè¿‡æ»¤å™¨](HTTPfilters/CORSfilter.md)
+### [æ•…éšœæ³¨å…¥](HTTPfilters/FaultInjection.md)
+- é…ç½®
+- è¿è¡Œæ—¶é…ç½®
+- ç»Ÿè®¡
 
 ### [DynamoDB](HTTPfilters/DynamoDB.md)
-- Í³¼Æ
-- ÔËĞĞÊ±ÅäÖÃ
+- ç»Ÿè®¡
+- è¿è¡Œæ—¶é…ç½®
 
-### [gRPC HTTP/1.1 ÇÅ½Ó](HTTPfilters/gRPCHTTP11bridge.md)
-- Í³¼Æ
+### [gRPC HTTP/1.1 æ¡¥æ¥](HTTPfilters/gRPCHTTP11bridge.md)
+- ç»Ÿè®¡
 
-### [gRPC-JSON ×ªÂë¹ıÂËÆ÷](HTTPfilters/gRPCJSONtranscoderfilter.md)
-### [gRPC-Web ¹ıÂËÆ÷](HTTPfilters/gRPCWebfilter.md)
-### [½¡¿µ¼ì²é](HTTPfilters/Healthcheck.md)
-### [ËÙÂÊÏŞÖÆ](HTTPfilters/Ratelimit.md)
-- ¶¯×÷
-- Í³¼Æ
-- ÔËĞĞÊ±ÅäÖÃ
+### [gRPC-JSON è½¬ç è¿‡æ»¤å™¨](HTTPfilters/gRPCJSONtranscoderfilter.md)
+### [gRPC-Web è¿‡æ»¤å™¨](HTTPfilters/gRPCWebfilter.md)
+### [å¥åº·æ£€æŸ¥](HTTPfilters/Healthcheck.md)
+### [é€Ÿç‡é™åˆ¶](HTTPfilters/Ratelimit.md)
+- åŠ¨ä½œ
+- ç»Ÿè®¡
+- è¿è¡Œæ—¶é…ç½®
 
-### [Â·ÓÉ](HTTPfilters/Router.md)
-- HTTPÍ·²¿
-- Í³¼Æ
-- ÔËĞĞÊ±ÅäÖÃ
+### [è·¯ç”±](HTTPfilters/Router.md)
+- HTTPå¤´éƒ¨
+- ç»Ÿè®¡
+- è¿è¡Œæ—¶é…ç½®
 
 ### [Lua](HTTPfilters/Lua.md)
-- ¸ÅÊö
-- µ±Ç°Ö§³ÖµÄ¸ß½×ÌØĞÔ
-- ÅäÖÃ
-- ½Å±¾Ê¾Àı
-- Á÷´¦ÀíAPI
-- Í·²¿¶ÔÏóAPI
-- »º´æAPI
+- æ¦‚è¿°
+- å½“å‰æ”¯æŒçš„é«˜é˜¶ç‰¹æ€§
+- é…ç½®
+- è„šæœ¬ç¤ºä¾‹
+- æµå¤„ç†API
+- å¤´éƒ¨å¯¹è±¡API
+- ç¼“å­˜API
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../Configurationreference.md)
-- [Ê×Ò³Ä¿Â¼](../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../Configurationreference.md)
+- [é¦–é¡µç›®å½•](../README.md)
