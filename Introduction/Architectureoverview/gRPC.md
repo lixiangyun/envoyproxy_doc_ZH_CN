@@ -1,15 +1,14 @@
 ### gRPC
 
-gRPCÊÇÀ´×ÔGoogleµÄRPC¿ò¼Ü¡£ËüÊ¹ÓÃÐ­Òé»º³åÇø×÷Îª»ù´¡µÄÐòÁÐ»¯/IDL¸ñÊ½¡£ÔÚ´«Êä²ã£¬ËüÊ¹ÓÃHTTP/2½øÐÐÇëÇó/ÏìÓ¦¸´ÓÃ¡£EnvoyÔÚ´«Êä²ãºÍÓ¦ÓÃ²ã¶¼ºÜºÃµÄÖ§³ÖgRPC£º
+[gRPC](http://www.grpc.io/)æ˜¯æ¥è‡ªGoogleçš„RPCæ¡†æž¶ã€‚å®ƒä½¿ç”¨åè®®ç¼“å†²åŒºä½œä¸ºåŸºç¡€çš„åºåˆ—åŒ–/IDLæ ¼å¼ã€‚åœ¨ä¼ è¾“å±‚ï¼Œå®ƒä½¿ç”¨HTTP/2è¿›è¡Œè¯·æ±‚/å“åº”å¤ç”¨ã€‚Envoyåœ¨ä¼ è¾“å±‚å’Œåº”ç”¨å±‚éƒ½å¾ˆå¥½çš„æ”¯æŒgRPCï¼š
 
-- gRPCÊ¹ÓÃHTTP/2Î²²¿À´´«ËÍÇëÇó×´Ì¬¡£ EnvoyÊÇÄÜ¹»ÕýÈ·Ö§³ÖHTTP/2Î²²¿µÄÉÙÊý¼¸¸öHTTP´úÀíÖ®Ò»£¬Òò´ËÊÇÉÙÊý¿ÉÒÔ´«ÊägRPCÇëÇóºÍÏìÓ¦µÄ´úÀíÖ®Ò»¡£
-- Ä³Ð©ÓïÑÔµÄgRPCÔËÐÐÊ±Ïà¶Ô²»³ÉÊì¡£EnvoyÖ§³ÖgRPCÍøÇÅ¹ýÂËÆ÷£¬ÔÊÐígRPCÇëÇóÍ¨¹ýHTTP/1.1·¢ËÍ¸øEnvoy¡£È»ºó£¬Envoy½«ÇëÇó×ª»»ÎªHTTP/2´«Êäµ½Ä¿±ê·þÎñÆ÷¡£¸ÃÏìÓ¦±»×ª»»»ØHTTP/1.1¡£
-- °²×°ºó£¬ÍøÇÅ¹ýÂËÆ÷³ýÁËÍ³¼ÆÈ«¾ÖHTTPÍ³¼ÆÊý¾ÝÖ®Íâ£¬»¹»á¸ù¾ÝRPCÍ³¼ÆÐÅÏ¢½øÐÐÊÕ¼¯¡£
-- gRPC-WebÓÉ¹ýÂËÆ÷Ö§³Ö£¬ËüÔÊÐígRPC-Web¿Í»§¶ËÍ¨¹ýHTTP/1.1ÏòEnvoy·¢ËÍÇëÇó²¢´úÀíµ½gRPC·þÎñÆ÷¡£Ä¿Ç°Õý´¦ÓÚ»ý¼«µÄ·¢Õ¹½×¶Î£¬Ô¤¼Æ½«³ÉÎªgRPCÇÅÊ½¹ýÂËÆ÷µÄºóÐø²úÆ·¡£
-- gRPC-JSON´úÂë×ª»»Æ÷ÓÉÒ»¸ö¹ýÂËÆ÷Ö§³Ö£¬¸Ã¹ýÂËÆ÷ÔÊÐíRESTful JSON API¿Í»§¶ËÍ¨¹ýHTTPÏòEnvoy·¢ËÍÇëÇó²¢´úÀíµ½gRPC·þÎñ¡£
+- gRPCä½¿ç”¨HTTP/2å°¾éƒ¨æ¥ä¼ é€è¯·æ±‚çŠ¶æ€ã€‚ Envoyæ˜¯èƒ½å¤Ÿæ­£ç¡®æ”¯æŒHTTP/2å°¾éƒ¨çš„å°‘æ•°å‡ ä¸ªHTTPä»£ç†ä¹‹ä¸€ï¼Œå› æ­¤æ˜¯å°‘æ•°å¯ä»¥ä¼ è¾“gRPCè¯·æ±‚å’Œå“åº”çš„ä»£ç†ä¹‹ä¸€ã€‚
+- æŸäº›è¯­è¨€çš„gRPCè¿è¡Œæ—¶ç›¸å¯¹ä¸æˆç†Ÿã€‚Envoyæ”¯æŒgRPCæ¡¥æŽ¥è¿‡æ»¤å™¨ï¼Œå…è®¸gRPCè¯·æ±‚é€šè¿‡HTTP/1.1å‘é€ç»™Envoyã€‚ç„¶åŽï¼ŒEnvoyå°†è¯·æ±‚è½¬æ¢ä¸ºHTTP/2ä¼ è¾“åˆ°ç›®æ ‡æœåŠ¡å™¨ã€‚è¯¥å“åº”è¢«è½¬æ¢å›žHTTP/1.1ã€‚
+- å®‰è£…åŽï¼Œç½‘æ¡¥è¿‡æ»¤å™¨é™¤äº†ç»Ÿè®¡å…¨å±€HTTPç»Ÿè®¡æ•°æ®ä¹‹å¤–ï¼Œè¿˜ä¼šæ ¹æ®RPCç»Ÿè®¡ä¿¡æ¯è¿›è¡Œæ”¶é›†ã€‚
+- gRPC-Webç”±è¿‡æ»¤å™¨æ”¯æŒï¼Œå®ƒå…è®¸gRPC-Webå®¢æˆ·ç«¯é€šè¿‡HTTP/1.1å‘Envoyå‘é€è¯·æ±‚å¹¶ä»£ç†åˆ°gRPCæœåŠ¡å™¨ã€‚ç›®å‰æ­£å¤„äºŽç§¯æžçš„å‘å±•é˜¶æ®µï¼Œé¢„è®¡å°†æˆä¸º[gRPCæ¡¥æŽ¥è¿‡æ»¤å™¨](../../Configurationreference/HTTPfilters/gRPCHTTP11bridge.md)çš„åŽç»­äº§å“ã€‚
+- gRPC-JSONä»£ç è½¬æ¢å™¨ç”±ä¸€ä¸ªè¿‡æ»¤å™¨æ”¯æŒï¼Œè¯¥è¿‡æ»¤å™¨å…è®¸RESTful JSON APIå®¢æˆ·ç«¯é€šè¿‡HTTPå‘Envoyå‘é€è¯·æ±‚å¹¶ä»£ç†åˆ°gRPCæœåŠ¡ã€‚
 
-
-### ·µ»Ø
-- [¼Ü¹¹½éÉÜ](../Architectureoverview.md)
-- [¼ò½é](../../Introduction.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+### è¿”å›ž
+- [æž¶æž„ä»‹ç»](../Architectureoverview.md)
+- [ç®€ä»‹](../../Introduction.md)
+- [é¦–é¡µç›®å½•](../../README.md)
