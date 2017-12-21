@@ -1,23 +1,23 @@
-### ÊõÓï
-ÔÚÎÒÃÇÉîÈëµ½Ö÷ÒªµÄÌåÏµ½á¹¹ÎÄµµÖ®Ç°£¬ÐèÒªÃ÷È·Ò»Ð©¶¨Òå¡£ÆäÖÐÒ»Ð©¶¨ÒåÔÚÐÐÒµÖÐÓÐÐ©ÕùÒé£¬ÔÚÕû¸öEnvoyÎÄµµºÍ´úÂë¿âÖÐÈçºÎÊ¹ÓÃËüÃÇµÄ£¬ÏÂÃæ¾Í»áÕ¹¿ª¡£
+### æœ¯è¯­
+åœ¨æˆ‘ä»¬æ·±å…¥åˆ°ä¸»è¦çš„ä½“ç³»ç»“æž„æ–‡æ¡£ä¹‹å‰ï¼Œéœ€è¦æ˜Žç¡®ä¸€äº›å®šä¹‰ã€‚å…¶ä¸­ä¸€äº›å®šä¹‰åœ¨è¡Œä¸šä¸­æœ‰äº›äº‰è®®ï¼Œåœ¨æ•´ä¸ªEnvoyæ–‡æ¡£å’Œä»£ç åº“ä¸­å¦‚ä½•ä½¿ç”¨å®ƒä»¬çš„ï¼Œä¸‹é¢å°±ä¼šå±•å¼€ã€‚
 
-**Ö÷»ú£¨Host£©**£ºÄÜ¹»½øÐÐÍøÂçÍ¨ÐÅµÄÊµÌå£¨ÈçÊÖ»ú£¬·þÎñÆ÷µÈÉÏµÄÓ¦ÓÃ³ÌÐò£©¡£ÔÚÕâ¸öÎÄµµÖÐ£¬Ö÷»úÊÇÒ»¸öÂß¼­ÍøÂçÓ¦ÓÃ³ÌÐò¡£Ò»¸öÎïÀíÓ²¼þ¿ÉÄÜÓÐ¶à¸öÖ÷»úÉÏÔËÐÐ£¬Ö»ÒªËûÃÇ¿ÉÒÔ¶ÀÁ¢Ñ°Ö·¡£
+**ä¸»æœºï¼ˆHostï¼‰**ï¼šèƒ½å¤Ÿè¿›è¡Œç½‘ç»œé€šä¿¡çš„å®žä½“ï¼ˆå¦‚æ‰‹æœºï¼ŒæœåŠ¡å™¨ç­‰ä¸Šçš„åº”ç”¨ç¨‹åºï¼‰ã€‚åœ¨è¿™ä¸ªæ–‡æ¡£ä¸­ï¼Œä¸»æœºæ˜¯ä¸€ä¸ªé€»è¾‘ç½‘ç»œåº”ç”¨ç¨‹åºã€‚ä¸€ä¸ªç‰©ç†ç¡¬ä»¶å¯èƒ½æœ‰å¤šä¸ªä¸»æœºä¸Šè¿è¡Œï¼Œåªè¦ä»–ä»¬å¯ä»¥ç‹¬ç«‹å¯»å€ã€‚
 
-**ÏÂÓÎ£¨Downstream£©**£ºÏÂÓÎÖ÷»úÁ¬½Óµ½Envoy£¬·¢ËÍÇëÇó²¢½ÓÊÕÏìÓ¦¡£
+**ä¸‹æ¸¸ï¼ˆDownstreamï¼‰**ï¼šä¸‹æ¸¸ä¸»æœºè¿žæŽ¥åˆ°Envoyï¼Œå‘é€è¯·æ±‚å¹¶æŽ¥æ”¶å“åº”ã€‚
 
-**ÉÏÓÎ£¨Upstream£©**£ºÉÏÓÎÖ÷»ú½ÓÊÕÀ´×ÔEnvoyµÄÁ¬½ÓºÍÇëÇó²¢·µ»ØÏìÓ¦¡£
+**ä¸Šæ¸¸ï¼ˆUpstreamï¼‰**ï¼šä¸Šæ¸¸ä¸»æœºæŽ¥æ”¶æ¥è‡ªEnvoyçš„è¿žæŽ¥å’Œè¯·æ±‚å¹¶è¿”å›žå“åº”ã€‚
 
-**¼àÌýÆ÷£¨Listener£©**£ºÕìÌýÆ÷ÊÇ¿ÉÒÔ±»ÏÂÓÎ¿Í»§¶ËÁ¬½ÓµÄÃüÃûÍøÂçÎ»ÖÃ£¨ÀýÈç£¬¶Ë¿Ú£¬unixÓòÌ×½Ó×ÖµÈ£©¡£Envoy¹«¿ªÒ»¸ö»ò¶à¸öÏÂÓÎÖ÷»úÁ¬½ÓµÄÕìÌýÆ÷¡£
+**ç›‘å¬å™¨ï¼ˆListenerï¼‰**ï¼šä¾¦å¬å™¨æ˜¯å¯ä»¥è¢«ä¸‹æ¸¸å®¢æˆ·ç«¯è¿žæŽ¥çš„å‘½åç½‘ç»œä½ç½®ï¼ˆä¾‹å¦‚ï¼Œç«¯å£ï¼ŒunixåŸŸå¥—æŽ¥å­—ç­‰ï¼‰ã€‚Envoyå…¬å¼€ä¸€ä¸ªæˆ–å¤šä¸ªä¸‹æ¸¸ä¸»æœºè¿žæŽ¥çš„ä¾¦å¬å™¨ã€‚
 
-**Èº¼¯£¨Cluster£©**£º£ºÈº¼¯ÊÇÖ¸EnvoyÁ¬½Óµ½µÄÒ»×éÂß¼­ÉÏÏàËÆµÄÉÏÓÎÖ÷»ú¡£EnvoyÍ¨¹ý·þÎñ·¢ÏÖ·¢ÏÖÒ»¸ö¼¯ÈºµÄ³ÉÔ±¡£Ëü¿ÉÒÔÍ¨¹ýÖ÷¶¯½¡¿µ¼ì²éÀ´È·¶¨¼¯Èº³ÉÔ±µÄ½¡¿µ¶È£¬´Ó¶øEnvoyÍ¨¹ý¸ºÔØ¾ùºâ²ßÂÔ½«ÇëÇóÂ·ÓÉµ½ÏàÓ¦µÄ¼¯Èº³ÉÔ±¡£
+**ç¾¤é›†ï¼ˆClusterï¼‰**ï¼šï¼šç¾¤é›†æ˜¯æŒ‡Envoyè¿žæŽ¥åˆ°çš„ä¸€ç»„é€»è¾‘ä¸Šç›¸ä¼¼çš„ä¸Šæ¸¸ä¸»æœºã€‚Envoyé€šè¿‡æœåŠ¡å‘çŽ°å‘çŽ°ä¸€ä¸ªé›†ç¾¤çš„æˆå‘˜ã€‚å®ƒå¯ä»¥é€šè¿‡ä¸»åŠ¨å¥åº·æ£€æŸ¥æ¥ç¡®å®šé›†ç¾¤æˆå‘˜çš„å¥åº·åº¦ï¼Œä»Žè€ŒEnvoyé€šè¿‡è´Ÿè½½å‡è¡¡ç­–ç•¥å°†è¯·æ±‚è·¯ç”±åˆ°ç›¸åº”çš„é›†ç¾¤æˆå‘˜ã€‚
 
-**Íø¸ñ£¨Mesh£©**£ºÐ­µ÷Ò»ÖÂÒÔÌá¹©Ò»ÖÂµÄÍøÂçÍØÆËµÄÒ»×éÖ÷»ú¡£ÔÚ±¾ÎÄµµÖÐ£¬¡°Envoy mesh¡±ÊÇÒ»×éEnvoy´úÀí£¬ËüÃÇ¹¹³ÉÁËÓÉ¶àÖÖ²»Í¬·þÎñºÍÓ¦ÓÃ³ÌÐòÆ½Ì¨×é³ÉµÄ·Ö²¼Ê½ÏµÍ³µÄÏûÏ¢´«µÝ»ù´¡¡£
+**ç½‘æ ¼ï¼ˆMeshï¼‰**ï¼šåè°ƒä¸€è‡´ä»¥æä¾›ä¸€è‡´çš„ç½‘ç»œæ‹“æ‰‘çš„ä¸€ç»„ä¸»æœºã€‚åœ¨æœ¬æ–‡æ¡£ä¸­ï¼Œâ€œEnvoy meshâ€æ˜¯ä¸€ç»„Envoyä»£ç†ï¼Œå®ƒä»¬æž„æˆäº†ç”±å¤šç§ä¸åŒæœåŠ¡å’Œåº”ç”¨ç¨‹åºå¹³å°ç»„æˆçš„åˆ†å¸ƒå¼ç³»ç»Ÿçš„æ¶ˆæ¯ä¼ é€’åŸºç¡€ã€‚
 
-**ÔËÐÐÊ±ÅäÖÃ£¨Runtime configuration£©**£ºÓëEnvoyÒ»Æð²¿ÊðµÄÍâÖÃÊµÊ±ÅäÖÃÏµÍ³¡£¿ÉÒÔ¸ü¸ÄÅäÖÃÉèÖÃ£¬¿ÉÒÔÎÞÐèÖØÆôEnvoy»ò¸ü¸ÄÖ÷ÒªÅäÖÃ¡£
+**è¿è¡Œæ—¶é…ç½®ï¼ˆRuntime configurationï¼‰**ï¼šä¸ŽEnvoyä¸€èµ·éƒ¨ç½²çš„å¤–ç½®å®žæ—¶é…ç½®ç³»ç»Ÿã€‚å¯ä»¥æ›´æ”¹é…ç½®è®¾ç½®ï¼Œå¯ä»¥æ— éœ€é‡å¯Envoyæˆ–æ›´æ”¹ä¸»è¦é…ç½®ã€‚
 
-![²Î¿¼](Terminology01.png "²Î¿¼Í¼Æ¬")
+![å‚è€ƒ](Terminology01.png "å‚è€ƒå›¾ç‰‡")
 
-### ·µ»Ø
-- [¼Ü¹¹½éÉÜ](../Architectureoverview.md)
-- [¼ò½é](../../Introduction.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+### è¿”å›ž
+- [æž¶æž„ä»‹ç»](../Architectureoverview.md)
+- [ç®€ä»‹](../../Introduction.md)
+- [é¦–é¡µç›®å½•](../../README.md)
