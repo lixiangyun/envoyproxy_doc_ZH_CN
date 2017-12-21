@@ -1,11 +1,11 @@
-## gRPC-JSON ×ªÂë¹ıÂËÆ÷
+## gRPC-JSON è½¬ç è¿‡æ»¤å™¨
 
-- [gRPC ¼Ü¹¹¸ÅÊö](../../Introduction/Architectureoverview/gRPC.md)
-- [v1 API ²Î¿¼](../../v1APIreference/HTTPfilters/gRPCJSONtranscoderfilter.md)
-- [v2 API ²Î¿¼](../../v2APIreference/Filters/HTTPfilters/gRPCJSONtranscoder.md)
+- [gRPC æ¶æ„æ¦‚è¿°](../../Introduction/Architectureoverview/gRPC.md)
+- [v1 API å‚è€ƒ](../../v1APIreference/HTTPfilters/gRPCJSONtranscoderfilter.md)
+- [v2 API å‚è€ƒ](../../v2APIreference/Filters/HTTPfilters/gRPCJSONtranscoder.md)
 
-ÕâÊÇÒ»¸ö¹ıÂËÆ÷£¬ËüÔÊĞíRESTful JSON API¿Í»§¶ËÍ¨¹ıHTTPÏòEnvoy·¢ËÍÇëÇó²¢´úÀíµ½gRPC·şÎñ¡£¸ù¾İ[×Ô¶¨ÒåÑ¡Ïî](https://cloud.google.com/service-management/reference/rpc/google.api#http)HTTPÓ³Éäµ½gRPC·şÎñ¡£
+è¿™æ˜¯ä¸€ä¸ªè¿‡æ»¤å™¨ï¼Œå®ƒå…è®¸RESTful JSON APIå®¢æˆ·ç«¯é€šè¿‡HTTPå‘Envoyå‘é€è¯·æ±‚å¹¶ä»£ç†åˆ°gRPCæœåŠ¡ã€‚æ ¹æ®[è‡ªå®šä¹‰é€‰é¡¹](https://cloud.google.com/service-management/reference/rpc/google.api#http)HTTPæ˜ å°„åˆ°gRPCæœåŠ¡ã€‚
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../HTTPfilters.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../HTTPfilters.md)
+- [é¦–é¡µç›®å½•](../../README.md)
