@@ -1,21 +1,21 @@
-## ²Î¿¼ÅäÖÃ
-EnvoyµÄÔ´´úÂë·¢ĞĞ°æÖĞ£¬°üº¬Èı¸öÖ÷Òª²¿ÊğÀàĞÍµÄÅäÖÃÄ£°å·¶Àı£º
+## å‚è€ƒé…ç½®
+Envoyçš„æºä»£ç å‘è¡Œç‰ˆä¸­ï¼ŒåŒ…å«ä¸‰ä¸ªä¸»è¦éƒ¨ç½²ç±»å‹çš„é…ç½®æ¨¡æ¿èŒƒä¾‹ï¼š
 
-- [·şÎñ¼ä](../Introduction/Deploymenttypes.md)
-- [Ç°¶Ë´úÀí](../Introduction/Deploymenttypes.md)
-- [Ë«ÖØ´úÀí](../Introduction/Deploymenttypes.md)
+- [æœåŠ¡é—´](../Introduction/Deploymenttypes.md)
+- [å‰ç«¯ä»£ç†](../Introduction/Deploymenttypes.md)
+- [åŒé‡ä»£ç†](../Introduction/Deploymenttypes.md)
 
-±¾ÎÄµÄÄ¿±êÕ¹Ê¾EnvoyÔÚ¸´ÔÓ²¿Êğ³¡¾°ÏÂµÄÈ«²¿¹¦ÄÜ¡£²»ÊÊÓÃÓÚËùÓĞ¹¦ÄÜ¡£ÓĞ¹ØÍêÕûµÄÎÄµµ£¬Çë²ÎÔÄ[ÅäÖÃ²Î¿¼](../Configurationreference.md)¡£
+æœ¬æ–‡çš„ç›®æ ‡å±•ç¤ºEnvoyåœ¨å¤æ‚éƒ¨ç½²åœºæ™¯ä¸‹çš„å…¨éƒ¨åŠŸèƒ½ã€‚ä¸é€‚ç”¨äºæ‰€æœ‰åŠŸèƒ½ã€‚æœ‰å…³å®Œæ•´çš„æ–‡æ¡£ï¼Œè¯·å‚é˜…[é…ç½®å‚è€ƒ](../Configurationreference.md)ã€‚
 
-### ÅäÖÃÉú³ÉÆ÷
-¿ÉÄÜÅäÖÃEnvoyÒÑ¾­±äµÄÏà¶Ô¸´ÔÓ¡£ÔÚLyftÖĞ£¬ÎÒÃÇÊ¹ÓÃ[jinja](http://jinja.pocoo.org/)Ä£°åÀ´ÈÃ´´½¨ºÍ¹ÜÀíÅäÖÃ¸üÈİÒ×¡£Ô´´úÂë·¢ĞĞ°æ°üº¬Ò»¸öµÄÅäÖÃÉú³ÉÆ÷£¬Ëü´óÖÂÉÏÓëÎÒÃÇÔÚLyftÖĞÊ¹ÓÃµÄ°æ±¾ÏàËÆ¡£ÎÒÃÇ»¹ÎªÒÔÉÏÈıÖÖÇé¿öÌá¹©ÁËÈı¸öÊ¾ÀıÅäÖÃÄ£°å¡£
+### é…ç½®ç”Ÿæˆå™¨
+å¯èƒ½é…ç½®Envoyå·²ç»å˜çš„ç›¸å¯¹å¤æ‚ã€‚åœ¨Lyftä¸­ï¼Œæˆ‘ä»¬ä½¿ç”¨[jinja](http://jinja.pocoo.org/)æ¨¡æ¿æ¥è®©åˆ›å»ºå’Œç®¡ç†é…ç½®æ›´å®¹æ˜“ã€‚æºä»£ç å‘è¡Œç‰ˆåŒ…å«ä¸€ä¸ªçš„é…ç½®ç”Ÿæˆå™¨ï¼Œå®ƒå¤§è‡´ä¸Šä¸æˆ‘ä»¬åœ¨Lyftä¸­ä½¿ç”¨çš„ç‰ˆæœ¬ç›¸ä¼¼ã€‚æˆ‘ä»¬è¿˜ä¸ºä»¥ä¸Šä¸‰ç§æƒ…å†µæä¾›äº†ä¸‰ä¸ªç¤ºä¾‹é…ç½®æ¨¡æ¿ã€‚
 
-- ÅäÖÃÉú³ÉÆ÷½Å±¾£º[configs/configgen.py](https://github.com/envoyproxy/envoy/blob/master/configs/configgen.py)
-- ·şÎñÄ£°å£º[configs/envoy_service_to_service.template.json](https://github.com/envoyproxy/envoy/blob/master/configs/envoy_service_to_service.template.json)
-- Ç°¶Ë´úÀíÄ£°å£º[configs/envoy_front_proxy.template.json](https://github.com/envoyproxy/envoy/blob/master/configs/envoy_front_proxy.template.json)
-- Ë«ÖØ´úÀíÄ£°å£º[configs/envoy_double_proxy.template.json](https://github.com/envoyproxy/envoy/blob/master/configs/envoy_double_proxy.template.json)
+- é…ç½®ç”Ÿæˆå™¨è„šæœ¬ï¼š[configs/configgen.py](https://github.com/envoyproxy/envoy/blob/master/configs/configgen.py)
+- æœåŠ¡æ¨¡æ¿ï¼š[configs/envoy_service_to_service.template.json](https://github.com/envoyproxy/envoy/blob/master/configs/envoy_service_to_service.template.json)
+- å‰ç«¯ä»£ç†æ¨¡æ¿ï¼š[configs/envoy_front_proxy.template.json](https://github.com/envoyproxy/envoy/blob/master/configs/envoy_front_proxy.template.json)
+- åŒé‡ä»£ç†æ¨¡æ¿ï¼š[configs/envoy_double_proxy.template.json](https://github.com/envoyproxy/envoy/blob/master/configs/envoy_double_proxy.template.json)
 
-ÈôÒªÉú³ÉÊ¾ÀıÅäÖÃ£¬ÇëÔÚrepo¸ùÄ¿Â¼ÔËĞĞÒÔÏÂÃüÁî£º
+è‹¥è¦ç”Ÿæˆç¤ºä¾‹é…ç½®ï¼Œè¯·åœ¨repoæ ¹ç›®å½•è¿è¡Œä»¥ä¸‹å‘½ä»¤ï¼š
 
 ```
 mkdir -p generated/configs
@@ -23,26 +23,26 @@ bazel build //configs:example_configs
 tar xvf $PWD/bazel-genfiles/configs/example_configs.tar -C generated/configs
 ```
 
-ÉÏÒ»¸öÃüÁî½«Ê¹ÓÃ`configgen.py`ÖĞ¶¨ÒåµÄÒ»Ğ©±äÁ¿£¬Õ¹¿ªÉú³ÉÈı¸öÍêÈ«µÄÅäÖÃ¡£ Çë²ÎÔÄ`configgen.py`ÖĞµÄ×¢ÊÍ£¬ÒÔ»ñÈ¡ÓĞ¹ØÏêÏ¸À©Õ¹ÅäÖÃ¡£
+ä¸Šä¸€ä¸ªå‘½ä»¤å°†ä½¿ç”¨`configgen.py`ä¸­å®šä¹‰çš„ä¸€äº›å˜é‡ï¼Œå±•å¼€ç”Ÿæˆä¸‰ä¸ªå®Œå…¨çš„é…ç½®ã€‚ è¯·å‚é˜…`configgen.py`ä¸­çš„æ³¨é‡Šï¼Œä»¥è·å–æœ‰å…³è¯¦ç»†æ‰©å±•é…ç½®ã€‚
 
-¹ØÓÚÊ¾ÀıÅäÖÃµÄÒ»Ğ©×¢ÒâÊÂÏî£º
+å…³äºç¤ºä¾‹é…ç½®çš„ä¸€äº›æ³¨æ„äº‹é¡¹ï¼š
 
-- ¼Ù¶¨·şÎñ·¢ÏÖ·şÎñµÄÊµÀıÕıÔÚ`discovery.yourcompany.net`ÉÏÔËĞĞ¡£
-- ¼Ù¶¨ÄúµÄ`company.net`µÄDNSÉèÖÃÁË¸÷ÖÖ¸÷ÑùµÄ¶«Î÷¡£ÔÚÅäÖÃÄ£°åÖĞĞŞ¸ÄÒÔÖ§³Ö²»Í¬µÄÊ¾Àı¡£
-- ¸ú×ÙÄ¬ÈÏÅäÖÃLightStep¡£Òª½ûÓÃ´Ë¹¦ÄÜ»òÆôÓÃ[Zipkin](http://zipkin.io)¸ú×Ù£¬ÇëÉ¾³ı»ò¸ü¸ÄÏàÓ¦¸ú×ÙÅäÖÃ¡£
-- ¸ÃÅäÖÃÊ¾ÀıÊ¹ÓÃÈ«¾ÖÏŞËÙ·şÎñ¡£ÈôÒª½ûÓÃ´Ë¹¦ÄÜ£¬ÇëÉ¾³ıËÙÏŞÏà¹ØµÄÅäÖÃ¡£
-- ÅäÖÃÂ·ÓÉ·¢ÏÖµÄ·şÎñ£¬ÒÔ±ã·şÎñ¼äÒıÓÃ¸ÃÅäÖÃ£¬²¢¼Ù¶¨ËüÕıÔÚ`rds.yourcompany.net`ÉÏÔËĞĞ¡£
-- ÅäÖÃ¼¯Èº·¢ÏÖµÄ·şÎñ£¬×÷ÎªÅäÖÃ²Î¿¼£¬¼Ù¶¨ÔÚ`cds.yourcompany.net`ÉÏÔËĞĞ¡£
+- å‡å®šæœåŠ¡å‘ç°æœåŠ¡çš„å®ä¾‹æ­£åœ¨`discovery.yourcompany.net`ä¸Šè¿è¡Œã€‚
+- å‡å®šæ‚¨çš„`company.net`çš„DNSè®¾ç½®äº†å„ç§å„æ ·çš„ä¸œè¥¿ã€‚åœ¨é…ç½®æ¨¡æ¿ä¸­ä¿®æ”¹ä»¥æ”¯æŒä¸åŒçš„ç¤ºä¾‹ã€‚
+- è·Ÿè¸ªé»˜è®¤é…ç½®LightStepã€‚è¦ç¦ç”¨æ­¤åŠŸèƒ½æˆ–å¯ç”¨[Zipkin](http://zipkin.io)è·Ÿè¸ªï¼Œè¯·åˆ é™¤æˆ–æ›´æ”¹ç›¸åº”è·Ÿè¸ªé…ç½®ã€‚
+- è¯¥é…ç½®ç¤ºä¾‹ä½¿ç”¨å…¨å±€é™é€ŸæœåŠ¡ã€‚è‹¥è¦ç¦ç”¨æ­¤åŠŸèƒ½ï¼Œè¯·åˆ é™¤é€Ÿé™ç›¸å…³çš„é…ç½®ã€‚
+- é…ç½®è·¯ç”±å‘ç°çš„æœåŠ¡ï¼Œä»¥ä¾¿æœåŠ¡é—´å¼•ç”¨è¯¥é…ç½®ï¼Œå¹¶å‡å®šå®ƒæ­£åœ¨`rds.yourcompany.net`ä¸Šè¿è¡Œã€‚
+- é…ç½®é›†ç¾¤å‘ç°çš„æœåŠ¡ï¼Œä½œä¸ºé…ç½®å‚è€ƒï¼Œå‡å®šåœ¨`cds.yourcompany.net`ä¸Šè¿è¡Œã€‚
 
 
-### ÅäÖÃÃ°ÑÌ²âÊÔ
-[configs/google_com_proxy.json](https://github.com/envoyproxy/envoy/blob/master/configs/google_com_proxy.json)ÖĞÌá¹©ÁËÒ»¸ö·Ç³£¼òµ¥µÄEnvoyÅäÖÃ£¬¿ÉÓÃÓÚÑéÖ¤»ù±¾´¿HTTP´úÀí³¡¾°¡£µ«²¢²»´ú±íÒ»¸öÊµ¼ÊµÄEnvoy²¿Êğ¡£Ö»ÊÇÓÃÕâ¸öÀ´Ã°ÑÌ²âÊÔEnvoy£¬ÈçÏÂÔËĞĞ£º
+### é…ç½®å†’çƒŸæµ‹è¯•
+[configs/google_com_proxy.json](https://github.com/envoyproxy/envoy/blob/master/configs/google_com_proxy.json)ä¸­æä¾›äº†ä¸€ä¸ªéå¸¸ç®€å•çš„Envoyé…ç½®ï¼Œå¯ç”¨äºéªŒè¯åŸºæœ¬çº¯HTTPä»£ç†åœºæ™¯ã€‚ä½†å¹¶ä¸ä»£è¡¨ä¸€ä¸ªå®é™…çš„Envoyéƒ¨ç½²ã€‚åªæ˜¯ç”¨è¿™ä¸ªæ¥å†’çƒŸæµ‹è¯•Envoyï¼Œå¦‚ä¸‹è¿è¡Œï¼š
 
 ```
 build/source/exe/envoy -c configs/google_com_proxy.json -l debug
 curl -v localhost:10000
 ```
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../Buildingandinstallation.md)
-- [Ê×Ò³Ä¿Â¼](../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../Buildingandinstallation.md)
+- [é¦–é¡µç›®å½•](../README.md)
