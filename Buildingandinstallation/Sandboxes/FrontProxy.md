@@ -1,35 +1,35 @@
-## Ç°¶Ë´úÀí
+## å‰ç«¯ä»£ç†
 
-ÎªÈÃ´ó¼Ò¾¡¿ìÁË½âEnvoyÈçºÎ×÷ÎªÇ°¶Ë´úÀí£¬ÎÒÃÇ·¢²¼ÁËÒ»¸ö[docker compose](https://docs.docker.com/compose/)É³Ïä£¬Õâ¸öÉ³Ïä²¿ÊğÁËÒ»¸öÇ°¶ËEnvoy´úÀíºÍ¼¸¸öºó¶Ë·şÎñ£¨¼òµ¥µÄflaskÓ¦ÓÃ£©£¬²¢ÓëÒ»¸öÕıÔÚÔËĞĞµÄºÏ×÷µÄEnvoy·şÎñ¡£ÕâÈı¸öÈİÆ÷½«²¿ÊğÔÚÃûÎª`envoymesh`µÄĞéÄâÍø¸ñÖĞ¡£
+ä¸ºè®©å¤§å®¶å°½å¿«äº†è§£Envoyå¦‚ä½•ä½œä¸ºå‰ç«¯ä»£ç†ï¼Œæˆ‘ä»¬å‘å¸ƒäº†ä¸€ä¸ª[docker compose](https://docs.docker.com/compose/)æ²™ç®±ï¼Œè¿™ä¸ªæ²™ç®±éƒ¨ç½²äº†ä¸€ä¸ªå‰ç«¯Envoyä»£ç†å’Œå‡ ä¸ªåç«¯æœåŠ¡ï¼ˆç®€å•çš„flaskåº”ç”¨ï¼‰ï¼Œå¹¶ä¸ä¸€ä¸ªæ­£åœ¨è¿è¡Œçš„åˆä½œçš„EnvoyæœåŠ¡ã€‚è¿™ä¸‰ä¸ªå®¹å™¨å°†éƒ¨ç½²åœ¨åä¸º`envoymesh`çš„è™šæ‹Ÿç½‘æ ¼ä¸­ã€‚
 
-¸ÃDocker composeµÄ²¿ÊğÍ¼ÈçÏÂËùÊ¾£º
+è¯¥Docker composeçš„éƒ¨ç½²å›¾å¦‚ä¸‹æ‰€ç¤ºï¼š
 
-![²¿ÊğÍ¼](docker_compose_v0.1.svg)
+![éƒ¨ç½²å›¾](docker_compose_v0.1.svg)
 
-ËùÓĞ´«ÈëµÄÇëÇó¶¼Í¨¹ıÇ°¶ËEnvoy½øĞĞÂ·ÓÉ£¬¸ÃEnvoy³äµ±Î»ÓÚ`envoymesh`ÍøÂç±ßÔµµÄ·´Ïò´úÀí¡£¶Ë¿Ú`80`Í¨¹ıdocker composeÓ³Éäµ½¶Ë¿Ú`8000`£¨Çë²ÎÔÄ[/examples/front-proxy/docker-compose.yml](https://github.com/envoyproxy/envoy/blob/master//examples/front-proxy/docker-compose.yml)£©¡£´ËÍâ£¬Çë×¢Òâ£¬ÓÉÇ°¶ËEnvoyÂ·ÓÉµ½ÈİÆ÷ÄÚµÄ·şÎñ£¬Êµ¼ÊÉÏËùÓĞÁ÷Á¿¶¼ÊÇÂ·ÓÉµ½·şÎñµÄEnvoy´úÀí£¨ÔÚ[/examples/front-proxy/front-envoy.json](https://github.com/envoyproxy/envoy/blob/master//examples/front-proxy/front-envoy.json)ÖĞÉèÖÃµÄÂ·ÓÉ£©¡£·´¹ıÀ´£¬·şÎñµÄEnvoyÍ¨¹ı»·»ØµØÖ·£¨[/examples/front-proxy/service-envoy.json](https://github.com/envoyproxy/envoy/blob/master//examples/front-proxy/service-envoy.json)ÖĞµÄÂ·ÓÉÉèÖÃ£©½«ÇëÇóÂ·ÓÉµ½flaskÓ¦ÓÃ³ÌĞò¡£´Ë²ûÊöÁËEnvoyÓëÄú·şÎñ´îÅäµÄÓÅÊÆ£ºËùÓĞÇëÇó¶¼ÓÉEnvoy´úÀí£¬²¢ÓĞĞ§µØÂ·ÓÉµ½ÄúµÄ·şÎñ¡£
+æ‰€æœ‰ä¼ å…¥çš„è¯·æ±‚éƒ½é€šè¿‡å‰ç«¯Envoyè¿›è¡Œè·¯ç”±ï¼Œè¯¥Envoyå……å½“ä½äº`envoymesh`ç½‘ç»œè¾¹ç¼˜çš„åå‘ä»£ç†ã€‚ç«¯å£`80`é€šè¿‡docker composeæ˜ å°„åˆ°ç«¯å£`8000`ï¼ˆè¯·å‚é˜…[/examples/front-proxy/docker-compose.yml](https://github.com/envoyproxy/envoy/blob/master//examples/front-proxy/docker-compose.yml)ï¼‰ã€‚æ­¤å¤–ï¼Œè¯·æ³¨æ„ï¼Œç”±å‰ç«¯Envoyè·¯ç”±åˆ°å®¹å™¨å†…çš„æœåŠ¡ï¼Œå®é™…ä¸Šæ‰€æœ‰æµé‡éƒ½æ˜¯è·¯ç”±åˆ°æœåŠ¡çš„Envoyä»£ç†ï¼ˆåœ¨[/examples/front-proxy/front-envoy.json](https://github.com/envoyproxy/envoy/blob/master//examples/front-proxy/front-envoy.json)ä¸­è®¾ç½®çš„è·¯ç”±ï¼‰ã€‚åè¿‡æ¥ï¼ŒæœåŠ¡çš„Envoyé€šè¿‡ç¯å›åœ°å€ï¼ˆ[/examples/front-proxy/service-envoy.json](https://github.com/envoyproxy/envoy/blob/master//examples/front-proxy/service-envoy.json)ä¸­çš„è·¯ç”±è®¾ç½®ï¼‰å°†è¯·æ±‚è·¯ç”±åˆ°flaskåº”ç”¨ç¨‹åºã€‚æ­¤é˜è¿°äº†Envoyä¸æ‚¨æœåŠ¡æ­é…çš„ä¼˜åŠ¿ï¼šæ‰€æœ‰è¯·æ±‚éƒ½ç”±Envoyä»£ç†ï¼Œå¹¶æœ‰æ•ˆåœ°è·¯ç”±åˆ°æ‚¨çš„æœåŠ¡ã€‚
 
 
-### ÔËĞĞÉ³Ïä
-ÒÔÏÂÎÄµµ½«°´ÕÕÉÏÍ¼ÖĞËùÊöµÄenvoy¼¯Èº½øĞĞÔËĞĞÉèÖÃ¡£
+### è¿è¡Œæ²™ç®±
+ä»¥ä¸‹æ–‡æ¡£å°†æŒ‰ç…§ä¸Šå›¾ä¸­æ‰€è¿°çš„envoyé›†ç¾¤è¿›è¡Œè¿è¡Œè®¾ç½®ã€‚
 
-**µÚ1²½£º°²×°Docker¹¤¾ß¼¯**
+**ç¬¬1æ­¥ï¼šå®‰è£…Dockerå·¥å…·é›†**
 
-ÇëÄúÈ·±£ÒÑ¾­°²×°ÁË×îĞÂ°æ±¾µÄ`docker`£¬`docker-compose`ºÍ`docker-machine`¡£
+è¯·æ‚¨ç¡®ä¿å·²ç»å®‰è£…äº†æœ€æ–°ç‰ˆæœ¬çš„`docker`ï¼Œ`docker-compose`å’Œ`docker-machine`ã€‚
 
-[Docker¹¤¾ßÏä](https://www.docker.com/products/docker-toolbox)Ìá¹©ÁË¼òµ¥µÄ·½·¨À´»ñÈ¡ÕâĞ©¹¤¾ß¡£
+[Dockerå·¥å…·ç®±](https://www.docker.com/products/docker-toolbox)æä¾›äº†ç®€å•çš„æ–¹æ³•æ¥è·å–è¿™äº›å·¥å…·ã€‚
 
-**µÚ2²½£ºÉèÖÃDocker Machine**
+**ç¬¬2æ­¥ï¼šè®¾ç½®Docker Machine**
 
-Ê×ÏÈÈÃÎÒÃÇ´´½¨Ò»¸öĞÂµÄ»úÆ÷À´ÈİÄÉÈİÆ÷£º
+é¦–å…ˆè®©æˆ‘ä»¬åˆ›å»ºä¸€ä¸ªæ–°çš„æœºå™¨æ¥å®¹çº³å®¹å™¨ï¼š
 
 ```
 $ docker-machine create --driver virtualbox default
 $ eval $(docker-machine env default)
 ```
 
-**µÚ3²½£º½¨Á¢±¾µØEnvoy¿ËÂ¡²Ö¿â£¬²¢Æô¶¯ËùÓĞµÄÈİÆ÷**
+**ç¬¬3æ­¥ï¼šå»ºç«‹æœ¬åœ°Envoyå…‹éš†ä»“åº“ï¼Œå¹¶å¯åŠ¨æ‰€æœ‰çš„å®¹å™¨**
 
-Èç¹ûÄã»¹Ã»ÓĞ¿ËÂ¡Envoy²Ö¿â£¬ÇëÓÃgit¿ËÂ¡`git clone git@github.com:envoyproxy/envoy`»òÕß`git clone https://github.com/envoyproxy/envoy.git`£º
+å¦‚æœä½ è¿˜æ²¡æœ‰å…‹éš†Envoyä»“åº“ï¼Œè¯·ç”¨gitå…‹éš†`git clone git@github.com:envoyproxy/envoy`æˆ–è€…`git clone https://github.com/envoyproxy/envoy.git`ï¼š
 
 ```
 $ pwd
@@ -43,11 +43,11 @@ example_service2_1      /bin/sh -c /usr/local/bin/ ...    Up       80/tcp
 example_front-envoy_1   /bin/sh -c /usr/local/bin/ ...    Up       0.0.0.0:8000->80/tcp, 0.0.0.0:8001->8001/tcp
 ```
 
-**µÚ4²½£º²âÊÔEnvoyµÄÂ·ÓÉ¹¦ÄÜ**
+**ç¬¬4æ­¥ï¼šæµ‹è¯•Envoyçš„è·¯ç”±åŠŸèƒ½**
 
-ÄúÏÖÔÚ¿ÉÒÔÍ¨¹ıÇ°¶ËEnvoyÏòÁ½¸ö·şÎñ·¢ËÍÇëÇó¡£
+æ‚¨ç°åœ¨å¯ä»¥é€šè¿‡å‰ç«¯Envoyå‘ä¸¤ä¸ªæœåŠ¡å‘é€è¯·æ±‚ã€‚
 
-¶ÔÓÚservice1£º
+å¯¹äºservice1ï¼š
 
 ```
 $ curl -v $(docker-machine ip default):8000/service/1
@@ -70,7 +70,7 @@ Hello from behind Envoy (service 1)! hostname: f26027f1ce28 resolvedhostname: 17
 * Connection #0 to host 192.168.99.100 left intact
 ```
 
-¶ÔÓÚservice2£º
+å¯¹äºservice2ï¼š
 
 ```
 $ curl -v $(docker-machine ip default):8000/service/2
@@ -93,11 +93,11 @@ Hello from behind Envoy (service 2)! hostname: 92f4a3737bbc resolvedhostname: 17
 * Connection #0 to host 192.168.99.100 left intact
 ```
 
-Çë×¢Òâ£¬Ã¿¸öÇëÇóÔÚ·¢ËÍ¸øÇ°¶ËEnvoyÊ±£¬ÒÑÕıÈ·Â·ÓÉµ½ÏàÓ¦µÄÓ¦ÓÃ³ÌĞò¡£
+è¯·æ³¨æ„ï¼Œæ¯ä¸ªè¯·æ±‚åœ¨å‘é€ç»™å‰ç«¯Envoyæ—¶ï¼Œå·²æ­£ç¡®è·¯ç”±åˆ°ç›¸åº”çš„åº”ç”¨ç¨‹åºã€‚
 
-**µÚ5²½£º²âÊÔEnvoyµÄ¸ºÔØ¾ùºâÄÜÁ¦**
+**ç¬¬5æ­¥ï¼šæµ‹è¯•Envoyçš„è´Ÿè½½å‡è¡¡èƒ½åŠ›**
 
-ÏÖÔÚÀ©Õ¹ÎÒÃÇµÄservice1½ÚµãÀ´ÑİÊ¾EnvoyµÄ¼¯ÈºÄÜÁ¦¡£
+ç°åœ¨æ‰©å±•æˆ‘ä»¬çš„service1èŠ‚ç‚¹æ¥æ¼”ç¤ºEnvoyçš„é›†ç¾¤èƒ½åŠ›ã€‚
 
 ```
 $ docker-compose scale service1=3
@@ -105,7 +105,7 @@ Creating and starting example_service1_2 ... done
 Creating and starting example_service1_3 ... done
 ```
 
-ÏÖÔÚ£¬Èç¹ûÎÒÃÇ¶à´ÎÏòservice1·¢ËÍÇëÇó£¬Ç°¶ËEnvoy»á½«ÇëÇóÍ¨¹ı¸ºÔØ¾ùºâ·¢¸øÈı¸öservice1·şÎñ£º
+ç°åœ¨ï¼Œå¦‚æœæˆ‘ä»¬å¤šæ¬¡å‘service1å‘é€è¯·æ±‚ï¼Œå‰ç«¯Envoyä¼šå°†è¯·æ±‚é€šè¿‡è´Ÿè½½å‡è¡¡å‘ç»™ä¸‰ä¸ªservice1æœåŠ¡ï¼š
 
 ```
 $ curl -v $(docker-machine ip default):8000/service/1
@@ -164,9 +164,9 @@ Hello from behind Envoy (service 1)! hostname: f26027f1ce28 resolvedhostname: 17
 * Connection #0 to host 192.168.99.100 left intact
 ```
 
-**µÚ6²½£º½øÈëÈİÆ÷¿ªÆôcurl·şÎñ**
+**ç¬¬6æ­¥ï¼šè¿›å…¥å®¹å™¨å¼€å¯curlæœåŠ¡**
 
-³ıÁËÊ¹ÓÃÖ÷»úÉÏµÄcurlÍâ£¬Äú»¹¿ÉÒÔ×Ô¼ºÊäÈëÈİÆ÷²¢´ÓÀïÃæcurl¡£ÒªÊäÈëÒ»¸öÈİÆ÷¾µÏñ£¬Äã¿ÉÒÔÊ¹ÓÃ`docker-compose exec <container_name> /bin/bash`¡£ÀıÈç£¬ÎÒÃÇ¿ÉÒÔ½øÈë`front-envoy`ÈİÆ÷£¬²¢ÔÚÖ´ĞĞ±¾µØµÄcurl·şÎñ£º
+é™¤äº†ä½¿ç”¨ä¸»æœºä¸Šçš„curlå¤–ï¼Œæ‚¨è¿˜å¯ä»¥è‡ªå·±è¾“å…¥å®¹å™¨å¹¶ä»é‡Œé¢curlã€‚è¦è¾“å…¥ä¸€ä¸ªå®¹å™¨é•œåƒï¼Œä½ å¯ä»¥ä½¿ç”¨`docker-compose exec <container_name> /bin/bash`ã€‚ä¾‹å¦‚ï¼Œæˆ‘ä»¬å¯ä»¥è¿›å…¥`front-envoy`å®¹å™¨ï¼Œå¹¶åœ¨æ‰§è¡Œæœ¬åœ°çš„curlæœåŠ¡ï¼š
 
 ```
 $ docker-compose exec front-envoy /bin/bash
@@ -180,9 +180,9 @@ root@81288499f9d7:/# curl localhost:80/service/2
 Hello from behind Envoy (service 2)! hostname: 92f4a3737bbc resolvedhostname: 172.19.0.2
 ```
 
-**µÚ7²½£º½øÈëÈİÆ÷ºÍÊ¹ÓÃcurl¹ÜÀí**
+**ç¬¬7æ­¥ï¼šè¿›å…¥å®¹å™¨å’Œä½¿ç”¨curlç®¡ç†**
 
-µ±EnvoyÔËĞĞÊ±£¬ËüÒ²½«`admin`Á¬½Óµ½ËùĞèµÄ¶Ë¿Ú¡£ÔÚÊ¾ÀıÅäÖÃ`admin`±»°ó¶¨µ½`8001`¶Ë¿Ú.ÎÒÃÇ¿ÉÒÔ`curl`Ëü»ñµÃÓĞÓÃµÄĞÅÏ¢¡£ÀıÈç£¬Äú¿ÉÒÔ`curl` `/server_info`À´»ñÈ¡ÓĞ¹ØÄúÕıÔÚÔËĞĞµÄEnvoy°æ±¾ĞÅÏ¢¡£ÁíÍâ£¬Äã¿ÉÒÔ¡¤curl¡¤ ¡¤/stats¡¤µÃµ½Í³¼ÆÊı¾İ¡£ÀıÈçÔÚ`frontenvoy`ÀïÃæÎÒÃÇ¿ÉÒÔµÃµ½£º
+å½“Envoyè¿è¡Œæ—¶ï¼Œå®ƒä¹Ÿå°†`admin`è¿æ¥åˆ°æ‰€éœ€çš„ç«¯å£ã€‚åœ¨ç¤ºä¾‹é…ç½®`admin`è¢«ç»‘å®šåˆ°`8001`ç«¯å£.æˆ‘ä»¬å¯ä»¥`curl`å®ƒè·å¾—æœ‰ç”¨çš„ä¿¡æ¯ã€‚ä¾‹å¦‚ï¼Œæ‚¨å¯ä»¥`curl` `/server_info`æ¥è·å–æœ‰å…³æ‚¨æ­£åœ¨è¿è¡Œçš„Envoyç‰ˆæœ¬ä¿¡æ¯ã€‚å¦å¤–ï¼Œä½ å¯ä»¥Â·curlÂ· Â·/statsÂ·å¾—åˆ°ç»Ÿè®¡æ•°æ®ã€‚ä¾‹å¦‚åœ¨`frontenvoy`é‡Œé¢æˆ‘ä»¬å¯ä»¥å¾—åˆ°ï¼š
 
 ```
 $ docker-compose exec front-envoy /bin/bash
@@ -209,8 +209,8 @@ cluster.service2.upstream_rq_total: 2
 ...
 ```
 
-Çë×¢Òâ£¬ÎÒÃÇ»¹¿ÉÒÔ»ñµÃÉÏÓÎÈº¼¯µÄ³ÉÔ±ÊıÁ¿£¬Íê³ÉµÄÇëÇóÊıÁ¿£¬ÓĞ¹ØhttpÈëÕ¾µÄĞÅÏ¢ÒÔ¼°ÆäËû´óÁ¿ÓĞÓÃµÄÍ³¼ÆĞÅÏ¢¡£
+è¯·æ³¨æ„ï¼Œæˆ‘ä»¬è¿˜å¯ä»¥è·å¾—ä¸Šæ¸¸ç¾¤é›†çš„æˆå‘˜æ•°é‡ï¼Œå®Œæˆçš„è¯·æ±‚æ•°é‡ï¼Œæœ‰å…³httpå…¥ç«™çš„ä¿¡æ¯ä»¥åŠå…¶ä»–å¤§é‡æœ‰ç”¨çš„ç»Ÿè®¡ä¿¡æ¯ã€‚
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../Sandboxes.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../Sandboxes.md)
+- [é¦–é¡µç›®å½•](../../README.md)
