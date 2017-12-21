@@ -1,13 +1,13 @@
-## ËÙÂÊÏŞÖÆ·şÎñ
+## é€Ÿç‡é™åˆ¶æœåŠ¡
 
-ËÙÂÊÏŞÖÆ·şÎñÅäÖÃÖ¸¶¨£¬EnvoyÔÚĞèÒª×÷³öÈ«¾ÖËÙÂÊÏŞÖÆ¾ö²ßÊ±£¬ÓëÖ®½»»¥µÄÈ«¾ÖÏŞËÙ·şÎñ¡£Èç¹ûÃ»ÓĞÅäÖÃËÙÂÊÏŞÖÆ·şÎñ£¬Ôò»áÊ¹ÓÃ¡°null¡±·şÎñ£¬Èç¹ûµ÷ÓÃËü½«×ÜÊÇ·µ»ØOK¡£
+é€Ÿç‡é™åˆ¶æœåŠ¡é…ç½®æŒ‡å®šï¼ŒEnvoyåœ¨éœ€è¦ä½œå‡ºå…¨å±€é€Ÿç‡é™åˆ¶å†³ç­–æ—¶ï¼Œä¸ä¹‹äº¤äº’çš„å…¨å±€é™é€ŸæœåŠ¡ã€‚å¦‚æœæ²¡æœ‰é…ç½®é€Ÿç‡é™åˆ¶æœåŠ¡ï¼Œåˆ™ä¼šä½¿ç”¨â€œnullâ€æœåŠ¡ï¼Œå¦‚æœè°ƒç”¨å®ƒå°†æ€»æ˜¯è¿”å›OKã€‚
 
-- [v1 API ²Î¿¼](../v1APIreference/Ratelimitservice.md)
-- [v2 API ²Î¿¼](../v2APIreference/Bootstrap.md)
+- [v1 API å‚è€ƒ](../v1APIreference/Ratelimitservice.md)
+- [v2 API å‚è€ƒ](../v2APIreference/Bootstrap.md)
 
 ### gRPC IDL
-ËÙÂÊÏŞÖÆ·şÎñÖ§³Ö[/source/common/ratelimit/ratelimit.proto](https://github.com/envoyproxy/envoy/blob/master//source/common/ratelimit/ratelimit.proto)ÖĞÖ¸¶¨µÄgRPC IDL¡£ÓĞ¹Ø¸ü¶à¹ØÓÚAPI¹¤×÷µÄĞÅÏ¢£¬Çë²ÎÔÄIDLÎÄµµ¡£Çë²ÎÔÄLyftµÄ[²Î¿¼ÊµÏÖ](https://github.com/lyft/ratelimit)¡£
+é€Ÿç‡é™åˆ¶æœåŠ¡æ”¯æŒ[/source/common/ratelimit/ratelimit.proto](https://github.com/envoyproxy/envoy/blob/master//source/common/ratelimit/ratelimit.proto)ä¸­æŒ‡å®šçš„gRPC IDLã€‚æœ‰å…³æ›´å¤šå…³äºAPIå·¥ä½œçš„ä¿¡æ¯ï¼Œè¯·å‚é˜…IDLæ–‡æ¡£ã€‚è¯·å‚é˜…Lyftçš„[å‚è€ƒå®ç°](https://github.com/lyft/ratelimit)ã€‚
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../Configurationreference.md)
-- [Ê×Ò³Ä¿Â¼](../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../Configurationreference.md)
+- [é¦–é¡µç›®å½•](../README.md)
