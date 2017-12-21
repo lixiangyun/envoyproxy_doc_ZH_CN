@@ -1,36 +1,36 @@
 ## Lua
 
-**×¢Òâ£ºLua½Å±¾HTTP¹ýÂËÆ÷ÊÇÊµÑéÐÔµÄ¡£ÔÚÉú²úÖÐÊ¹ÓÃÐèÒªÄú×Ôµ£·çÏÕ¡£ËüÕýÔÚ±»¹«²¼£¬ÒÔ±ã¶Ô±©Â¶µÄAPI½øÐÐ³õ²½·´À¡£¬²¢½øÐÐ½øÒ»²½µÄ¿ª·¢£¬²âÊÔºÍÑéÖ¤¡£µ±ÎÒÃÇÈÏÎªLua¹ýÂËÆ÷ÒÑ¾­ÊÜµ½×ã¹»µÄAPIÎÈ¶¨ÐÔ²âÊÔ£¬Í¨³£³ÆÆäÎªÉú²ú×¼±¸¾ÍÐ÷Ê±£¬¸Ã¾¯¸æ½«±»ÒÆ³ý¡£**
+**æ³¨æ„ï¼šLuaè„šæœ¬HTTPè¿‡æ»¤å™¨æ˜¯å®žéªŒæ€§çš„ã€‚åœ¨ç”Ÿäº§ä¸­ä½¿ç”¨éœ€è¦æ‚¨è‡ªæ‹…é£Žé™©ã€‚å®ƒæ­£åœ¨è¢«å…¬å¸ƒï¼Œä»¥ä¾¿å¯¹æš´éœ²çš„APIè¿›è¡Œåˆæ­¥åé¦ˆï¼Œå¹¶è¿›è¡Œè¿›ä¸€æ­¥çš„å¼€å‘ï¼Œæµ‹è¯•å’ŒéªŒè¯ã€‚å½“æˆ‘ä»¬è®¤ä¸ºLuaè¿‡æ»¤å™¨å·²ç»å—åˆ°è¶³å¤Ÿçš„APIç¨³å®šæ€§æµ‹è¯•ï¼Œé€šå¸¸ç§°å…¶ä¸ºç”Ÿäº§å‡†å¤‡å°±ç»ªæ—¶ï¼Œè¯¥è­¦å‘Šå°†è¢«ç§»é™¤ã€‚**
 
 
-### ¸ÅÊö
-HTTP Lua¹ýÂËÆ÷ÔÊÐíÔÚÇëÇóºÍÏìÓ¦Á÷³ÌÖÐÔËÐÐLua½Å±¾¡£ÔÚÔËÐÐÊ±Ê¹ÓÃ[LuaJIT](http://luajit.org/)¡£ÕýÒòÎªÈç´Ë£¬Ö§³ÖµÄLua°æ±¾´ó²¿·ÖÊÇ5.1£¬¾ßÓÐÒ»Ð©5.2µÄÌØÐÔ¡£ÓÐ¹Ø¸ü¶àÏêÏ¸ÐÅÏ¢£¬Çë²ÎÔÄ[LuaJITÎÄµµ](http://luajit.org/extensions.html)¡£
+### æ¦‚è¿°
+HTTP Luaè¿‡æ»¤å™¨å…è®¸åœ¨è¯·æ±‚å’Œå“åº”æµç¨‹ä¸­è¿è¡ŒLuaè„šæœ¬ã€‚åœ¨è¿è¡Œæ—¶ä½¿ç”¨[LuaJIT](http://luajit.org/)ã€‚æ­£å› ä¸ºå¦‚æ­¤ï¼Œæ”¯æŒçš„Luaç‰ˆæœ¬å¤§éƒ¨åˆ†æ˜¯5.1ï¼Œå…·æœ‰ä¸€äº›5.2çš„ç‰¹æ€§ã€‚æœ‰å…³æ›´å¤šè¯¦ç»†ä¿¡æ¯ï¼Œè¯·å‚é˜…[LuaJITæ–‡æ¡£](http://luajit.org/extensions.html)ã€‚
 
-¸Ã¹ýÂËÆ÷½öÖ§³ÖÔÚÅäÖÃÖÐÖ±½Ó¼ÓÔØLua´úÂë¡£Èç¹ûÐèÒª±¾µØÎÄ¼þÏµÍ³´úÂë£¬Ôò¿ÉÒÔÊ¹ÓÃ¼òµ¥µÄÄÚÁª½Å±¾´Ó±¾µØ»·¾³¼ÓÔØ´úÂëµÄÆäÓà²¿·Ö¡£
+è¯¥è¿‡æ»¤å™¨ä»…æ”¯æŒåœ¨é…ç½®ä¸­ç›´æŽ¥åŠ è½½Luaä»£ç ã€‚å¦‚æžœéœ€è¦æœ¬åœ°æ–‡ä»¶ç³»ç»Ÿä»£ç ï¼Œåˆ™å¯ä»¥ä½¿ç”¨ç®€å•çš„å†…è”è„šæœ¬ä»Žæœ¬åœ°çŽ¯å¢ƒåŠ è½½ä»£ç çš„å…¶ä½™éƒ¨åˆ†ã€‚
 
-¹ýÂËÆ÷ºÍÖ§³ÖLuaÊÇ»ùÓÚÈçÏÂ¸ß¼¶Éè¼Æ£º
+è¿‡æ»¤å™¨å’Œæ”¯æŒLuaæ˜¯åŸºäºŽå¦‚ä¸‹é«˜çº§è®¾è®¡ï¼š
 
-- ËùÓÐLua»·¾³¶¼ÊÇÃ¿¸ö¹¤×÷ÕßÏß³Ì¡£ÕâÒâÎ¶×ÅÃ»ÓÐÕæÕýµÄÈ«¾ÖÊý¾Ý¡£ÈÎºÎÔÚ¼ÓÔØÊ±´´½¨ºÍÌî³äµÄÈ«¾Ö±äÁ¿ÔÚ¹¤×÷Ïß³ÌÖ®¼äÏà»¥¸ôÀë¡£ÕæÕýµÄÈ«¾ÖÖ§³Ö¿ÉÄÜ»áÔÚÎ´À´Í¨¹ýAPIÌí¼Ó¡£
-- ËùÓÐ½Å±¾¶¼ÒÔÐ­³ÌÔËÐÐ¡£ÕâÒâÎ¶×Å¼´Ê¹ËüÃÇ¿ÉÄÜÖ´ÐÐ¸´ÔÓµÄÒì²½ÈÎÎñ£¬ËüÃÇÒ²ÊÇÒÔÍ¬²½ÑùÊ½±àÐ´µÄ¡£ÕâÊ¹µÃ½Å±¾¸üÈÝÒ×±àÐ´¡£ËùÓÐÍøÂç/Òì²½´¦ÀíÓÉEnvoyÍ¨¹ýÒ»×éAPIÖ´ÐÐ¡£Envoy½«×ÃÇéÇÐ»»(yield)½Å±¾£¬²¢ÔÚÒì²½ÈÎÎñÍê³ÉÊ±»Ö¸´½Å±¾¡£
-- ²»ÒªÔÚ½Å±¾ÖÐÖ´ÐÐ×èÈû²Ù×÷¡£ÒòÎªEnvoy API»áÓÃÓÚËùÓÐIO£¬ÒÔ¼°ÐÔÄÜÏà¹ØµÄÖØÒª²Ù×÷¡£
+- æ‰€æœ‰LuaçŽ¯å¢ƒéƒ½æ˜¯æ¯ä¸ªå·¥ä½œè€…çº¿ç¨‹ã€‚è¿™æ„å‘³ç€æ²¡æœ‰çœŸæ­£çš„å…¨å±€æ•°æ®ã€‚ä»»ä½•åœ¨åŠ è½½æ—¶åˆ›å»ºå’Œå¡«å……çš„å…¨å±€å˜é‡åœ¨å·¥ä½œçº¿ç¨‹ä¹‹é—´ç›¸äº’éš”ç¦»ã€‚çœŸæ­£çš„å…¨å±€æ”¯æŒå¯èƒ½ä¼šåœ¨æœªæ¥é€šè¿‡APIæ·»åŠ ã€‚
+- æ‰€æœ‰è„šæœ¬éƒ½ä»¥åç¨‹è¿è¡Œã€‚è¿™æ„å‘³ç€å³ä½¿å®ƒä»¬å¯èƒ½æ‰§è¡Œå¤æ‚çš„å¼‚æ­¥ä»»åŠ¡ï¼Œå®ƒä»¬ä¹Ÿæ˜¯ä»¥åŒæ­¥æ ·å¼ç¼–å†™çš„ã€‚è¿™ä½¿å¾—è„šæœ¬æ›´å®¹æ˜“ç¼–å†™ã€‚æ‰€æœ‰ç½‘ç»œ/å¼‚æ­¥å¤„ç†ç”±Envoyé€šè¿‡ä¸€ç»„APIæ‰§è¡Œã€‚Envoyå°†é…Œæƒ…åˆ‡æ¢(yield)è„šæœ¬ï¼Œå¹¶åœ¨å¼‚æ­¥ä»»åŠ¡å®Œæˆæ—¶æ¢å¤è„šæœ¬ã€‚
+- ä¸è¦åœ¨è„šæœ¬ä¸­æ‰§è¡Œé˜»å¡žæ“ä½œã€‚å› ä¸ºEnvoy APIä¼šç”¨äºŽæ‰€æœ‰IOï¼Œä»¥åŠæ€§èƒ½ç›¸å…³çš„é‡è¦æ“ä½œã€‚
 
 
-### Ä¿Ç°Ö§³Ö¸ß¼¶¹¦ÄÜ
-**×¢£ºÔ¤¼ÆËæ×ÅLua¹ýÂËÆ÷ÔÚÉú²úÖÐµÄÓ¦ÓÃ£¬ÒÔÏÂÁÐ±í½«Ëæ×ÅÊ±¼äµÄÍÆÒÆ¶øÀ©´ó·¶Î§¡£ÕâÐ©APIÒ»Ö±±£³ÖºÜÐ¡µÄÓÃÒâ¡£ÎªÁËÊ¹½Å±¾±àÐ´·Ç³£¼òµ¥ºÍ°²È«¡£Èô´æÔÚ·Ç³£¸´ÔÓ»ò¸ü¸ßÐÔÄÜµÄ³¡¾°£¬ÇëÊ¹ÓÃ±¾µØC++¹ýÂËÆ÷API¡£**
+### ç›®å‰æ”¯æŒé«˜çº§åŠŸèƒ½
+**æ³¨ï¼šé¢„è®¡éšç€Luaè¿‡æ»¤å™¨åœ¨ç”Ÿäº§ä¸­çš„åº”ç”¨ï¼Œä»¥ä¸‹åˆ—è¡¨å°†éšç€æ—¶é—´çš„æŽ¨ç§»è€Œæ‰©å¤§èŒƒå›´ã€‚è¿™äº›APIä¸€ç›´ä¿æŒå¾ˆå°çš„ç”¨æ„ã€‚ä¸ºäº†ä½¿è„šæœ¬ç¼–å†™éžå¸¸ç®€å•å’Œå®‰å…¨ã€‚è‹¥å­˜åœ¨éžå¸¸å¤æ‚æˆ–æ›´é«˜æ€§èƒ½çš„åœºæ™¯ï¼Œè¯·ä½¿ç”¨æœ¬åœ°C++è¿‡æ»¤å™¨APIã€‚**
 
-- ÔÚ´«ÊäµÄÇëÇó£¬ÏìÓ¦Á÷»òÁ½ÕßÍ¬Ê±£¬Ìá¹©Í·²¿£¬ÕýÎÄºÍÎ²²¿µÄ¼ì²é£»
-- ¶ÔÍ·²¿ºÍÎ²²¿½øÐÐÐÞ¸Ä£»
-- ×èÖ¹»òÕß»º³åÍêÕûµÄÇëÇó/ÏìÓ¦ÕýÎÄ£¬½øÐÐ¼ì²é£»
-- ¶ÔÉÏÓÎÖ÷»úÖ´ÐÐÒì²½HTTPµ÷ÓÃ¡£ÕâÑù¿ÉÒÔÔÚ»º³åÕýÎÄÊý¾ÝµÄÍ¬Ê±Ö´ÐÐ´¦Àí£¬ÒÔ±ãµ±µ÷ÓÃÍê³ÉÊ±£¬¿ÉÒÔÐÞ¸ÄÉÏÐÐÍ·²¿£»
-- Ö±½ÓÖ´ÐÐÏìÓ¦²¢Ìø¹ý½ÓÏÂÀ´µÄµü´ú¹ýÂËÆ÷¡£ÀýÈç£¬Ò»¸ö½Å±¾¿ÉÒÔ´´½¨Ò»¸öÉÏÓÎHTTPÈÏÖ¤µ÷ÓÃ£¬È»ºóÖ±½ÓÓÃ403ÏìÓ¦´úÂë½øÐÐÏìÓ¦¡£
+- åœ¨ä¼ è¾“çš„è¯·æ±‚ï¼Œå“åº”æµæˆ–ä¸¤è€…åŒæ—¶ï¼Œæä¾›å¤´éƒ¨ï¼Œæ­£æ–‡å’Œå°¾éƒ¨çš„æ£€æŸ¥ï¼›
+- å¯¹å¤´éƒ¨å’Œå°¾éƒ¨è¿›è¡Œä¿®æ”¹ï¼›
+- é˜»æ­¢æˆ–è€…ç¼“å†²å®Œæ•´çš„è¯·æ±‚/å“åº”æ­£æ–‡ï¼Œè¿›è¡Œæ£€æŸ¥ï¼›
+- å¯¹ä¸Šæ¸¸ä¸»æœºæ‰§è¡Œå¼‚æ­¥HTTPè°ƒç”¨ã€‚è¿™æ ·å¯ä»¥åœ¨ç¼“å†²æ­£æ–‡æ•°æ®çš„åŒæ—¶æ‰§è¡Œå¤„ç†ï¼Œä»¥ä¾¿å½“è°ƒç”¨å®Œæˆæ—¶ï¼Œå¯ä»¥ä¿®æ”¹ä¸Šè¡Œå¤´éƒ¨ï¼›
+- ç›´æŽ¥æ‰§è¡Œå“åº”å¹¶è·³è¿‡æŽ¥ä¸‹æ¥çš„è¿­ä»£è¿‡æ»¤å™¨ã€‚ä¾‹å¦‚ï¼Œä¸€ä¸ªè„šæœ¬å¯ä»¥åˆ›å»ºä¸€ä¸ªä¸Šæ¸¸HTTPè®¤è¯è°ƒç”¨ï¼Œç„¶åŽç›´æŽ¥ç”¨403å“åº”ä»£ç è¿›è¡Œå“åº”ã€‚
 
-### ÅäÖÃ
+### é…ç½®
 
-- [v1 API ²Î¿¼](../../v1APIreference/HTTPfilters/Lua.md)
-- [v2 API ²Î¿¼](../../v2APIreference/Filters/HTTPfilters/Lua.md)
+- [v1 API å‚è€ƒ](../../v1APIreference/HTTPfilters/Lua.md)
+- [v2 API å‚è€ƒ](../../v2APIreference/Filters/HTTPfilters/Lua.md)
 
-### ½Å±¾Ê¾Àý
-±¾½ÚÌá¹©ÁËÒ»Ð©Lua½Å±¾µÄÒ»Ð©¾ßÌåµÄÀý×Ó£¬×÷ÎªÒ»¸ö¸ü¼òµ¥½éÉÜºÍ¿ìËÙÈëÃÅ¡£ÓÐ¹ØÖ§³ÖµÄAPIµÄ¸ü¶àÏêÏ¸ÐÅÏ¢£¬Çë²ÎÔÄ[Á÷´¦ÀíAPI](#Á÷´¦ÀíAPI)¡£
+### è„šæœ¬ç¤ºä¾‹
+æœ¬èŠ‚æä¾›äº†ä¸€äº›Luaè„šæœ¬çš„ä¸€äº›å…·ä½“çš„ä¾‹å­ï¼Œä½œä¸ºä¸€ä¸ªæ›´ç®€å•ä»‹ç»å’Œå¿«é€Ÿå…¥é—¨ã€‚æœ‰å…³æ”¯æŒçš„APIçš„æ›´å¤šè¯¦ç»†ä¿¡æ¯ï¼Œè¯·å‚é˜…[æµå¤„ç†API](#æµå¤„ç†API)ã€‚
 
 ```
 -- Called on the request path.
@@ -90,9 +90,9 @@ function envoy_on_request(request_handle)
 end
 ```
 
-### Á÷´¦ÀíAPI
+### æµå¤„ç†API
 
-µ±EnvoyÔÚÅäÖÃÖÐ¼ÓÔØ½Å±¾Ê±£¬Ëü»á²éÕÒ½Å±¾ÖÐ¶¨ÒåµÄÁ½¸öÈ«¾Öº¯Êý£º
+å½“Envoyåœ¨é…ç½®ä¸­åŠ è½½è„šæœ¬æ—¶ï¼Œå®ƒä¼šæŸ¥æ‰¾è„šæœ¬ä¸­å®šä¹‰çš„ä¸¤ä¸ªå…¨å±€å‡½æ•°ï¼š
 
 ```
 function envoy_on_request(request_handle)
@@ -101,47 +101,47 @@ end
 function envoy_on_response(response_handle)
 end
 ```
-Ò»¸ö½Å±¾¿ÉÒÔ¶¨ÒåÕâÁ½¸öº¯ÊýÖÐµÄÒ»¸ö»òÁ½¸ö¡£ÔÚÇëÇóÂ·¾¶ÖÐ£¬Envoy½«ÔËÐÐ`envoy_on_request`º¯Êý×÷ÎªÒ»¸öÐ­³Ì£¬´«µÝÒ»¸öAPI¾ä±ú¡£ÔÚÏìÓ¦Â·¾¶ÖÐ£¬Envoy½«ÔËÐÐ`envoy_on_response`×÷ÎªÐ­³Ì£¬´«µÝÒ»¸öAPI¾ä±ú¡£
+ä¸€ä¸ªè„šæœ¬å¯ä»¥å®šä¹‰è¿™ä¸¤ä¸ªå‡½æ•°ä¸­çš„ä¸€ä¸ªæˆ–ä¸¤ä¸ªã€‚åœ¨è¯·æ±‚è·¯å¾„ä¸­ï¼ŒEnvoyå°†è¿è¡Œ`envoy_on_request`å‡½æ•°ä½œä¸ºä¸€ä¸ªåç¨‹ï¼Œä¼ é€’ä¸€ä¸ªAPIå¥æŸ„ã€‚åœ¨å“åº”è·¯å¾„ä¸­ï¼ŒEnvoyå°†è¿è¡Œ`envoy_on_response`ä½œä¸ºåç¨‹ï¼Œä¼ é€’ä¸€ä¸ªAPIå¥æŸ„ã€‚
 
-**×¢Òâ£ºÓëEnvoyµÄËùÓÐ½»»¥£¬¶¼ÊÇÍ¨¹ý´«ÊäÁ÷À´ÊµÏÖµÄ¡£Á÷¾ä±ú²»Ó¦¸Ã±»±£´æµ½ÈÎºÎÈ«¾Ö±äÁ¿£¬²»Ó¦¸ÃÔÚÐ­³ÌÖ®ÍâÊ¹ÓÃ¡£Èç¹û¾ä±úÊ¹ÓÃ²»µ±£¬Envoy½«»áÊ§°Ü¡£**
+**æ³¨æ„ï¼šä¸ŽEnvoyçš„æ‰€æœ‰äº¤äº’ï¼Œéƒ½æ˜¯é€šè¿‡ä¼ è¾“æµæ¥å®žçŽ°çš„ã€‚æµå¥æŸ„ä¸åº”è¯¥è¢«ä¿å­˜åˆ°ä»»ä½•å…¨å±€å˜é‡ï¼Œä¸åº”è¯¥åœ¨åç¨‹ä¹‹å¤–ä½¿ç”¨ã€‚å¦‚æžœå¥æŸ„ä½¿ç”¨ä¸å½“ï¼ŒEnvoyå°†ä¼šå¤±è´¥ã€‚**
 
-Ö§³ÖÒÔÏÂÁ÷´¦Àí·½·¨£º
+æ”¯æŒä»¥ä¸‹æµå¤„ç†æ–¹æ³•ï¼š
 
 - **headers()**</br>
 ```
 headers = handle:headers()
 ```
-·µ»ØÁ÷µÄÍ·²¿¶ÔÏó¡£Ö»ÒªÍ·²¿»¹Ã»ÓÐ±»·¢ËÍµ½ÏÂÒ»¸ö¹ýÂËÆ÷µÄÍ·²¿Á´ÖÐ£¬¸ÃÍ·²¿¾Í¿ÉÒÔ±»ÐÞ¸Ä¡£ÀýÈç£¬¿ÉÒÔÔÚ`httpCall()`Ö®ºó»òÔÚ`body()`µ÷ÓÃ·µ»ØÖ®ºóÐÞ¸ÄËüÃÇ¡£Èç¹ûÔÚÈÎºÎÆäËûÇé¿öÏÂÐÞ¸ÄÁËÍ·²¿£¬½Å±¾½«»áÊ§°Ü¡£
+è¿”å›žæµçš„å¤´éƒ¨å¯¹è±¡ã€‚åªè¦å¤´éƒ¨è¿˜æ²¡æœ‰è¢«å‘é€åˆ°ä¸‹ä¸€ä¸ªè¿‡æ»¤å™¨çš„å¤´éƒ¨é“¾ä¸­ï¼Œè¯¥å¤´éƒ¨å°±å¯ä»¥è¢«ä¿®æ”¹ã€‚ä¾‹å¦‚ï¼Œå¯ä»¥åœ¨`httpCall()`ä¹‹åŽæˆ–åœ¨`body()`è°ƒç”¨è¿”å›žä¹‹åŽä¿®æ”¹å®ƒä»¬ã€‚å¦‚æžœåœ¨ä»»ä½•å…¶ä»–æƒ…å†µä¸‹ä¿®æ”¹äº†å¤´éƒ¨ï¼Œè„šæœ¬å°†ä¼šå¤±è´¥ã€‚
 
- ·µ»ØÒ»¸ö[Í·²¿¶ÔÏó](#Í·²¿¶ÔÏóAPI)¡£
+ è¿”å›žä¸€ä¸ª[å¤´éƒ¨å¯¹è±¡](#å¤´éƒ¨å¯¹è±¡API)ã€‚
 
 - **body()**</br>
 ```
 body = handle:body()
 ```
-·µ»ØÁ÷µÄÖ÷Ìå£¨body£©¡£Õâ¸öµ÷ÓÃ½«Ê¹µÄEnvoyÇÐ»»£¨yield£©½Å±¾£¬Ö±µ½Õû¸öÖ÷Ìå±»»º³å¡£Çë×¢Òâ£¬ËùÓÐ»º³å±ØÐë×ñÊØÁ÷Á¿¿ØÖÆÕþ²ß¡£Envoy²»»á»º³å³¬¹ýÁ¬½Ó¹ÜÀíÆ÷ËùÔÊÐíµÄÊý¾Ý·¶Î§¡£
+è¿”å›žæµçš„ä¸»ä½“ï¼ˆbodyï¼‰ã€‚è¿™ä¸ªè°ƒç”¨å°†ä½¿çš„Envoyåˆ‡æ¢ï¼ˆyieldï¼‰è„šæœ¬ï¼Œç›´åˆ°æ•´ä¸ªä¸»ä½“è¢«ç¼“å†²ã€‚è¯·æ³¨æ„ï¼Œæ‰€æœ‰ç¼“å†²å¿…é¡»éµå®ˆæµé‡æŽ§åˆ¶æ”¿ç­–ã€‚Envoyä¸ä¼šç¼“å†²è¶…è¿‡è¿žæŽ¥ç®¡ç†å™¨æ‰€å…è®¸çš„æ•°æ®èŒƒå›´ã€‚
 
- ·µ»ØÒ»¸ö[»º³å¶ÔÏó](#»º´æAPI)¡£
+ è¿”å›žä¸€ä¸ª[ç¼“å†²å¯¹è±¡](#ç¼“å­˜API)ã€‚
 
 - **bodyChunks()**</br>
 ```
 iterator = handle:bodyChunks()
 ```
-·µ»ØÒ»¸öµü´úÆ÷£¬Ëü¿ÉÒÔÓÃÀ´µü´úËùÓÐ½ÓÊÕµ½µÄÕýÎÄÊý¾Ý¿é¡£Envoy½«ÔÚ´¦Àí´ó¿éÊý¾ÝÊ±£¬ÇÐ»»(yield)½Å±¾£¬µ«²»»á»º³åËüÃÇ¡£Õâ¿ÉÒÔÓÃÀ´¼ì²éÊý¾ÝÁ÷¡£
+è¿”å›žä¸€ä¸ªè¿­ä»£å™¨ï¼Œå®ƒå¯ä»¥ç”¨æ¥è¿­ä»£æ‰€æœ‰æŽ¥æ”¶åˆ°çš„æ­£æ–‡æ•°æ®å—ã€‚Envoyå°†åœ¨å¤„ç†å¤§å—æ•°æ®æ—¶ï¼Œåˆ‡æ¢(yield)è„šæœ¬ï¼Œä½†ä¸ä¼šç¼“å†²å®ƒä»¬ã€‚è¿™å¯ä»¥ç”¨æ¥æ£€æŸ¥æ•°æ®æµã€‚
 ```
 for chunk in request_handle:bodyChunks() do
   request_handle:log(0, chunk:length())
 end
 ```
-Ã¿´Îµü´úÆ÷·µ»Ø¶¼ÊÇÒ»¸ö[»º³å¶ÔÏó](#»º´æAPI)¡£
+æ¯æ¬¡è¿­ä»£å™¨è¿”å›žéƒ½æ˜¯ä¸€ä¸ª[ç¼“å†²å¯¹è±¡](#ç¼“å­˜API)ã€‚
 
 - **trailers()**</br>
 ```
 trailers = handle:trailers()
 ```
-·µ»ØÁ÷µÄÎ²²¿¡£Èç¹ûÃ»ÓÐÎ²²¿£¬¿ÉÄÜ»á·µ»ØÁã¡£Î²²¿ÔÚ·¢ËÍµ½ÏÂÒ»¸ö¹ýÂËÆ÷Ö®Ç°¿ÉÄÜ»á±»ÐÞ¸Ä¡£
+è¿”å›žæµçš„å°¾éƒ¨ã€‚å¦‚æžœæ²¡æœ‰å°¾éƒ¨ï¼Œå¯èƒ½ä¼šè¿”å›žé›¶ã€‚å°¾éƒ¨åœ¨å‘é€åˆ°ä¸‹ä¸€ä¸ªè¿‡æ»¤å™¨ä¹‹å‰å¯èƒ½ä¼šè¢«ä¿®æ”¹ã€‚
 
- ·µ»ØÒ»¸ö[Í·±ê¶ÔÏó](#Í·²¿¶ÔÏóAPI)¡£
+ è¿”å›žä¸€ä¸ª[å¤´æ ‡å¯¹è±¡](#å¤´éƒ¨å¯¹è±¡API)ã€‚
 
 - **log*()**</br>
 ```
@@ -152,21 +152,21 @@ handle:logWarn(message)
 handle:logErr(message)
 handle:logCritical(message)
 ```
-Ê¹ÓÃEnvoyµÄÓ¦ÓÃ³ÌÐòÈÕÖ¾¼ÇÂ¼ÏûÏ¢¡£²ÎÊý`message`ÊÇÐèÒª¼ÇÂ¼µÄ×Ö·û´®¡£
+ä½¿ç”¨Envoyçš„åº”ç”¨ç¨‹åºæ—¥å¿—è®°å½•æ¶ˆæ¯ã€‚å‚æ•°`message`æ˜¯éœ€è¦è®°å½•çš„å­—ç¬¦ä¸²ã€‚
 
 - **httpCall()**</br>
 ```
 headers, body = handle:httpCall(cluster, headers, body, timeout)
 ```
-¶ÔÉÏÓÎÖ÷»ú½øÐÐHTTPµ÷ÓÃ¡£Envoy½«ÇÐ»»½Å±¾£¬Ö±µ½µ÷ÓÃÍê³É»òÓÐ´íÎó¡£`cluster`ÊÇ¶ÔÓ¦µ½Èº¼¯¹ÜÀíÆ÷ÅäÖÃµÄÈº¼¯×Ö·û´®¡£`headers`ÊÇÒª·¢ËÍµÄ`key/value`¼üÖµ¶ÔµÄÁÐ±í¡£Çë×¢Òâ£¬±ØÐëÉèÖÃ`:method`£¬`:path`ºÍ`:authority`Í·²¿¡£`body`ÊÇ¿ÉÑ¡×Ö·û´®£¬ÐèÒª·¢ËÍµÄÊý¾ÝÖ÷Ìå¡£`timeout`ÊÇÒ»¸öÕûÊý£¬Ö¸¶¨ÒÔºÁÃëÎªµ¥Î»µÄµ÷ÓÃ³¬Ê±¡£
+å¯¹ä¸Šæ¸¸ä¸»æœºè¿›è¡ŒHTTPè°ƒç”¨ã€‚Envoyå°†åˆ‡æ¢è„šæœ¬ï¼Œç›´åˆ°è°ƒç”¨å®Œæˆæˆ–æœ‰é”™è¯¯ã€‚`cluster`æ˜¯å¯¹åº”åˆ°ç¾¤é›†ç®¡ç†å™¨é…ç½®çš„ç¾¤é›†å­—ç¬¦ä¸²ã€‚`headers`æ˜¯è¦å‘é€çš„`key/value`é”®å€¼å¯¹çš„åˆ—è¡¨ã€‚è¯·æ³¨æ„ï¼Œå¿…é¡»è®¾ç½®`:method`ï¼Œ`:path`å’Œ`:authority`å¤´éƒ¨ã€‚`body`æ˜¯å¯é€‰å­—ç¬¦ä¸²ï¼Œéœ€è¦å‘é€çš„æ•°æ®ä¸»ä½“ã€‚`timeout`æ˜¯ä¸€ä¸ªæ•´æ•°ï¼ŒæŒ‡å®šä»¥æ¯«ç§’ä¸ºå•ä½çš„è°ƒç”¨è¶…æ—¶ã€‚
 
- ·µ»ØÊÇÏìÓ¦µÄ`headers`£¬ÒÔ¼°Æä`body`×Ö·û´®¡£Èç¹ûÃ»ÓÐÖ÷Ìå¿ÉÄÜÊÇ`null`¡£
+ è¿”å›žæ˜¯å“åº”çš„`headers`ï¼Œä»¥åŠå…¶`body`å­—ç¬¦ä¸²ã€‚å¦‚æžœæ²¡æœ‰ä¸»ä½“å¯èƒ½æ˜¯`null`ã€‚
 
 - **respond()**</br>
 ```
 handle:respond(headers, body)
 ```
-Á¢¼´×÷³öÏìÓ¦£¬²»Òª½øÐÐ½øÒ»²½µÄ¹ýÂËÆ÷µü´ú¡£´Ëµ÷ÓÃ½öÔÚÇëÇóÁ÷ÖÐÓÐÐ§¡£´ËÍâ£¬Ö»ÓÐÔÚÇëÇóÍ·»¹Ã»ÓÐ´«µÝ¸øºóÐø¹ýÂËÆ÷µÄÇé¿öÏÂ£¬ÏìÓ¦²ÅÊÇ¿ÉÄÜµÄ¡£ÒâË¼ÊÇ£¬ÏÂÃæµÄLua´úÂëÊÇ´íÎóµÄ£º
+ç«‹å³ä½œå‡ºå“åº”ï¼Œä¸è¦è¿›è¡Œè¿›ä¸€æ­¥çš„è¿‡æ»¤å™¨è¿­ä»£ã€‚æ­¤è°ƒç”¨ä»…åœ¨è¯·æ±‚æµä¸­æœ‰æ•ˆã€‚æ­¤å¤–ï¼Œåªæœ‰åœ¨è¯·æ±‚å¤´è¿˜æ²¡æœ‰ä¼ é€’ç»™åŽç»­è¿‡æ»¤å™¨çš„æƒ…å†µä¸‹ï¼Œå“åº”æ‰æ˜¯å¯èƒ½çš„ã€‚æ„æ€æ˜¯ï¼Œä¸‹é¢çš„Luaä»£ç æ˜¯é”™è¯¯çš„ï¼š
 ```
 function envoy_on_request(request_handle)
   for chunk in request_handle:bodyChunks() do
@@ -176,21 +176,21 @@ function envoy_on_request(request_handle)
   end
 end
 ```
-`headers`ÊÇÒª·¢ËÍµÄ¼üÖµ¶ÔµÄÁÐ±í¡£Çë×¢Òâ£¬±ØÐëÉèÖÃ`:status`Í·²¿¡£`body`ÊÇÒ»¸ö×Ö·û´®£¬×÷Îª¿ÉÑ¡µÄÏìÓ¦Ö÷Ìå£¬¿ÉÄÜÊÇ`nil`¡£
+`headers`æ˜¯è¦å‘é€çš„é”®å€¼å¯¹çš„åˆ—è¡¨ã€‚è¯·æ³¨æ„ï¼Œå¿…é¡»è®¾ç½®`:status`å¤´éƒ¨ã€‚`body`æ˜¯ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œä½œä¸ºå¯é€‰çš„å“åº”ä¸»ä½“ï¼Œå¯èƒ½æ˜¯`nil`ã€‚
 
-### Í·²¿¶ÔÏóAPI
+### å¤´éƒ¨å¯¹è±¡API
 
 - **add()**</br>
 ```
 headers:add(key, value)
 ```
-ÎªÍ·²¿¶ÔÏóÌí¼ÓÒ»¸öÍ·²¿¡£`key`ÊÇÌá¹©Í·²¿¼üµÄ×Ö·û´®¡£`value`ÊÇÒ»¸öÌá¹©Í·²¿ÖµµÄ×Ö·û´®¡£
+ä¸ºå¤´éƒ¨å¯¹è±¡æ·»åŠ ä¸€ä¸ªå¤´éƒ¨ã€‚`key`æ˜¯æä¾›å¤´éƒ¨é”®çš„å­—ç¬¦ä¸²ã€‚`value`æ˜¯ä¸€ä¸ªæä¾›å¤´éƒ¨å€¼çš„å­—ç¬¦ä¸²ã€‚
 
 - **get()**</br>
 ```
 headers:get(key)
 ```
-»ñÈ¡Í·²¿¶ÔÏóÍ·²¿Öµ£¬²ÎÊý`key`ÎªËù¶ÔÓ¦µÄÍ·²¿¼ü¡£·µ»ØÒ»¸ö×Ö·û´®×÷ÎªÍ·²¿Öµ£¬Èç¹ûÃ»ÓÐÕâÑùµÄÍ·²¿Ôò·µ»Ø`nil`¡£
+èŽ·å–å¤´éƒ¨å¯¹è±¡å¤´éƒ¨å€¼ï¼Œå‚æ•°`key`ä¸ºæ‰€å¯¹åº”çš„å¤´éƒ¨é”®ã€‚è¿”å›žä¸€ä¸ªå­—ç¬¦ä¸²ä½œä¸ºå¤´éƒ¨å€¼ï¼Œå¦‚æžœæ²¡æœ‰è¿™æ ·çš„å¤´éƒ¨åˆ™è¿”å›ž`nil`ã€‚
 
 
 - **__pairs()**</br>
@@ -198,34 +198,32 @@ headers:get(key)
 for key, value in pairs(headers) do
 end
 ```
-±éÀúÃ¿¸öÍ·²¿¼ü¡£·µ»ØµÄ`key`ÊÇÍ·²¿¼üµÄ×Ö·û´®¡£·µ»ØµÄ`value`ÊÇ¶ÔÓ¦µÄÍ·²¿Öµ×Ö·û´®¡£
+éåŽ†æ¯ä¸ªå¤´éƒ¨é”®ã€‚è¿”å›žçš„`key`æ˜¯å¤´éƒ¨é”®çš„å­—ç¬¦ä¸²ã€‚è¿”å›žçš„`value`æ˜¯å¯¹åº”çš„å¤´éƒ¨å€¼å­—ç¬¦ä¸²ã€‚
 
-    **×¢Òâ£ºÔÚµ±Ç°µÄÊµÏÖÖÐ£¬ÔÚµü´úÆÚ¼ä²»ÄÜÐÞ¸ÄÍ·²¿¡£ ÁíÍâ£¬Èç¹ûÐèÒªÔÚµü´úÖ®ºóÐÞ¸ÄÍ·²¿£¬Ôò±ØÐëÍê³Éµü´ú¡£ÒâÎ¶×Å£¬²»ÒªÊ¹ÓÃbreak»òÆäËû»úÖÆÌáÇ°ÍË³öÑ­»·¡£µ«Õâ¿ÉÄÜ»áÔÚÎ´À´°æ±¾ÖÐ½â³ýÕâ¸öÏÞÖÆ¡£**
+    **æ³¨æ„ï¼šåœ¨å½“å‰çš„å®žçŽ°ä¸­ï¼Œåœ¨è¿­ä»£æœŸé—´ä¸èƒ½ä¿®æ”¹å¤´éƒ¨ã€‚ å¦å¤–ï¼Œå¦‚æžœéœ€è¦åœ¨è¿­ä»£ä¹‹åŽä¿®æ”¹å¤´éƒ¨ï¼Œåˆ™å¿…é¡»å®Œæˆè¿­ä»£ã€‚æ„å‘³ç€ï¼Œä¸è¦ä½¿ç”¨breakæˆ–å…¶ä»–æœºåˆ¶æå‰é€€å‡ºå¾ªçŽ¯ã€‚ä½†è¿™å¯èƒ½ä¼šåœ¨æœªæ¥ç‰ˆæœ¬ä¸­è§£é™¤è¿™ä¸ªé™åˆ¶ã€‚**
 
 - **remove()**</br>
 ```
 headers:remove(key)
 ```
-É¾³ýÍ·²¿¼üÖµ¶Ô¡£Èë²Î`key`¶ÔÓ¦µÄÍ·²¿¼üÖµ½«»á±»É¾³ý¡£
+åˆ é™¤å¤´éƒ¨é”®å€¼å¯¹ã€‚å…¥å‚`key`å¯¹åº”çš„å¤´éƒ¨é”®å€¼å°†ä¼šè¢«åˆ é™¤ã€‚
 
 
-### »º´æAPI
+### ç¼“å­˜API
 
 - **length()**
 ```
 size = buffer:length()
 ```
-»ñÈ¡»º³åÇøµÄ´óÐ¡£¨ÒÔ×Ö½ÚÎªµ¥Î»£©¡£·µ»ØÒ»¸öÕûÊý¡£
+èŽ·å–ç¼“å†²åŒºçš„å¤§å°ï¼ˆä»¥å­—èŠ‚ä¸ºå•ä½ï¼‰ã€‚è¿”å›žä¸€ä¸ªæ•´æ•°ã€‚
 
 - **getBytes()**
 ```
 buffer:getBytes(index, length)
 ```
-´Ó»º³åÇø»ñÈ¡×Ö½Ú¡£Ä¬ÈÏÇé¿öÏÂ£¬Envoy²»»á½«ËùÓÐ»º³åÇø×Ö½Ú¸´ÖÆµ½LuaÖÐ¡£Õâ½«µ¼ÖÂÒ»¸ö»º³åÇø¶Î±»¸´ÖÆ¡£`index`ÊÇÒ»¸öÕûÊý£¬²¢Ìá¹©Òª¸´ÖÆµÄ»º³åÇøÆðÊ¼Ë÷Òý¡£`length`ÊÇÒ»¸öÕûÊý²¢Ìá¹©Òª¸´ÖÆµÄ»º³åÇø³¤¶È¡£`index`+`length`±ØÐëÐ¡ÓÚ»º³åÇø³¤¶È¡£
+ä»Žç¼“å†²åŒºèŽ·å–å­—èŠ‚ã€‚é»˜è®¤æƒ…å†µä¸‹ï¼ŒEnvoyä¸ä¼šå°†æ‰€æœ‰ç¼“å†²åŒºå­—èŠ‚å¤åˆ¶åˆ°Luaä¸­ã€‚è¿™å°†å¯¼è‡´ä¸€ä¸ªç¼“å†²åŒºæ®µè¢«å¤åˆ¶ã€‚`index`æ˜¯ä¸€ä¸ªæ•´æ•°ï¼Œå¹¶æä¾›è¦å¤åˆ¶çš„ç¼“å†²åŒºèµ·å§‹ç´¢å¼•ã€‚`length`æ˜¯ä¸€ä¸ªæ•´æ•°å¹¶æä¾›è¦å¤åˆ¶çš„ç¼“å†²åŒºé•¿åº¦ã€‚`index`+`length`å¿…é¡»å°äºŽç¼“å†²åŒºé•¿åº¦ã€‚
 
 
-
-
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../HTTPfilters.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+## è¿”å›ž
+- [ä¸Šä¸€çº§](../HTTPfilters.md)
+- [é¦–é¡µç›®å½•](../../README.md)
