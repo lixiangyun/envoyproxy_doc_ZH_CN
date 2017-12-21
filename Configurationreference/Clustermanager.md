@@ -1,36 +1,34 @@
-## ¼¯Èº¹ÜÀí
+## é›†ç¾¤ç®¡ç†
+- é›†ç¾¤ç®¡ç†[æ¶æ„æ¦‚è¿°](../Introduction/Architectureoverview/Clustermanager.md)
+- [v1 API å‚è€ƒ](../v1APIreference/Clustermanager.md)
+- [v2 API å‚è€ƒ](../v2APIreference/Bootstrap.md)
 
-- ¼¯Èº¹ÜÀí[¼Ü¹¹¸ÅÊö](../Introduction/Architectureoverview/Clustermanager.md)
-- [v1 API ²Î¿¼](../v1APIreference/Clustermanager.md)
-- [v2 API ²Î¿¼](../v2APIreference/Bootstrap.md)
+### [ç»Ÿè®¡](Clustermanager/Statistics.md)
+- æ¦‚è¿°
+- å¥åº·æ£€æŸ¥ç»Ÿè®¡
+- ç¦»ç¾¤æ£€æµ‹ç»Ÿè®¡
+- åŠ¨æ€HTTPç»Ÿè®¡
+- åŠ¨æ€HTTPäº¤å‰æ ‘ç»Ÿè®¡
+- æŒ‰æœåŠ¡åŒºåŠ¨æ€HTTPç»Ÿè®¡
+- è´Ÿè½½å‡è¡¡ç»Ÿè®¡
+- è´Ÿè½½å‡è¡¡å­é›†ç»Ÿè®¡
 
+### [è¿è¡Œæ—¶è®¾ç½®](Clustermanager/Runtime.md)
+- ä¸»åŠ¨å¥åº·æ£€æŸ¥
+- ç¦»ç¾¤å¼‚å¸¸æ£€æµ‹
+- æ ¸å¿ƒ
+- åŒºåŸŸè´Ÿè½½å‡è¡¡
+- ç†”æ–­
 
-### [Í³¼Æ](Clustermanager/Statistics.md)
-- ¸ÅÊö
-- ½¡¿µ¼ì²éÍ³¼Æ
-- ÀëÈº¼ì²âÍ³¼Æ
-- ¶¯Ì¬HTTPÍ³¼Æ
-- ¶¯Ì¬HTTP½»²æÊ÷Í³¼Æ
-- °´·şÎñÇø¶¯Ì¬HTTPÍ³¼Æ
-- ¸ºÔØ¾ùºâÍ³¼Æ
-- ¸ºÔØ¾ùºâ×Ó¼¯Í³¼Æ
+### [é›†ç¾¤å‘ç°æœåŠ¡](Clustermanager/Clusterdiscoveryservice.md)
+- ç»Ÿè®¡
 
-### [ÔËĞĞÊ±ÉèÖÃ](Clustermanager/Runtime.md)
-- Ö÷¶¯½¡¿µ¼ì²é
-- ÀëÈºÒì³£¼ì²â
-- ºËĞÄ
-- ÇøÓò¸ºÔØ¾ùºâ
-- ÈÛ¶Ï
+### [å¥åº·æ£€æŸ¥](Clustermanager/Healthchecking.md)
+- TCPå¥åº·æ£€æŸ¥
 
-### [¼¯Èº·¢ÏÖ·şÎñ](Clustermanager/Clusterdiscoveryservice.md)
-- Í³¼Æ
+### [ç†”æ–­](Clustermanager/Circuitbreaking.md)
+- è¿è¡Œæ—¶é…ç½®
 
-### [½¡¿µ¼ì²é](Clustermanager/Healthchecking.md)
-- TCP½¡¿µ¼ì²é
-
-### [ÈÛ¶Ï](Clustermanager/Circuitbreaking.md)
-- ÔËĞĞÊ±ÅäÖÃ
-
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../Configurationreference.md)
-- [Ê×Ò³Ä¿Â¼](../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../Configurationreference.md)
+- [é¦–é¡µç›®å½•](../README.md)
