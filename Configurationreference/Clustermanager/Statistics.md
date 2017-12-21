@@ -1,175 +1,175 @@
-## Í³¼Æ
+## ç»Ÿè®¡
 
-- [¸ÅÊö](#¸ÅÊö)
-- [½¡¿µ¼ì²éÍ³¼Æ](#½¡¿µ¼ì²éÍ³¼Æ)
-- [ÀëÈº¼ì²âÍ³¼Æ](#ÀëÈº¼ì²âÍ³¼Æ)
-- [¶¯Ì¬HTTPÍ³¼Æ](#¶¯Ì¬HTTPÍ³¼Æ)
-- [¶¯Ì¬HTTP½»²æÊ÷Í³¼Æ](#¶¯Ì¬HTTP½»²æÊ÷Í³¼Æ)
-- [°´·şÎñÇø¶¯Ì¬HTTPÍ³¼Æ](#°´·şÎñÇø¶¯Ì¬HTTPÍ³¼Æ)
-- [¸ºÔØ¾ùºâÍ³¼Æ](#¸ºÔØ¾ùºâÍ³¼Æ)
-- [¸ºÔØ¾ùºâ×Ó¼¯Í³¼Æ](#¸ºÔØ¾ùºâ×Ó¼¯Í³¼Æ)
+- [æ¦‚è¿°](#æ¦‚è¿°)
+- [å¥åº·æ£€æŸ¥ç»Ÿè®¡](#å¥åº·æ£€æŸ¥ç»Ÿè®¡)
+- [ç¦»ç¾¤æ£€æµ‹ç»Ÿè®¡](#ç¦»ç¾¤æ£€æµ‹ç»Ÿè®¡)
+- [åŠ¨æ€HTTPç»Ÿè®¡](#åŠ¨æ€HTTPç»Ÿè®¡)
+- [åŠ¨æ€HTTPäº¤å‰æ ‘ç»Ÿè®¡](#åŠ¨æ€HTTPäº¤å‰æ ‘ç»Ÿè®¡)
+- [æŒ‰æœåŠ¡åŒºåŠ¨æ€HTTPç»Ÿè®¡](#æŒ‰æœåŠ¡åŒºåŠ¨æ€HTTPç»Ÿè®¡)
+- [è´Ÿè½½å‡è¡¡ç»Ÿè®¡](#è´Ÿè½½å‡è¡¡ç»Ÿè®¡)
+- [è´Ÿè½½å‡è¡¡å­é›†ç»Ÿè®¡](#è´Ÿè½½å‡è¡¡å­é›†ç»Ÿè®¡)
 
-### ¸ÅÊö
-¼¯Èº¹ÜÀíÆ÷µÄÍ³¼ÆÊ÷¸ùÎª`cluster_manager.`ÓÃÏÂÃæµÄÍ³¼ÆÃèÊö¡£ÈÎºÎ`:`×Ö·ûÔÚÍ³¼ÆÃû³ÆÖĞµÄ±»Ìæ»»Îª`_`¡£
-
-|	Name	|	Type	|	Description	|
-|	 -------------	|	 -------------	|	 -------------	|
-|	cluster_added	|	Counter	|	×ÜÈº¼¯Ìí¼Ó£¨Í¨¹ı¾²Ì¬ÅäÖÃ»òCDS£©	|
-|	cluster_modified	|	Counter	|	×ÜÈº¼¯ĞŞ¸Ä£¨Í¨¹ıCDS£©	|
-|	cluster_removed	|	Counter	|	×ÜÈº¼¯É¾³ı£¨Í¨¹ıCDS£©	|
-|	total_clusters	|	Gauge	|	µ±Ç°¼ÓÔØµÄÈº¼¯ÊıÁ¿	|
-
-Ã¿¸öÈº¼¯¶¼ÓĞÒ»¸öÒÔ`cluster.<name>.`Îª¸ùµÄÍ³¼ÆÊ÷¡£Í³¼ÆÈçÏÂ£º
+### æ¦‚è¿°
+é›†ç¾¤ç®¡ç†å™¨çš„ç»Ÿè®¡æ ‘æ ¹ä¸º`cluster_manager.`ç”¨ä¸‹é¢çš„ç»Ÿè®¡æè¿°ã€‚ä»»ä½•`:`å­—ç¬¦åœ¨ç»Ÿè®¡åç§°ä¸­çš„è¢«æ›¿æ¢ä¸º`_`ã€‚
 
 |	Name	|	Type	|	Description	|
 |	 -------------	|	 -------------	|	 -------------	|
-|	upstream_cx_total	|	Counter	|	×ÜÁ¬½ÓÊı	|
-|	upstream_cx_active	|	Gauge	|	×Ü»î¶¯Á¬½ÓÊı	|
-|	upstream_cx_http1_total	|	Counter	|	×ÜHTTP/1.1Á¬½ÓÊı	|
-|	upstream_cx_http2_total	|	Counter	|	×ÜHTTP/2Á¬½ÓÊı	|
-|	upstream_cx_connect_fail	|	Counter	|	×ÜÁ¬½ÓÊ§°Ü	|
-|	upstream_cx_connect_timeout	|	Counter	|	×ÜÁ¬½Ó³¬Ê±	|
-|	upstream_cx_connect_attempts_exceeded	|	Counter	|	×ÜÁ¬ĞøµÄÁ¬½ÓÊ§°Ü³¬¹ıÅäÖÃµÄÁ¬½Ó³¢ÊÔ	|
-|	upstream_cx_overflow	|	Counter	|	¼¯ÈºÁ¬½Ó¶ÏÂ·Æ÷Òç³öµÄ×Ü´ÎÊı	|
-|	upstream_cx_connect_ms	|	Histogram	|	Á¬½Ó½¨Á¢ºÁÃë	|
-|	upstream_cx_length_ms	|	Histogram	|	Á¬½Ó³¤¶ÈºÁÃë	|
-|	upstream_cx_destroy	|	Counter	|	×Ü»Ù»µµÄÁ¬½Ó	|
-|	upstream_cx_destroy_local	|	Counter	|	×ÜÁ¬½ÓÔÚ±¾µØ±»Ïú»Ù	|
-|	upstream_cx_destroy_remote	|	Counter	|	×ÜÁ¬½Ó±»Ô¶³ÌÏú»Ù	|
-|	upstream_cx_destroy_with_active_rq	|	Counter	|	×Ü¹²Á¬½Ó±»1¸ö»î¶¯ÇëÇóÏú»Ù	|
-|	upstream_cx_destroy_local_with_active_rq	|	Counter	|	×Ü¹²ÓĞ1¸ö»î¶¯ÇëÇóÔÚ±¾µØÏú»Ù	|
-|	upstream_cx_destroy_remote_with_active_rq	|	Counter	|	×Ü¹²Á¬½Ó±»1¸ö»î¶¯ÇëÇóÔ¶³ÌÏú»Ù	|
-|	upstream_cx_close_notify	|	Counter	|	×ÜÁ¬½ÓÍ¨¹ıHTTP/1.1Á¬½Ó¹Ø±Õ±êÍ·»òHTTP/2 GOAWAY¹Ø±Õ	|
-|	upstream_cx_rx_bytes_total	|	Counter	|	ÊÕµ½µÄÁ¬½Ó×Ö½Ú×ÜÊı	|
-|	upstream_cx_rx_bytes_buffered	|	Gauge	|	½ÓÊÕµ½µ±Ç°»º³åµÄÁ¬½Ó×Ö½Ú	|
-|	upstream_cx_tx_bytes_total	|	Counter	|	·¢ËÍµÄÁ¬½Ó×Ö½Ú×ÜÊı	|
-|	upstream_cx_tx_bytes_buffered	|	Gauge	|	·¢ËÍµ±Ç°»º³åµÄÁ¬½Ó×Ö½Ú	|
-|	upstream_cx_protocol_error	|	Counter	|	Ğ­Òé´íÎóµÄ×ÜÁ¬½ÓÊı	|
-|	upstream_cx_max_requests	|	Counter	|	ÓÉÓÚ×î´óÇëÇó¶ø¹Ø±Õ×ÜÁ¬½ÓÊı	|
-|	upstream_cx_none_healthy	|	Counter	|	ÓÉÓÚÃ»ÓĞ½¡¿µµÄÖ÷»ú£¬Ã»ÓĞ½¨Á¢Á¬½Ó×ÜÊı	|
-|	upstream_rq_total	|	Counter	|	×ÜÇëÇó	|
-|	upstream_rq_active	|	Gauge	|	×Ü»î¶¯ÇëÇó	|
-|	upstream_rq_pending_total	|	Counter	|	¹ÒÆğÁ¬½Ó³ØÁ¬½ÓµÄÇëÇó×ÜÊı	|
-|	upstream_rq_pending_overflow	|	Counter	|	Á¬½Ó³Ø¶ÏÂ·Òç³ö²¢Ê§°ÜµÄÇëÇó×ÜÊı	|
-|	upstream_rq_pending_failure_eject	|	Counter	|	ÓÉÓÚÁ¬½Ó³ØÁ¬½ÓÊ§°Ü¶øµ¼ÖÂÊ§°ÜµÄ×ÜÇëÇóÊı	|
-|	upstream_rq_pending_active	|	Gauge	|	µÈ´ıÁ¬½Ó³ØÁ¬½ÓµÄ»î¶¯ÇëÇó×ÜÊı	|
-|	upstream_rq_cancelled	|	Counter	|	»ñÈ¡Á¬½Ó³ØÁ¬½ÓÖ®Ç°±»È¡ÏûµÄ×ÜÇëÇóÊı	|
-|	upstream_rq_maintenance_mode	|	Counter	|	ÓÉÓÚÎ¬»¤Ä£Ê½¶øµ¼ÖÂÁ¢¼´·µ»Ø503´íÎóµÄ×ÜÇëÇó	|
-|	upstream_rq_timeout	|	Counter	|	³¬Ê±µÈ´ıÏìÓ¦µÄÇëÇó×ÜÊı	|
-|	upstream_rq_per_try_timeout	|	Counter	|	Ã¿´Î³¢ÊÔ³¬Ê±µÄ×ÜÇëÇóÊı	|
-|	upstream_rq_rx_reset	|	Counter	|	ÔÚÔ¶¶ËÖØÖÃµÄ×ÜÇëÇóÊı	|
-|	upstream_rq_tx_reset	|	Counter	|	ÔÚ±¾µØÖØÖÃµÄ×ÜÇëÇóÊı	|
-|	upstream_rq_retry	|	Counter	|	ÇëÇóÖØÊÔ´ÎÊı	|
-|	upstream_rq_retry_success	|	Counter	|	ÇëÇóÖØÊÔ³É¹¦´ÎÊı	|
-|	upstream_rq_retry_overflow	|	Counter	|	ÓÉÓÚÈÛ¶Ï£¬Î´ÖØÊÔµÄ×ÜÇëÇóÊı	|
-|	upstream_flow_control_paused_reading_total	|	Counter	|	Á÷Á¿¿ØÖÆ£¬´ÓÉÏÓÎÔİÍ£¶ÁÈ¡µÄ×Ü´ÎÊı	|
-|	upstream_flow_control_resumed_reading_total	|	Counter	|	Á÷Á¿¿ØÖÆ£¬´ÓÉÏÓÎ»Ö¸´¶ÁÈ¡µÄ×Ü´ÎÊı	|
-|	upstream_flow_control_backed_up_total	|	Counter	|	ÉÏÓÎÁ¬½Ó±¸·İ¡¢ÔİÍ£ÏÂÓÎ¶ÁÈ¡µÄ×Ü´ÎÊı	|
-|	upstream_flow_control_drained_total	|	Counter	|	ÉÏÓÎÁ¬½ÓÖğ³ö¡¢»Ö¸´ÏÂÓÎ¶ÁÈ¡µÄ×Ü´ÎÊı	|
-|	membership_change	|	Counter	|	×Ü¼¯Èº³ÉÔ±±ä»¯	|
-|	membership_healthy	|	Gauge	|	µ±Ç°Èº¼¯½¡¿µ³ÉÔ±×ÜÊı£¨°üÀ¨½¡¿µ¼ì²éºÍÒì³£Öµ¼ì²â£©	|
-|	membership_total	|	Gauge	|	µ±Ç°µÄ¼¯Èº³ÉÔ±×ÜÊı	|
-|	retry_or_shadow_abandoned	|	Counter	|	ÓÉÓÚ»º³åÇøÏŞÖÆ£¬ºöÂÔ»òÖØÊÔ¡¢±»È¡ÏûµÄ×Ü´ÎÊı	|
-|	config_reload	|	Counter	|	ÓÉÓÚ²»Í¬µÄÅäÖÃ£¬µ¼ÖÂÅäÖÃÖØĞÂ¼ÓÔØµÄAPIµ÷ÓÃ´ÎÊı	|
-|	update_attempt	|	Counter	|	×Ü¼¯Èº³ÉÔ±¸üĞÂ³¢ÊÔ´ÎÊı	|
-|	update_success	|	Counter	|	×Ü¼¯Èº³ÉÔ±¸üĞÂ³É¹¦´ÎÊı	|
-|	update_failure	|	Counter	|	×Ü¼¯Èº³ÉÔ±¸üĞÂÊ§°Ü´ÎÊı	|
-|	version	|	Gauge	|	À´×ÔÉÏ´ÎAPIµ÷ÓÃ¼ÓÔØ³É¹¦µÄÄÚÈİ¹şÏ£	|
-|	max_host_weight	|	Gauge	|	Èº¼¯ÖĞËùÓĞÖ÷»úµÄ×î´óÈ¨ÖØ	|
-|	bind_errors	|	Counter	|	½«Ì×½Ó×Ö°ó¶¨µ½ÅäÖÃµÄÔ´µØÖ·´íÎó×ÜÊı	|
+|	cluster_added	|	Counter	|	æ€»ç¾¤é›†æ·»åŠ ï¼ˆé€šè¿‡é™æ€é…ç½®æˆ–CDSï¼‰	|
+|	cluster_modified	|	Counter	|	æ€»ç¾¤é›†ä¿®æ”¹ï¼ˆé€šè¿‡CDSï¼‰	|
+|	cluster_removed	|	Counter	|	æ€»ç¾¤é›†åˆ é™¤ï¼ˆé€šè¿‡CDSï¼‰	|
+|	total_clusters	|	Gauge	|	å½“å‰åŠ è½½çš„ç¾¤é›†æ•°é‡	|
 
-
-### ½¡¿µ¼ì²éÍ³¼Æ
-Èç¹ûÅäÖÃÁË½¡¿µ¼ì²é£¬ÄÇÃ´¼¯Èº»áÓĞÒ»¸öÒÔ`cluster.<name>.health_check.`Îª¸ùµÄÍ³¼ÆÊ÷£¬Í³¼ÆÈçÏÂ£º
+æ¯ä¸ªç¾¤é›†éƒ½æœ‰ä¸€ä¸ªä»¥`cluster.<name>.`ä¸ºæ ¹çš„ç»Ÿè®¡æ ‘ã€‚ç»Ÿè®¡å¦‚ä¸‹ï¼š
 
 |	Name	|	Type	|	Description	|
 |	 -------------	|	 -------------	|	 -------------	|
-|	attempt	|	Counter	|	½¡¿µ¼ì²éµÄ´ÎÊı	|
-|	success	|	Counter	|	½¡¿µ¼ì²é³É¹¦µÄ´ÎÊı	|
-|	failure	|	Counter	|	Ö´ĞĞ½¡¿µ¼ì²é¿ìËÙÊ§°ÜµÄ´ÎÊı£¬£¨ÀıÈç£ºHTTP 503£¬ÒÔ¼°ÍøÂç¹ÊÕÏ£©	|
-|	passive_failure	|	Counter	|	Òò±»¶¯ÊÂ¼şµ¼ÖÂµÄ½¡¿µ¼ì²éÊ§°ÜµÄ´ÎÊı£¨ÀıÈç£º`x-envoy-immediate-health-check-fail`£©	|
-|	network_failure	|	Counter	|	ÓÉÓÚÍøÂç´íÎóµ¼ÖÂµÄ½¡¿µ¼ì²éÊ§°Ü´ÎÊı	|
-|	verify_cluster	|	Counter	|	³¢ÊÔ¼¯ÈºÃû³ÆÑéÖ¤µÄ½¡¿µ¼ì²éµÄÊıÁ¿	|
-|	healthy	|	Gauge	|	½¡¿µ³ÉÔ±µÄÊıÁ¿	|
+|	upstream_cx_total	|	Counter	|	æ€»è¿æ¥æ•°	|
+|	upstream_cx_active	|	Gauge	|	æ€»æ´»åŠ¨è¿æ¥æ•°	|
+|	upstream_cx_http1_total	|	Counter	|	æ€»HTTP/1.1è¿æ¥æ•°	|
+|	upstream_cx_http2_total	|	Counter	|	æ€»HTTP/2è¿æ¥æ•°	|
+|	upstream_cx_connect_fail	|	Counter	|	æ€»è¿æ¥å¤±è´¥	|
+|	upstream_cx_connect_timeout	|	Counter	|	æ€»è¿æ¥è¶…æ—¶	|
+|	upstream_cx_connect_attempts_exceeded	|	Counter	|	æ€»è¿ç»­çš„è¿æ¥å¤±è´¥è¶…è¿‡é…ç½®çš„è¿æ¥å°è¯•	|
+|	upstream_cx_overflow	|	Counter	|	é›†ç¾¤è¿æ¥æ–­è·¯å™¨æº¢å‡ºçš„æ€»æ¬¡æ•°	|
+|	upstream_cx_connect_ms	|	Histogram	|	è¿æ¥å»ºç«‹æ¯«ç§’	|
+|	upstream_cx_length_ms	|	Histogram	|	è¿æ¥é•¿åº¦æ¯«ç§’	|
+|	upstream_cx_destroy	|	Counter	|	æ€»æ¯åçš„è¿æ¥	|
+|	upstream_cx_destroy_local	|	Counter	|	æ€»è¿æ¥åœ¨æœ¬åœ°è¢«é”€æ¯	|
+|	upstream_cx_destroy_remote	|	Counter	|	æ€»è¿æ¥è¢«è¿œç¨‹é”€æ¯	|
+|	upstream_cx_destroy_with_active_rq	|	Counter	|	æ€»å…±è¿æ¥è¢«1ä¸ªæ´»åŠ¨è¯·æ±‚é”€æ¯	|
+|	upstream_cx_destroy_local_with_active_rq	|	Counter	|	æ€»å…±æœ‰1ä¸ªæ´»åŠ¨è¯·æ±‚åœ¨æœ¬åœ°é”€æ¯	|
+|	upstream_cx_destroy_remote_with_active_rq	|	Counter	|	æ€»å…±è¿æ¥è¢«1ä¸ªæ´»åŠ¨è¯·æ±‚è¿œç¨‹é”€æ¯	|
+|	upstream_cx_close_notify	|	Counter	|	æ€»è¿æ¥é€šè¿‡HTTP/1.1è¿æ¥å…³é—­æ ‡å¤´æˆ–HTTP/2 GOAWAYå…³é—­	|
+|	upstream_cx_rx_bytes_total	|	Counter	|	æ”¶åˆ°çš„è¿æ¥å­—èŠ‚æ€»æ•°	|
+|	upstream_cx_rx_bytes_buffered	|	Gauge	|	æ¥æ”¶åˆ°å½“å‰ç¼“å†²çš„è¿æ¥å­—èŠ‚	|
+|	upstream_cx_tx_bytes_total	|	Counter	|	å‘é€çš„è¿æ¥å­—èŠ‚æ€»æ•°	|
+|	upstream_cx_tx_bytes_buffered	|	Gauge	|	å‘é€å½“å‰ç¼“å†²çš„è¿æ¥å­—èŠ‚	|
+|	upstream_cx_protocol_error	|	Counter	|	åè®®é”™è¯¯çš„æ€»è¿æ¥æ•°	|
+|	upstream_cx_max_requests	|	Counter	|	ç”±äºæœ€å¤§è¯·æ±‚è€Œå…³é—­æ€»è¿æ¥æ•°	|
+|	upstream_cx_none_healthy	|	Counter	|	ç”±äºæ²¡æœ‰å¥åº·çš„ä¸»æœºï¼Œæ²¡æœ‰å»ºç«‹è¿æ¥æ€»æ•°	|
+|	upstream_rq_total	|	Counter	|	æ€»è¯·æ±‚	|
+|	upstream_rq_active	|	Gauge	|	æ€»æ´»åŠ¨è¯·æ±‚	|
+|	upstream_rq_pending_total	|	Counter	|	æŒ‚èµ·è¿æ¥æ± è¿æ¥çš„è¯·æ±‚æ€»æ•°	|
+|	upstream_rq_pending_overflow	|	Counter	|	è¿æ¥æ± æ–­è·¯æº¢å‡ºå¹¶å¤±è´¥çš„è¯·æ±‚æ€»æ•°	|
+|	upstream_rq_pending_failure_eject	|	Counter	|	ç”±äºè¿æ¥æ± è¿æ¥å¤±è´¥è€Œå¯¼è‡´å¤±è´¥çš„æ€»è¯·æ±‚æ•°	|
+|	upstream_rq_pending_active	|	Gauge	|	ç­‰å¾…è¿æ¥æ± è¿æ¥çš„æ´»åŠ¨è¯·æ±‚æ€»æ•°	|
+|	upstream_rq_cancelled	|	Counter	|	è·å–è¿æ¥æ± è¿æ¥ä¹‹å‰è¢«å–æ¶ˆçš„æ€»è¯·æ±‚æ•°	|
+|	upstream_rq_maintenance_mode	|	Counter	|	ç”±äºç»´æŠ¤æ¨¡å¼è€Œå¯¼è‡´ç«‹å³è¿”å›503é”™è¯¯çš„æ€»è¯·æ±‚	|
+|	upstream_rq_timeout	|	Counter	|	è¶…æ—¶ç­‰å¾…å“åº”çš„è¯·æ±‚æ€»æ•°	|
+|	upstream_rq_per_try_timeout	|	Counter	|	æ¯æ¬¡å°è¯•è¶…æ—¶çš„æ€»è¯·æ±‚æ•°	|
+|	upstream_rq_rx_reset	|	Counter	|	åœ¨è¿œç«¯é‡ç½®çš„æ€»è¯·æ±‚æ•°	|
+|	upstream_rq_tx_reset	|	Counter	|	åœ¨æœ¬åœ°é‡ç½®çš„æ€»è¯·æ±‚æ•°	|
+|	upstream_rq_retry	|	Counter	|	è¯·æ±‚é‡è¯•æ¬¡æ•°	|
+|	upstream_rq_retry_success	|	Counter	|	è¯·æ±‚é‡è¯•æˆåŠŸæ¬¡æ•°	|
+|	upstream_rq_retry_overflow	|	Counter	|	ç”±äºç†”æ–­ï¼Œæœªé‡è¯•çš„æ€»è¯·æ±‚æ•°	|
+|	upstream_flow_control_paused_reading_total	|	Counter	|	æµé‡æ§åˆ¶ï¼Œä»ä¸Šæ¸¸æš‚åœè¯»å–çš„æ€»æ¬¡æ•°	|
+|	upstream_flow_control_resumed_reading_total	|	Counter	|	æµé‡æ§åˆ¶ï¼Œä»ä¸Šæ¸¸æ¢å¤è¯»å–çš„æ€»æ¬¡æ•°	|
+|	upstream_flow_control_backed_up_total	|	Counter	|	ä¸Šæ¸¸è¿æ¥å¤‡ä»½ã€æš‚åœä¸‹æ¸¸è¯»å–çš„æ€»æ¬¡æ•°	|
+|	upstream_flow_control_drained_total	|	Counter	|	ä¸Šæ¸¸è¿æ¥é€å‡ºã€æ¢å¤ä¸‹æ¸¸è¯»å–çš„æ€»æ¬¡æ•°	|
+|	membership_change	|	Counter	|	æ€»é›†ç¾¤æˆå‘˜å˜åŒ–	|
+|	membership_healthy	|	Gauge	|	å½“å‰ç¾¤é›†å¥åº·æˆå‘˜æ€»æ•°ï¼ˆåŒ…æ‹¬å¥åº·æ£€æŸ¥å’Œå¼‚å¸¸å€¼æ£€æµ‹ï¼‰	|
+|	membership_total	|	Gauge	|	å½“å‰çš„é›†ç¾¤æˆå‘˜æ€»æ•°	|
+|	retry_or_shadow_abandoned	|	Counter	|	ç”±äºç¼“å†²åŒºé™åˆ¶ï¼Œå¿½ç•¥æˆ–é‡è¯•ã€è¢«å–æ¶ˆçš„æ€»æ¬¡æ•°	|
+|	config_reload	|	Counter	|	ç”±äºä¸åŒçš„é…ç½®ï¼Œå¯¼è‡´é…ç½®é‡æ–°åŠ è½½çš„APIè°ƒç”¨æ¬¡æ•°	|
+|	update_attempt	|	Counter	|	æ€»é›†ç¾¤æˆå‘˜æ›´æ–°å°è¯•æ¬¡æ•°	|
+|	update_success	|	Counter	|	æ€»é›†ç¾¤æˆå‘˜æ›´æ–°æˆåŠŸæ¬¡æ•°	|
+|	update_failure	|	Counter	|	æ€»é›†ç¾¤æˆå‘˜æ›´æ–°å¤±è´¥æ¬¡æ•°	|
+|	version	|	Gauge	|	æ¥è‡ªä¸Šæ¬¡APIè°ƒç”¨åŠ è½½æˆåŠŸçš„å†…å®¹å“ˆå¸Œ	|
+|	max_host_weight	|	Gauge	|	ç¾¤é›†ä¸­æ‰€æœ‰ä¸»æœºçš„æœ€å¤§æƒé‡	|
+|	bind_errors	|	Counter	|	å°†å¥—æ¥å­—ç»‘å®šåˆ°é…ç½®çš„æºåœ°å€é”™è¯¯æ€»æ•°	|
 
 
-### ÀëÈº¼ì²âÍ³¼Æ
-Èç¹ûÎªÈº¼¯ÅäÖÃÁËÀëÈºÒì³£¼ì²â£¬ÔòÍ³¼ÆĞÅÏ¢½«ÒÔ`cluster.<name>.outlier_detection.`Îª¸ù¡£²¢°üº¬ÒÔÏÂÄÚÈİ£º
-
-|	Name	|	Type	|	Description	|
-|	 -------------	|	 -------------	|	 -------------	|
-|	ejections_enforced_total	|	Counter	|	ÓÉÓÚÈÎºÎÒì³£ÀàĞÍµ¼ÖÂµÄÇ¿ÖÆÖğ³öµÄÊıÁ¿	|
-|	ejections_active	|	Gauge	|	µ±Ç°±»Öğ³öÖ÷»úµÄÊıÁ¿	|
-|	ejections_overflow	|	Counter	|	Òò´ïµ½×î´óÖğ³ö¶øÖĞÖ¹´ÎÊı°Ù·ÖÕ¼±È	|
-|	ejections_enforced_consecutive_5xx	|	Counter	|	Ö´ĞĞµÄÁ¬Ğø5xxÖğ³ö´ÎÊı	|
-|	ejections_detected_consecutive_5xx	|	Counter	|	¼ì²âµ½µÄÁ¬Ğø5xxÖğ³ö´ÎÊı£¨¼´Ê¹Î´±»Ç¿ÖÆÖ´ĞĞ£©	|
-|	ejections_enforced_success_rate	|	Counter	|	Ö´ĞĞ³É¹¦ÂÊÒì³£ÖµÖğ³öµÄ´ÎÊı	|
-|	ejections_detected_success_rate	|	Counter	|	¼ì²âµ½µÄ³É¹¦ÂÊÒì³£ÖµÖğ³ö´ÎÊı£¨¼´Ê¹Î´Ö´ĞĞ£©	|
-|	ejections_enforced_consecutive_gateway_failure	|	Counter	|	Ö´ĞĞµÄÁ¬ĞøÍø¹Ø¹ÊÕÏÖğ³ö´ÎÊı	|
-|	ejections_detected_consecutive_gateway_failure	|	Counter	|	¼ì²âµ½µÄÁ¬ĞøÍø¹Ø¹ÊÕÏÖğ³ö´ÎÊı£¨¼´Ê¹Î´±»Ç¿ÖÆÖ´ĞĞ£©	|
-|	ejections_total	|	Counter	|	**ÒÑ¹ıÊ±**£ºÓÉÓÚÈÎºÎÒì³£ÖµÀàĞÍ£¨¼´Ê¹Î´Ç¿ÖÆÖ´ĞĞ£©	|
-|	ejections_consecutive_5xx	|	Counter	|	**ÒÑ¹ıÊ±**£ºÁ¬ĞøµÄ5xx±»Öğ³ö´ÎÊı£¨¼´Ê¹Î´±»Ç¿ÖÆÖ´ĞĞ£©	|
-
-
-### ¶¯Ì¬HTTPÍ³¼Æ
-ÈôÆôÓÃÁËHTTP£¬Ôò¶¯Ì¬HTTPÏìÓ¦Í³¼ÆĞÅÏ¢Ò²¿ÉÓÃ¡£ÕâĞ©ÓÉ¸÷ÖÖÄÚ²¿ÏµÍ³£¬ÒÔ¼°¸÷ÖÖÂ·ÓÉ¡¢ËÙÂÊÏŞÖÆÖ®ÀàµÄ¹ıÂËÆ÷¹¹³ÉµÄÍ³¼Æ¡£ÒÔ`cluster.<name>.`Îª¸ù£¬²¢°üº¬ÒÔÏÂÍ³¼ÆĞÅÏ¢£º
-
-|	Name	|	Type	|	Description	|
-|	 -------------	|	 -------------	|	 -------------	|
-|	upstream\_rq\_<*xx>	|	Counter	|	HTTPÏìÓ¦Âë»ã×ÜÍ³¼Æ£¨ÀıÈç£º2xx£¬3xxµÈ£©	|
-|	upstream\_rq_<*>	|	Counter	|	¾ßÌåµÄHTTPÏìÓ¦ÂëÍ³¼Æ£¨ÀıÈç£º201¡¢302µÈ£©	|
-|	upstream\_rq_time	|	Histogram	|	ÇëÇóÊ±¼ä£¬µ¥Î»ºÁÃë	|
-|	canary.upstream\_rq_<*xx>	|	Counter	|	ÉÏÓÎ»Ò¶È·¢²¼ÆÚ¼äµÄHTTPÏìÓ¦ÂëÍ³¼Æ	|
-|	canary.upstream\_rq_<*>	|	Counter	|	ÉÏÓÎ»Ò¶È·¢²¼ÆÚ¼ä¾ßÌåµÄHTTPÏìÓ¦ÂëÍ³¼Æ	|
-|	canary.upstream_rq_time	|	Histogram	|	ÉÏÓÎ»Ò¶È·¢²¼ÆÚ¼äÇëÇóÊ±¼äºÁÃë	|
-|	internal.upstream\_rq_<*xx>	|	Counter	|	À´×ÔÄÚ²¿µÄHTTPÏìÓ¦ÂëÍ³¼Æ	|
-|	internal.upstream\_rq_<*>	|	Counter	|	À´×ÔÄÚ²¿¾ßÌåµÄHTTPÏìÓ¦ÂëÍ³¼Æ	|
-|	internal.upstream_rq_time	|	Histogram	|	À´×ÔÄÚ²¿ÇëÇóÊ±¼ä£¬µ¥Î»ºÁÃë	|
-|	external.upstream\_rq_<*xx>	|	Counter	|	À´×ÔÍâ²¿HTTPÏìÓ¦Âë»ã×ÜÍ³¼Æ	|
-|	external.upstream\_rq_<*>	|	Counter	|	À´×ÔÍâ²¿¾ßÌåµÄHTTPÏìÓ¦ÂëÍ³¼Æ	|
-|	external.upstream_rq_time	|	Histogram	|	À´×ÔÍâ²¿ÇëÇóÊ±¼ä£¬µ¥Î»ºÁÃë	|
-
-
-### ¶¯Ì¬HTTP½»²æÊ÷Í³¼Æ
-Èç¹ûÅäÖÃÁË½»²æÊ÷Í³¼ÆĞÅÏ¢£¬ËüÃÇ½«ÒÔ`cluster.<name>.<alt name>. `ÎªÃüÃû¿Õ¼ä¡£Éú³ÉµÄÍ³¼ÆĞÅÏ¢ÓëÉÏÃæµÄ¶¯Ì¬HTTPÍ³¼ÆĞÅÏ¢ÏàÍ¬¡£
-
-### °´·şÎñÇø¶¯Ì¬HTTPÍ³¼Æ
-Èç¹û·şÎñÇø¿ÉÓÃÓÚ±¾µØ·şÎñ£¨Í¨¹ı`--service-zone`£©ºÍÉÏÓÎÈº¼¯£¬ÔòEnvoy½«ÒÔ`cluster.<name>.zone.<from_zone>.<to_zone>`ÎªÃüÃû¿Õ¼ä¡£Í³¼ÆĞÅÏ¢ÈçÏÂ£º
-
-|	Name	|	Type	|	Description	|
-|	 -------------	|	 -------------	|	 -------------	|
-|	upstream\_rq_<*xx>	|	Counter	|	HTTPÏìÓ¦Âë»ã×ÜÍ³¼Æ£¨ÀıÈç£º2xx£¬3xxµÈ£©	|
-|	upstream\_rq_<*>	|	Counter	|	¾ßÌåµÄHTTPÏìÓ¦ÂëÍ³¼Æ£¨ÀıÈç£º201¡¢302µÈ£©	|
-|	upstream_rq_time	|	Histogram	|	ÇëÇóÊ±¼ä£¬µ¥Î»ºÁÃë	|
-
-
-### ¸ºÔØ¾ùºâÍ³¼Æ
-¼à¿Ø¸ºÔØ¾ùºâ¾ö²ßµÄÍ³¼ÆĞÅÏ¢¡£Í³¼ÆĞÅÏ¢ÒÔ`cluster.<name>.`Îª¸ù£¬²¢°üº¬ÒÔÏÂÍ³¼ÆĞÅÏ¢£º
+### å¥åº·æ£€æŸ¥ç»Ÿè®¡
+å¦‚æœé…ç½®äº†å¥åº·æ£€æŸ¥ï¼Œé‚£ä¹ˆé›†ç¾¤ä¼šæœ‰ä¸€ä¸ªä»¥`cluster.<name>.health_check.`ä¸ºæ ¹çš„ç»Ÿè®¡æ ‘ï¼Œç»Ÿè®¡å¦‚ä¸‹ï¼š
 
 |	Name	|	Type	|	Description	|
 |	 -------------	|	 -------------	|	 -------------	|
-|	lb_healthy_panic	|	Counter	|	¿Ö»ÅÄ£Ê½ÏÂ³ĞÔØ¸ºÔØ¾ùºâÇëÇóµÄ×ÜÊı	|
-|	lb_zone_cluster_too_small	|	Counter	|	ÓÉÓÚÉÏÓÎÈº¼¯¹ıĞ¡£¬ÎŞÇøÓò¸ĞÖªÂ·ÓÉ¾ö²ß´ÎÊı	|
-|	lb_zone_routing_all_directly	|	Counter	|	ËùÓĞÇëÇóÖ±½Ó·¢ËÍµ½Í¬Ò»¸öÇøÓò¾ö²ß´ÎÊı	|
-|	lb_zone_routing_sampled	|	Counter	|	·¢ËÍÒ»Ğ©ÇëÇóµ½Í¬Ò»¸öÇøÓò¾ö²ß´ÎÊı	|
-|	lb_zone_routing_cross_zone	|	Counter	|	ÇøÓò¸ĞÖªÂ·ÓÉÄ£Ê½£¬µ«±ØĞë·¢ËÍ½»²æÇøÓòµÄ´ÎÊı	|
-|	lb_local_cluster_not_ok	|	Counter	|	±¾µØÖ÷»ú¼¯Î´ÉèÖÃ£¬»òÕßÊÇ±¾µØÈº¼¯´¦ÓÚ»ìÂÒÄ£Ê½	|
-|	lb_zone_number_differs	|	Counter	|	±¾µØºÍÉÏÓÎÈº¼¯ÖĞµÄÇøÓòÊıÄ¿²»Í¬µÄ´ÎÊı	|
+|	attempt	|	Counter	|	å¥åº·æ£€æŸ¥çš„æ¬¡æ•°	|
+|	success	|	Counter	|	å¥åº·æ£€æŸ¥æˆåŠŸçš„æ¬¡æ•°	|
+|	failure	|	Counter	|	æ‰§è¡Œå¥åº·æ£€æŸ¥å¿«é€Ÿå¤±è´¥çš„æ¬¡æ•°ï¼Œï¼ˆä¾‹å¦‚ï¼šHTTP 503ï¼Œä»¥åŠç½‘ç»œæ•…éšœï¼‰	|
+|	passive_failure	|	Counter	|	å› è¢«åŠ¨äº‹ä»¶å¯¼è‡´çš„å¥åº·æ£€æŸ¥å¤±è´¥çš„æ¬¡æ•°ï¼ˆä¾‹å¦‚ï¼š`x-envoy-immediate-health-check-fail`ï¼‰	|
+|	network_failure	|	Counter	|	ç”±äºç½‘ç»œé”™è¯¯å¯¼è‡´çš„å¥åº·æ£€æŸ¥å¤±è´¥æ¬¡æ•°	|
+|	verify_cluster	|	Counter	|	å°è¯•é›†ç¾¤åç§°éªŒè¯çš„å¥åº·æ£€æŸ¥çš„æ•°é‡	|
+|	healthy	|	Gauge	|	å¥åº·æˆå‘˜çš„æ•°é‡	|
 
 
-### ¸ºÔØ¾ùºâ×Ó¼¯Í³¼Æ
-¼à¿ØÒÔ`<arch_overview_load_balancer_subsets>`ÃèÊö·û¸ºÔØ¾ùºâÆ÷×Ó¼¯µÄÍ³¼ÆĞÅÏ¢£¬Í³¼ÆĞÅÏ¢ÒÔ`cluster.<name>.`¸ù²¢°üº¬ÒÔÏÂÍ³¼ÆĞÅÏ¢£º
+### ç¦»ç¾¤æ£€æµ‹ç»Ÿè®¡
+å¦‚æœä¸ºç¾¤é›†é…ç½®äº†ç¦»ç¾¤å¼‚å¸¸æ£€æµ‹ï¼Œåˆ™ç»Ÿè®¡ä¿¡æ¯å°†ä»¥`cluster.<name>.outlier_detection.`ä¸ºæ ¹ã€‚å¹¶åŒ…å«ä»¥ä¸‹å†…å®¹ï¼š
+
+|	Name	|	Type	|	Description	|
+|	 -------------	|	 -------------	|	 -------------	|
+|	ejections_enforced_total	|	Counter	|	ç”±äºä»»ä½•å¼‚å¸¸ç±»å‹å¯¼è‡´çš„å¼ºåˆ¶é€å‡ºçš„æ•°é‡	|
+|	ejections_active	|	Gauge	|	å½“å‰è¢«é€å‡ºä¸»æœºçš„æ•°é‡	|
+|	ejections_overflow	|	Counter	|	å› è¾¾åˆ°æœ€å¤§é€å‡ºè€Œä¸­æ­¢æ¬¡æ•°ç™¾åˆ†å æ¯”	|
+|	ejections_enforced_consecutive_5xx	|	Counter	|	æ‰§è¡Œçš„è¿ç»­5xxé€å‡ºæ¬¡æ•°	|
+|	ejections_detected_consecutive_5xx	|	Counter	|	æ£€æµ‹åˆ°çš„è¿ç»­5xxé€å‡ºæ¬¡æ•°ï¼ˆå³ä½¿æœªè¢«å¼ºåˆ¶æ‰§è¡Œï¼‰	|
+|	ejections_enforced_success_rate	|	Counter	|	æ‰§è¡ŒæˆåŠŸç‡å¼‚å¸¸å€¼é€å‡ºçš„æ¬¡æ•°	|
+|	ejections_detected_success_rate	|	Counter	|	æ£€æµ‹åˆ°çš„æˆåŠŸç‡å¼‚å¸¸å€¼é€å‡ºæ¬¡æ•°ï¼ˆå³ä½¿æœªæ‰§è¡Œï¼‰	|
+|	ejections_enforced_consecutive_gateway_failure	|	Counter	|	æ‰§è¡Œçš„è¿ç»­ç½‘å…³æ•…éšœé€å‡ºæ¬¡æ•°	|
+|	ejections_detected_consecutive_gateway_failure	|	Counter	|	æ£€æµ‹åˆ°çš„è¿ç»­ç½‘å…³æ•…éšœé€å‡ºæ¬¡æ•°ï¼ˆå³ä½¿æœªè¢«å¼ºåˆ¶æ‰§è¡Œï¼‰	|
+|	ejections_total	|	Counter	|	**å·²è¿‡æ—¶**ï¼šç”±äºä»»ä½•å¼‚å¸¸å€¼ç±»å‹ï¼ˆå³ä½¿æœªå¼ºåˆ¶æ‰§è¡Œï¼‰	|
+|	ejections_consecutive_5xx	|	Counter	|	**å·²è¿‡æ—¶**ï¼šè¿ç»­çš„5xxè¢«é€å‡ºæ¬¡æ•°ï¼ˆå³ä½¿æœªè¢«å¼ºåˆ¶æ‰§è¡Œï¼‰	|
+
+
+### åŠ¨æ€HTTPç»Ÿè®¡
+è‹¥å¯ç”¨äº†HTTPï¼Œåˆ™åŠ¨æ€HTTPå“åº”ç»Ÿè®¡ä¿¡æ¯ä¹Ÿå¯ç”¨ã€‚è¿™äº›ç”±å„ç§å†…éƒ¨ç³»ç»Ÿï¼Œä»¥åŠå„ç§è·¯ç”±ã€é€Ÿç‡é™åˆ¶ä¹‹ç±»çš„è¿‡æ»¤å™¨æ„æˆçš„ç»Ÿè®¡ã€‚ä»¥`cluster.<name>.`ä¸ºæ ¹ï¼Œå¹¶åŒ…å«ä»¥ä¸‹ç»Ÿè®¡ä¿¡æ¯ï¼š
+
+|	Name	|	Type	|	Description	|
+|	 -------------	|	 -------------	|	 -------------	|
+|	upstream\_rq\_<*xx>	|	Counter	|	HTTPå“åº”ç æ±‡æ€»ç»Ÿè®¡ï¼ˆä¾‹å¦‚ï¼š2xxï¼Œ3xxç­‰ï¼‰	|
+|	upstream\_rq_<*>	|	Counter	|	å…·ä½“çš„HTTPå“åº”ç ç»Ÿè®¡ï¼ˆä¾‹å¦‚ï¼š201ã€302ç­‰ï¼‰	|
+|	upstream\_rq_time	|	Histogram	|	è¯·æ±‚æ—¶é—´ï¼Œå•ä½æ¯«ç§’	|
+|	canary.upstream\_rq_<*xx>	|	Counter	|	ä¸Šæ¸¸ç°åº¦å‘å¸ƒæœŸé—´çš„HTTPå“åº”ç ç»Ÿè®¡	|
+|	canary.upstream\_rq_<*>	|	Counter	|	ä¸Šæ¸¸ç°åº¦å‘å¸ƒæœŸé—´å…·ä½“çš„HTTPå“åº”ç ç»Ÿè®¡	|
+|	canary.upstream_rq_time	|	Histogram	|	ä¸Šæ¸¸ç°åº¦å‘å¸ƒæœŸé—´è¯·æ±‚æ—¶é—´æ¯«ç§’	|
+|	internal.upstream\_rq_<*xx>	|	Counter	|	æ¥è‡ªå†…éƒ¨çš„HTTPå“åº”ç ç»Ÿè®¡	|
+|	internal.upstream\_rq_<*>	|	Counter	|	æ¥è‡ªå†…éƒ¨å…·ä½“çš„HTTPå“åº”ç ç»Ÿè®¡	|
+|	internal.upstream_rq_time	|	Histogram	|	æ¥è‡ªå†…éƒ¨è¯·æ±‚æ—¶é—´ï¼Œå•ä½æ¯«ç§’	|
+|	external.upstream\_rq_<*xx>	|	Counter	|	æ¥è‡ªå¤–éƒ¨HTTPå“åº”ç æ±‡æ€»ç»Ÿè®¡	|
+|	external.upstream\_rq_<*>	|	Counter	|	æ¥è‡ªå¤–éƒ¨å…·ä½“çš„HTTPå“åº”ç ç»Ÿè®¡	|
+|	external.upstream_rq_time	|	Histogram	|	æ¥è‡ªå¤–éƒ¨è¯·æ±‚æ—¶é—´ï¼Œå•ä½æ¯«ç§’	|
+
+
+### åŠ¨æ€HTTPäº¤å‰æ ‘ç»Ÿè®¡
+å¦‚æœé…ç½®äº†äº¤å‰æ ‘ç»Ÿè®¡ä¿¡æ¯ï¼Œå®ƒä»¬å°†ä»¥`cluster.<name>.<alt name>. `ä¸ºå‘½åç©ºé—´ã€‚ç”Ÿæˆçš„ç»Ÿè®¡ä¿¡æ¯ä¸ä¸Šé¢çš„åŠ¨æ€HTTPç»Ÿè®¡ä¿¡æ¯ç›¸åŒã€‚
+
+### æŒ‰æœåŠ¡åŒºåŠ¨æ€HTTPç»Ÿè®¡
+å¦‚æœæœåŠ¡åŒºå¯ç”¨äºæœ¬åœ°æœåŠ¡ï¼ˆé€šè¿‡`--service-zone`ï¼‰å’Œä¸Šæ¸¸ç¾¤é›†ï¼Œåˆ™Envoyå°†ä»¥`cluster.<name>.zone.<from_zone>.<to_zone>`ä¸ºå‘½åç©ºé—´ã€‚ç»Ÿè®¡ä¿¡æ¯å¦‚ä¸‹ï¼š
+
+|	Name	|	Type	|	Description	|
+|	 -------------	|	 -------------	|	 -------------	|
+|	upstream_rq_\<*xx>	|	Counter	|	HTTPå“åº”ç æ±‡æ€»ç»Ÿè®¡ï¼ˆä¾‹å¦‚ï¼š2xxï¼Œ3xxç­‰ï¼‰	|
+|	upstream_rq_\<*>	|	Counter	|	å…·ä½“çš„HTTPå“åº”ç ç»Ÿè®¡ï¼ˆä¾‹å¦‚ï¼š201ã€302ç­‰ï¼‰	|
+|	upstream_rq_time	|	Histogram	|	è¯·æ±‚æ—¶é—´ï¼Œå•ä½æ¯«ç§’	|
+
+
+### è´Ÿè½½å‡è¡¡ç»Ÿè®¡
+ç›‘æ§è´Ÿè½½å‡è¡¡å†³ç­–çš„ç»Ÿè®¡ä¿¡æ¯ã€‚ç»Ÿè®¡ä¿¡æ¯ä»¥`cluster.<name>.`ä¸ºæ ¹ï¼Œå¹¶åŒ…å«ä»¥ä¸‹ç»Ÿè®¡ä¿¡æ¯ï¼š
+
+|	Name	|	Type	|	Description	|
+|	 -------------	|	 -------------	|	 -------------	|
+|	lb_healthy_panic	|	Counter	|	ææ…Œæ¨¡å¼ä¸‹æ‰¿è½½è´Ÿè½½å‡è¡¡è¯·æ±‚çš„æ€»æ•°	|
+|	lb_zone_cluster_too_small	|	Counter	|	ç”±äºä¸Šæ¸¸ç¾¤é›†è¿‡å°ï¼Œæ— åŒºåŸŸæ„ŸçŸ¥è·¯ç”±å†³ç­–æ¬¡æ•°	|
+|	lb_zone_routing_all_directly	|	Counter	|	æ‰€æœ‰è¯·æ±‚ç›´æ¥å‘é€åˆ°åŒä¸€ä¸ªåŒºåŸŸå†³ç­–æ¬¡æ•°	|
+|	lb_zone_routing_sampled	|	Counter	|	å‘é€ä¸€äº›è¯·æ±‚åˆ°åŒä¸€ä¸ªåŒºåŸŸå†³ç­–æ¬¡æ•°	|
+|	lb_zone_routing_cross_zone	|	Counter	|	åŒºåŸŸæ„ŸçŸ¥è·¯ç”±æ¨¡å¼ï¼Œä½†å¿…é¡»å‘é€äº¤å‰åŒºåŸŸçš„æ¬¡æ•°	|
+|	lb_local_cluster_not_ok	|	Counter	|	æœ¬åœ°ä¸»æœºé›†æœªè®¾ç½®ï¼Œæˆ–è€…æ˜¯æœ¬åœ°ç¾¤é›†å¤„äºæ··ä¹±æ¨¡å¼	|
+|	lb_zone_number_differs	|	Counter	|	æœ¬åœ°å’Œä¸Šæ¸¸ç¾¤é›†ä¸­çš„åŒºåŸŸæ•°ç›®ä¸åŒçš„æ¬¡æ•°	|
+
+
+### è´Ÿè½½å‡è¡¡å­é›†ç»Ÿè®¡
+ç›‘æ§ä»¥`<arch_overview_load_balancer_subsets>`æè¿°ç¬¦è´Ÿè½½å‡è¡¡å™¨å­é›†çš„ç»Ÿè®¡ä¿¡æ¯ï¼Œç»Ÿè®¡ä¿¡æ¯ä»¥`cluster.<name>.`æ ¹å¹¶åŒ…å«ä»¥ä¸‹ç»Ÿè®¡ä¿¡æ¯ï¼š
 
 
 |	Name	|	Type	|	Description	|
 |	 -------------	|	 -------------	|	 -------------	|
-|	lb_subsets_active	|	Gauge	|	µ±Ç°¿ÉÓÃ×Ó¼¯µÄÊıÁ¿	|
-|	lb_subsets_created	|	Counter	|	´´½¨µÄ×Ó¼¯ÊıÁ¿	|
-|	lb_subsets_removed	|	Counter	|	ÓÉÓÚÃ»ÓĞÖ÷»ú¶ø±»É¾³ıµÄ×Ó¼¯ÊıÁ¿	|
-|	lb_subsets_selected	|	Counter	|	Ñ¡ÔñÈÎºÎ×Ó¼¯½øĞĞ¸ºÔØÆ½ºâµÄ´ÎÊı	|
-|	lb_subsets_fallback	|	Counter	|	»ØÍË²ßÂÔ±»µ÷ÓÃµÄ´ÎÊı	|
+|	lb_subsets_active	|	Gauge	|	å½“å‰å¯ç”¨å­é›†çš„æ•°é‡	|
+|	lb_subsets_created	|	Counter	|	åˆ›å»ºçš„å­é›†æ•°é‡	|
+|	lb_subsets_removed	|	Counter	|	ç”±äºæ²¡æœ‰ä¸»æœºè€Œè¢«åˆ é™¤çš„å­é›†æ•°é‡	|
+|	lb_subsets_selected	|	Counter	|	é€‰æ‹©ä»»ä½•å­é›†è¿›è¡Œè´Ÿè½½å¹³è¡¡çš„æ¬¡æ•°	|
+|	lb_subsets_fallback	|	Counter	|	å›é€€ç­–ç•¥è¢«è°ƒç”¨çš„æ¬¡æ•°	|
 
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../Clustermanager.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../Clustermanager.md)
+- [é¦–é¡µç›®å½•](../../README.md)
