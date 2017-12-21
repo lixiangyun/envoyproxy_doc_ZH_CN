@@ -1,92 +1,91 @@
-## ÔËĞĞÊ±ÅäÖÃ
+## è¿è¡Œæ—¶é…ç½®
 
-ÉÏÓÎ¼¯ÈºÖ§³ÖÒÔÏÂÔËĞĞÊ±ÅäÖÃ£º
+ä¸Šæ¸¸é›†ç¾¤æ”¯æŒä»¥ä¸‹è¿è¡Œæ—¶é…ç½®ï¼š
 
-### Ö÷¶¯½¡¿µ¼ì²é
+### ä¸»åŠ¨å¥åº·æ£€æŸ¥
 
 - **health_check.min_interval**</br>
-½¡¿µ¼ì²é¼ä¸ôµÄ×îĞ¡Öµ¡£Ä¬ÈÏÖµÎª0¡£ÔËĞĞ×´¿ö[¼ì²é¼ä¸ô](../../v1APIreference/Clustermanager/Cluster/Healthchecking.md)½«½éÓÚ`min_interval`ºÍ`max_interval`Ö®¼ä¡£
+å¥åº·æ£€æŸ¥é—´éš”çš„æœ€å°å€¼ã€‚é»˜è®¤å€¼ä¸º0ã€‚è¿è¡ŒçŠ¶å†µ[æ£€æŸ¥é—´éš”](../../v1APIreference/Clustermanager/Cluster/Healthchecking.md)å°†ä»‹äº`min_interval`å’Œ`max_interval`ä¹‹é—´ã€‚
 
 - **health_check.max_interval**</br>
-½¡¿µ¼ì²é¼ä¸ôµÄ×î´óÖµ¡£Ä¬ÈÏÖµÊÇMAX_INT¡£½¡¿µ¼ì²é¼ä¸ô½«ÔÚ`min_interval`ºÍ`max_interval`Ö®¼ä¡£
+å¥åº·æ£€æŸ¥é—´éš”çš„æœ€å¤§å€¼ã€‚é»˜è®¤å€¼æ˜¯MAX_INTã€‚å¥åº·æ£€æŸ¥é—´éš”å°†åœ¨`min_interval`å’Œ`max_interval`ä¹‹é—´ã€‚
 
 - **health_check.verify_cluster**</br>
-[½¡¿µ¼ì²é¹ıÂËÆ÷](../../v1APIreference/Clustermanager/Cluster/Healthchecking.md)½«Ô¶³Ì·şÎñ¼¯ÈºµÄĞ´ÈëÏìÓ¦ÖĞÕë¶ÔÔ¤ÆÚµÄÉÏÓÎ·şÎñÑéÖ¤½¡¿µ¼ì²éÇëÇóµÄ°Ù·Ö±È¡£
+[å¥åº·æ£€æŸ¥è¿‡æ»¤å™¨](../../v1APIreference/Clustermanager/Cluster/Healthchecking.md)å°†è¿œç¨‹æœåŠ¡é›†ç¾¤çš„å†™å…¥å“åº”ä¸­é’ˆå¯¹é¢„æœŸçš„ä¸Šæ¸¸æœåŠ¡éªŒè¯å¥åº·æ£€æŸ¥è¯·æ±‚çš„ç™¾åˆ†æ¯”ã€‚
 
 
-
-### ÀëÈºÒì³£¼ì²â
-ÓĞ¹ØÀëÈºÒì³£¼ì²âµÄ¸ü¶àĞÅÏ¢£¬Çë²Î¼ûÒì³£Öµ¼ì²â[¼Ü¹¹¸ÅÊö](../../Introduction/Architectureoverview/Outlierdetection.md)¡£Òì³£Öµ¼ì²âÖ§³ÖµÄÔËĞĞÊ±²ÎÊıÓë¾²Ì¬ÅäÖÃ²ÎÊıÏàÍ¬£¬¼´£º
+### ç¦»ç¾¤å¼‚å¸¸æ£€æµ‹
+æœ‰å…³ç¦»ç¾¤å¼‚å¸¸æ£€æµ‹çš„æ›´å¤šä¿¡æ¯ï¼Œè¯·å‚è§å¼‚å¸¸å€¼æ£€æµ‹[æ¶æ„æ¦‚è¿°](../../Introduction/Architectureoverview/Outlierdetection.md)ã€‚å¼‚å¸¸å€¼æ£€æµ‹æ”¯æŒçš„è¿è¡Œæ—¶å‚æ•°ä¸é™æ€é…ç½®å‚æ•°ç›¸åŒï¼Œå³ï¼š
 
 
 - **outlier_detection.consecutive_5xx**</br>
-ÓÃÓÚÒì³£Öµ¼ì²âµÄ[consecutive_5XX](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)ÉèÖÃ
+ç”¨äºå¼‚å¸¸å€¼æ£€æµ‹çš„[consecutive_5XX](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)è®¾ç½®
 
 - **outlier_detection.consecutive_gateway_failure**</br>
-ÓÃÓÚÒì³£Öµ¼ì²âµÄ[connected_gateway_failure](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)ÉèÖÃ
+ç”¨äºå¼‚å¸¸å€¼æ£€æµ‹çš„[connected_gateway_failure](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)è®¾ç½®
 
 - **outlier_detection.interval_ms**</br>
-ÔÚÒì³£Öµ¼ì²âÖĞµÄ[interval_ms](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)ÉèÖÃ
+åœ¨å¼‚å¸¸å€¼æ£€æµ‹ä¸­çš„[interval_ms](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)è®¾ç½®
 
 - **outlier_detection.base_ejection_time_ms**</br>
-»ùÓÚÒì³£Öµ¼ì²âµÄ[base_ejection_time_ms](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)ÉèÖÃ
+åŸºäºå¼‚å¸¸å€¼æ£€æµ‹çš„[base_ejection_time_ms](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)è®¾ç½®
 
 - **outlier_detection.max_ejection_percent**</br>
-Òì³£Öµ¼ì²âÖĞµÄ[max_ejection_percent](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)ÉèÖÃ
+å¼‚å¸¸å€¼æ£€æµ‹ä¸­çš„[max_ejection_percent](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)è®¾ç½®
 
 - **outlier_detection.enforcing_consecutive_5xx**</br>
-ÔÚÒì³£Öµ¼ì²âÖĞÖ´ĞĞ[enforcing_consecutive_5xx](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)ÉèÖÃ
+åœ¨å¼‚å¸¸å€¼æ£€æµ‹ä¸­æ‰§è¡Œ[enforcing_consecutive_5xx](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)è®¾ç½®
 
 - **outlier_detection.enforcing_consecutive_gateway_failure**</br>
-ÔÚÒì³£Öµ¼ì²âÖĞÖ´ĞĞ[enforcing_consecutive_gateway_failure](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)ÉèÖÃ
+åœ¨å¼‚å¸¸å€¼æ£€æµ‹ä¸­æ‰§è¡Œ[enforcing_consecutive_gateway_failure](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)è®¾ç½®
 
 - **outlier_detection.enforcing_success_rate**</br>
-ÔÚÒì³£Öµ¼ì²âÖĞÖ´ĞĞ[enforcing_success_rate](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)ÉèÖÃ
+åœ¨å¼‚å¸¸å€¼æ£€æµ‹ä¸­æ‰§è¡Œ[enforcing_success_rate](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)è®¾ç½®
 
 - **outlier_detection.success_rate_minimum_hosts**</br>
-Òì³£Öµ¼ì²âÖĞµÄ[success_rate_minimum_hosts](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)ÉèÖÃ
+å¼‚å¸¸å€¼æ£€æµ‹ä¸­çš„[success_rate_minimum_hosts](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)è®¾ç½®
 
 - **outlier_detection.success_rate_request_volume**</br>
-Òì³£Öµ¼ì²âÖĞµÄ[success_rate_request_volume](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)ÉèÖÃ
+å¼‚å¸¸å€¼æ£€æµ‹ä¸­çš„[success_rate_request_volume](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)è®¾ç½®
 
 - **outlier_detection.success_rate_stdev_factor**</br>
-Òì³£Öµ¼ì²âÖĞµÄ[success_rate_stdev_factor](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)ÉèÖÃ
+å¼‚å¸¸å€¼æ£€æµ‹ä¸­çš„[success_rate_stdev_factor](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)è®¾ç½®
 
-### ºËĞÄ
+### æ ¸å¿ƒ
 - **upstream.healthy_panic_threshold**</br>
-[¿Ö»ÅãĞÖµ](../../Introduction/Architectureoverview/Loadbalancing.md)°Ù·Ö±ÈÉèÖÃ¡£Ä¬ÈÏÎª50£¥¡£
+[ææ…Œé˜ˆå€¼](../../Introduction/Architectureoverview/Loadbalancing.md)ç™¾åˆ†æ¯”è®¾ç½®ã€‚é»˜è®¤ä¸º50ï¼…ã€‚
 
 - **upstream.use_http2**</br>
-ÅäÖÃÈº¼¯ÊÇ·ñÊ¹ÓÃ[http2¹¦ÄÜ](../../v1APIreference/Clustermanager/Cluster.md)¡£ÉèÖÃÎª0¼´½ûÓÃHTTP/2¡£Ä¬ÈÏÎªÆôÓÃ¡£
+é…ç½®ç¾¤é›†æ˜¯å¦ä½¿ç”¨[http2åŠŸèƒ½](../../v1APIreference/Clustermanager/Cluster.md)ã€‚è®¾ç½®ä¸º0å³ç¦ç”¨HTTP/2ã€‚é»˜è®¤ä¸ºå¯ç”¨ã€‚
 
 - **upstream.weight_enabled**</br>
-¶ş½øÖÆ¿ª¹Ø£¬ÓÃÓÚ´ò¿ª»ò¹Ø±Õ¼ÓÈ¨¸ºÔØ¾ùºâ¡£Èç¹ûÉèÖÃÎª·Ç0£¬ÔòÆôÓÃ¼ÓÈ¨¸ºÔØ¾ùºâ¡£Ä¬ÈÏÎªÆôÓÃ¡£
+äºŒè¿›åˆ¶å¼€å…³ï¼Œç”¨äºæ‰“å¼€æˆ–å…³é—­åŠ æƒè´Ÿè½½å‡è¡¡ã€‚å¦‚æœè®¾ç½®ä¸ºé0ï¼Œåˆ™å¯ç”¨åŠ æƒè´Ÿè½½å‡è¡¡ã€‚é»˜è®¤ä¸ºå¯ç”¨ã€‚
 
 
 
-### ÇøÓò¸ĞÖª¸ºÔØ¾ùºâ
+### åŒºåŸŸæ„ŸçŸ¥è´Ÿè½½å‡è¡¡
 - **upstream.zone_routing.enabled**</br>
-½«±»Â·ÓÉµ½ÏàÍ¬µÄÉÏÓÎÇøÓòµÄÇëÇóµÄ°Ù·Ö±È¡£Ä¬ÈÏÎª100£¥µÄÇëÇó¡£
+å°†è¢«è·¯ç”±åˆ°ç›¸åŒçš„ä¸Šæ¸¸åŒºåŸŸçš„è¯·æ±‚çš„ç™¾åˆ†æ¯”ã€‚é»˜è®¤ä¸º100ï¼…çš„è¯·æ±‚ã€‚
 
 - **upstream.zone_routing.min_cluster_size**</br>
-¿ÉÒÔ³¢ÊÔÇøÓò¸ĞÖªÂ·ÓÉµÄÉÏÓÎÈº¼¯µÄ×îĞ¡´óĞ¡¡£Ä¬ÈÏÖµÎª6¡£Èç¹ûÉÏÓÎÈº¼¯´óĞ¡Ğ¡ÓÚ`min_cluster_size`£¬ÔòÇøÓò¸ĞÖªÂ·ÓÉ½«²»±»Ö´ĞĞ¡£
+å¯ä»¥å°è¯•åŒºåŸŸæ„ŸçŸ¥è·¯ç”±çš„ä¸Šæ¸¸ç¾¤é›†çš„æœ€å°å¤§å°ã€‚é»˜è®¤å€¼ä¸º6ã€‚å¦‚æœä¸Šæ¸¸ç¾¤é›†å¤§å°å°äº`min_cluster_size`ï¼Œåˆ™åŒºåŸŸæ„ŸçŸ¥è·¯ç”±å°†ä¸è¢«æ‰§è¡Œã€‚
 
-## ÈÛ¶Ï
+## ç†”æ–­
 - **circuit_breakers.\<cluster_name>.\<priority>.max_connections**</br>
-[¶ÏÂ·Æ÷×î´óÁ¬½ÓÊıÉèÖÃ](../../v1APIreference/Clustermanager/Cluster/Circuitbreakers.md)
+[æ–­è·¯å™¨æœ€å¤§è¿æ¥æ•°è®¾ç½®](../../v1APIreference/Clustermanager/Cluster/Circuitbreakers.md)
 
 - **circuit_breakers.\<cluster_name>.\<priority>.max_pending_requests**</br>
-[¶ÏÂ·Æ÷×î´ó´ı´¦ÀíÇëÇóÉèÖÃ](../../v1APIreference/Clustermanager/Cluster/Circuitbreakers.md)
+[æ–­è·¯å™¨æœ€å¤§å¾…å¤„ç†è¯·æ±‚è®¾ç½®](../../v1APIreference/Clustermanager/Cluster/Circuitbreakers.md)
 
 - **circuit_breakers.\<cluster_name>.\<priority>.max_requests**</br>
-[¶ÏÂ·Æ÷×î´óÇëÇóÊıÁ¿ÉèÖÃ](../../v1APIreference/Clustermanager/Cluster/Circuitbreakers.md)
+[æ–­è·¯å™¨æœ€å¤§è¯·æ±‚æ•°é‡è®¾ç½®](../../v1APIreference/Clustermanager/Cluster/Circuitbreakers.md)
 
 - **circuit_breakers.\<cluster_name>.\<priority>.max_retries**</br>
-[¶ÏÂ·Æ÷×î´óÖØÊÔ´ÎÊıÉèÖÃ](../../v1APIreference/Clustermanager/Cluster/Circuitbreakers.md)
+[æ–­è·¯å™¨æœ€å¤§é‡è¯•æ¬¡æ•°è®¾ç½®](../../v1APIreference/Clustermanager/Cluster/Circuitbreakers.md)
 
 
 
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../Clustermanager.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../Clustermanager.md)
+- [é¦–é¡µç›®å½•](../../README.md)
