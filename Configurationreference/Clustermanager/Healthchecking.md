@@ -1,15 +1,15 @@
-## �������
+## 健康检查
 
-- �������[�ܹ�����](../../Introduction/Architectureoverview/Healthchecking.md)
-- ���Ϊ��Ⱥ�����˽�����飬��ᴥ������ͳ����Ϣ�����[����](../../Configurationreference/Clustermanager/Statistics.md)�ĵ���
-- [v1 API�ĵ�](../../v1APIreference/Clustermanager/Cluster/Healthchecking.md)
-- [v2 API�ĵ�](../../v2APIreference/Healthcheck.md)
+- 健康检查[架构概述](../../Introduction/Architectureoverview/Healthchecking.md)
+- 如果为集群配置了健康检查，则会触发其他统计信息。详见[这里](../../Configurationreference/Clustermanager/Statistics.md)文档。
+- [v1 API文档](../../v1APIreference/Clustermanager/Cluster/Healthchecking.md)
+- [v2 API文档](../../v2APIreference/Healthcheck.md)
 
-### TCP�������
+### TCP健康检查
 
-**ע�⣺������Ϊv1 API��д�ģ�����Щ����Ҳ������v2 API��������δ���汾��ʹ��v2 API��д��**
+**注意：本文是为v1 API编写的，但这些概念也适用于v2 API。它将在未来版本中使用v2 API重写。**
 
-ִ�е�ƥ���������£�����MongoDB���н�������������Ӧ����
+执行的匹配类型如下（这是MongoDB运行健康检查请求和响应）：
 
 ```
  {
@@ -44,15 +44,14 @@
 }
 ```
 
-��ÿ��������������У����С����͡��ֽڶ��ᷢ�͵�Ŀ���������ÿ�������ƿ���������ⳤ�ȵģ������ڷ���ʱֻ��������һ�𡣣��ֳɶ�������ڿɶ��ԣ���
+在每个健康检查周期中，所有“发送”字节都会发送到目标服务器。每个二进制块可以是任意长度的，并且在发送时只是连接在一起。（分成多个块用于可读性）。
 
-�ڼ����Ӧʱ��ִ�С�ģ����ƥ�䣬ʹ�ñ����ҵ�ÿ�������ƿ飬���Ұ���ָ����˳�򣬵������������ġ���ˣ�������������У��ڡ�EEEEEEEE���͡�01000000��֮�����Ӧ�п��Բ��롰FFFFFFFF�������Ҽ����Ȼͨ������������Ϊ��֧������Ӧ�в����ȷ�������ݣ���ʱ�䣩��Э�顣
+在检查响应时，执行“模糊”匹配，使得必须找到每个二进制块，并且按照指定的顺序，但不必是连续的。因此，在上面的例子中，在“EEEEEEEE”和“01000000”之间的响应中可以插入“FFFFFFFF”，并且检查仍然通过。这样做是为了支持在响应中插入非确定性数据（如时间）的协议。
 
-����Ҫһ�������ӵĽ������ģʽ���緢��/����/����/����Ŀǰ����֧�֡�
+若需要一个更复杂的健康检查模式，如发送/接收/发送/接收目前还不支持。
 
-��������ա���һ�������飬��Envoy��ִ�С������ӡ�TCP������顣��ÿ�������У�Envoy���������ӵ���������������������ӳɹ�������Ϊ���ǳɹ��ġ�Ϊÿ������������ڴ���һ���µ����ӡ�
+如果“接收”是一个空数组，则Envoy将执行“仅连接”TCP健康检查。在每个周期中，Envoy将尝试连接到上游主机，并且如果连接成功，则认为它是成功的。为每个健康检查周期创建一个新的连接。
 
-
-## ����
-- [��һ��](../Clustermanager.md)
-- [��ҳĿ¼](../../README.md)
+## 返回
+- [上一级](../Clustermanager.md)
+- [首页目录](../../README.md)
