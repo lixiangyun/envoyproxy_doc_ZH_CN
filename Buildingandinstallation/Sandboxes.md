@@ -1,12 +1,12 @@
-## 演示沙箱
-docker-compose 沙箱可以让你在不同的环境上来测试Envoy的功能。我们会根据大家的兴趣，将会添加更多的沙箱来展示不同的功能。以下开箱即用：
+## 娌欑婕旂ず
+docker-compose 娌欑鍙互璁╀綘鍦ㄤ笉鍚岀殑鐜涓婃潵娴嬭瘯Envoy鐨勫姛鑳姐�傛垜浠細鏍规嵁澶у鐨勫叴瓒ｏ紝灏嗕細娣诲姞鏇村鐨勬矙绠辨潵灞曠ず涓嶅悓鐨勫姛鑳姐�備互涓嬪紑绠卞嵆鐢細
 
-- [前端代理](Sandboxes/FrontProxy.md)
-- [Zipkin跟踪](Sandboxes/ZipkinTracing.md)
-- [Jaeger跟踪](Sandboxes/JaegerTracing.md)
-- [gRPC桥接](Sandboxes/gRPCBridge.md)
-- [构建Envoy Docker镜像](Sandboxes/BuildinganEnvoyDockerimage.md)
+- [鍓嶇浠ｇ悊](Sandboxes/FrontProxy.md)
+- [Zipkin璺熻釜](Sandboxes/ZipkinTracing.md)
+- [Jaeger璺熻釜](Sandboxes/JaegerTracing.md)
+- [gRPC妗ユ帴](Sandboxes/gRPCBridge.md)
+- [鏋勫缓Envoy Docker闀滃儚](Sandboxes/BuildinganEnvoyDockerimage.md)
 
-## 返回
-- [上一级](../Buildingandinstallation.md)
-- [首页目录](../README.md)
+## 杩斿洖
+- [涓婁竴绾(../Buildingandinstallation.md)
+- [棣栭〉鐩綍](../README.md)
