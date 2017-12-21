@@ -1,12 +1,12 @@
-## gRPC-Web ¹ıÂËÆ÷
+## gRPC-Web è¿‡æ»¤å™¨
 
-- [gRPC ¼Ü¹¹¸ÅÊö](../../Introduction/Architectureoverview/gRPC.md)
-- [v1 API ²Î¿¼](../../v1APIreference/HTTPfilters/gRPCWebfilter.md)
-- [v2 API ²Î¿¼](../../v2APIreference/Filters/Networkfilters/HTTPconnectionmanager.md)
+- [gRPC æ¶æ„æ¦‚è¿°](../../Introduction/Architectureoverview/gRPC.md)
+- [v1 API å‚è€ƒ](../../v1APIreference/HTTPfilters/gRPCWebfilter.md)
+- [v2 API å‚è€ƒ](../../v2APIreference/Filters/Networkfilters/HTTPconnectionmanager.md)
 
 
-ÕâÊÇÒ»¸ö¹ıÂËÆ÷£¬Í¨¹ı[Ğ­Òé¶¨Òå](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-WEB.md)¿ÉÒÔ½«gRPC-Web¿Í»§¶ËÇÅ½Óµ½¼æÈİµÄgRPC·şÎñÆ÷¡£
+è¿™æ˜¯ä¸€ä¸ªè¿‡æ»¤å™¨ï¼Œé€šè¿‡[åè®®å®šä¹‰](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-WEB.md)å¯ä»¥å°†gRPC-Webå®¢æˆ·ç«¯æ¡¥æ¥åˆ°å…¼å®¹çš„gRPCæœåŠ¡å™¨ã€‚
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../HTTPfilters.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../HTTPfilters.md)
+- [é¦–é¡µç›®å½•](../../README.md)
