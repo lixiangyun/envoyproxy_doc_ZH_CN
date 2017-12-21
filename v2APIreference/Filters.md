@@ -1,27 +1,27 @@
-## ¹ıÂËÆ÷
+## è¿‡æ»¤å™¨
 
-- [ÍøÂç¹ıÂËÆ÷](Filters/Networkfilters.md)
-    - [TLS¿Í»§¶ËÉí·İÈÏÖ¤](Filters/Networkfilters/ClientTLSauthentication.md)
-    - [HTTPÁ¬½Ó¹ÜÀí](Filters/Networkfilters/HTTPconnectionmanager.md)
-    - [Mongo´úÀí](Filters/Networkfilters/Mongoproxy.md)
-    - [ËÙÂÊÏŞÖÆ](Filters/Networkfilters/Ratelimit.md)
-    - [Redis´úÀí](Filters/Networkfilters/RedisProxy.md)
-    - [TCP´úÀí](Filters/Networkfilters/TCPProxy.md)
+- [ç½‘ç»œè¿‡æ»¤å™¨](Filters/Networkfilters.md)
+    - [TLSå®¢æˆ·ç«¯èº«ä»½è®¤è¯](Filters/Networkfilters/ClientTLSauthentication.md)
+    - [HTTPè¿æ¥ç®¡ç†](Filters/Networkfilters/HTTPconnectionmanager.md)
+    - [Mongoä»£ç†](Filters/Networkfilters/Mongoproxy.md)
+    - [é€Ÿç‡é™åˆ¶](Filters/Networkfilters/Ratelimit.md)
+    - [Redisä»£ç†](Filters/Networkfilters/RedisProxy.md)
+    - [TCPä»£ç†](Filters/Networkfilters/TCPProxy.md)
 
-- [HTTP¹ıÂËÆ÷](Filters/HTTPfilters.md)
-    - [»º´æ](Filters/HTTPfilters/Buffer.md)
-    - [¹ÊÕÏ×¢Èë](Filters/HTTPfilters/FaultInjection.md)
-    - [½¡¿µ¼ì²é](Filters/HTTPfilters/Healthcheck.md)
+- [HTTPè¿‡æ»¤å™¨](Filters/HTTPfilters.md)
+    - [ç¼“å­˜](Filters/HTTPfilters/Buffer.md)
+    - [æ•…éšœæ³¨å…¥](Filters/HTTPfilters/FaultInjection.md)
+    - [å¥åº·æ£€æŸ¥](Filters/HTTPfilters/Healthcheck.md)
     - [Lua](Filters/HTTPfilters/Lua.md)
-    - [ËÙÂÊÏŞÖÆ](Filters/HTTPfilters/Ratelimit.md)
-    - [Â·ÓÉ](Filters/HTTPfilters/Router.md)
-    - [gRPC-JSON×ªÂëÆ÷](Filters/HTTPfilters/gRPCJSONtranscoder.md)
+    - [é€Ÿç‡é™åˆ¶](Filters/HTTPfilters/Ratelimit.md)
+    - [è·¯ç”±](Filters/HTTPfilters/Router.md)
+    - [gRPC-JSONè½¬ç å™¨](Filters/HTTPfilters/gRPCJSONtranscoder.md)
 
-- [³£¼û·ÃÎÊÈÕÖ¾ÀàĞÍ](Filters/Commonaccesslogtypes.md)
+- [å¸¸è§è®¿é—®æ—¥å¿—ç±»å‹](Filters/Commonaccesslogtypes.md)
 	- filter.accesslog.AccessLog
 	- filter.accesslog.AccessLogFilter
 	- filter.accesslog.ComparisonFilter
-	- filter.accesslog.ComparisonFilter.Op(Ã¶¾ÙÀàĞÍ)
+	- filter.accesslog.ComparisonFilter.Op(æšä¸¾ç±»å‹)
 	- filter.accesslog.StatusCodeFilter
 	- filter.accesslog.DurationFilter
 	- filter.accesslog.NotHealthCheckFilter
@@ -31,10 +31,11 @@
 	- filter.accesslog.OrFilter
 	- filter.accesslog.FileAccessLog
 	
-- [³£¼û¹ÊÕÏ×¢ÈëÀàĞÍ](Filters/Commonfaultinjectiontypes.md)
+- [å¸¸è§æ•…éšœæ³¨å…¥ç±»å‹](Filters/Commonfaultinjectiontypes.md)
     - filter.FaultDelay
-    - filter.FaultDelay.FaultDelayType(Ã¶¾ÙÀàĞÍ)
+    - filter.FaultDelay.FaultDelayType(æšä¸¾ç±»å‹)
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../v2APIreference.md)
-- [Ê×Ò³Ä¿Â¼](../README.md)
+
+## è¿”å›
+- [ä¸Šä¸€çº§](../v2APIreference.md)
+- [é¦–é¡µç›®å½•](../README.md)
