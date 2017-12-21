@@ -1,27 +1,27 @@
-## ËÙÂÊÏÞÖÆ
+## é€ŸçŽ‡é™åˆ¶
 
-- ËÙÂÊÏÞÖÆ[¼Ü¹¹¸ÅÊö](../../Introduction/Architectureoverview/Globalratelimiting.md)
-- [v1 API ²Î¿¼](../../v1APIreference/HTTPfilters/Ratelimit.md)
-- [v2 API ²Î¿¼](../../v2APIreference/Filters/HTTPfilters/Ratelimit.md)
+- é€ŸçŽ‡é™åˆ¶[æž¶æž„æ¦‚è¿°](../../Introduction/Architectureoverview/Globalratelimiting.md)
+- [v1 API å‚è€ƒ](../../v1APIreference/HTTPfilters/Ratelimit.md)
+- [v2 API å‚è€ƒ](../../v2APIreference/Filters/HTTPfilters/Ratelimit.md)
 
-µ±ÇëÇóµÄÂ·ÓÉ»òÐéÄâÖ÷»úÓÐÒ»¸ö»ò¶à¸ö·ûºÏ¹ýÂËÆ÷ÉèÖÃµÄËÙÂÊÏÞÖÆÅäÖÃÊ±£¬HTTPËÙÂÊÏÞÖÆ¹ýÂËÆ÷½«µ÷ÓÃËÙÂÊÏÞÖÆ·þÎñ¡£Â·ÓÉ¿ÉÒÔÑ¡Ôñ°üº¬ÐéÄâÖ÷»úËÙÂÊÏÞÖÆÅäÖÃ¡£¿ÉÅäÖÃ¶à¸öÓ¦ÓÃÓÚÇëÇó¡£Ã¿¸öÅäÖÃÃèÊö·û¶¼»áµ¼ÖÂ±»·¢ËÍµ½ËÙÂÊÏÞÖÆ·þÎñ¡£
+å½“è¯·æ±‚çš„è·¯ç”±æˆ–è™šæ‹Ÿä¸»æœºæœ‰ä¸€ä¸ªæˆ–å¤šä¸ªç¬¦åˆè¿‡æ»¤å™¨è®¾ç½®çš„é€ŸçŽ‡é™åˆ¶é…ç½®æ—¶ï¼ŒHTTPé€ŸçŽ‡é™åˆ¶è¿‡æ»¤å™¨å°†è°ƒç”¨é€ŸçŽ‡é™åˆ¶æœåŠ¡ã€‚è·¯ç”±å¯ä»¥é€‰æ‹©åŒ…å«è™šæ‹Ÿä¸»æœºé€ŸçŽ‡é™åˆ¶é…ç½®ã€‚å¯é…ç½®å¤šä¸ªåº”ç”¨äºŽè¯·æ±‚ã€‚æ¯ä¸ªé…ç½®æè¿°ç¬¦éƒ½ä¼šå¯¼è‡´è¢«å‘é€åˆ°é€ŸçŽ‡é™åˆ¶æœåŠ¡ã€‚
 
-Èç¹ûËÙÂÊÏÞÖÆ·þÎñ±»µ÷ÓÃ£¬²¢ÇÒÈÎºÎÏìÓ¦³¬³öÏÞÖÆµÄÃèÊö·û£¬¶¼½«·µ»Ø429ÏìÓ¦¡£
+å¦‚æžœé€ŸçŽ‡é™åˆ¶æœåŠ¡è¢«è°ƒç”¨ï¼Œå¹¶ä¸”ä»»ä½•å“åº”è¶…å‡ºé™åˆ¶çš„æè¿°ç¬¦ï¼Œéƒ½å°†è¿”å›ž429å“åº”ã€‚
 
-### ×é³É²Ù×÷
-**×¢Òâ£º±¾ÎÄÊÇÎªv1 API±àÐ´µÄ£¬µ«ÕâÐ©¸ÅÄîÒ²ÊÊÓÃÓÚv2 API¡£Ëü½«ÔÚÎ´À´°æ±¾ÖÐÊ¹ÓÃv2 APIÖØÐ´¡£**
+### ç»„æˆæ“ä½œ
+**æ³¨æ„ï¼šæœ¬æ–‡æ˜¯ä¸ºv1 APIç¼–å†™çš„ï¼Œä½†è¿™äº›æ¦‚å¿µä¹Ÿé€‚ç”¨äºŽv2 APIã€‚å®ƒå°†åœ¨æœªæ¥ç‰ˆæœ¬ä¸­ä½¿ç”¨v2 APIé‡å†™ã€‚**
 
-Â·ÓÉ»òÐéÄâÖ÷»úÉÏµÄÃ¿¸öËÙÂÊÏÞÖÆ²Ù×÷¶¼ÐèÒªÒ»¸öÃèÊö·û×÷ÎªÊäÈë¡£ÈôÒª´´½¨¸ü¸´ÔÓµÄËÙÂÊÏÞÖÆÃèÊö·û£¬¿ÉÓÉÒ»×éÃèÊö·û°´ÈÎÒâË³Ðò½øÐÐ×éºÏ²Ù×÷¡£ÃèÊö·û½«°´ÕÕÅäÖÃÖÐÖ¸¶¨²Ù×÷µÄË³Ðò½øÐÐÌî³ä¡£
+è·¯ç”±æˆ–è™šæ‹Ÿä¸»æœºä¸Šçš„æ¯ä¸ªé€ŸçŽ‡é™åˆ¶æ“ä½œéƒ½éœ€è¦ä¸€ä¸ªæè¿°ç¬¦ä½œä¸ºè¾“å…¥ã€‚è‹¥è¦åˆ›å»ºæ›´å¤æ‚çš„é€ŸçŽ‡é™åˆ¶æè¿°ç¬¦ï¼Œå¯ç”±ä¸€ç»„æè¿°ç¬¦æŒ‰ä»»æ„é¡ºåºè¿›è¡Œç»„åˆæ“ä½œã€‚æè¿°ç¬¦å°†æŒ‰ç…§é…ç½®ä¸­æŒ‡å®šæ“ä½œçš„é¡ºåºè¿›è¡Œå¡«å……ã€‚
 
-**Àý1**
+**ä¾‹1**
 
-ÀýÈç£¬ÒªÉú³ÉÒÔÏÂÃèÊö·û£º
+ä¾‹å¦‚ï¼Œè¦ç”Ÿæˆä»¥ä¸‹æè¿°ç¬¦ï¼š
 ```
 ("generic_key", "some_value")
 ("source_cluster", "from_cluster")
 ```
 
-ÅäÖÃ½«ÊÇ£º
+é…ç½®å°†æ˜¯ï¼š
 ```
 {
   "actions" : [
@@ -36,11 +36,11 @@
 }
 ```
 
-**Àý2**
+**ä¾‹2**
 
-Èç¹ûÄ³¸ö²Ù×÷²»¸½¼ÓÃèÊö·ûÌõÄ¿£¬Ôò²»»áÎª¸ÃÅäÖÃÉú³ÉÃèÊö·û¡£
+å¦‚æžœæŸä¸ªæ“ä½œä¸é™„åŠ æè¿°ç¬¦æ¡ç›®ï¼Œåˆ™ä¸ä¼šä¸ºè¯¥é…ç½®ç”Ÿæˆæè¿°ç¬¦ã€‚
 
-¶ÔÓÚÒÔÏÂÅäÖÃ£º
+å¯¹äºŽä»¥ä¸‹é…ç½®ï¼š
 
 ```
 {
@@ -59,9 +59,9 @@
 }
 ```
 
-Èç¹ûÇëÇóÃ»ÓÐÉèÖÃ[x-forwarded-for](../../Configurationreference/HTTPconnectionmanager/HTTPheadermanipulation.md)£¬Ôò²»»áÉú³ÉÃèÊö·û¡£
+å¦‚æžœè¯·æ±‚æ²¡æœ‰è®¾ç½®[x-forwarded-for](../../Configurationreference/HTTPconnectionmanager/HTTPheadermanipulation.md)ï¼Œåˆ™ä¸ä¼šç”Ÿæˆæè¿°ç¬¦ã€‚
 
-Èç¹ûÇëÇóÉèÖÃÁË[x-forwarded-for](../../Configurationreference/HTTPconnectionmanager/HTTPheadermanipulation.md)£¬Ôò»áÉú³ÉÒÔÏÂÃèÊö·û£º
+å¦‚æžœè¯·æ±‚è®¾ç½®äº†[x-forwarded-for](../../Configurationreference/HTTPconnectionmanager/HTTPheadermanipulation.md)ï¼Œåˆ™ä¼šç”Ÿæˆä»¥ä¸‹æè¿°ç¬¦ï¼š
 
 ```
 ("generic_key", "some_value")
@@ -69,27 +69,27 @@
 ("source_cluster", "from_cluster")
 ```
 
-### Í³¼Æ
-»º³åÇø¹ýÂËÆ÷Êä³ö¼¯ÈºÖÐµÄÍ³¼ÆÐÅÏ¢ÒÔ`cluster.<route target cluster>.ratelimit.`ÎªÃüÃû¿Õ¼ä¡£429ÏìÓ¦±»·¢ËÍµ½Õý³£µÄÈº¼¯[¶¯Ì¬HTTPÍ³¼Æ](../../Configurationreference/Clustermanager/Statistics.md)¡£
+### ç»Ÿè®¡
+ç¼“å†²åŒºè¿‡æ»¤å™¨è¾“å‡ºé›†ç¾¤ä¸­çš„ç»Ÿè®¡ä¿¡æ¯ä»¥`cluster.<route target cluster>.ratelimit.`ä¸ºå‘½åç©ºé—´ã€‚429å“åº”è¢«å‘é€åˆ°æ­£å¸¸çš„ç¾¤é›†[åŠ¨æ€HTTPç»Ÿè®¡](../../Configurationreference/Clustermanager/Statistics.md)ã€‚
 
-|	Ãû³Æ	|	ÀàÐÍ	|	ÃèÊö	|
+|	åç§°	|	ç±»åž‹	|	æè¿°	|
 |	 -------------	|	 -------------	|	 -------------	|
-|	ok	|	Counter	|	µÍÓÚÏÞËÙÇëÇóµÄËÙÂÊÏÞÖÆ·þÎñ×ÜÊý	|
-|	error	|	Counter	|	Á¬½ÓËÙÂÊÏÞÖÆ·þÎñµÄÊ§°Ü×ÜÊý	|
-|	over_limit	|	Counter	|	¸ßÓÚÏÞËÙÇëÇóµÄËÙÂÊÏÞÖÆ·þÎñ×ÜÊý	|
+|	ok	|	Counter	|	ä½ŽäºŽé™é€Ÿè¯·æ±‚çš„é€ŸçŽ‡é™åˆ¶æœåŠ¡æ€»æ•°	|
+|	error	|	Counter	|	è¿žæŽ¥é€ŸçŽ‡é™åˆ¶æœåŠ¡çš„å¤±è´¥æ€»æ•°	|
+|	over_limit	|	Counter	|	é«˜äºŽé™é€Ÿè¯·æ±‚çš„é€ŸçŽ‡é™åˆ¶æœåŠ¡æ€»æ•°	|
 
-### ÔËÐÐÊ±ÉèÖÃ
-HTTPËÙÂÊÏÞÖÆ¹ýÂËÆ÷Ö§³ÖÒÔÏÂÔËÐÐÊ±ÉèÖÃ£º
+### è¿è¡Œæ—¶è®¾ç½®
+HTTPé€ŸçŽ‡é™åˆ¶è¿‡æ»¤å™¨æ”¯æŒä»¥ä¸‹è¿è¡Œæ—¶è®¾ç½®ï¼š
 
 - **ratelimit.http_filter_enabled**</br>
-½«µ÷ÓÃËÙÂÊÏÞÖÆ·þÎñµÄÇëÇóµÄ°Ù·Ö±È¡£Ä¬ÈÏÎª100¡£
+å°†è°ƒç”¨é€ŸçŽ‡é™åˆ¶æœåŠ¡çš„è¯·æ±‚çš„ç™¾åˆ†æ¯”ã€‚é»˜è®¤ä¸º100ã€‚
 
 - **ratelimit.http_filter_enforcing**</br>
-½«µ÷ÓÃËÙÂÊÏÞÖÆ·þÎñ²¢Ö´ÐÐ¾ö¶¨µÄÇëÇó°Ù·Ö±È¡£Ä¬ÈÏÎª100¡£Õâ¿ÉÒÔÓÃÀ´²âÊÔÍêÈ«Ö´ÐÐ½á¹ûÖ®Ç°»á·¢ÉúÊ²Ã´¡£
+å°†è°ƒç”¨é€ŸçŽ‡é™åˆ¶æœåŠ¡å¹¶æ‰§è¡Œå†³å®šçš„è¯·æ±‚ç™¾åˆ†æ¯”ã€‚é»˜è®¤ä¸º100ã€‚è¿™å¯ä»¥ç”¨æ¥æµ‹è¯•å®Œå…¨æ‰§è¡Œç»“æžœä¹‹å‰ä¼šå‘ç”Ÿä»€ä¹ˆã€‚
 
 - **ratelimit.`<route_key>`.http_filter_enabled**</br>
-½«µ÷ÓÃËÙÂÊÏÞÖÆÅäÖÃÖÐÖ¸¶¨µÄ¸ø¶¨`route_key`µÄËÙÂÊÏÞÖÆ·þÎñÇëÇóµÄ°Ù·Ö±È¡£Ä¬ÈÏÎª100¡£
+å°†è°ƒç”¨é€ŸçŽ‡é™åˆ¶é…ç½®ä¸­æŒ‡å®šçš„ç»™å®š`route_key`çš„é€ŸçŽ‡é™åˆ¶æœåŠ¡è¯·æ±‚çš„ç™¾åˆ†æ¯”ã€‚é»˜è®¤ä¸º100ã€‚
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../HTTPfilters.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+## è¿”å›ž
+- [ä¸Šä¸€çº§](../HTTPfilters.md)
+- [é¦–é¡µç›®å½•](../../README.md)
