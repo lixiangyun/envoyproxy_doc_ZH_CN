@@ -1,12 +1,11 @@
-## ½¡¿µ¼ì²é
+## å¥åº·æ£€æŸ¥
 
-- ½¡¿µ¼ì²é[¼Ü¹¹¸ÅÊö](../../Introduction/Architectureoverview/Healthchecking.md)
-- [v1 API ²Î¿¼](../../v1APIreference/HTTPfilters/Healthcheck.md)
-- [v2 API ²Î¿¼](../../v2APIreference/Filters/HTTPfilters/Healthcheck.md)
+- å¥åº·æ£€æŸ¥[æ¶æ„æ¦‚è¿°](../../Introduction/Architectureoverview/Healthchecking.md)
+- [v1 API å‚è€ƒ](../../v1APIreference/HTTPfilters/Healthcheck.md)
+- [v2 API å‚è€ƒ](../../v2APIreference/Filters/HTTPfilters/Healthcheck.md)
 
-**Çë×¢Òâ£º**Èç¹û[/healthcheck/fail](../../Operationsandadministration/Administrationinterface.md)¹ÜÀí¶Ë¿Ú±»µ÷ÓÃ£¬¹ıÂËÆ÷½«×Ô¶¯ÔËĞĞÊ§°Ü½¡¿µ¼ì²é²¢ÉèÖÃ[x-envoy-immediate-health-check-fail](../../Configurationreference/HTTPfilters/Router.md)Í·²¿¡££¨Í¨¹ı[/healthcheck/ok](../../Operationsandadministration/Administrationinterface.md)¹ÜÀí¶Ë¿Ú»Ö¸´´ËĞĞÎª£©¡£
+**è¯·æ³¨æ„ï¼š**å¦‚æœ[/healthcheck/fail](../../Operationsandadministration/Administrationinterface.md)ç®¡ç†ç«¯å£è¢«è°ƒç”¨ï¼Œè¿‡æ»¤å™¨å°†è‡ªåŠ¨è¿è¡Œå¤±è´¥å¥åº·æ£€æŸ¥å¹¶è®¾ç½®[x-envoy-immediate-health-check-fail](../../Configurationreference/HTTPfilters/Router.md)å¤´éƒ¨ã€‚ï¼ˆé€šè¿‡[/healthcheck/ok](../../Operationsandadministration/Administrationinterface.md)ç®¡ç†ç«¯å£æ¢å¤æ­¤è¡Œä¸ºï¼‰ã€‚
 
-
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../HTTPfilters.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../HTTPfilters.md)
+- [é¦–é¡µç›®å½•](../../README.md)
