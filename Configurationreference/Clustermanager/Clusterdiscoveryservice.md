@@ -1,22 +1,21 @@
-## ¼¯Èº·¢ÏÖ·şÎñ
+## é›†ç¾¤å‘ç°æœåŠ¡
 
-Èº¼¯·¢ÏÖ·şÎñ£¨CDS£©ÊÇÒ»¸ö¿ÉÑ¡µÄAPI£¬Envoy½«µ÷ÓÃ¸ÃAPIÀ´¶¯Ì¬»ñÈ¡Èº¼¯¹ÜÀíÆ÷³ÉÔ±¡£ Envoy»¹½«¸ù¾İAPIÏìÓ¦Ğ­µ÷¼¯Èº¹ÜÀí£¬¸ù¾İĞèÒªÍê³ÉÌí¼Ó£¬ĞŞ¸Ä»òÉ¾³ıÒÑÖªµÄÈº¼¯¡£
+ç¾¤é›†å‘ç°æœåŠ¡ï¼ˆCDSï¼‰æ˜¯ä¸€ä¸ªå¯é€‰çš„APIï¼ŒEnvoyå°†è°ƒç”¨è¯¥APIæ¥åŠ¨æ€è·å–ç¾¤é›†ç®¡ç†å™¨æˆå‘˜ã€‚ Envoyè¿˜å°†æ ¹æ®APIå“åº”åè°ƒé›†ç¾¤ç®¡ç†ï¼Œæ ¹æ®éœ€è¦å®Œæˆæ·»åŠ ï¼Œä¿®æ”¹æˆ–åˆ é™¤å·²çŸ¥çš„ç¾¤é›†ã€‚
 
 - [v1 CDS API](../../v1APIreference/Clustermanager/Clusterdiscoveryservice.md)
 - [v2 CDS API](../../Configurationreference/Overviewv2API.md)
 
-### Í³¼Æ
-CDSµÄÍ³¼ÆÊ÷ÒÔ`cluster_manager.cds.`Îª¸ù£¬Í³¼ÆÈçÏÂ£º
+### ç»Ÿè®¡
+CDSçš„ç»Ÿè®¡æ ‘ä»¥`cluster_manager.cds.`ä¸ºæ ¹ï¼Œç»Ÿè®¡å¦‚ä¸‹ï¼š
 
 |	Name	|	Type	|	Description	|
 |	 -------------	|	 -------------	|	 -------------	|
-|	config_reload	|	Counter	|	ÒòÅäÖÃ²»Í¬¶øµ¼ÖÂÅäÖÃÖØĞÂ¼ÓÔØµÄ×Ü´ÎÊı	|
-|	update_attempt	|	Counter	|	³¢ÊÔµ÷ÓÃÅäÖÃ¼ÓÔØAPIµÄ×Ü´ÎÊı	|
-|	update_success	|	Counter	|	µ÷ÓÃÅäÖÃ¼ÓÔØAPI³É¹¦µÄ×Ü´ÎÊı	|
-|	update_failure	|	Counter	|	µ÷ÓÃÅäÖÃ¼ÓÔØAPIÊ§°ÜµÄ×Ü´ÎÊı£¨ÍøÂç»ò²ÎÊı´íÎó£©	|
-|	version	|	Gauge	|	À´×ÔÉÏ´Î³É¹¦µ÷ÓÃÅäÖÃ¼ÓÔØAPIµÄÄÚÈİ¹şÏ£	|
+|	config_reload	|	Counter	|	å› é…ç½®ä¸åŒè€Œå¯¼è‡´é…ç½®é‡æ–°åŠ è½½çš„æ€»æ¬¡æ•°	|
+|	update_attempt	|	Counter	|	å°è¯•è°ƒç”¨é…ç½®åŠ è½½APIçš„æ€»æ¬¡æ•°	|
+|	update_success	|	Counter	|	è°ƒç”¨é…ç½®åŠ è½½APIæˆåŠŸçš„æ€»æ¬¡æ•°	|
+|	update_failure	|	Counter	|	è°ƒç”¨é…ç½®åŠ è½½APIå¤±è´¥çš„æ€»æ¬¡æ•°ï¼ˆç½‘ç»œæˆ–å‚æ•°é”™è¯¯ï¼‰	|
+|	version	|	Gauge	|	æ¥è‡ªä¸Šæ¬¡æˆåŠŸè°ƒç”¨é…ç½®åŠ è½½APIçš„å†…å®¹å“ˆå¸Œ	|
 
-
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../Clustermanager.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../Clustermanager.md)
+- [é¦–é¡µç›®å½•](../../README.md)
