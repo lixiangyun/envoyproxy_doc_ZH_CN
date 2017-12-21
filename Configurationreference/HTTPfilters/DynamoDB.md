@@ -1,15 +1,15 @@
 ## DynamoDB
-- [DynamoDB¼Ü¹¹¸ÅÊö](../../Introduction/Architectureoverview/DynamoDB.md)
-- [v1 API ²Î¿¼](../../v1APIreference/HTTPfilters/DynamoDB.md)
-- [v2 API ²Î¿¼](../../v2APIreference/Filters/Networkfilters/HTTPconnectionmanager.md)
+- [DynamoDBæ¶æ„æ¦‚è¿°](../../Introduction/Architectureoverview/DynamoDB.md)
+- [v1 API å‚è€ƒ](../../v1APIreference/HTTPfilters/DynamoDB.md)
+- [v2 API å‚è€ƒ](../../v2APIreference/Filters/Networkfilters/HTTPconnectionmanager.md)
 
-### Í³¼Æ
+### ç»Ÿè®¡
 
-DynamoDB¹ıÂËÆ÷Êä³öÍ³¼ÆĞÅÏ¢ÃüÃû¿Õ¼äÎª`http.<stat_prefix>.dynamodb.`¡£ÆäÖĞ`stat_prefix`À´×ÔËùÓµÓĞµÄHTTPÁ¬½Ó¹ÜÀíÆ÷¡£
+DynamoDBè¿‡æ»¤å™¨è¾“å‡ºç»Ÿè®¡ä¿¡æ¯å‘½åç©ºé—´ä¸º`http.<stat_prefix>.dynamodb.`ã€‚å…¶ä¸­`stat_prefix`æ¥è‡ªæ‰€æ‹¥æœ‰çš„HTTPè¿æ¥ç®¡ç†å™¨ã€‚
 
-Ã¿¸ö²Ù×÷µÄÍ³¼ÆĞÅÏ¢¿ÉÒÔÔÚÃüÃû¿Õ¼ä`http.<stat_prefix>.dynamodb.operation.<operation_name>.`ÕÒµ½¡£
+æ¯ä¸ªæ“ä½œçš„ç»Ÿè®¡ä¿¡æ¯å¯ä»¥åœ¨å‘½åç©ºé—´`http.<stat_prefix>.dynamodb.operation.<operation_name>.`æ‰¾åˆ°ã€‚
 
-|	Ãû³Æ	|	ÀàĞÍ	|	ÃèÊö	|
+|	åç§°	|	ç±»å‹	|	æè¿°	|
 |	 -------------	|	 -------------	|	 -------------	|
 |	upstream_rq_total	|	Counter	|	Total number of requests with <operation_name>	|
 |	upstream_rq_time	|	Histogram	|	Time spent on <operation_name>	|
@@ -17,38 +17,37 @@ DynamoDB¹ıÂËÆ÷Êä³öÍ³¼ÆĞÅÏ¢ÃüÃû¿Õ¼äÎª`http.<stat_prefix>.dynamodb.`¡£ÆäÖĞ`stat_pr
 |	upstream_rq_time_xxx	|	Histogram	|	Time spent on <operation_name> per response code (400/3xx/etc)	|
 
 
-Ã¿¸ö±íµÄÍ³¼ÆĞÅÏ¢¿ÉÒÔÔÚÃüÃû¿Õ¼ä`http.<stat_prefix>.dynamodb.table.<table_name>.`ÖĞÕÒµ½¡£ DynamoDBµÄ´ó²¿·Ö²Ù×÷¶¼Éæ¼°µ¥¸ö±í£¬µ«`BatchGetItem`ºÍ`BatchWriteItem`¿ÉÒÔ°üº¬¶à¸ö±í£¬Envoy½öÔÚËùÓĞÅú´¦Àí²Ù×÷Ê¹ÓÃÏàÍ¬µÄ±íÊ±²Å¸ú×ÙÃ¿¸ö±íµÄÍ³¼ÆĞÅÏ¢¡£
+æ¯ä¸ªè¡¨çš„ç»Ÿè®¡ä¿¡æ¯å¯ä»¥åœ¨å‘½åç©ºé—´`http.<stat_prefix>.dynamodb.table.<table_name>.`ä¸­æ‰¾åˆ°ã€‚ DynamoDBçš„å¤§éƒ¨åˆ†æ“ä½œéƒ½æ¶‰åŠå•ä¸ªè¡¨ï¼Œä½†`BatchGetItem`å’Œ`BatchWriteItem`å¯ä»¥åŒ…å«å¤šä¸ªè¡¨ï¼ŒEnvoyä»…åœ¨æ‰€æœ‰æ‰¹å¤„ç†æ“ä½œä½¿ç”¨ç›¸åŒçš„è¡¨æ—¶æ‰è·Ÿè¸ªæ¯ä¸ªè¡¨çš„ç»Ÿè®¡ä¿¡æ¯ã€‚
 
-|	Ãû³Æ	|	ÀàĞÍ	|	ÃèÊö	|
+|	åç§°	|	ç±»å‹	|	æè¿°	|
 |	 -------------	|	 -------------	|	 -------------	|
 |	upstream_rq_total	|	Counter	|	Total number of requests on <table_name> table	|
 |	upstream_rq_time	|	Histogram	|	Time spent on <table_name> table	|
 |	upstream_rq_total_xxx	|	Counter	|	Total number of requests on <table_name> table per response code (503/2xx/etc)	|
 |	upstream_rq_time_xxx	|	Histogram	|	Time spent on <table_name> table per response code (400/3xx/etc)	|
 
-*ÃâÔğÉùÃ÷£ºÇë×¢Òâ£¬ÕâÊÇÉĞÎ´¹ã·ºÊ¹ÓÃµÄÔ¤·¢ĞĞ°æ±¾µÄAmazon DynamoDB¹¦ÄÜ¡£*
-Ã¿¸ö·ÖÇøºÍ²Ù×÷Í³¼ÆĞÅÏ¢¿ÉÒÔÔÚÃüÃû¿Õ¼ä`http.<stat_prefix>.dynamodb.table.<table_name>.`ÕÒµ½¡£¶ÔÓÚÅúÁ¿²Ù×÷£¬Envoy½öÔÚËùÓĞ²Ù×÷ÖĞÊ¹ÓÃÏàÍ¬µÄ±íÊ±¸ú×ÙÃ¿¸ö·ÖÇøºÍ²Ù×÷Í³¼ÆĞÅÏ¢¡£
+*å…è´£å£°æ˜ï¼šè¯·æ³¨æ„ï¼Œè¿™æ˜¯å°šæœªå¹¿æ³›ä½¿ç”¨çš„é¢„å‘è¡Œç‰ˆæœ¬çš„Amazon DynamoDBåŠŸèƒ½ã€‚*
+æ¯ä¸ªåˆ†åŒºå’Œæ“ä½œç»Ÿè®¡ä¿¡æ¯å¯ä»¥åœ¨å‘½åç©ºé—´`http.<stat_prefix>.dynamodb.table.<table_name>.`æ‰¾åˆ°ã€‚å¯¹äºæ‰¹é‡æ“ä½œï¼ŒEnvoyä»…åœ¨æ‰€æœ‰æ“ä½œä¸­ä½¿ç”¨ç›¸åŒçš„è¡¨æ—¶è·Ÿè¸ªæ¯ä¸ªåˆ†åŒºå’Œæ“ä½œç»Ÿè®¡ä¿¡æ¯ã€‚
 
-
-|	Ãû³Æ	|	ÀàĞÍ	|	ÃèÊö	|
+|	åç§°	|	ç±»å‹	|	æè¿°	|
 |	 -------------	|	 -------------	|	 -------------	|
 |	`capacity.<operation_name>.__partition_id=<last_seven_characters_from_partition_id>`	|	Counter	|	Total number of capacity for `<operation_name>` on `<table_name>` table for a given `<partition_id>`	|
 
-ÆäËûÏêÏ¸Í³¼ÆĞÅÏ¢£º
+å…¶ä»–è¯¦ç»†ç»Ÿè®¡ä¿¡æ¯ï¼š
 
-- ¶ÔÓÚ4xxÏìÓ¦ºÍ²¿·ÖÅú´¦Àí²Ù×÷Ê§°Ü£¬ÔÚÃüÃû¿Õ¼ä` http.<stat_prefix>.dynamodb.error.<table_name>.`ÖĞ¸ú×ÙÖ¸¶¨µÄ±í£¬Ê§°ÜµÄ×Ü´ÎÊı¡£
+- å¯¹äº4xxå“åº”å’Œéƒ¨åˆ†æ‰¹å¤„ç†æ“ä½œå¤±è´¥ï¼Œåœ¨å‘½åç©ºé—´` http.<stat_prefix>.dynamodb.error.<table_name>.`ä¸­è·Ÿè¸ªæŒ‡å®šçš„è¡¨ï¼Œå¤±è´¥çš„æ€»æ¬¡æ•°ã€‚
 
-|	Ãû³Æ	|	ÀàĞÍ	|	ÃèÊö	|
+|	åç§°	|	ç±»å‹	|	æè¿°	|
 |	 -------------	|	 -------------	|	 -------------	|
 |	`<error_type>`	|	Counter	|	Total number of specific `<error_type>` for a given `<table_name>`	|
 |	BatchFailureUnprocessedKeys	|	Counter	|	Total number of partial batch failures for a given `<table_name>`	|
 
-### ÔËĞĞÊ±ÉèÖÃ
-DynamoDB¹ıÂËÆ÷Ö§³ÖÒÔÏÂÔËĞĞÊ±ÉèÖÃ£º
+### è¿è¡Œæ—¶è®¾ç½®
+DynamoDBè¿‡æ»¤å™¨æ”¯æŒä»¥ä¸‹è¿è¡Œæ—¶è®¾ç½®ï¼š
 
 - **dynamodb.filter_enabled**</br>
-ÆôÓÃ¹ıÂËÆ÷µÄÇëÇó°Ù·Ö±È¡£Ä¬ÈÏÊÇ100£¥¡£
+å¯ç”¨è¿‡æ»¤å™¨çš„è¯·æ±‚ç™¾åˆ†æ¯”ã€‚é»˜è®¤æ˜¯100ï¼…ã€‚
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../HTTPfilters.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../HTTPfilters.md)
+- [é¦–é¡µç›®å½•](../../README.md)
