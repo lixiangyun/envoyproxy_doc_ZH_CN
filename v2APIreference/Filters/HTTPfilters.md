@@ -1,22 +1,22 @@
-## HTTP¹ıÂËÆ÷
+## HTTPè¿‡æ»¤å™¨
 
-- [»º´æ](HTTPfilters/Buffer.md)
+- [ç¼“å­˜](HTTPfilters/Buffer.md)
     - filter.http.Buffer 
-- [¹ÊÕÏ×¢Èë](HTTPfilters/FaultInjection.md)
+- [æ•…éšœæ³¨å…¥](HTTPfilters/FaultInjection.md)
     - filter.http.FaultAbort
     - filter.http.HTTPFault
-- [½¡¿µ¼ì²é](HTTPfilters/Healthcheck.md)
+- [å¥åº·æ£€æŸ¥](HTTPfilters/Healthcheck.md)
     - filter.http.HealthCheck
 - [Lua](HTTPfilters/Lua.md)
     - filter.http.Lua
-- [ËÙÂÊÏŞÖÆ](HTTPfilters/Ratelimit.md)
+- [é€Ÿç‡é™åˆ¶](HTTPfilters/Ratelimit.md)
     - filter.http.RateLimit
-- [Â·ÓÉ](HTTPfilters/Router.md)
+- [è·¯ç”±](HTTPfilters/Router.md)
     - filter.http.Router
-- [gRPC-JSON×ªÂëÆ÷](HTTPfilters/gRPCJSONtranscoder.md)
+- [gRPC-JSONè½¬ç å™¨](HTTPfilters/gRPCJSONtranscoder.md)
     - filter.http.GrpcJsonTranscoder
     - filter.http.GrpcJsonTranscoder.PrintOptions
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../Filters.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../Filters.md)
+- [é¦–é¡µç›®å½•](../../README.md)

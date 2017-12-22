@@ -1,4 +1,4 @@
-## gRPC-JSON ◊™¬Î∆˜
+## gRPC-JSON ËΩ¨Á†ÅÂô®
 
 - **gRPC-JSON transcoder**</br>
 - **gRPC-JSON transcoder configuration overview.**</br>
@@ -17,7 +17,7 @@
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) Supplies the binary protobuf descriptor set for the gRPC services. The descriptor set has to include all of the types that are used in the services. Make sure to use the --include_import option for protoc.
 
 
-To generate a protobuf descriptor set for the gRPC service, you°Øll also need to clone the googleapis repository from Github before running protoc, as you°Øll need annotations.proto in your include path.
+To generate a protobuf descriptor set for the gRPC service, you‚Äôll also need to clone the googleapis repository from Github before running protoc, as you‚Äôll need annotations.proto in your include path.
 
 - **git clone https://github.com/googleapis/googleapis**</br>
 ### GOOGLEAPIS_DIR=<your-local-googleapis-folder>
@@ -28,7 +28,7 @@ Then run protoc to generate the descriptor set from bookstore.proto:
 If you have more than one proto source files, you can pass all of them in one command.
 
 - **services**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) A list of strings that supplies the service names that the transcoder will translate. If the service name doesn°Øt exist in proto_descriptor, Envoy will fail at startup. The proto_descriptor may contain more services than the service names specified here, but they won°Øt be translated.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) A list of strings that supplies the service names that the transcoder will translate. If the service name doesn‚Äôt exist in proto_descriptor, Envoy will fail at startup. The proto_descriptor may contain more services than the service names specified here, but they won‚Äôt be translated.
 
 - **print_options**</br>
 	([filter.http.GrpcJsonTranscoder.PrintOptions](#)) Control options for response JSON. These options are passed directly to JsonPrintOptions.
@@ -59,6 +59,6 @@ If you have more than one proto source files, you can pass all of them in one co
 
 
 
-## ∑µªÿ
-- […œ“ªº∂](../HTTPfilters.md)
-- [ ◊“≥ƒø¬º](../../../README.md)
+## ËøîÂõû
+- [‰∏ä‰∏ÄÁ∫ß](../HTTPfilters.md)
+- [È¶ñÈ°µÁõÆÂΩï](../../../README.md)

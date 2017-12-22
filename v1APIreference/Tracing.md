@@ -1,7 +1,7 @@
 ## Tracing
 
 ### Tracing
-The tracing configuration specifies global settings for the HTTP tracer used by Envoy. The configuration is defined on the server’s top level configuration. Envoy may support other tracers in the future, but right now the HTTP tracer is the only one supported.
+The tracing configuration specifies global settings for the HTTP tracer used by Envoy. The configuration is defined on the server鈥檚 top level configuration. Envoy may support other tracers in the future, but right now the HTTP tracer is the only one supported.
 
 ```
 {
@@ -52,6 +52,6 @@ Currently LightStep and Zipkin drivers are supported.
 
 
 
-## 返回
-- [上一级](../v1APIreference.md)
-- [首页目录](../README.md)
+## 杩斿洖
+- [涓婁竴绾(../v1APIreference.md)
+- [棣栭〉鐩綍](../README.md)

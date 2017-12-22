@@ -1,10 +1,10 @@
-## 集群管理
+## 闆嗙兢绠＄悊
 
 
-- [集群](Clustermanager/Cluster.md)
-- [异常检测](Clustermanager/Outlierdetection.md)
-- [集群发现服务](Clustermanager/Clusterdiscoveryservice.md)
-- [服务发现服务](Clustermanager/Servicediscoveryservice.md)
+- [闆嗙兢](Clustermanager/Cluster.md)
+- [寮傚父妫�娴媇(Clustermanager/Outlierdetection.md)
+- [闆嗙兢鍙戠幇鏈嶅姟](Clustermanager/Clusterdiscoveryservice.md)
+- [鏈嶅姟鍙戠幇鏈嶅姟](Clustermanager/Servicediscoveryservice.md)
 
 
 ### Cluster manager
@@ -36,6 +36,6 @@ Cluster manager architecture overview.
 
 
 
-## 返回
-- [上一级](../v1APIreference.md)
-- [首页目录](../README.md)
+## 杩斿洖
+- [涓婁竴绾(../v1APIreference.md)
+- [棣栭〉鐩綍](../README.md)

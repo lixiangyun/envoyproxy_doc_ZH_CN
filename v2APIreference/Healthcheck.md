@@ -1,4 +1,4 @@
-## ½¡¿µ¼ì²é
+## å¥åº·æ£€æŸ¥
 
 ### Health check
 Health checking architecture overview.
@@ -66,7 +66,7 @@ Describes the encoding of the payload bytes in the payload.
 }
 ```
 - **text**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) Hex encoded payload. E.g., ¡°000000FF¡±.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) Hex encoded payload. E.g., â€œ000000FFâ€.
 
 
 Precisely one of text must be set.
@@ -99,7 +99,7 @@ Precisely one of text must be set.
 	([HealthCheck.Payload](#)) Empty payloads imply a connect-only health check.
 
 - **receive**</br>
-	([HealthCheck.Payload](#)) When checking the response, ¡°fuzzy¡± matching is performed such that each binary block must be found, and in the order specified, but not necessarily contiguous.
+	([HealthCheck.Payload](#)) When checking the response, â€œfuzzyâ€ matching is performed such that each binary block must be found, and in the order specified, but not necessarily contiguous.
 
 ### HealthCheck.RedisHealthCheck
 [HealthCheck.RedisHealthCheck proto]()
@@ -108,6 +108,6 @@ Precisely one of text must be set.
 {}
 ```
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../v2APIreference.md)
-- [Ê×Ò³Ä¿Â¼](../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../v2APIreference.md)
+- [é¦–é¡µç›®å½•](../README.md)

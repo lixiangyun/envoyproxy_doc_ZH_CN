@@ -39,7 +39,7 @@ For every new connection, the connection manager will determine which codec to u
 	([required](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) The human readable prefix to use when emitting statistics for the connection manager. See the statistics documentation for more information.
 
 - **rds**</br>
-	([sometimes required](#), object) The connection manager configuration must specify one of rds or route_config. If rds is specified, the connection manager°Øs route table will be dynamically loaded via the RDS API. See the documentation for more information.
+	([sometimes required](#), object) The connection manager configuration must specify one of rds or route_config. If rds is specified, the connection manager‚Äôs route table will be dynamically loaded via the RDS API. See the documentation for more information.
 
 - **route_config**</br>
 	([sometimes required](#), object) The connection manager configuration must specify one of rds or route_config. If route_config is specified, the route table for the connection manager is static and is specified in this property.
@@ -74,7 +74,7 @@ For every new connection, the connection manager will determine which codec to u
 	([optional](#), integer) Initial stream-level flow-control window size. Valid values range from 65535 (2^16 - 1, HTTP/2 default) to 2147483647 (2^31 - 1, HTTP/2 maximum) and defaults to 268435456 (256 * 1024 * 1024).
 
 
-NOTE: 65535 is the initial window size from HTTP/2 spec. We only support increasing the default window size now, so it°Øs also the minimum.
+NOTE: 65535 is the initial window size from HTTP/2 spec. We only support increasing the default window size now, so it‚Äôs also the minimum.
 
 This field also acts as a soft limit on the number of bytes Envoy will buffer per-stream in the HTTP/2 codec buffers. Once the buffer reaches this pointer, watermark callbacks will fire to stop the flow of data to the codec buffers.
 
@@ -90,7 +90,7 @@ These are the same options available in the upstream cluster http2_settings opti
 	([optional](#), integer) The idle timeout in seconds for connections managed by the connection manager. The idle timeout is defined as the period in which there are no active requests. If not set, there is no idle timeout. When the idle timeout is reached the connection will be closed. If the connection is an HTTP/2 connection a drain sequence will occur prior to closing the connection. See drain_timeout_ms.
 
 - **drain_timeout_ms**</br>
-	([optional](#), integer) The time in milliseconds that Envoy will wait between sending an HTTP/2 °∞shutdown notification°± (GOAWAY frame with max stream ID) and a final GOAWAY frame. This is used so that Envoy provides a grace period for new streams that race with the final GOAWAY frame. During this grace period, Envoy will continue to accept new streams. After the grace period, a final GOAWAY frame is sent and Envoy will start refusing new streams. Draining occurs both when a connection hits the idle timeout or during general server draining. The default grace period is 5000 milliseconds (5 seconds) if this option is not specified.
+	([optional](#), integer) The time in milliseconds that Envoy will wait between sending an HTTP/2 ‚Äúshutdown notification‚Äù (GOAWAY frame with max stream ID) and a final GOAWAY frame. This is used so that Envoy provides a grace period for new streams that race with the final GOAWAY frame. During this grace period, Envoy will continue to accept new streams. After the grace period, a final GOAWAY frame is sent and Envoy will start refusing new streams. Draining occurs both when a connection hits the idle timeout or during general server draining. The default grace period is 5000 milliseconds (5 seconds) if this option is not specified.
 
 - **access_log**</br>
 	([optional](#), array) Configuration for HTTP access logs emitted by the connection manager.
@@ -105,7 +105,7 @@ These are the same options available in the upstream cluster http2_settings opti
 sanitize: Do not send the XFCC header to the next hop. This is the default value.
 forward_only: When the client connection is mTLS (Mutual TLS), forward the XFCC header in the request.
 always_forward_only: Always forward the XFCC header in the request, regardless of whether the client connection is mTLS.
-append_forward: When the client connection is mTLS, append the client certificate information to the request°Øs XFCC header and forward it.
+append_forward: When the client connection is mTLS, append the client certificate information to the request‚Äôs XFCC header and forward it.
 sanitize_set: When the client connection is mTLS, reset the XFCC header with the client certificate information and send it to the next hop.
 For the format of the XFCC header, please refer to x-forwarded-client-cert.
 
@@ -125,10 +125,10 @@ For the format of the XFCC header, please refer to x-forwarded-client-cert.
 }
 ```
 - **operation_name**</br>
-	([required](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) Span name will be derived from operation_name. °∞ingress°± and °∞egress°± are the only supported values.
+	([required](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) Span name will be derived from operation_name. ‚Äúingress‚Äù and ‚Äúegress‚Äù are the only supported values.
 
 - **request_headers_for_tags**</br>
-	([optional](#), array) A list of header names used to create tags for the active span. The header name is used to populate the tag name, and the header value is used to populate the tag value. The tag is created if the specified header name is present in the request°Øs headers.
+	([optional](#), array) A list of header names used to create tags for the active span. The header name is used to populate the tag name, and the header value is used to populate the tag value. The tag is created if the specified header name is present in the request‚Äôs headers.
 
 ### Filters
 HTTP filter architecture overview.
@@ -147,7 +147,7 @@ HTTP filter architecture overview.
 
 
 
-## ∑µªÿ
-- […œ“ªº∂](../Networkfilters.md)
-- [ ◊“≥ƒø¬º](../../README.md)
+## ËøîÂõû
+- [‰∏ä‰∏ÄÁ∫ß](../Networkfilters.md)
+- [È¶ñÈ°µÁõÆÂΩï](../../README.md)
 

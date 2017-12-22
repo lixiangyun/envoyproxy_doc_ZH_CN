@@ -1,4 +1,4 @@
-## 服务发现
+## 鏈嶅姟鍙戠幇
 
 ### Endpoints and EDS
 ### LbEndpoint
@@ -17,10 +17,10 @@ An Endpoint that Envoy can route traffic to.
 	([Endpoint](#)) Upstream host identifier
 
 - **metadata**</br>
-	([Metadata](#)) The endpoint metadata specifies values that may be used by the load balancer to select endpoints in a cluster for a given request. The filter name should be specified as envoy.lb. An example boolean key-value pair is canary, providing the optional canary status of the upstream host. This may be matched against in a route’s ForwardAction metadata_match field to subset the endpoints considered in cluster load balancing.
+	([Metadata](#)) The endpoint metadata specifies values that may be used by the load balancer to select endpoints in a cluster for a given request. The filter name should be specified as envoy.lb. An example boolean key-value pair is canary, providing the optional canary status of the upstream host. This may be matched against in a route鈥檚 ForwardAction metadata_match field to subset the endpoints considered in cluster load balancing.
 
 - **load_balancing_weight**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The optional load balancing weight of the upstream host, in the range 1 - 128. Envoy uses the load balancing weight in some of the built in load balancers. The load balancing weight for an endpoint is divided by the sum of the weights of all endpoints in the endpoint’s locality to produce a percentage of traffic for the endpoint. This percentage is then further weighted by the endpoint’s locality’s load balancing weight from LocalityLbEndpoints. If unspecified, each host is presumed to have equal weight in a locality.
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The optional load balancing weight of the upstream host, in the range 1 - 128. Envoy uses the load balancing weight in some of the built in load balancers. The load balancing weight for an endpoint is divided by the sum of the weights of all endpoints in the endpoint鈥檚 locality to produce a percentage of traffic for the endpoint. This percentage is then further weighted by the endpoint鈥檚 locality鈥檚 load balancing weight from LocalityLbEndpoints. If unspecified, each host is presumed to have equal weight in a locality.
 
 
 ### Attention
@@ -108,6 +108,6 @@ Load balancing policy settings.
 - **v2 API difference: This is known as maintenance mode in v1.**</br>
 
 
-## 返回
-- [上一级](../v2APIreference.md)
-- [首页目录](../README.md)
+## 杩斿洖
+- [涓婁竴绾(../v2APIreference.md)
+- [棣栭〉鐩綍](../README.md)

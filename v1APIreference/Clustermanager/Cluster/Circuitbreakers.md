@@ -38,6 +38,6 @@ Circuit breaking settings can be specified individually for each defined priorit
 
 
 
-## 返回
-- [上一级](../Cluster.md)
-- [首页目录](../../../README.md)
+## 杩斿洖
+- [涓婁竴绾(../Cluster.md)
+- [棣栭〉鐩綍](../../../README.md)

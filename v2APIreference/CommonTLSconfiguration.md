@@ -1,4 +1,4 @@
-## TLS≈‰÷√
+## TLSÈÖçÁΩÆ
 
 ### Common TLS configuration
 ### DataSource
@@ -128,7 +128,7 @@ Using this feature has serious security considerations and risks. Improper handl
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) If specified, Envoy will verify (pin) the hex-encoded SHA-256 hash of the presented certificate.
 
 - **verify_subject_alt_name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) An optional list of subject alternative names. If specified, Envoy will verify that the certificate°Øs subject alternative name matches one of the specified values.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) An optional list of subject alternative names. If specified, Envoy will verify that the certificate‚Äôs subject alternative name matches one of the specified values.
 
 ### CommonTlsContext
 [CommonTlsContext proto]()
@@ -161,8 +161,8 @@ Although this is a list, currently only a single certificate is supported. This 
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Supplies the list of ALPN protocols that the listener should expose. In practice this is likely to be set to one of two values (see the codec_type parameter in the HTTP connection manager for more information):
 
 
-°∞h2,http/1.1°± If the listener is going to support both HTTP/2 and HTTP/1.1.
-°∞http/1.1°± If the listener is only going to support HTTP/1.1.
+‚Äúh2,http/1.1‚Äù If the listener is going to support both HTTP/2 and HTTP/1.1.
+‚Äúhttp/1.1‚Äù If the listener is only going to support HTTP/1.1.
 There is no default for this parameter. If empty, Envoy will not expose ALPN.
 
 ### UpstreamTlsContext
@@ -203,6 +203,6 @@ There is no default for this parameter. If empty, Envoy will not expose ALPN.
 Only one of session_ticket_keys may be set.
 
 
-## ∑µªÿ
-- […œ“ªº∂](../v2APIreference.md)
-- [ ◊“≥ƒø¬º](../README.md)
+## ËøîÂõû
+- [‰∏ä‰∏ÄÁ∫ß](../v2APIreference.md)
+- [È¶ñÈ°µÁõÆÂΩï](../README.md)

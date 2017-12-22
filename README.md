@@ -80,7 +80,3 @@
 - [发现API](v2APIreference/CommondiscoveryAPIcomponents.md)
 - [限速组件](v2APIreference/Commonratelimitcomponents.md)
 - [过滤器](v2APIreference/Filters.md)
-
-### [FAQ](FAQ.md)
-
-

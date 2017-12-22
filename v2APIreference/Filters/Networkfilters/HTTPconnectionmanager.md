@@ -1,4 +1,4 @@
-## HTTP¡¨Ω”π‹¿Ì
+## HTTPËøûÊé•ÁÆ°ÁêÜ
 
 ### HTTP connection manager
 HTTP connection manager configuration overview.
@@ -34,7 +34,7 @@ HTTP connection manager configuration overview.
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The human readable prefix to use when emitting statistics for the connection manager. See the statistics documentation for more information.
 
 - **rds**</br>
-	([filter.network.Rds](#)) The connection manager°Øs route table will be dynamically loaded via the RDS API.
+	([filter.network.Rds](#)) The connection manager‚Äôs route table will be dynamically loaded via the RDS API.
 
 
 Precisely one of rds, route_config must be set.
@@ -67,7 +67,7 @@ Precisely one of rds, route_config must be set.
 	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) The idle timeout for connections managed by the connection manager. The idle timeout is defined as the period in which there are no active requests. If not set, there is no idle timeout. When the idle timeout is reached the connection will be closed. If the connection is an HTTP/2 connection a drain sequence will occur prior to closing the connection. See drain_timeout.
 
 - **drain_timeout**</br>
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) The time that Envoy will wait between sending an HTTP/2 °∞shutdown notification°± (GOAWAY frame with max stream ID) and a final GOAWAY frame. This is used so that Envoy provides a grace period for new streams that race with the final GOAWAY frame. During this grace period, Envoy will continue to accept new streams. After the grace period, a final GOAWAY frame is sent and Envoy will start refusing new streams. Draining occurs both when a connection hits the idle timeout or during general server draining. The default grace period is 5000 milliseconds (5 seconds) if this option is not specified.
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) The time that Envoy will wait between sending an HTTP/2 ‚Äúshutdown notification‚Äù (GOAWAY frame with max stream ID) and a final GOAWAY frame. This is used so that Envoy provides a grace period for new streams that race with the final GOAWAY frame. During this grace period, Envoy will continue to accept new streams. After the grace period, a final GOAWAY frame is sent and Envoy will start refusing new streams. Draining occurs both when a connection hits the idle timeout or during general server draining. The default grace period is 5000 milliseconds (5 seconds) if this option is not specified.
 
 - **access_log**</br>
 	([filter.accesslog.AccessLog](#)) Configuration for HTTP access logs emitted by the connection manager.
@@ -97,7 +97,7 @@ Precisely one of rds, route_config must be set.
 	([filter.network.HttpConnectionManager.Tracing.OperationName](#)) The span name will be derived from this field.
 
 - **request_headers_for_tags**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) A list of header names used to create tags for the active span. The header name is used to populate the tag name, and the header value is used to populate the tag value. The tag is created if the specified header name is present in the request°Øs headers.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) A list of header names used to create tags for the active span. The header name is used to populate the tag name, and the header value is used to populate the tag value. The tag is created if the specified header name is present in the request‚Äôs headers.
 
 Enum filter.network.HttpConnectionManager.Tracing.OperationName
 [filter.network.HttpConnectionManager.Tracing.OperationName proto]()
@@ -143,7 +143,7 @@ How to handle the x-forwarded-client-cert (XFCC) HTTP header.
 ### FORWARD_ONLY
 ?When the client connection is mTLS (Mutual TLS), forward the XFCC header in the request.
 ### APPEND_FORWARD
-?When the client connection is mTLS, append the client certificate information to the request°Øs XFCC header and forward it.
+?When the client connection is mTLS, append the client certificate information to the request‚Äôs XFCC header and forward it.
 ### SANITIZE_SET
 ?When the client connection is mTLS, reset the XFCC header with the client certificate information and send it to the next hop.
 ### ALWAYS_FORWARD_ONLY
@@ -192,6 +192,6 @@ How to handle the x-forwarded-client-cert (XFCC) HTTP header.
 
 
 
-## ∑µªÿ
-- […œ“ªº∂](../Networkfilters.md)
-- [ ◊“≥ƒø¬º](../../../README.md)
+## ËøîÂõû
+- [‰∏ä‰∏ÄÁ∫ß](../Networkfilters.md)
+- [È¶ñÈ°µÁõÆÂΩï](../../../README.md)

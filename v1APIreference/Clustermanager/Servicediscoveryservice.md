@@ -14,7 +14,7 @@ Service discovery service architecture overview.
 	([required](#), integer) The delay, in milliseconds, between fetches to the SDS API for each configured SDS cluster. Envoy will add an additional random jitter to the delay that is between zero and refresh_delay_ms milliseconds. Thus the longest possible refresh delay is 2 * refresh_delay_ms.
 
 ### REST API
-### Envoy expects the service discovery service to expose the following API (See Lyft’s reference implementation):
+### Envoy expects the service discovery service to expose the following API (See Lyft鈥檚 reference implementation):
 
 ### GET /v1/registration/(string: service_name)
 Asks the discovery service to return all hosts for a particular service_name. service_name corresponds to the service_name cluster parameter. Responses use the following JSON schema:
@@ -55,6 +55,6 @@ Asks the discovery service to return all hosts for a particular service_name. se
 	([optional](#), integer) The optional load balancing weight of the upstream host, in the range 1 - 100. Envoy uses the load balancing weight in some of the built in load balancers.
 
 
-## 返回
-- [上一级](../Clustermanager.md)
-- [首页目录](../../README.md)
+## 杩斿洖
+- [涓婁竴绾(../Clustermanager.md)
+- [棣栭〉鐩綍](../../README.md)

@@ -1,4 +1,4 @@
-## ³£¼û·ÃÎÊÈÕÖ¾ÀàĞÍ
+## å¸¸è§è®¿é—®æ—¥å¿—ç±»å‹
 
 ### Common access log types
 Envoy access logs describe incoming interaction with Envoy over a fixed period of time, and typically cover a single request/response exchange, (e.g. HTTP), stream (e.g. over HTTP/gRPC), or proxied connection (e.g. TCP). Access logs contain fields defined in protocol-specific protobuf messages.
@@ -16,13 +16,13 @@ Except where explicitly declared otherwise, all fields describe downstream inter
 }
 ```
 - **name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) The name of the access log implementation to instantiate. The name must match a statically registered access log. Current built-in loggers include: 1) ¡°envoy.file_access_log¡±
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) The name of the access log implementation to instantiate. The name must match a statically registered access log. Current built-in loggers include: 1) â€œenvoy.file_access_logâ€
 
 - **filter**</br>
 	([filter.accesslog.AccessLogFilter](#)) Filter which is used to determine if the access log needs to be written.
 
 - **config**</br>
-	([Struct](#)) Custom configuration that depends on the access log being instantiated. built-in configurations include: 1) ¡°envoy.file_access_log¡±: FileAccessLog
+	([Struct](#)) Custom configuration that depends on the access log being instantiated. built-in configurations include: 1) â€œenvoy.file_access_logâ€: FileAccessLog
 
 ### filter.accesslog.AccessLogFilter
 [filter.accesslog.AccessLogFilter proto]()
@@ -163,7 +163,7 @@ Filters for random sampling of requests. Sampling pivots on the header x-request
 ### filter.accesslog.AndFilter
 [filter.accesslog.AndFilter proto]()
 
-Performs a logical ¡°and¡± operation on the result of each filter in filters. Filters are evaluated sequentially and if one of them returns false, the filter returns false immediately.
+Performs a logical â€œandâ€ operation on the result of each filter in filters. Filters are evaluated sequentially and if one of them returns false, the filter returns false immediately.
 
 ```
 {
@@ -176,7 +176,7 @@ Performs a logical ¡°and¡± operation on the result of each filter in filters. Fi
 ### filter.accesslog.OrFilter
 [filter.accesslog.OrFilter proto]()
 
-Performs a logical ¡°or¡± operation on the result of each individual filter. Filters are evaluated sequentially and if one of them returns true, the filter returns true immediately.
+Performs a logical â€œorâ€ operation on the result of each individual filter. Filters are evaluated sequentially and if one of them returns true, the filter returns true immediately.
 
 ```
 {
@@ -205,6 +205,6 @@ Custom configuration for an AccessLog that writes log entries directly to a file
 
 
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../Filters.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../Filters.md)
+- [é¦–é¡µç›®å½•](../../README.md)

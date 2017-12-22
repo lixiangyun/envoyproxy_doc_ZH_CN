@@ -1,5 +1,5 @@
 ### Virtual host
-The top level element in the routing configuration is a virtual host. Each virtual host has a logical name as well as a set of domains that get routed to it based on the incoming request°Øs host header. This allows a single listener to service multiple top level domain path trees. Once a virtual host is selected based on the domain, the routes are processed in order to see which upstream cluster to route to or whether to perform a redirect.
+The top level element in the routing configuration is a virtual host. Each virtual host has a logical name as well as a set of domains that get routed to it based on the incoming request‚Äôs host header. This allows a single listener to service multiple top level domain path trees. Once a virtual host is selected based on the domain, the routes are processed in order to see which upstream cluster to route to or whether to perform a redirect.
 
 ```
 {
@@ -16,13 +16,13 @@ The top level element in the routing configuration is a virtual host. Each virtu
 	([required](#), string) The logical name of the virtual host. This is used when emitting certain statistics but is not relevant for forwarding. By default, the maximum length of the name is limited to 60 characters. This limit can be increased by setting the --max-obj-name-len command line argument to the desired value.
 
 - **domains**</br>
-	([required](#), array) A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of °∞*.foo.com°± or °∞*-bar.foo.com°±. Note that the wildcard will not match the empty string. e.g. °∞*-bar.foo.com°± will match °∞baz-bar.foo.com°± but not °∞-bar.foo.com°±. Additionally, a special entry °∞*°± is allowed which will match any host/authority header. Only a single virtual host in the entire route configuration can match on °∞*°±. A domain must be unique across all virtual hosts or the config will fail to load.
+	([required](#), array) A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of ‚Äú*.foo.com‚Äù or ‚Äú*-bar.foo.com‚Äù. Note that the wildcard will not match the empty string. e.g. ‚Äú*-bar.foo.com‚Äù will match ‚Äúbaz-bar.foo.com‚Äù but not ‚Äú-bar.foo.com‚Äù. Additionally, a special entry ‚Äú*‚Äù is allowed which will match any host/authority header. Only a single virtual host in the entire route configuration can match on ‚Äú*‚Äù. A domain must be unique across all virtual hosts or the config will fail to load.
 
 - **routes**</br>
 	([required](#), array) The list of routes that will be matched, in order, for incoming requests. The first route that matches will be used.
 
 - **cors**</br>
-	([optional](#), object) Specifies the virtual host°Øs CORS policy.
+	([optional](#), object) Specifies the virtual host‚Äôs CORS policy.
 
 - **require_ssl**</br>
 	([optional](#), string) Specifies the type of TLS enforcement the virtual host expects. Possible values are:

@@ -1,10 +1,10 @@
-## 集群
+## 闆嗙兢
 
-- [健康检查](Cluster/Healthchecking.md)
-- [熔断](Cluster/Circuitbreakers.md)
-- [TLS上下文](Cluster/TLScontext.md)
-- [异常值检测](Cluster/Outlierdetection.md)
-- [HASH环负载均衡配置](Cluster/Ringhashloadbalancerconfiguration.md)
+- [鍋ュ悍妫�鏌(Cluster/Healthchecking.md)
+- [鐔旀柇](Cluster/Circuitbreakers.md)
+- [TLS涓婁笅鏂嘳(Cluster/TLScontext.md)
+- [寮傚父鍊兼娴媇(Cluster/Outlierdetection.md)
+- [HASH鐜礋杞藉潎琛￠厤缃甝(Cluster/Ringhashloadbalancerconfiguration.md)
 
 ### Cluster
 ```
@@ -40,7 +40,7 @@
 	([required](#), integer) The timeout for new network connections to hosts in the cluster specified in milliseconds.
 
 - **per_connection_buffer_limit_bytes**</br>
-	([optional](#), integer) Soft limit on size of the cluster’s connections read and write buffers. If unspecified, an implementation defined default is applied (1MiB).
+	([optional](#), integer) Soft limit on size of the cluster鈥檚 connections read and write buffers. If unspecified, an implementation defined default is applied (1MiB).
 
 - **lb_type**</br>
 	([required](#), string) The load balancer type to use when picking a host in the cluster. Possible options are round_robin, least_request, ring_hash, random, and original_dst_lb. Note that *original_dst_lb* must be used with clusters of type *original_dst*, and may not be used with any other cluster type.
@@ -106,19 +106,19 @@ If http2 is specified, Envoy will assume that the upstream supports HTTP/2 when 
 	([optional](#), integer) The interval for removing stale hosts from an original_dst cluster. Hosts are considered stale if they have not been used as upstream destinations during this interval. New hosts are added to original destination clusters on demand as new connections are redirected to Envoy, causing the number of hosts in the cluster to grow over time. Hosts that are not stale (they are actively used as destinations) are kept in the cluster, which allows connections to them remain open, saving the latency that would otherwise be spent on opening new connections. If this setting is not specified, the value defaults to 5000. For cluster types other than original_dst this setting is ignored.
 
 - **dns_refresh_rate_ms**</br>
-	([optional](#), integer) If the dns refresh rate is specified and the cluster type is either strict_dns, or logical_dns, this value is used as the cluster’s dns refresh rate. If this setting is not specified, the value defaults to 5000. For cluster types other than strict_dns and logical_dns this setting is ignored.
+	([optional](#), integer) If the dns refresh rate is specified and the cluster type is either strict_dns, or logical_dns, this value is used as the cluster鈥檚 dns refresh rate. If this setting is not specified, the value defaults to 5000. For cluster types other than strict_dns and logical_dns this setting is ignored.
 
 - **dns_lookup_family**</br>
 	([optional](#), string) The DNS IP address resolution policy. The options are v4_only, v6_only, and auto. If this setting is not specified, the value defaults to v4_only. When v4_only is selected, the DNS resolver will only perform a lookup for addresses in the IPv4 family. If v6_only is selected, the DNS resolver will only perform a lookup for addresses in the IPv6 family. If auto is specified, the DNS resolver will first perform a lookup for addresses in the IPv6 family and fallback to a lookup for addresses in the IPv4 family. For cluster types other than strict_dns and logical_dns, this setting is ignored.
 
 - **dns_resolvers**</br>
-	([optional](#), array) If DNS resolvers are specified and the cluster type is either strict_dns, or logical_dns, this value is used to specify the cluster’s dns resolvers. If this setting is not specified, the value defaults to the default resolver, which uses /etc/resolv.conf for configuration. For cluster types other than strict_dns and logical_dns this setting is ignored.
+	([optional](#), array) If DNS resolvers are specified and the cluster type is either strict_dns, or logical_dns, this value is used to specify the cluster鈥檚 dns resolvers. If this setting is not specified, the value defaults to the default resolver, which uses /etc/resolv.conf for configuration. For cluster types other than strict_dns and logical_dns this setting is ignored.
 
 - **outlier_detection**</br>
 	([optional](#), object) If specified, outlier detection will be enabled for this upstream cluster. See the architecture overview for more information on outlier detection.
 
 
 
-## 返回
-- [上一级](../Clustermanager.md)
-- [首页目录](../../README.md)
+## 杩斿洖
+- [涓婁竴绾(../Clustermanager.md)
+- [棣栭〉鐩綍](../../README.md)

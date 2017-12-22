@@ -1,4 +1,4 @@
-## 速率限制
+## 閫熺巼闄愬埗
 
 ### Rate limit
 Rate limit configuration overview.
@@ -27,6 +27,6 @@ Rate limit configuration overview.
 	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) The timeout in milliseconds for the rate limit service RPC. If not set, this defaults to 20ms.
 
 
-## 返回
-- [上一级](../Networkfilters.md)
-- [首页目录](../../../README.md)
+## 杩斿洖
+- [涓婁竴绾(../Networkfilters.md)
+- [棣栭〉鐩綍](../../../README.md)

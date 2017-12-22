@@ -1,6 +1,6 @@
-## ¼àÌı&¼àÌı·¢ÏÖ
+## ç›‘å¬&ç›‘å¬å‘ç°
 
-Listener[¼Ü¹¹¸ÅÊö](../v2APIreference/ListenersandLDS.md)
+Listener[æ¶æ„æ¦‚è¿°](../v2APIreference/ListenersandLDS.md)
 
 ### Listener
 [Listener proto]()
@@ -16,7 +16,7 @@ Listener[¼Ü¹¹¸ÅÊö](../v2APIreference/ListenersandLDS.md)
 }
 ```
 - **name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) The unique name by which this listener is known. If no name is provided, Envoy will allocate an internal UUID for the listener. If the listener is to be dynamically updated or removed via LDS a unique name must be provided. By default, the maximum length of a listener¡¯s name is limited to 60 characters. This limit can be increased by setting the --max-obj-name-len command line argument to the desired value.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) The unique name by which this listener is known. If no name is provided, Envoy will allocate an internal UUID for the listener. If the listener is to be dynamically updated or removed via LDS a unique name must be provided. By default, the maximum length of a listenerâ€™s name is limited to 60 characters. This limit can be increased by setting the --max-obj-name-len command line argument to the desired value.
 
 - **address**</br>
 	([Address](#), REQUIRED) The address that the listener should listen on. In general, the address must be unique, though that is governed by the bind rules of the OS. E.g., multiple listeners can listen on port 0 on Linux as the actual port will be allocated by the OS.
@@ -33,7 +33,7 @@ In the current version, multiple filter chains are supported only so that SNI ca
 	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) If a connection is redirected using iptables, the port on which the proxy receives it might be different from the original destination address. When this flag is set to true, the listener hands off redirected connections to the listener associated with the original destination address. If there is no listener associated with the original destination address, the connection is handled by the listener that receives it. Defaults to false.
 
 - **per_connection_buffer_limit_bytes**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) Soft limit on size of the listener¡¯s new connection read and write buffers. If unspecified, an implementation defined default is applied (1MiB).
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) Soft limit on size of the listenerâ€™s new connection read and write buffers. If unspecified, an implementation defined default is applied (1MiB).
 
 - **drain_type**</br>
 	([Listener.DrainType](#)) The type of draining to perform at a listener-wide level.
@@ -115,6 +115,6 @@ A filter chain wraps a set of match criteria, an option TLS context, a set of fi
 
 
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../v2APIreference.md)
-- [Ê×Ò³Ä¿Â¼](../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../v2APIreference.md)
+- [é¦–é¡µç›®å½•](../README.md)

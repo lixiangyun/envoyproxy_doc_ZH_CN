@@ -1,5 +1,5 @@
 ### Virtual cluster
-A virtual cluster is a way of specifying a regex matching rule against certain important endpoints such that statistics are generated explicitly for the matched requests. The reason this is useful is that when doing prefix/path matching Envoy does not always know what the application considers to be an endpoint. Thus, it°Øs impossible for Envoy to generically emit per endpoint statistics. However, often systems have highly critical endpoints that they wish to get °∞perfect°± statistics on. Virtual cluster statistics are perfect in the sense that they are emitted on the downstream side such that they include network level failures.
+A virtual cluster is a way of specifying a regex matching rule against certain important endpoints such that statistics are generated explicitly for the matched requests. The reason this is useful is that when doing prefix/path matching Envoy does not always know what the application considers to be an endpoint. Thus, it‚Äôs impossible for Envoy to generically emit per endpoint statistics. However, often systems have highly critical endpoints that they wish to get ‚Äúperfect‚Äù statistics on. Virtual cluster statistics are perfect in the sense that they are emitted on the downstream side such that they include network level failures.
 
 ### Note
 

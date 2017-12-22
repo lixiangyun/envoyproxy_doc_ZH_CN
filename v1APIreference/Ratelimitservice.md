@@ -10,7 +10,7 @@ Rate limit configuration overview.
 }
 ```
 - **type**</br>
-	([required](#), string) Specifies the type of rate limit service to call. Currently the only supported option is grpc_service which specifies Lyft’s global rate limit service and associated IDL.
+	([required](#), string) Specifies the type of rate limit service to call. Currently the only supported option is grpc_service which specifies Lyft鈥檚 global rate limit service and associated IDL.
 
 - **config**</br>
 	([required](#), object) Specifies type specific configuration for the rate limit service.
@@ -23,6 +23,6 @@ Rate limit configuration overview.
 
 
 
-## 返回
-- [上一级](../v1APIreference.md)
-- [首页目录](../README.md)
+## 杩斿洖
+- [涓婁竴绾(../v1APIreference.md)
+- [棣栭〉鐩綍](../README.md)

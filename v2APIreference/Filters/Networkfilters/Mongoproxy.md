@@ -1,4 +1,4 @@
-## Mongo代理
+## Mongo浠ｇ悊
 
 ### Mongo proxy
 MongoDB configuration overview.
@@ -26,6 +26,6 @@ MongoDB configuration overview.
 
 
 
-## 返回
-- [上一级](../Networkfilters.md)
-- [首页目录](../../../README.md)
+## 杩斿洖
+- [涓婁竴绾(../Networkfilters.md)
+- [棣栭〉鐩綍](../../../README.md)

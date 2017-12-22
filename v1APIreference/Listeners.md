@@ -19,10 +19,10 @@
 }
 ```
 - **name**</br>
-	([optional](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) The unique name by which this listener is known. If no name is provided, Envoy will allocate an internal UUID for the listener. If the listener is to be dynamically updated or removed via LDS a unique name must be provided. By default, the maximum length of a listener°Øs name is limited to 60 characters. This limit can be increased by setting the --max-obj-name-len command line argument to the desired value.
+	([optional](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) The unique name by which this listener is known. If no name is provided, Envoy will allocate an internal UUID for the listener. If the listener is to be dynamically updated or removed via LDS a unique name must be provided. By default, the maximum length of a listener‚Äôs name is limited to 60 characters. This limit can be increased by setting the --max-obj-name-len command line argument to the desired value.
 
 - **address**</br>
-	([required](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) The address that the listener should listen on. Currently only TCP listeners are supported, e.g., °∞tcp://127.0.0.1:80°±. Note, °∞tcp://0.0.0.0:80°± is the wild card match for any IPv4 address with port 80.
+	([required](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) The address that the listener should listen on. Currently only TCP listeners are supported, e.g., ‚Äútcp://127.0.0.1:80‚Äù. Note, ‚Äútcp://0.0.0.0:80‚Äù is the wild card match for any IPv4 address with port 80.
 
 - **filters**</br>
 	([required](#), array) A list of individual network filters that make up the filter chain for connections established with the listener. Order matters as the filters are processed sequentially as connection events happen.
@@ -34,7 +34,7 @@ Note: If the filter list is empty, the connection will close by default.
 	([optional](#), object) The TLS context configuration for a TLS listener. If no TLS context block is defined, the listener is a plain text listener.
 
 - **bind_to_port**</br>
-	([optional](#), boolean) Whether the listener should bind to the port. A listener that doesn°Øt bind can only receive connections redirected from other listeners that set use_original_dst parameter to true. Default is true.
+	([optional](#), boolean) Whether the listener should bind to the port. A listener that doesn‚Äôt bind can only receive connections redirected from other listeners that set use_original_dst parameter to true. Default is true.
 
 - **use_proxy_proto**</br>
 	([optional](#), boolean) Whether the listener should expect a PROXY protocol V1 header on new connections. If this option is enabled, the listener will assume that that remote address of the connection is the one specified in the header. Some load balancers including the AWS ELB support this option. If the option is absent or set to false, Envoy will use the physical peer address of the connection as the remote address.
@@ -43,7 +43,7 @@ Note: If the filter list is empty, the connection will close by default.
 	([optional](#), boolean) If a connection is redirected using iptables, the port on which the proxy receives it might be different from the original destination address. When this flag is set to true, the listener hands off redirected connections to the listener associated with the original destination address. If there is no listener associated with the original destination address, the connection is handled by the listener that receives it. Defaults to false.
 
 - **per_connection_buffer_limit_bytes**</br>
-	([optional](#), integer) Soft limit on size of the listener°Øs new connection read and write buffers. If unspecified, an implementation defined default is applied (1MiB).
+	([optional](#), integer) Soft limit on size of the listener‚Äôs new connection read and write buffers. If unspecified, an implementation defined default is applied (1MiB).
 
 - **drain_type**</br>
 	([optional](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) The type of draining that the listener does. Allowed values include default and modify_only. See the draining architecture overview for more information.
@@ -90,8 +90,8 @@ TLS architecture overview.
 	([optional](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) Supplies the list of ALPN protocols that the listener should expose. In practice this is likely to be set to one of two values (see the codec_type parameter in the HTTP connection manager for more information):
 
 
-°∞h2,http/1.1°± If the listener is going to support both HTTP/2 and HTTP/1.1.
-°∞http/1.1°± If the listener is only going to support HTTP/1.1
+‚Äúh2,http/1.1‚Äù If the listener is going to support both HTTP/2 and HTTP/1.1.
+‚Äúhttp/1.1‚Äù If the listener is only going to support HTTP/1.1
 - **alt_alpn_protocols**</br>
 	([optional](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) An alternate ALPN protocol string that can be switched to via runtime. This is useful for example to disable HTTP/2 without having to deploy a new configuration.
 
@@ -105,7 +105,7 @@ TLS architecture overview.
 	([optional](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) If specified, Envoy will verify (pin) the hash of the presented client side certificate.
 
 - **verify_subject_alt_name**</br>
-	([optional](#), array) An optional list of subject alt names. If specified, Envoy will verify that the client certificate°Øs subject alt name matches one of the specified values.
+	([optional](#), array) An optional list of subject alt names. If specified, Envoy will verify that the client certificate‚Äôs subject alt name matches one of the specified values.
 
 - **cipher_suites**</br>
 	([optional](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) If specified, the TLS listener will only support the specified cipher list. If not specified, the default list:
@@ -172,6 +172,6 @@ Asks the discovery service to return all listeners for a particular service_clus
 
 
 
-## ∑µªÿ
-- […œ“ªº∂](../v1APIreference.md)
-- [ ◊“≥ƒø¬º](../README.md)
+## ËøîÂõû
+- [‰∏ä‰∏ÄÁ∫ß](../v1APIreference.md)
+- [È¶ñÈ°µÁõÆÂΩï](../README.md)

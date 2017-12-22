@@ -1,4 +1,4 @@
-## TCP¥˙¿Ì
+## TCP‰ª£ÁêÜ
 
 ### TCP Proxy
 TCP Proxy configuration overview.
@@ -66,13 +66,13 @@ A TCP proxy route consists of a set of optional L4 criteria and the name of a cl
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The cluster to connect to when a the downstream network connection matches the specified criteria.
 
 - **destination_ip_list**</br>
-	([CidrRange](#)) An optional list of IP address subnets in the form °∞ip_address/xx°±. The criteria is satisfied if the destination IP address of the downstream connection is contained in at least one of the specified subnets. If the parameter is not specified or the list is empty, the destination IP address is ignored. The destination IP address of the downstream connection might be different from the addresses on which the proxy is listening if the connection has been redirected.
+	([CidrRange](#)) An optional list of IP address subnets in the form ‚Äúip_address/xx‚Äù. The criteria is satisfied if the destination IP address of the downstream connection is contained in at least one of the specified subnets. If the parameter is not specified or the list is empty, the destination IP address is ignored. The destination IP address of the downstream connection might be different from the addresses on which the proxy is listening if the connection has been redirected.
 
 - **destination_ports**</br>
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) An optional string containing a comma-separated list of port numbers or ranges. The criteria is satisfied if the destination port of the downstream connection is contained in at least one of the specified ranges. If the parameter is not specified, the destination port is ignored. The destination port address of the downstream connection might be different from the port on which the proxy is listening if the connection has been redirected.
 
 - **source_ip_list**</br>
-	([CidrRange](#)) An optional list of IP address subnets in the form °∞ip_address/xx°±. The criteria is satisfied if the source IP address of the downstream connection is contained in at least one of the specified subnets. If the parameter is not specified or the list is empty, the source IP address is ignored.
+	([CidrRange](#)) An optional list of IP address subnets in the form ‚Äúip_address/xx‚Äù. The criteria is satisfied if the source IP address of the downstream connection is contained in at least one of the specified subnets. If the parameter is not specified or the list is empty, the source IP address is ignored.
 
 - **source_ports**</br>
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) An optional string containing a comma-separated list of port numbers or ranges. The criteria is satisfied if the source port of the downstream connection is contained in at least one of the specified ranges. If the parameter is not specified, the source port is ignored.
@@ -81,6 +81,6 @@ A TCP proxy route consists of a set of optional L4 criteria and the name of a cl
 
 
 
-## ∑µªÿ
-- […œ“ªº∂](../Networkfilters.md)
-- [ ◊“≥ƒø¬º](../../../README.md)
+## ËøîÂõû
+- [‰∏ä‰∏ÄÁ∫ß](../Networkfilters.md)
+- [È¶ñÈ°µÁõÆÂΩï](../../../README.md)

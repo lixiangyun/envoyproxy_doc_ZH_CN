@@ -16,7 +16,7 @@
 	([optional](#), string) Supplies the list of ALPN protocols that connections should request. In practice this is likely to be set to a single value or not set at all:
 
 
-°∞h2°± If upstream connections should use HTTP/2. In the current implementation this must be set alongside the http2 cluster features option. The two options together will use ALPN to tell a server that expects ALPN that Envoy supports HTTP/2. Then the http2 feature will cause new connections to use HTTP/2.
+‚Äúh2‚Äù If upstream connections should use HTTP/2. In the current implementation this must be set alongside the http2 cluster features option. The two options together will use ALPN to tell a server that expects ALPN that Envoy supports HTTP/2. Then the http2 feature will cause new connections to use HTTP/2.
 - **cert_chain_file**</br>
 	([optional](#), string) The certificate chain file that should be served by the connection. This is used to provide a client side TLS certificate to an upstream host.
 
@@ -30,7 +30,7 @@
 	([optional](#), string) If specified, Envoy will verify (pin) the hash of the presented server certificate.
 
 - **verify_subject_alt_name**</br>
-	([optional](#), array) An optional list of subject alt names. If specified, Envoy will verify that the server certificate°Øs subject alt name matches one of the specified values.
+	([optional](#), array) An optional list of subject alt names. If specified, Envoy will verify that the server certificate‚Äôs subject alt name matches one of the specified values.
 
 - **cipher_suites**</br>
 	([optional](#), string) If specified, the TLS connection will only support the specified cipher list. If not specified, the default list:
@@ -67,6 +67,6 @@ will be used.
 
 
 
-## ∑µªÿ
-- […œ“ªº∂](../Cluster.md)
-- [ ◊“≥ƒø¬º](../../../README.md)
+## ËøîÂõû
+- [‰∏ä‰∏ÄÁ∫ß](../Cluster.md)
+- [È¶ñÈ°µÁõÆÂΩï](../../../README.md)

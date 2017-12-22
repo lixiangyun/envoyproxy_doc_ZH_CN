@@ -1,4 +1,4 @@
-## 常见故障注入类型
+## 甯歌鏁呴殰娉ㄥ叆绫诲瀷
 
 ### Common fault injection types
 ### filter.FaultDelay
@@ -34,6 +34,6 @@ Precisely one of fixed_delay must be set.
 
 
 
-## 返回
-- [上一级](../Filters.md)
-- [首页目录](../../README.md)
+## 杩斿洖
+- [涓婁竴绾(../Filters.md)
+- [棣栭〉鐩綍](../../README.md)

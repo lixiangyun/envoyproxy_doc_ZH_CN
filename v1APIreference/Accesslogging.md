@@ -117,7 +117,7 @@ Filters for random sampling of requests. Sampling pivots on the header x-request
   }
 }
 ```
-Performs a logical ¡°and¡± operation on the result of each filter in filters. Filters are evaluated sequentially and if one of them returns false, the filter returns false immediately.
+Performs a logical â€œandâ€ operation on the result of each filter in filters. Filters are evaluated sequentially and if one of them returns false, the filter returns false immediately.
 
 ### Or
 ```
@@ -128,9 +128,9 @@ Performs a logical ¡°and¡± operation on the result of each filter in filters. Fi
   }
 }
 ```
-Performs a logical ¡°or¡± operation on the result of each individual filter. Filters are evaluated sequentially and if one of them returns true, the filter returns true immediately.
+Performs a logical â€œorâ€ operation on the result of each individual filter. Filters are evaluated sequentially and if one of them returns true, the filter returns true immediately.
 
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../v1APIreference.md)
-- [Ê×Ò³Ä¿Â¼](../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../v1APIreference.md)
+- [é¦–é¡µç›®å½•](../README.md)

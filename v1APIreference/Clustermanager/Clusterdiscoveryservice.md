@@ -25,6 +25,6 @@ Asks the discovery service to return all clusters for a particular service_clust
 
 
 
-## 返回
-- [上一级](../Clustermanager.md)
-- [首页目录](../../README.md)
+## 杩斿洖
+- [涓婁竴绾(../Clustermanager.md)
+- [棣栭〉鐩綍](../../README.md)

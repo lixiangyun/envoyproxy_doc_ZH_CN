@@ -18,7 +18,7 @@
 	([optional](#), integer) The number of consecutive 5xx responses before a consecutive 5xx ejection occurs. Defaults to 5.
 
 - **consecutive_gateway_failure**</br>
-	([optional](#), integer) The number of consecutive ¡°gateway errors¡± (502, 503 and 504 responses), including those raised by Envoy for connection errors, before a consecutive gateway failure ejection occurs. Defaults to 5.
+	([optional](#), integer) The number of consecutive â€œgateway errorsâ€ (502, 503 and 504 responses), including those raised by Envoy for connection errors, before a consecutive gateway failure ejection occurs. Defaults to 5.
 
 - **interval_ms**</br>
 	([optional](#), integer) The time interval between ejection analysis sweeps. This can result in both new ejections as well as hosts being returned to service. Defaults to 10000ms or 10s.
@@ -50,6 +50,6 @@
 Each of the above configuration values can be overridden via runtime values.
 
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../Cluster.md)
-- [Ê×Ò³Ä¿Â¼](../../../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../Cluster.md)
+- [é¦–é¡µç›®å½•](../../../README.md)

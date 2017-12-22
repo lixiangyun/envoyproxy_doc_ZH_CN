@@ -1,4 +1,4 @@
-## 网络地址
+## 缃戠粶鍦板潃
 
 ### Network addresses
 ### Note
@@ -32,7 +32,7 @@
 	([SocketAddress.Protocol](#))
 
 - **address**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) The address for this socket. Listeners will bind to the address or outbound connections will be made. An empty address implies a bind to 0.0.0.0 or ::. It’s still possible to distinguish on an address via the prefix/suffix matching in FilterChainMatch after connection. For clusters, an address may be either an IP or hostname to be resolved via DNS. If it is a hostname, resolver_name should be set unless default (i.e. DNS) resolution is expected.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) The address for this socket. Listeners will bind to the address or outbound connections will be made. An empty address implies a bind to 0.0.0.0 or ::. It鈥檚 still possible to distinguish on an address via the prefix/suffix matching in FilterChainMatch after connection. For clusters, an address may be either an IP or hostname to be resolved via DNS. If it is a hostname, resolver_name should be set unless default (i.e. DNS) resolution is expected.
 
 - **port_value**</br>
 	([uint32](https://developers.google.com/protocol-buffers/docs/proto#scalar))
@@ -108,6 +108,6 @@ CidrRange specifies an IP Address and a prefix length to construct the subnet ma
 
 
 
-## 返回
-- [上一级](../v2APIreference.md)
-- [首页目录](../README.md)
+## 杩斿洖
+- [涓婁竴绾(../v2APIreference.md)
+- [棣栭〉鐩綍](../README.md)

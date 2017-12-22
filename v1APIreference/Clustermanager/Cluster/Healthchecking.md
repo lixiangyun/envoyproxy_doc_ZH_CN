@@ -43,10 +43,10 @@ If health checking is configured for a cluster, additional statistics are emitte
   {"binary": "000000FF"}
 ]
 ```
-The array is allowed to be empty in the case of ¡°connect only¡± health checking.
+The array is allowed to be empty in the case of â€œconnect onlyâ€ health checking.
 
 - **receive**</br>
-	([sometimes required](#), array) This parameter is required if the type is tcp. It specified the bytes that are expected in a successful health check response. It is an array of hex byte strings specified similarly to the send parameter. The array is allowed to be empty in the case of ¡°connect only¡± health checking.
+	([sometimes required](#), array) This parameter is required if the type is tcp. It specified the bytes that are expected in a successful health check response. It is an array of hex byte strings specified similarly to the send parameter. The array is allowed to be empty in the case of â€œconnect onlyâ€ health checking.
 
 - **interval_jitter_ms**</br>
 	([optional](#), integer) An optional jitter amount in millseconds. If specified, during every internal Envoy will add 0 to interval_jitter_ms milliseconds to the wait time.
@@ -55,6 +55,6 @@ The array is allowed to be empty in the case of ¡°connect only¡± health checking
 	([optional](#), string) An optional service name parameter which is used to validate the identity of the health checked cluster. See the architecture overview for more information.
 
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../Cluster.md)
-- [Ê×Ò³Ä¿Â¼](../../../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../Cluster.md)
+- [é¦–é¡µç›®å½•](../../../README.md)

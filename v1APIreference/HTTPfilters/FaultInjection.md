@@ -24,7 +24,7 @@ Fault Injection configuration overview.
 	([optional](#), string) Specifies the name of the (destination) upstream cluster that the filter should match on. Fault injection will be restricted to requests bound to the specific upstream cluster.
 
 - **headers**</br>
-	([optional](#), array) Specifies a set of headers that the filter should match on. The fault injection filter can be applied selectively to requests that match a set of headers specified in the fault filter config. The chances of actual fault injection further depend on the values of abort_percent and fixed_delay_percent parameters. The filter will check the request’s headers against all the specified headers in the filter config. A match will happen if all the headers in the config are present in the request with the same values (or based on presence if the value field is not in the config).
+	([optional](#), array) Specifies a set of headers that the filter should match on. The fault injection filter can be applied selectively to requests that match a set of headers specified in the fault filter config. The chances of actual fault injection further depend on the values of abort_percent and fixed_delay_percent parameters. The filter will check the request鈥檚 headers against all the specified headers in the filter config. A match will happen if all the headers in the config are present in the request with the same values (or based on presence if the value field is not in the config).
 
 - **downstream_nodes:**</br>
 	([optional](#), array) Faults are injected for the specified list of downstream hosts. If this setting is not set, faults are injected for all downstream nodes. Downstream node name is taken from the HTTP x-envoy-downstream-service-node header and compared against downstream_nodes list.
@@ -61,6 +61,6 @@ Fault Injection configuration overview.
 
 
 
-## 返回
-- [上一级](../HTTPfilters.md)
-- [首页目录](../../README.md)
+## 杩斿洖
+- [涓婁竴绾(../HTTPfilters.md)
+- [棣栭〉鐩綍](../../README.md)

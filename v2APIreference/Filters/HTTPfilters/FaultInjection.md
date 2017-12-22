@@ -1,4 +1,4 @@
-## 故障注入
+## 鏁呴殰娉ㄥ叆
 
 ### Fault Injection
 Fault Injection configuration overview.
@@ -43,13 +43,13 @@ Precisely one of http_status must be set.
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the name of the (destination) upstream cluster that the filter should match on. Fault injection will be restricted to requests bound to the specific upstream cluster.
 
 - **headers**</br>
-	([HeaderMatcher](#)) Specifies a set of headers that the filter should match on. The fault injection filter can be applied selectively to requests that match a set of headers specified in the fault filter config. The chances of actual fault injection further depend on the value of the percent field. The filter will check the request’s headers against all the specified headers in the filter config. A match will happen if all the headers in the config are present in the request with the same values (or based on presence if the value field is not in the config).
+	([HeaderMatcher](#)) Specifies a set of headers that the filter should match on. The fault injection filter can be applied selectively to requests that match a set of headers specified in the fault filter config. The chances of actual fault injection further depend on the value of the percent field. The filter will check the request鈥檚 headers against all the specified headers in the filter config. A match will happen if all the headers in the config are present in the request with the same values (or based on presence if the value field is not in the config).
 
 - **downstream_nodes**</br>
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Faults are injected for the specified list of downstream hosts. If this setting is not set, faults are injected for all downstream nodes. Downstream node name is taken from the HTTP x-envoy-downstream-service-node header and compared against downstream_nodes list.
 
 
 
-## 返回
-- [上一级](../HTTPfilters.md)
-- [首页目录](../../../README.md)
+## 杩斿洖
+- [涓婁竴绾(../HTTPfilters.md)
+- [棣栭〉鐩綍](../../../README.md)

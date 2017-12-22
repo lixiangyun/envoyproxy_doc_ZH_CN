@@ -1,4 +1,4 @@
-## HTTP¬∑”…π‹¿Ì&∑¢œ÷
+## HTTPË∑ØÁî±ÁÆ°ÁêÜ&ÂèëÁé∞
 
 
 ### HTTP route management and RDS
@@ -42,7 +42,7 @@
 ### VirtualHost
 [VirtualHost proto]()
 
-The top level element in the routing configuration is a virtual host. Each virtual host has a logical name as well as a set of domains that get routed to it based on the incoming request°Øs host header. This allows a single listener to service multiple top level domain path trees. Once a virtual host is selected based on the domain, the routes are processed in order to see which upstream cluster to route to or whether to perform a redirect.
+The top level element in the routing configuration is a virtual host. Each virtual host has a logical name as well as a set of domains that get routed to it based on the incoming request‚Äôs host header. This allows a single listener to service multiple top level domain path trees. Once a virtual host is selected based on the domain, the routes are processed in order to see which upstream cluster to route to or whether to perform a redirect.
 
 ```
 {
@@ -62,12 +62,12 @@ The top level element in the routing configuration is a virtual host. Each virtu
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The logical name of the virtual host. This is used when emitting certain statistics but is not relevant for routing.
 
 - **domains**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of °∞.foo.com°± or °∞-bar.foo.com°±.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of ‚Äú.foo.com‚Äù or ‚Äú-bar.foo.com‚Äù.
 
 
 ### Note
 
-The wildcard will not match the empty string. e.g. °∞-bar.foo.com°± will match °∞baz-bar.foo.com°± but not °∞-bar.foo.com°±. Additionally, a special entry °∞°± is allowed which will match any host/authority header. Only a single virtual host in the entire route configuration can match on °∞*°±. A domain must be unique across all virtual hosts or the config will fail to load.
+The wildcard will not match the empty string. e.g. ‚Äú-bar.foo.com‚Äù will match ‚Äúbaz-bar.foo.com‚Äù but not ‚Äú-bar.foo.com‚Äù. Additionally, a special entry ‚Äú‚Äù is allowed which will match any host/authority header. Only a single virtual host in the entire route configuration can match on ‚Äú*‚Äù. A domain must be unique across all virtual hosts or the config will fail to load.
 
 - **routes**</br>
 	([Route](#)) The list of routes that will be matched, in order, for incoming requests. The first route that matches will be used.
@@ -157,7 +157,7 @@ Compared to the cluster field that specifies a single upstream cluster as the ta
 	([WeightedCluster.ClusterWeight](#), REQUIRED) Specifies one or more upstream clusters associated with the route.
 
 - **runtime_key_prefix**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the runtime key prefix that should be used to construct the runtime keys associated with each cluster. When the runtime_key_prefix is specified, the router will look for weights associated with each upstream cluster under the key runtime_key_prefix + °∞.°± + cluster[i].name where cluster[i] denotes an entry in the clusters array field. If the runtime key for the cluster does not exist, the value specified in the configuration file will be used as the default weight. See the runtime documentation for how key names map to the underlying implementation.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the runtime key prefix that should be used to construct the runtime keys associated with each cluster. When the runtime_key_prefix is specified, the router will look for weights associated with each upstream cluster under the key runtime_key_prefix + ‚Äú.‚Äù + cluster[i].name where cluster[i] denotes an entry in the clusters array field. If the runtime key for the cluster does not exist, the value specified in the configuration file will be used as the default weight. See the runtime documentation for how key names map to the underlying implementation.
 
 ### WeightedCluster.ClusterWeight
 [WeightedCluster.ClusterWeight proto]()
@@ -222,7 +222,7 @@ Precisely one of prefix, path, regex must be set.
 	([RuntimeUInt32](#)) Indicates that the route should additionally match on a runtime key. An integer between 0-100. Every time the route is considered for a match, a random number between 0-99 is selected. If the number is <= the value found in the key (checked first) or, if the key is not present, the default value, the route is a match (assuming everything also about the route matches). A runtime route configuration can be used to roll out route changes in a gradual manner without full code/config deploys. Refer to the traffic shifting docs for additional documentation.
 
 - **headers**</br>
-	([HeaderMatcher](#)) Specifies a set of headers that the route should match on. The router will check the request°Øs headers against all the specified headers in the route config. A match will happen if all the headers in the route are present in the request with the same values (or based on presence if the value field is not in the config).
+	([HeaderMatcher](#)) Specifies a set of headers that the route should match on. The router will check the request‚Äôs headers against all the specified headers in the route config. A match will happen if all the headers in the route are present in the request with the same values (or based on presence if the value field is not in the config).
 
 ### CorsPolicy
 [CorsPolicy proto]()
@@ -406,7 +406,7 @@ If left unspecified, Envoy will use the global route timeout for the request. Co
 ### RouteAction.RequestMirrorPolicy
 [RouteAction.RequestMirrorPolicy proto]()
 
-The router is capable of shadowing traffic from one cluster to another. The current implementation is °∞fire and forget,°± meaning Envoy will not wait for the shadow cluster to respond before returning the response from the primary cluster. All normal statistics are collected for the shadow cluster making this feature useful for testing.
+The router is capable of shadowing traffic from one cluster to another. The current implementation is ‚Äúfire and forget,‚Äù meaning Envoy will not wait for the shadow cluster to respond before returning the response from the primary cluster. All normal statistics are collected for the shadow cluster making this feature useful for testing.
 
 During shadowing, the host/authority header is altered such that -shadow is appended. This is useful for logging. For example, cluster1 becomes cluster1-shadow.
 
@@ -425,7 +425,7 @@ During shadowing, the host/authority header is altered such that -shadow is appe
 ### RouteAction.HashPolicy
 [RouteAction.HashPolicy proto]()
 
-Specifies the route°Øs hashing policy if the upstream cluster uses a hashing load balancer.
+Specifies the route‚Äôs hashing policy if the upstream cluster uses a hashing load balancer.
 
 ```
 {
@@ -468,7 +468,7 @@ Precisely one of header, cookie, connection_properties must be set.
 
 ### Envoy supports two types of cookie affinity:
 
-Passive. Envoy takes a cookie that°Øs present in the cookies header and hashes on its value.
+Passive. Envoy takes a cookie that‚Äôs present in the cookies header and hashes on its value.
 Generated. Envoy generates and sets a cookie with an expiration (TTL) on the first request from the client in its response to the client, based on the endpoint the request gets sent to. The client then presents this on the next and all subsequent requests. The hash of this is sufficient to ensure these requests get sent to the same endpoint. The cookie is generated by hashing the source and destination ports and addresses so that multiple independent HTTP2 streams on the same connection will independently receive the same cookie, even if they arrive at the Envoy simultaneously.
 ```
 {
@@ -553,7 +553,7 @@ For ingress (inbound) requests, or egress (outbound) responses, this value may b
 ### VirtualCluster
 [VirtualCluster proto]()
 
-A virtual cluster is a way of specifying a regex matching rule against certain important endpoints such that statistics are generated explicitly for the matched requests. The reason this is useful is that when doing prefix/path matching Envoy does not always know what the application considers to be an endpoint. Thus, it°Øs impossible for Envoy to generically emit per endpoint statistics. However, often systems have highly critical endpoints that they wish to get °∞perfect°± statistics on. Virtual cluster statistics are perfect in the sense that they are emitted on the downstream side such that they include network level failures.
+A virtual cluster is a way of specifying a regex matching rule against certain important endpoints such that statistics are generated explicitly for the matched requests. The reason this is useful is that when doing prefix/path matching Envoy does not always know what the application considers to be an endpoint. Thus, it‚Äôs impossible for Envoy to generically emit per endpoint statistics. However, often systems have highly critical endpoints that they wish to get ‚Äúperfect‚Äù statistics on. Virtual cluster statistics are perfect in the sense that they are emitted on the downstream side such that they include network level failures.
 
 Documentation for virtual cluster statistics.
 
@@ -693,7 +693,7 @@ The following descriptor entry is appended when a header contains a key that mat
 }
 ```
 - **header_name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The header name to be queried from the request headers. The header°Øs value is used to populate the value of the descriptor entry for the descriptor_key.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The header name to be queried from the request headers. The header‚Äôs value is used to populate the value of the descriptor entry for the descriptor_key.
 
 - **descriptor_key**</br>
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The key to use in the descriptor entry.
@@ -741,7 +741,7 @@ The following descriptor entry is appended to the descriptor:
 	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) If set to true, the action will append a descriptor entry when the request matches the headers. If set to false, the action will append a descriptor entry when the request does not match the headers. The default value is true.
 
 - **headers**</br>
-	([HeaderMatcher](#), REQUIRED) Specifies a set of headers that the rate limit action should match on. The action will check the request°Øs headers against all the specified headers in the config. A match will happen if all the headers in the config are present in the request with the same values (or based on presence if the value field is not in the config).
+	([HeaderMatcher](#), REQUIRED) Specifies a set of headers that the rate limit action should match on. The action will check the request‚Äôs headers against all the specified headers in the config. A match will happen if all the headers in the config are present in the request with the same values (or based on presence if the value field is not in the config).
 
 ### HeaderMatcher
 [HeaderMatcher proto]()
@@ -771,7 +771,7 @@ To route on HTTP method, use the special HTTP/2 :method header. This works for b
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) Specifies the name of the header in the request.
 
 - **value**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the value of the header. If the value is absent a request that has the name header will match, regardless of the header°Øs value.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the value of the header. If the value is absent a request that has the name header will match, regardless of the header‚Äôs value.
 
 - **regex**</br>
 	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) Specifies whether the header value is a regular expression or not. Defaults to false. The entire request header value must match the regex. The rule will not match if only a subsequence of the request header value matches the regex. The regex grammar used in the value field is defined here.
@@ -784,6 +784,6 @@ To route on HTTP method, use the special HTTP/2 :method header. This works for b
 The regex d{3} does not match the value 123.456
 
 
-## ∑µªÿ
-- […œ“ªº∂](../v2APIreference.md)
-- [ ◊“≥ƒø¬º](../README.md)
+## ËøîÂõû
+- [‰∏ä‰∏ÄÁ∫ß](../v2APIreference.md)
+- [È¶ñÈ°µÁõÆÂΩï](../README.md)

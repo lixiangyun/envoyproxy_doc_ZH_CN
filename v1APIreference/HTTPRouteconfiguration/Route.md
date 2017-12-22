@@ -52,7 +52,7 @@ Envoy supports routing on HTTP method via header matching.
 ### The regex /b[io]t does not match the path /bite
 ### The regex /b[io]t does not match the path /bit/bot
 - **cors**</br>
-	([optional](#), object) Specifies the route°Øs CORS policy.
+	([optional](#), object) Specifies the route‚Äôs CORS policy.
 
 - **cluster**</br>
 	([sometimes required](#), string) If the route is not a redirect (host_redirect and/or path_redirect is not specified), one of cluster, cluster_header, or weighted_clusters must be specified. When cluster is specified, its value indicates the upstream cluster to which the request should be forwarded to.
@@ -112,7 +112,7 @@ Redirects, timeouts and retries are not supported on requests with WebSocket upg
 	([optional](#), string) Optionally specifies the routing priority.
 
 - **headers**</br>
-	([optional](#), array) Specifies a set of headers that the route should match on. The router will check the request°Øs headers against all the specified headers in the route config. A match will happen if all the headers in the route are present in the request with the same values (or based on presence if the value field is not in the config).
+	([optional](#), array) Specifies a set of headers that the route should match on. The router will check the request‚Äôs headers against all the specified headers in the route config. A match will happen if all the headers in the route are present in the request with the same values (or based on presence if the value field is not in the config).
 
 - **request_headers_to_add**</br>
 	([optional](#), array) Specifies a list of HTTP headers that should be added to each request handled by this virtual host. Headers are specified in the following form:
@@ -136,10 +136,10 @@ For more information see the documentation on custom request headers.
 	([optional](#), boolean) Specifies if the rate limit filter should include the virtual host rate limits. By default, if the route configured rate limits, the virtual host rate_limits are not applied to the request.
 
 - **hash_policy**</br>
-	([optional](#), object) Specifies the route°Øs hashing policy if the upstream cluster uses a hashing load balancer.
+	([optional](#), object) Specifies the route‚Äôs hashing policy if the upstream cluster uses a hashing load balancer.
 
 - **decorator**</br>
-	([optional](#), object) Specifies the route°Øs decorator used to enhance information reported about the matched request.
+	([optional](#), object) Specifies the route‚Äôs decorator used to enhance information reported about the matched request.
 
 ### Runtime
 A runtime route configuration can be used to roll out route changes in a gradual manner without full code/config deploys. Refer to the traffic shifting docs for additional documentation.
@@ -179,7 +179,7 @@ HTTP retry architecture overview.
 Note: If left unspecified, Envoy will use the global route timeout for the request. Consequently, when using a 5xx based retry policy, a request that times out will not be retried as the total timeout budget would have been exhausted.
 
 ### Shadow
-The router is capable of shadowing traffic from one cluster to another. The current implementation is °∞fire and forget,°± meaning Envoy will not wait for the shadow cluster to respond before returning the response from the primary cluster. All normal statistics are collected for the shadow cluster making this feature useful for testing.
+The router is capable of shadowing traffic from one cluster to another. The current implementation is ‚Äúfire and forget,‚Äù meaning Envoy will not wait for the shadow cluster to respond before returning the response from the primary cluster. All normal statistics are collected for the shadow cluster making this feature useful for testing.
 
 During shadowing, the host/authority header is altered such that -shadow is appended. This is useful for logging. For example, cluster1 becomes cluster1-shadow.
 
@@ -207,7 +207,7 @@ During shadowing, the host/authority header is altered such that -shadow is appe
 	([required](#), string) Specifies the name of the header in the request.
 
 - **value**</br>
-	([optional](#), string) Specifies the value of the header. If the value is absent a request that has the name header will match, regardless of the header°Øs value.
+	([optional](#), string) Specifies the value of the header. If the value is absent a request that has the name header will match, regardless of the header‚Äôs value.
 
 - **regex**</br>
 	([optional](#), boolean) Specifies whether the header value is a regular expression or not. Defaults to false. The entire request header value must match the regex. The rule will not match if only a subsequence of the request header value matches the regex. The regex grammar used in the value field is defined here.
@@ -264,7 +264,7 @@ Compared to the cluster field that specifies a single upstream cluster as the ta
 Note: If the sum of runtime weights exceed 100, the traffic splitting behavior is undefined (although the request will be routed to one of the clusters).
 
 ### Hash policy
-Specifies the route°Øs hashing policy if the upstream cluster uses a hashing load balancer.
+Specifies the route‚Äôs hashing policy if the upstream cluster uses a hashing load balancer.
 
 ```
 {
@@ -275,7 +275,7 @@ Specifies the route°Øs hashing policy if the upstream cluster uses a hashing loa
 	([required](#), string) The name of the request header that will be used to obtain the hash key. If the request header is not present, the load balancer will use a random number as the hash, effectively making the load balancing policy random.
 
 ### Decorator
-Specifies the route°Øs decorator.
+Specifies the route‚Äôs decorator.
 
 ```
 {
@@ -286,7 +286,7 @@ Specifies the route°Øs decorator.
 	([required](#), string) The operation name associated with the request matched to this route. If tracing is enabled, this information will be used as the span name reported for this request. NOTE: For ingress (inbound) requests, or egress (outbound) responses, this value may be overridden by the x-envoy-decorator-operation header.
 
 ### Opaque Config
-Additional configuration can be provided to filters through the °∞Opaque Config°± mechanism. A list of properties are specified in the route config. The configuration is uninterpreted by envoy and can be accessed within a user-defined filter. The configuration is a generic string map. Nested objects are not supported.
+Additional configuration can be provided to filters through the ‚ÄúOpaque Config‚Äù mechanism. A list of properties are specified in the route config. The configuration is uninterpreted by envoy and can be accessed within a user-defined filter. The configuration is a generic string map. Nested objects are not supported.
 
 ```
 [
@@ -311,7 +311,7 @@ Settings on a route take precedence over settings on the virtual host.
 	([optional](#), boolean) Defaults to true. Setting enabled to false on a route disables CORS for this route only. The setting has no effect on a virtual host.
 
 - **allow_origin**</br>
-	([optional](#), array) The origins that will be allowed to do CORS request. Wildcard °∞*°± will allow any origin.
+	([optional](#), array) The origins that will be allowed to do CORS request. Wildcard ‚Äú*‚Äù will allow any origin.
 
 - **allow_methods**</br>
 	([optional](#), string) The content for the access-control-allow-methods header. Comma separated list of HTTP methods.

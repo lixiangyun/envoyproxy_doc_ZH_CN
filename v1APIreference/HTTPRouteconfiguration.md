@@ -1,10 +1,10 @@
-## HTTP路由配置
+## HTTP璺敱閰嶇疆
 
-- [虚拟主机](HTTPRouteconfiguration/Virtualhost.md)
-- [路由](HTTPRouteconfiguration/Route.md)
-- [虚拟集群](HTTPRouteconfiguration/Virtualcluster.md)
-- [速率限制配置](HTTPRouteconfiguration/Ratelimitconfiguration.md)
-- [路由发现服务](HTTPRouteconfiguration/RoutediscoveryserviceRDS.md)
+- [铏氭嫙涓绘満](HTTPRouteconfiguration/Virtualhost.md)
+- [璺敱](HTTPRouteconfiguration/Route.md)
+- [铏氭嫙闆嗙兢](HTTPRouteconfiguration/Virtualcluster.md)
+- [閫熺巼闄愬埗閰嶇疆](HTTPRouteconfiguration/Ratelimitconfiguration.md)
+- [璺敱鍙戠幇鏈嶅姟](HTTPRouteconfiguration/RoutediscoveryserviceRDS.md)
 
 ### HTTP Route configuration
 ### Routing architecture overview
@@ -62,6 +62,6 @@
 For more information see the documentation on custom request headers.
 
 
-## 返回
-- [上一级](../v1APIreference.md)
-- [首页目录](../README.md)
+## 杩斿洖
+- [涓婁竴绾(../v1APIreference.md)
+- [棣栭〉鐩綍](../README.md)

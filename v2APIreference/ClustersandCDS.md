@@ -1,4 +1,4 @@
-## 集群&集群发现
+## 闆嗙兢&闆嗙兢鍙戠幇
 
 
 ### Clusters and CDS
@@ -44,7 +44,7 @@
 	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) The timeout for new network connections to hosts in the cluster.
 
 - **per_connection_buffer_limit_bytes**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) Soft limit on size of the cluster’s connections read and write buffers. If unspecified, an implementation defined default is applied (1MiB).
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) Soft limit on size of the cluster鈥檚 connections read and write buffers. If unspecified, an implementation defined default is applied (1MiB).
 
 - **lb_policy**</br>
 	([Cluster.LbPolicy](#)) The load balancer type to use when picking a host in the cluster.
@@ -77,13 +77,13 @@ Only one of http_protocol_options, http2_protocol_options may be set.
 Only one of http_protocol_options, http2_protocol_options may be set.
 
 - **dns_refresh_rate**</br>
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) If the DNS refresh rate is specified and the cluster type is either STRICT_DNS, or LOGICAL_DNS, this value is used as the cluster’s DNS refresh rate. If this setting is not specified, the value defaults to 5000. For cluster types other than STRICT_DNS and LOGICAL_DNS this setting is ignored.
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) If the DNS refresh rate is specified and the cluster type is either STRICT_DNS, or LOGICAL_DNS, this value is used as the cluster鈥檚 DNS refresh rate. If this setting is not specified, the value defaults to 5000. For cluster types other than STRICT_DNS and LOGICAL_DNS this setting is ignored.
 
 - **dns_lookup_family**</br>
 	([Cluster.DnsLookupFamily](#)) The DNS IP address resolution policy. If this setting is not specified, the value defaults to V4_ONLY.
 
 - **dns_resolvers**</br>
-	([Address](#)) If DNS resolvers are specified and the cluster type is either STRICT_DNS, or LOGICAL_DNS, this value is used to specify the cluster’s dns resolvers. If this setting is not specified, the value defaults to the default resolver, which uses /etc/resolv.conf for configuration. For cluster types other than STRICT_DNS and LOGICAL_DNS this setting is ignored.
+	([Address](#)) If DNS resolvers are specified and the cluster type is either STRICT_DNS, or LOGICAL_DNS, this value is used to specify the cluster鈥檚 dns resolvers. If this setting is not specified, the value defaults to the default resolver, which uses /etc/resolv.conf for configuration. For cluster types other than STRICT_DNS and LOGICAL_DNS this setting is ignored.
 
 - **outlier_detection**</br>
 	([Cluster.OutlierDetection](#)) If specified, outlier detection will be enabled for this upstream cluster. Each of the configuration values can be overridden via runtime values.
@@ -189,13 +189,13 @@ Optionally divide the endpoints in this cluster into subsets defined by endpoint
 }
 ```
 - **fallback_policy**</br>
-	([Cluster.LbSubsetConfig.LbSubsetFallbackPolicy](#)) The behavior used when no endpoint subset matches the selected route’s metadata. The value defaults to NO_FALLBACK.
+	([Cluster.LbSubsetConfig.LbSubsetFallbackPolicy](#)) The behavior used when no endpoint subset matches the selected route鈥檚 metadata. The value defaults to NO_FALLBACK.
 
 - **default_subset**</br>
 	([Struct](#)) Specifies the default subset of endpoints used during fallback if fallback_policy is DEFAULT_SUBSET. Each field in default_subset is compared to the matching LbEndpoint.Metadata under the envoy.lb namespace. It is valid for no hosts to match, in which case the behavior is the same as a fallback_policy of NO_FALLBACK.
 
 - **subset_selectors**</br>
-	([Cluster.LbSubsetConfig.LbSubsetSelector](#)) For each entry, LbEndpoint.Metadata’s envoy.lb namespace is traversed and a subset is created for each unique combination of key and value. For example:
+	([Cluster.LbSubsetConfig.LbSubsetSelector](#)) For each entry, LbEndpoint.Metadata鈥檚 envoy.lb namespace is traversed and a subset is created for each unique combination of key and value. For example:
 
 
 ```
@@ -203,7 +203,7 @@ Optionally divide the endpoints in this cluster into subsets defined by endpoint
     { "keys": [ "version" ] },
     { "keys": [ "stage", "hardware_type" ] }
 ]}
-A subset is matched when the metadata from the selected route and weighted cluster contains the same keys and values as the subset’s metadata. The same host may appear in multiple subsets.
+A subset is matched when the metadata from the selected route and weighted cluster contains the same keys and values as the subset鈥檚 metadata. The same host may appear in multiple subsets.
 
 Cluster.LbSubsetConfig.LbSubsetSelector
 [Cluster.LbSubsetConfig.LbSubsetSelector proto]
@@ -358,6 +358,6 @@ A Thresholds defines CircuitBreaker settings for a RoutingPriority.
 
 
 
-## 返回
-- [上一级](../v2APIreference.md)
-- [首页目录](../README.md)
+## 杩斿洖
+- [涓婁竴绾(../v2APIreference.md)
+- [棣栭〉鐩綍](../README.md)

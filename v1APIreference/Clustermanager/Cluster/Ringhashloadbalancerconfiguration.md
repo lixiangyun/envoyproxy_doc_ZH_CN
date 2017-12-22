@@ -15,6 +15,6 @@ Ring hash load balancing settings are used when the lb_type is set to ring_hash 
 
 
 
-## 返回
-- [上一级](../Cluster.md)
-- [首页目录](../../../README.md)
+## 杩斿洖
+- [涓婁竴绾(../Cluster.md)
+- [棣栭〉鐩綍](../../../README.md)

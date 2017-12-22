@@ -45,7 +45,7 @@ A TCP proxy route consists of a set of optional L4 criteria and the name of a cl
 	([required](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) The cluster to connect to when a the downstream network connection matches the specified criteria.
 
 - **destination_ip_list**</br>
-	([optional](#), array) An optional list of IP address subnets in the form ¡°ip_address/xx¡±. The criteria is satisfied if the destination IP address of the downstream connection is contained in at least one of the specified subnets. If the parameter is not specified or the list is empty, the destination IP address is ignored. The destination IP address of the downstream connection might be different from the addresses on which the proxy is listening if the connection has been redirected. Example:
+	([optional](#), array) An optional list of IP address subnets in the form â€œip_address/xxâ€. The criteria is satisfied if the destination IP address of the downstream connection is contained in at least one of the specified subnets. If the parameter is not specified or the list is empty, the destination IP address is ignored. The destination IP address of the downstream connection might be different from the addresses on which the proxy is listening if the connection has been redirected. Example:
 
 ```
 [
@@ -66,7 +66,7 @@ A TCP proxy route consists of a set of optional L4 criteria and the name of a cl
 }
 ```
 - **source_ip_list**</br>
-	([optional](#), array) An optional list of IP address subnets in the form ¡°ip_address/xx¡±. The criteria is satisfied if the source IP address of the downstream connection is contained in at least one of the specified subnets. If the parameter is not specified or the list is empty, the source IP address is ignored. Example:
+	([optional](#), array) An optional list of IP address subnets in the form â€œip_address/xxâ€. The criteria is satisfied if the source IP address of the downstream connection is contained in at least one of the specified subnets. If the parameter is not specified or the list is empty, the source IP address is ignored. Example:
 
 
 
@@ -91,7 +91,7 @@ A TCP proxy route consists of a set of optional L4 criteria and the name of a cl
 ```
 
 
-## ·µ»Ø
-- [ÉÏÒ»¼¶](../Networkfilters.md)
-- [Ê×Ò³Ä¿Â¼](../../README.md)
+## è¿”å›
+- [ä¸Šä¸€çº§](../Networkfilters.md)
+- [é¦–é¡µç›®å½•](../../README.md)
 
