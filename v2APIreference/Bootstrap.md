@@ -21,7 +21,7 @@
 - [Runtime](#Runtime)
 - [RateLimitServiceConfig](#RateLimitServiceConfig)
 
-#### Bootstrap
+### Bootstrap
 
 [Bootstrap proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L22)
 
@@ -83,7 +83,7 @@
 - **admin**<br />
 	([Admin](#Admin), 必选) 配置本地管理的HTTP服务。
 
-#### Bootstrap.StaticResources
+### Bootstrap.StaticResources
 
 [Bootstrap.StaticResources proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L27)
 
@@ -100,7 +100,7 @@
 - **clusters**<br />
 	([Cluster](../ClustersandCDS.md)) 如果[cds_config](#Bootstrap.DynamicResources)指定了基于网络的配置源，则需要提供一些初始集群定义，以便Envoy知道如何与管理服务交互。这些集群定义可能不使用EDS（即它们应该是基于静态IP或DNS）。
 
-#### Bootstrap.DynamicResources
+### Bootstrap.DynamicResources
 
 [Bootstrap.DynamicResources proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L46)
 ```
@@ -125,7 +125,7 @@
 	([Bootstrap.DynamicResources.DeprecatedV1](#Bootstrap.DynamicResources.DeprecatedV1))
 
 
-#### Bootstrap.DynamicResources.DeprecatedV1
+### Bootstrap.DynamicResources.DeprecatedV1
 
 
 [Bootstrap.DynamicResources.DeprecatedV1 proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L65)
@@ -138,7 +138,7 @@
 - **sds_config**<br />
     ([ConfigSource](Commontypes.md)) 这是使用v1 REST API提供CDS/EDS服务发现的全局SDS配置。
 
-#### LightstepConfig
+### LightstepConfig
 
 
 [LightstepConfig proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L117)
@@ -157,7 +157,7 @@ Configuration for the LightStep tracer.
 - **access_token_file**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), 必选) 包含访问LightStep API的`token`文件。
 
-#### ZipkinConfig
+### ZipkinConfig
 
 [ZipkinConfig proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L126)
 ```
@@ -174,7 +174,7 @@ Configuration for the LightStep tracer.
 - **collector_endpoint**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), 必选) 将`span`发送的Zipkin服务的API端口。当安装标准的Zipkin服务时，API端口通常是`/api/v1/spans`，这也是默认配置值。
 
-#### Tracing
+### Tracing
 
 [Tracing proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L143)
 
@@ -190,7 +190,7 @@ Configuration for the LightStep tracer.
 	([Tracing.Http](#Tracing.Http)) 提供HTTP跟踪器的配置
 
 
-#### Tracing.Http
+### Tracing.Http
 
 [Tracing.Http proto]()
 ```
@@ -207,7 +207,7 @@ Configuration for the LightStep tracer.
 	([Struct](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)) 跟踪驱动程序的具体配置，这取决于实例化的驱动程序。 有关示例，请参阅[LightstepConfig](#LightstepConfig)和[ZipkinConfig](#ZipkinConfig)跟踪驱动程序配置。
 
 
-#### Admin
+### Admin
 
 [Admin proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L162)
 
@@ -231,7 +231,7 @@ Configuration for the LightStep tracer.
 	([Address](#), 必选) 管理服务要监听的TCP地址
 
 
-#### ClusterManager
+### ClusterManager
 
 [ClusterManager proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L176)
 
@@ -258,7 +258,7 @@ Cluster manager architecture overview.
 	([ApiConfigSource](#Commontypes.md)) 管理服务端口负载统计信息通过`StreamLoadStats`流传输。这必须将`api_type`配置为`GRPC`。
 
 
-#### ClusterManager.OutlierDetection
+### ClusterManager.OutlierDetection
 
 [ClusterManager.OutlierDetection proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L188)
 ```
@@ -270,7 +270,7 @@ Cluster manager architecture overview.
 - **event_log_path**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 指定异常事件日志的路径
 
-#### StatsdSink
+### StatsdSink
 
 [StatsdSink proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L206)
 
@@ -289,7 +289,7 @@ Cluster manager architecture overview.
 - **tcp_cluster_name**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 提供基于TCP 的statsd兼容收集器群集名称。如果指定，Envoy将连接到此群集以刷新统计信息。
 
-#### StatsSink
+### StatsSink
 
 [StatsSink proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L223)
 
@@ -308,7 +308,7 @@ Cluster manager architecture overview.
 - **config**<br />
 	([Struct](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)) 特定的统计收集器配置，这取决于被实例化的收集器。以[StatsdSink](#StatsdSink)为例。
 
-#### TagSpecifier
+### TagSpecifier
 
 [TagSpecifier proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L238)
 
@@ -357,7 +357,7 @@ Cluster manager architecture overview.
 
     第二个正则表达式将删除`connection_manager_1`。从第一个正则表达式`http.connection_manager_1.user_agent.downstream_cx_total`生成的标签提取名称中，留下`http.user_agent.downstream_cx_total`作为标签提取名称。在标签`envoy.http_conn_manager_prefix`将添加`connection_manager_1`标签值。
 
-#### StatsConfig
+### StatsConfig
 
 [StatsConfig proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L305)
 
@@ -370,18 +370,22 @@ Cluster manager architecture overview.
 ```
 
 - **stats_tags**<br />
-	([TagSpecifier](#)) Each stat name is iteratively processed through these tag specifiers. When a tag is matched, the first capture group is removed from the name so later TagSpecifiers cannot match that same portion of the match.
+	([TagSpecifier](#TagSpecifier)) 每个统计信息的名称都会通过这些标记符进行迭代处理。当标签匹配时，将从第一个捕获组名称中删除，后面的`TagSpecifiers`不能匹配相同的部分。
 
 - **use_all_default_tags**<br />
-	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) Use all default tag regexes specified in Envoy. These can be combined with custom tags specified in stats_tags. They will be processed before the custom tags.
+	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) 使用Envoy中指定的所有默认正则表达式标记。这些可以与`stats_tags`中自定义标签结合使用。他们将在自定义标签之前先进行处理。
+	
+	注意：如果任何默认标签被指定两次，则配置将被视为无效。
+	
+    有关Envoy中默认标记的列表，请参阅[well_known_names.h](https://github.com/envoyproxy/envoy/blob/master/source/common/config/well_known_names.h)。
+    
+    如果没有提供，则该值默认为真。
 
+### Watchdog
 
+[Watchdog proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L332)
 
-#### Watchdog
-
-[Watchdog proto]()
-
-Envoy process watchdog configuration. When configured, this monitors for nonresponsive threads and kills the process after the configured thresholds.
+Envoy进程的看门狗配置。配置后，将监视未响应的线程，并在达到配置的阈值后终止本进程。
 ```
 {
   "miss_timeout": "{...}",
@@ -392,23 +396,23 @@ Envoy process watchdog configuration. When configured, this monitors for nonresp
 ```
 
 - **miss_timeout**<br />
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) The duration after which Envoy counts a nonresponsive thread in the server.watchdog_miss statistic. If not specified the default is 200ms.
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) Envoy统计`server.watchdog_miss`统计信息中的未响应线程的持续时间。如果没有指定，默认是200ms。
 
 - **megamiss_timeout**<br />
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) The duration after which Envoy counts a nonresponsive thread in the server.watchdog_mega_miss statistic. If not specified the default is 1000ms.
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) Envoy在`server.watchdog_mega_miss`统计信息中计算无响应线程的持续时间。如果未指定，则默认值为1000ms。
 
 - **kill_timeout**<br />
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) If a watched thread has been nonresponsive for this duration, assume a programming error and kill the entire Envoy process. Set to 0 to disable kill behavior. If not specified the default is 0 (disabled).
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 如果被监控的线程在这段时间内没有响应，则假定编程错误并终止整个Envoy进程。设置为0可禁用kill行为。如果未指定，则默认值为0（禁用）。
 
 - **multikill_timeout**<br />
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) If at least two watched threads have been nonresponsive for at least this duration assume a true deadlock and kill the entire Envoy process. Set to 0 to disable this behavior. If not specified the default is 0 (disabled).
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 如果至少有两个被监控的线程，在这个持续时间内没有响应，则假定为真正的死锁并杀死整个Envoy进程。设置为0可禁用此行为。如果未指定，则默认值为0（禁用）。
 
 
-#### Runtime
+### Runtime
 
-[Runtime proto]()
+[Runtime proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L354)
 
-Runtime configuration overview.
+Runtime[架构概述](../Configurationreference/Runtime.md)。
 ```
 {
   "symlink_root": "...",
@@ -418,30 +422,28 @@ Runtime configuration overview.
 ```
 
 - **symlink_root**<br />
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), 必选) The implementation assumes that the file system tree is accessed via a symbolic link. An atomic link swap is used when a new tree should be switched to. This parameter specifies the path to the symbolic link. Envoy will watch the location for changes and reload the file system tree when they happen.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), 必选) 该实现假定文件系统通过符号链接进行访问。并在切换到新文件目录时，使用原子链接交换。此参数指定符号链接的路径。Envoy将观察位置是否更改，并在发生时重新加载文件目录树。
 
 - **subdirectory**<br />
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the subdirectory to load within the root directory. This is useful if multiple systems share the same delivery mechanism. Envoy configuration elements can be contained in a dedicated subdirectory.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 指定要在根目录中加载的子目录。如果多个系统共享相同的更新机制，这会很有用。Envoy配置文件可以包含在一个专用的子目录中。
 
 - **override_subdirectory**<br />
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies an optional subdirectory to load within the root directory. If specified and the directory exists, configuration values within this directory will override those found in the primary subdirectory. This is useful when Envoy is deployed across many different types of servers. Sometimes it is useful to have a per service cluster directory for runtime configuration. See below for exactly how the override directory is used.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 指定在根目录中加载的可选子目录。如果指定的目录存在，则此目录中的配置值将覆盖在主子目录中对应的值。当Envoy跨多种不同的服务器类型部署时，这很有用。有时为运行时配置提供每个服务集群目录是有用的。请参阅下面的如何使用覆盖目录。
 
 
+### RateLimitServiceConfig
 
-#### RateLimitServiceConfig
+[RateLimitServiceConfig proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/bootstrap.proto#L377)
 
-[RateLimitServiceConfig proto]()
+速率限制[架构概述](../Configurationreference/Ratelimitservice.md)。
 
-Rate limit configuration overview.
 ```
 {
   "cluster_name": "..."
 }
 ```
 - **cluster_name**<br />
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), 必选) Specifies the cluster manager cluster name that hosts the rate limit service. The client will connect to this cluster when it needs to make rate limit service requests.
-
-
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), 必选) 指定承载速率限制服务的群集管理器名称。当需要进行速率限制服务请求时，客户端将连接到该群集，获取速率限制配置服务。
 
 
 ## 返回
