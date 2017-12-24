@@ -1,9 +1,8 @@
 ## 集群&集群发现
 
-
-### Clusters and CDS
 ### Cluster
-[Cluster proto]()
+
+[Cluster proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L33)
 
 ```
 {
@@ -31,85 +30,81 @@
   "transport_socket": "{...}"
 }
 ```
-- **name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) Supplies the name of the cluster which must be unique across all clusters. The cluster name is used when emitting statistics. Any : in the cluster name will be converted to _ when emitting statistics. By default, the maximum length of a cluster name is limited to 60 characters. This limit can be increased by setting the --max-obj-name-len command line argument to the desired value.
+- **name**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 提供在所有群集中必须唯一的群集名称。在发布统计信息时，会使用集群名称。在发布任何统计信息时，集群名称将被转换为`_`。默认情况下，群集名称的最大长度限制为60个字符。可通过`--max-obj-name-len`命令行参数，提高此上限。
 
-- **type**</br>
-	([Cluster.DiscoveryType](#)) The service discovery type to use for resolving the cluster.
+- **type**<br />
+	([Cluster.DiscoveryType](#Cluster.DiscoveryType (Enum)))  用于解析群集的服务发现类型。
 
-- **eds_cluster_config**</br>
-	([Cluster.EdsClusterConfig](#)) Configuration to use for EDS updates for the Cluster.
+- **eds_cluster_config**<br />
+	([Cluster.EdsClusterConfig](#Cluster.EdsClusterConfig)) 用于群集的EDS更新配置。
 
-- **connect_timeout**</br>
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) The timeout for new network connections to hosts in the cluster.
+- **connect_timeout**<br />
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 连接到该群集中主机的超时时长。
 
-- **per_connection_buffer_limit_bytes**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) Soft limit on size of the cluster’s connections read and write buffers. If unspecified, an implementation defined default is applied (1MiB).
+- **per_connection_buffer_limit_bytes**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 连接集群的读写缓冲区大小。如果未指定，则使用默认值（1MB）。
 
-- **lb_policy**</br>
-	([Cluster.LbPolicy](#)) The load balancer type to use when picking a host in the cluster.
+- **lb_policy**<br />
+	([Cluster.LbPolicy](#Cluster.LbPolicy (Enum))) 在集群中选择主机时使用的负载平衡器类型。
 
-- **hosts**</br>
-	([Address](#)) If the service discovery type is STATIC, STRICT_DNS or LOGICAL_DNS, then hosts is required.
+- **hosts**<br />
+	([Address](../v2APIreference/Networkaddresses.md)) 如果服务发现类型是`STATIC`，`STRICT_DNS`或`LOGICAL_DNS`，则需要配置。
 
-- **health_checks**</br>
-	([HealthCheck](#)) Optional active health checking configuration for the cluster. If no configuration is specified no health checking will be done and all cluster members will be considered healthy at all times.
+- **health_checks**<br />
+	([HealthCheck](../v2APIreference/Healthcheck.md)) 群集可选的健康检查配置。如果未指定配置，则不会执行健康检查，并且假定所有群集成员都将始终处于健康状态。
 
-- **max_requests_per_connection**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) Optional maximum requests for a single upstream connection. This parameter is respected by both the HTTP/1.1 and HTTP/2 connection pool implementations. If not specified, there is no limit. Setting this parameter to 1 will effectively disable keep alive.
+- **max_requests_per_connection**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 可选，单个上游连接的最大请求数。HTTP/1.1和HTTP/2连接池都遵守此参数。如果没有指定，则没有限制。若此参数设置为1将有效地禁用保活状态的连接。
 
-- **circuit_breakers**</br>
-	([CircuitBreakers](#)) Optional circuit breaking for the cluster.
+- **circuit_breakers**<br />
+	([CircuitBreakers](#CircuitBreakers)) 可选，集群熔断配置。
 
-- **tls_context**</br>
-	([UpstreamTlsContext](#)) The TLS configuration for connections to the upstream cluster. If no TLS configuration is specified, TLS will not be used for new connections.
+- **tls_context**<br />
+	([UpstreamTlsContext](../v2APIreference/CommonTLSconfiguration.md)) 连接到上游群集的TLS配置。如果没有指定TLS配置，则新连接不会使用TLS。
 
-- **http_protocol_options**</br>
-	([Http1ProtocolOptions](#)) Additional options when handling HTTP1 requests.
+- **http_protocol_options**<br />
+	([Http1ProtocolOptions](../v2APIreference/Protocoloptions.md)) 处理HTTP1请求时的其他选项。
+	
+    只能设置`http_protocol_options`和`http2_protocol_options`其中一个配置。
 
+- **http2_protocol_options**<br />
+	([Http2ProtocolOptions](../v2APIreference/Protocoloptions.md)) 即使需要默认的HTTP2协议选项，也必须设置此字段，以便Envoy将在创建新的HTTP连接池时，假定上游支持HTTP/2。目前，Envoy仅支持上游连接的先验证。即使TLS与ALPN一起使用，也必须指定`http2_protocol_options`。另外，这允许HTTP/2通过纯文本连接。
+	
+    只能设置`http_protocol_options`和`http2_protocol_options`其中一个配置。
 
-Only one of http_protocol_options, http2_protocol_options may be set.
+- **dns_refresh_rate**<br />
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 指定DNS刷新率，在群集类型为`STRICT_DNS`或`LOGICAL_DNS`时，则将此值用作群集的DNS刷新率。如果未指定此设置，则此值默认为5000。对于`STRICT_DNS`和`LOGICAL_DNS`以外的群集类型，此设置将被忽略。
 
-- **http2_protocol_options**</br>
-	([Http2ProtocolOptions](#)) Even if default HTTP2 protocol options are desired, this field must be set so that Envoy will assume that the upstream supports HTTP/2 when making new HTTP connection pool connections. Currently, Envoy only supports prior knowledge for upstream connections. Even if TLS is used with ALPN, http2_protocol_options must be specified. As an aside this allows HTTP/2 connections to happen over plain text.
+- **dns_lookup_family**<br />
+	([Cluster.DnsLookupFamily](#Cluster.DnsLookupFamily (Enum))) DNS IP地址解析策略。 如果未指定此设置，则该值默认为`V4_ONLY`。
 
+- **dns_resolvers**<br />
+	([Address](../v2APIreference/Networkaddresses.md)) 如果指定了DNS解析程序，并且群集类型是`STRICT_DNS`或`LOGICAL_DNS`，则此值用于指定群集的dns解析程序。如果未指定此设置，则该值默认为使用`/etc/resolv.conf`配置的默认解析器。对于`STRICT_DNS`和`LOGICAL_DNS`以外的其他集群类型，此设置将被忽略。
 
-Only one of http_protocol_options, http2_protocol_options may be set.
+- **outlier_detection**<br />
+	([Cluster.OutlierDetection](#Cluster.OutlierDetection)) 如果指定，则会为此上游群集启用异常值检测。每个配置值都可以通过运行时配置覆盖。
 
-- **dns_refresh_rate**</br>
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) If the DNS refresh rate is specified and the cluster type is either STRICT_DNS, or LOGICAL_DNS, this value is used as the cluster’s DNS refresh rate. If this setting is not specified, the value defaults to 5000. For cluster types other than STRICT_DNS and LOGICAL_DNS this setting is ignored.
+- **cleanup_interval**<br />
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 从集群类型`ORIGINAL_DST`中删除过期主机的时间间隔。如果主机在这段时间内没有被用作上游目的地，则认为它们是陈旧的。随着新的连接重定向到Envoy，新的主机将按需添加到原始目标集群，从而导致集群中的主机数量随着时间而增长。没有陈旧的主机（它们被主动用作目的地）被保存在群集中，从而允许与它们的连接保持打开状态，从而节省了打开新连接所花费的等待时间。如果未指定此设置，则该值默认为5000毫秒。对于`ORIGINAL_DST`以外的其他群集类型，此设置将被忽略。
 
-- **dns_lookup_family**</br>
-	([Cluster.DnsLookupFamily](#)) The DNS IP address resolution policy. If this setting is not specified, the value defaults to V4_ONLY.
+- **upstream_bind_config**<br />
+	([BindConfig](../v2APIreference/Networkaddresses.md#BindConfig)) 用于绑定新建立的上游连接的可选配置。这将覆盖`bootstrap proto`中指定的任何`bind_config`。如果地址和端口是空的，则不执行绑定。
 
-- **dns_resolvers**</br>
-	([Address](#)) If DNS resolvers are specified and the cluster type is either STRICT_DNS, or LOGICAL_DNS, this value is used to specify the cluster’s dns resolvers. If this setting is not specified, the value defaults to the default resolver, which uses /etc/resolv.conf for configuration. For cluster types other than STRICT_DNS and LOGICAL_DNS this setting is ignored.
+- **lb_subset_config**<br />
+	([Cluster.LbSubsetConfig](#Cluster.LbSubsetConfig)) 配置负载平衡子集。
 
-- **outlier_detection**</br>
-	([Cluster.OutlierDetection](#)) If specified, outlier detection will be enabled for this upstream cluster. Each of the configuration values can be overridden via runtime values.
+- **ring_hash_lb_config**<br />
+	([Cluster.RingHashLbConfig](#Cluster.RingHashLbConfig)) 可选，配置环哈希负载平衡策略。只能设置一个`ring_hash_lb_config`。
 
-- **cleanup_interval**</br>
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) The interval for removing stale hosts from a cluster type ORIGINAL_DST. Hosts are considered stale if they have not been used as upstream destinations during this interval. New hosts are added to original destination clusters on demand as new connections are redirected to Envoy, causing the number of hosts in the cluster to grow over time. Hosts that are not stale (they are actively used as destinations) are kept in the cluster, which allows connections to them remain open, saving the latency that would otherwise be spent on opening new connections. If this setting is not specified, the value defaults to 5000ms. For cluster types other than ORIGINAL_DST this setting is ignored.
+- **transport_socket**<br />
+	([TransportSocket](../v2APIreference/Commontypes.md#TransportSocket)) 请参阅    [base.TransportSocket](../v2APIreference/Commontypes.md#TransportSocket)描述。
 
-- **upstream_bind_config**</br>
-	([BindConfig](#)) Optional configuration used to bind newly established upstream connections. This overrides any bind_config specified in the bootstrap proto. If the addres and port are empty, no bind will be performed.
-
-- **lb_subset_config**</br>
-	([Cluster.LbSubsetConfig](#)) Configuration for load balancing subsetting.
-
-- **ring_hash_lb_config**</br>
-	([Cluster.RingHashLbConfig](#)) Optional configuration for the Ring Hash load balancing policy.
-
-
-Only one of ring_hash_lb_config may be set.
-
-- **transport_socket**</br>
-	([TransportSocket](#)) See base.TransportSocket description.
 
 ### Cluster.EdsClusterConfig
-[Cluster.EdsClusterConfig proto]()
+[Cluster.EdsClusterConfig proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L74)
 
-Only valid when discovery type is EDS.
+只有当集群发现类型是EDS时才有效。
 
 ```
 {
@@ -117,16 +112,16 @@ Only valid when discovery type is EDS.
   "service_name": "..."
 }
 ```
-- **eds_config**</br>
-	([ConfigSource](#)) Configuration for the source of EDS updates for this Cluster.
+- **eds_config**<br />
+	([ConfigSource](../v2APIreference/Commontypes.md#ConfigSource)) 此群集的EDS更新源的配置。
 
-- **service_name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Optional alternative to cluster name to present to EDS. This does not have the same restrictions as cluster name, i.e. it may be arbitrary length.
+- **service_name**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 可选，替代集群的名称，提供给EDS服务。这与集群名称没有同样的限制，即它可以是任意的长度。
 
 ### Cluster.OutlierDetection
-[Cluster.OutlierDetection proto]()
+[Cluster.OutlierDetection proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L217)
 
-See the architecture overview for more information on outlier detection.
+有关异常值检测的更多信息，请参阅[架构概述](../Introduction/Architectureoverview/Outlierdetection.md)。
 
 ```
 {
@@ -143,43 +138,43 @@ See the architecture overview for more information on outlier detection.
   "enforcing_consecutive_gateway_failure": "{...}"
 }
 ```
-- **consecutive_5xx**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The number of consecutive 5xx responses before a consecutive 5xx ejection occurs. Defaults to 5.
+- **consecutive_5xx**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 发生连续5xx逐出主机之前，连续5xx响应的数量。默认为5。
 
-- **interval**</br>
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) The time interval between ejection analysis sweeps. This can result in both new ejections as well as hosts being returned to service. Defaults to 10000ms or 10s.
+- **interval**<br />
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 每次异常值分析扫描的时间间隔，这可能导致新抛出异常以及主机被重新添加到服务集群。默认为10000ms或10s。
 
-- **base_ejection_time**</br>
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) The base time that a host is ejected for. The real time is equal to the base time multiplied by the number of times the host has been ejected. Defaults to 30000ms or 30s.
+- **base_ejection_time**<br />
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 主机弹出的基准时间。实际时间等于基本时间乘以主机被逐出的次数。默认为30000ms或30s。
 
-- **max_ejection_percent**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The maximum % of an upstream cluster that can be ejected due to outlier detection. Defaults to 10%.
+- **max_ejection_percent**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 由于异常检测而逐出的主机占上游群集的最大百分比。默认为10％。
 
-- **enforcing_consecutive_5xx**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The % chance that a host will be actually ejected when an outlier status is detected through consecutive 5xx. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100.
+- **enforcing_consecutive_5xx**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 当通过连续5xx检测到异常状态时，主机实际被逐出的几率百分比。这个设置可以用来禁止逐出或者缓慢地加速。默认为100。
 
-- **enforcing_success_rate**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The % chance that a host will be actually ejected when an outlier status is detected through success rate statistics. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100.
+- **enforcing_success_rate**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 通过成功率统计检测到异常状态时，主机实际被逐出的几率百分比。这个设置可以用来禁止逐出或者缓慢地加速。默认为100。
 
-- **success_rate_minimum_hosts**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The number of hosts in a cluster that must have enough request volume to detect success rate outliers. If the number of hosts is less than this setting, outlier detection via success rate statistics is not performed for any host in the cluster. Defaults to 5.
+- **success_rate_minimum_hosts**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 必须具有足够的请求量来检测成功率异常值的群集中的主机数量。如果主机数量小于此设置，则不会为群集中的任何主机执行通过成功率统计信息的异常值检测。默认为5。
 
-- **success_rate_request_volume**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The minimum number of total requests that must be collected in one interval (as defined by the interval duration above) to include this host in success rate based outlier detection. If the volume is lower than this setting, outlier detection via success rate statistics is not performed for that host. Defaults to 100.
+- **success_rate_request_volume**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 在一个时间间隔内（如上述定义的时间间隔）必须收集的最小请求总数，以便将此主机包含在基于成功率的异常值检测中。如果低于此设置，则不会为该主机执行通过成功率统计的异常值检测。默认为100。
 
-- **success_rate_stdev_factor**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) This factor is used to determine the ejection threshold for success rate outlier ejection. The ejection threshold is the difference between the mean success rate, and the product of this factor and the standard deviation of the mean success rate: mean - (stdev * success_rate_stdev_factor). This factor is divided by a thousand to get a double. That is, if the desired factor is 1.9, the runtime value should be 1900. Defaults to 1900.
+- **success_rate_stdev_factor**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 这个因子被用来确定异常逐出成功率的阈值。逐出阈值是平均成功率与该因子与平均成功率的标准偏差的乘积之差：`mean - （stdev * success_rate_stdev_factor）`。 这个因素除以一千得到一个两位小数值。也就是说，如果期望的因子是1.9，运行时间值应该是1900，默认为1900。
 
-- **consecutive_gateway_failure**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The number of consecutive gateway failures (502, 503, 504 status or connection errors that are mapped to one of those status codes) before a consecutive gateway failure ejection occurs. Defaults to 5.
+- **consecutive_gateway_failure**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 逐出之前连续发生的连续网关故障数量，包括（502,503,504状态或连接错误，映射到其中一个状态代码）默认为5。
 
-- **enforcing_consecutive_gateway_failure**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The % chance that a host will be actually ejected when an outlier status is detected through consecutive gateway failures. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 0.
+- **enforcing_consecutive_gateway_failure**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 当通过连续的网关故障检测到异常状态时，主机实际被逐出的几率百分比。这个设置可以用来禁止逐出或者缓慢地加速。默认为0。
 
 ### Cluster.LbSubsetConfig
-[Cluster.LbSubsetConfig proto]()
+[Cluster.LbSubsetConfig proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L307)
 
-Optionally divide the endpoints in this cluster into subsets defined by endpoint metadata and selected by route and weighted cluster metadata.
+（可选）将此群集中的端口划分为由端口元数据定义的子集，并按路由和加权群集元数据进行选择。
 
 ```
 {
@@ -188,51 +183,52 @@ Optionally divide the endpoints in this cluster into subsets defined by endpoint
   "subset_selectors": []
 }
 ```
-- **fallback_policy**</br>
-	([Cluster.LbSubsetConfig.LbSubsetFallbackPolicy](#)) The behavior used when no endpoint subset matches the selected route’s metadata. The value defaults to NO_FALLBACK.
+- **fallback_policy**<br />
+	([Cluster.LbSubsetConfig.LbSubsetFallbackPolicy](#Cluster.LbSubsetConfig.LbSubsetFallbackPolicy)) 选定路由的元数据没有响应的端口子集匹配时使用的行为。该值默认为[NO_FALLBACK](#NO_FALLBACK)。
 
-- **default_subset**</br>
-	([Struct](#)) Specifies the default subset of endpoints used during fallback if fallback_policy is DEFAULT_SUBSET. Each field in default_subset is compared to the matching LbEndpoint.Metadata under the envoy.lb namespace. It is valid for no hosts to match, in which case the behavior is the same as a fallback_policy of NO_FALLBACK.
+- **default_subset**<br />
+	([Struct](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)) 如果`fallback_policy`为`DEFAULT_SUBSET`，则指定在回退期间使用的端点的默认子集。将`default_subset`中的每个字段与`envoy.lb`命名空间下的匹配`LbEndpoint.Metadata进行比较。没有主机匹配是有效的，在这种情况下，行为与`NO_FALLBACK`的`fallback_policy`相同。
 
-- **subset_selectors**</br>
-	([Cluster.LbSubsetConfig.LbSubsetSelector](#)) For each entry, LbEndpoint.Metadata’s envoy.lb namespace is traversed and a subset is created for each unique combination of key and value. For example:
+- **subset_selectors**<br />
+	([Cluster.LbSubsetConfig.LbSubsetSelector](#Cluster.LbSubsetConfig.LbSubsetSelector)) 对于每个条目，遍历`LbEndpoint.Metadata`的`envoy.lb`命名空间，并为每个唯一的key和value组合创建一个子集。例如：
 
-
-```
+    ```
 { "subset_selectors": [
     { "keys": [ "version" ] },
     { "keys": [ "stage", "hardware_type" ] }
 ]}
-A subset is matched when the metadata from the selected route and weighted cluster contains the same keys and values as the subset’s metadata. The same host may appear in multiple subsets.
+    ```
+    当来自所选路由和加权群集的元数据包含与子集的元数据相同的key和value时，匹配子集。相同的主机可能出现在多个子集中。
+    
 
-Cluster.LbSubsetConfig.LbSubsetSelector
-[Cluster.LbSubsetConfig.LbSubsetSelector proto]
+### Cluster.LbSubsetConfig.LbSubsetSelector
+[Cluster.LbSubsetConfig.LbSubsetSelector proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L336)
 
-Specifications for subsets.
+子集的规格
 
+```
 {
   "keys": []
 }
 ```
-- **keys**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) List of keys to match with the weighted cluster metadata.
 
-Enum Cluster.LbSubsetConfig.LbSubsetFallbackPolicy
-[Cluster.LbSubsetConfig.LbSubsetFallbackPolicy proto]()
+- **keys**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 与加权的群集元数据匹配的key列表。
 
-If NO_FALLBACK is selected, a result equivalent to no healthy hosts is reported. If ANY_ENDPOINT is selected, any cluster endpoint may be returned (subject to policy, health checks, etc). If DEFAULT_SUBSET is selected, load balancing is performed over the endpoints matching the values from the default_subset field.
+### Cluster.LbSubsetConfig.LbSubsetFallbackPolicy (Enum)
+[Cluster.LbSubsetConfig.LbSubsetFallbackPolicy proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L314)
 
-### NO_FALLBACK
-	(DEFAULT) ?
+如果选择`NO_FALLBACK`，则会报告等效于没有健康主机的结果。如果选择了`ANY_ENDPOINT`，则可能会返回任何群集端点（取决于策略，健康检查等）。如果选择`DEFAULT_SUBSET`，则在匹配来自`default_subset`字段的值的端口上执行负载平衡。
 
-### ANY_ENDPOINT
-### ?
-### DEFAULT_SUBSET
-### ?
+- **NO_FALLBACK**<br />
+	(DEFAULT)
+- **ANY_ENDPOINT**
+- **DEFAULT_SUBSET**
+
 ### Cluster.RingHashLbConfig
-[Cluster.RingHashLbConfig proto]()
+[Cluster.RingHashLbConfig proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L363)
 
-Specific configuration for the RingHash load balancing policy.
+[RingHash](../Introduction/Architectureoverview/Loadbalancing.md)负载均衡策略的具体配置。
 
 ```
 {
@@ -240,97 +236,104 @@ Specific configuration for the RingHash load balancing policy.
   "deprecated_v1": "{...}"
 }
 ```
-- **minimum_ring_size**</br>
-	([UInt64Value](#)) Minimum hash ring size, i.e. total virtual nodes. A larger size will provide better request distribution since each host in the cluster will have more virtual nodes. Defaults to 1024. In the case that total number of hosts is greater than the minimum, each host will be allocated a single virtual node.
+- **minimum_ring_size**<br />
+	([UInt64Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint64value)) 最小哈希环大小，即总的虚拟节点。更大的尺寸将提供更好的请求分布，因为集群中的每个主机将具有更多的虚拟节点。默认为1024.在主机总数大于最小值的情况下，每个主机将被分配一个虚拟节点。
 
-- **deprecated_v1**</br>
-	([Cluster.RingHashLbConfig.DeprecatedV1](#)) Deprecated settings from v1 config.
+- **deprecated_v1**<br />
+	([Cluster.RingHashLbConfig.DeprecatedV1](#Cluster.RingHashLbConfig.DeprecatedV1)) 已弃用的v1配置。
 
 ### Cluster.RingHashLbConfig.DeprecatedV1
-[Cluster.RingHashLbConfig.DeprecatedV1 proto]()
+[Cluster.RingHashLbConfig.DeprecatedV1 proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L371)
 
 ```
 {
   "use_std_hash": "{...}"
 }
 ```
-- **use_std_hash**</br>
-	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) Defaults to true, meaning that std::hash is used to hash hosts onto the ketama ring. std::hash can vary by platform. For this reason, Envoy will eventually use xxHash by default. This field exists for migration purposes and will eventually be deprecated. Set it to false to use xxHash now.
+- **use_std_hash**<br />
+	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) 默认为`true`，这意味着`std::hash`用于将主机散列到`ketama`环上。`std::hash`可能因平台而异。为此，Envoy默认最终会使用xxHash。该字段用于迁移目的，最终将被弃用。现在将其设置为`false`以使用`xxHash`。
 
-Enum Cluster.DiscoveryType
-[Cluster.DiscoveryType proto]()
+### Cluster.DiscoveryType (Enum)
+[Cluster.DiscoveryType proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L45)
 
-Refer to service discovery type for an explanation on each type.
+有关每种类型的解释，请参阅[服务发现类型](../Introduction/Architectureoverview/Servicediscovery.md)。
 
-### STATIC
-	(DEFAULT) ?Refer to the static discovery type for an explanation.
+- **STATIC**<br />
+	(DEFAULT) 静态发现类型
 
-### STRICT_DNS
-?Refer to the strict DNS discovery type for an explanation.
-### LOGICAL_DNS
-?Refer to the logical DNS discovery type for an explanation.
-### EDS
-?Refer to the service discovery type for an explanation.
-### ORIGINAL_DST
-?Refer to the original destination discovery type for an explanation.
-Enum Cluster.LbPolicy
-[Cluster.LbPolicy proto]()
+- **STRICT_DNS**<br />
+    严格的DNS发现类型
 
-Refer to load balancer type architecture overview section for information on each type.
+- **LOGICAL_DNS**<br />
+    逻辑DNS发现类型
 
-### ROUND_ROBIN
-	(DEFAULT) ?Refer to the round robin load balancing policy for an explanation.
+- **EDS**<br />
+    服务发现类型
 
-### LEAST_REQUEST
-?Refer to the least request load balancing policy for an explanation.
-### RING_HASH
-?Refer to the ring hash load balancing policy for an explanation.
-### RANDOM
-?Refer to the random load balancing policy for an explanation.
-### ORIGINAL_DST_LB
-?Refer to the original destination load balancing policy for an explanation.
-Enum Cluster.DnsLookupFamily
-[Cluster.DnsLookupFamily proto]()
+- **ORIGINAL_DST**<br />
+    原始目标发现类型
 
-When V4_ONLY is selected, the DNS resolver will only perform a lookup for addresses in the IPv4 family. If V6_ONLY is selected, the DNS resolver will only perform a lookup for addresses in the IPv6 family. If AUTO is specified, the DNS resolver will first perform a lookup for addresses in the IPv6 family and fallback to a lookup for addresses in the IPv4 family. For cluster types other than STRICT_DNS and LOGICAL_DNS, this setting is ignored.
+### Cluster.LbPolicy (Enum)
+[Cluster.LbPolicy proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L95)
 
-### AUTO
-	(DEFAULT) ?
+有关每种类型的信息，请参阅负载平衡器体系[架构概述](../Introduction/Architectureoverview/Loadbalancing.md)部分。
 
-### V4_ONLY
-### ?
-### V6_ONLY
-### ?
+- **ROUND_ROBIN**<br />
+	(DEFAULT) 轮循负载平衡策略
+
+- **LEAST_REQUEST**<br />
+    最小请求负载平衡策略
+
+- **RING_HASH**<br />
+    环形散列负载平衡策略
+
+- **RANDOM**<br />
+    随机负载平衡策略
+
+- **ORIGINAL_DST_LB**<br />
+    原始目标负载平衡策略
+
+
+### Cluster.DnsLookupFamily (Enum)
+[Cluster.DnsLookupFamily proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L192)
+
+当选择V4_ONLY时，DNS解析器将仅执行IPv4系列中的地址查找。如果选择V6_ONLY，则DNS解析程序将仅执行IPv6系列中的地址查找。如果指定了AUTO，则DNS解析器将首先执行IPv6系列中的地址查找，然后回退到IPv4系列中的地址查找。对于`STRICT_DNS`和`LOGICAL_DNS`以外的集群类型，此设置将被忽略。
+
+- **AUTO**<br />
+	(DEFAULT) 
+- **V4_ONLY**<br />
+- **V6_ONLY**<br />
+
 ### UpstreamBindConfig
-[UpstreamBindConfig proto]()
+[UpstreamBindConfig proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L410)
 
-An extensible structure containing the address Envoy should bind to when establishing upstream connections.
+包含Envoy的可扩展地址结构，在与上游建立连接时绑定。
 
 ```
 {
   "source_address": "{...}"
 }
 ```
-- **source_address**</br>
-	([Address](#)) The address Envoy should bind to when establishing upstream connections.
+- **source_address**<br />
+	([Address](../v2APIreference/Networkaddresses.md)) 建立上游连接时，Envoy应该绑定的地址。
 
 ### CircuitBreakers
-[CircuitBreakers proto]()
+[CircuitBreakers proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L417)
 
-Circuit breaking settings can be specified individually for each defined priority.
+可以为每个定义的优先级单独指定断路设置。
 
 ```
 {
   "thresholds": []
 }
 ```
-- **thresholds**</br>
-	([CircuitBreakers.Thresholds](#)) If multiple Thresholds are defined with the same RoutingPriority, the first one in the list is used. If no Thresholds is defined for a given RoutingPriority, the default values are used.
+- **thresholds**<br />
+	([CircuitBreakers.Thresholds](#CircuitBreakers.Thresholds)) 如果使用相同的`RoutingPriority`定义多个阈值，则使用列表中的第一个阈值。如果给定的`RoutingPriority`没有定义`Thresholds`，则使用默认值。
 
 ### CircuitBreakers.Thresholds
-[CircuitBreakers.Thresholds proto]()
+[CircuitBreakers.Thresholds proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L421)
 
-A Thresholds defines CircuitBreaker settings for a RoutingPriority.
+为RoutingPriority定义断路阈值设置。
 
 ```
 {
@@ -341,20 +344,20 @@ A Thresholds defines CircuitBreaker settings for a RoutingPriority.
   "max_retries": "{...}"
 }
 ```
-- **priority**</br>
-	([RoutingPriority](#)) The RoutingPriority the specified CircuitBreaker settings apply to.
+- **priority**<br />
+	([RoutingPriority](../v2APIreference/Commontypes.md#RoutingPriority)) 设置指定断路器的`RoutingPriority`。
 
-- **max_connections**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The maximum number of connections that Envoy will make to the upstream cluster. If not specified, the default is 1024.
+- **max_connections**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) Envoy将对上游群集进行的最大连接数。如果未指定，则默认值为1024。
 
-- **max_pending_requests**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The maximum number of pending requests that Envoy will allow to the upstream cluster. If not specified, the default is 1024.
+- **max_pending_requests**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) Envoy将允许上游集群的最大待处理请求数。如果未指定，则默认值为1024。
 
-- **max_requests**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The maximum number of parallel requests that Envoy will make to the upstream cluster. If not specified, the default is 1024.
+- **max_requests**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) Envoy将对上游群集执行的最大并行请求数。如果未指定，则默认值为1024。
 
-- **max_retries**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The maximum number of parallel retries that Envoy will allow to the upstream cluster. If not specified, the default is 3.
+- **max_retries**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) Envoy允许上游集群执行的最大并行重试次数。如果未指定，则默认值为3。
 
 
 
