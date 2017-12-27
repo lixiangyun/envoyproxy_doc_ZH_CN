@@ -39,13 +39,13 @@
 	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) 健康检查之间复用健康检查连接。默认是`true`。
 
 - **http_health_check**<br />
-	([HealthCheck.HttpHealthCheck](#HealthCheck.HttpHealthCheck)) HTTP健康检查。
+	([HealthCheck.HttpHealthCheck](#healthcheckhttphealthcheck)) HTTP健康检查。
 
 - **tcp_health_check**<br />
-	([HealthCheck.TcpHealthCheck](#HealthCheck.TcpHealthCheck)) TCP健康检查
+	([HealthCheck.TcpHealthCheck](#healthchecktcphealthcheck)) TCP健康检查
 
 - **redis_health_check**<br />
-	([HealthCheck.RedisHealthCheck](#HealthCheck.RedisHealthCheck)) Redis健康检查
+	([HealthCheck.RedisHealthCheck](#healthcheckredishealthcheck)) Redis健康检查
 
     **注意：只能在`http_health_check`，`tcp_health_check`，`redis_health_check`选其中一个进行设置。**
 
@@ -90,10 +90,10 @@
 ```
 
 - **send**<br />
-	([HealthCheck.Payload](#HealthCheck.Payload)) 若有效载荷为空，意味着仅做连接的健康检查。
+	([HealthCheck.Payload](#healthcheckpayload)) 若有效载荷为空，意味着仅做连接的健康检查。
 
 - **receive**<br />
-	([HealthCheck.Payload](#HealthCheck.Payload)) 当检查响应时，执行模糊匹配，每个二进制块必须被找到，并且按照指定的顺序，但不一定是连续的。
+	([HealthCheck.Payload](#healthcheckpayload)) 当检查响应时，执行模糊匹配，每个二进制块必须被找到，并且按照指定的顺序，但不一定是连续的。
 
 ### HealthCheck.RedisHealthCheck
 [HealthCheck.RedisHealthCheck proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/health_check.proto#L87)
@@ -105,3 +105,4 @@
 ## 返回
 - [上一级](../v2APIreference.md)
 - [首页目录](../README.md)
+

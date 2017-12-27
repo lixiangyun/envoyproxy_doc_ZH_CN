@@ -28,7 +28,7 @@
 ```
 
 - **protocol**<br />
-	([SocketAddress.Protocol](#SocketAddress.Protocol))
+	([SocketAddress.Protocol](#socketaddressprotocol))
 
 - **address**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 套接字的地址。[监听器](../Configurationreference/Listeners.md)将绑定到该地址或出站连接地址。若配置为一个空的地址，意味着将绑定到0.0.0.0或::。在连接之后，仍然可以通过`FilterChainMatch`中的匹配前缀/后缀来区分地址。对于[群集](../v1APIreference/Clustermanager/Cluster.md)，可以是通过DNS解析的IP或主机名。如果是主机名，除非需要默认（即DNS）解析，否则应该设置[resolver_name](../v2APIreference/Networkaddresses.md)。
@@ -59,7 +59,7 @@
 }
 ```
 - **source_address**<br />
-	([SocketAddress](#SocketAddress), REQUIRED) 创建套接字时绑定的地址。
+	([SocketAddress](#socketaddress), REQUIRED) 创建套接字时绑定的地址。
 
 ### Address
 [Address proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/address.proto#L55)
@@ -74,10 +74,10 @@
 ```
 
 - **socket_address**<br />
-	([SocketAddress](#SocketAddress))
+	([SocketAddress](#socketaddress))
 
 - **pipe**<br />
-	([Pipe](#Pipe))
+	([Pipe](#pipe))
     
     注意：必须设置一个正确的socket_address或者Pipe。
 

@@ -29,7 +29,7 @@
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 正在请求的资源的类型，例如“type.googleapis.com/envoy.api.v2.ClusterLoadAssignment”。 在单独的xDS API（例如CDS，LDS等）的请求中，资源类型不可见，但对于ADS是必需的。
 
 - **response_nonce**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 对应于DiscoveryResponse的nonce的ACK/NACK。请参阅关于`version_info`和[DiscoveryResponse](#DiscoveryResponse) nonce上述的讨论。如果`nonce`不可用，则这可能是空的。以支持启动或非流xDS的实现。
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 对应于DiscoveryResponse的nonce的ACK/NACK。请参阅关于`version_info`和[DiscoveryResponse](#discoveryresponse) nonce上述的讨论。如果`nonce`不可用，则这可能是空的。以支持启动或非流xDS的实现。
 
 ### DiscoveryResponse
 
@@ -59,3 +59,4 @@
 ## 返回
 - [上一级](../v2APIreference.md)
 - [首页目录](../README.md)
+

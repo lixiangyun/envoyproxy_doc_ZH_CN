@@ -42,7 +42,7 @@ EndPoint是指Envoy可以将流量路由到的端口。
 	([Locality](../v2APIreference/Commontypes.md)) 标识上游主机运行的位置。
 
 - **lb_endpoints**<br />
-	([LbEndpoint](#LbEndpoint)) 所属的端口组配置。
+	([LbEndpoint](#lbendpoint)) 所属的端口组配置。
 
 - **load_balancing_weight**<br />
 	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 可选：配置每个端口组的优先级、`region`、`zone`、`sub_zone`权重，范围1~128。一个端口组的负载均衡权重除以相同优先级的所有权重之和，获得该端口组的承载业务有效百分比。
@@ -77,10 +77,10 @@ EndPoint是指Envoy可以将流量路由到的端口。
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 集群的名称。如果在集群[EdsClusterConfig](../v2APIreference/ClustersandCDS.md)中指定，则是`service_name`值。
 
 - **endpoints**<br />
-	([LocalityLbEndpoints](#LocalityLbEndpoints)) 对应的局部端口组列表。
+	([LocalityLbEndpoints](#localitylbendpoints)) 对应的局部端口组列表。
 
 - **policy**<br />
-	([ClusterLoadAssignment.Policy](#ClusterLoadAssignment.Policy)) 负载均衡策略设置。
+	([ClusterLoadAssignment.Policy](#clusterloadassignmentpolicy)) 负载均衡策略设置。
 
 ### ClusterLoadAssignment.Policy
 [ClusterLoadAssignment.Policy proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/eds.proto#L255)
@@ -101,3 +101,4 @@ EndPoint是指Envoy可以将流量路由到的端口。
 ## 返回
 - [上一级](../v2APIreference.md)
 - [首页目录](../README.md)
+

@@ -22,7 +22,7 @@ Listener[架构概述](../v2APIreference/ListenersandLDS.md)
 	([Address](../v2APIreference/Networkaddresses.md), REQUIRED) 监听器应该监听的地址。一般来说，地址必须是唯一的，尽管这是由操作系统的根据绑定规则管理的。例如，多个监听器可以监听Linux上的0端口，因为实际的端口将被OS分配。
 
 - **filter_chains**<br />
-	([FilterChain](#FilterChain), REQUIRED) 这个监听器需要使用的过滤器列表。`FilterChain`在连接上使用特殊的`FilterChainMatch`。
+	([FilterChain](#filterchain), REQUIRED) 这个监听器需要使用的过滤器列表。`FilterChain`在连接上使用特殊的`FilterChainMatch`。
 
     注意：在当前版本中，仅支持多个过滤器链，因此可以配置SNI。有关如何配置SNI以获取更多信息，请参阅[FAQ条目](../FAQ/HowdoIsetupSNI.md)。当配置多个过滤器链时，每个过滤器链必须具有相同的一组过滤器。如果过滤器不同，配置将无法加载。将来，这种限制将被放宽，使得根据哪个过滤器链匹配（基于SNI或其他参数）可以使用不同的过滤器。
 
@@ -33,7 +33,7 @@ Listener[架构概述](../v2APIreference/ListenersandLDS.md)
 	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 监听器的新连接读取和写入缓冲区大小的软限制。如果未指定，则使用默认值定义（1MB）。
 
 - **drain_type**<br />
-	([Listener.DrainType](#Listener.DrainType (Enum))) 监听器的级别，执行的逐出类型。
+	([Listener.DrainType](#listenerdraintype-enum)) 监听器的级别，执行的逐出类型。
 
 ### Listener.DrainType (Enum)
 [Listener.DrainType proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/lds.proto#L93)
@@ -96,13 +96,13 @@ Listener[架构概述](../v2APIreference/ListenersandLDS.md)
 }
 ```
 - **filter_chain_match**<br />
-	([FilterChainMatch](#FilterChainMatch)) 将连接匹配到此过滤器链时使用的匹配规则。
+	([FilterChainMatch](#filterchainmatch)) 将连接匹配到此过滤器链时使用的匹配规则。
 
 - **tls_context**<br />
 	([DownstreamTlsContext](../v2APIreference/CommonTLSconfiguration.md)) 此过滤器链的TLS上下文配置。
 
 - **filters**<br />
-	([Filter](#Filter)) 构成与监听器建立连接的过滤器链，包含各个网络过滤器的列表。当连接事件发生时，按顺序处理。注意：如果过滤器列表为空，则默认关闭连接。
+	([Filter](#filter)) 构成与监听器建立连接的过滤器链，包含各个网络过滤器的列表。当连接事件发生时，按顺序处理。注意：如果过滤器列表为空，则默认关闭连接。
 
 - **use_proxy_proto**<br />
 	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) 监听器是否应该在新连接上使用PROXY协议V1头。如果启用此选项，则监听器将假定该连接的远程地址是在标题中指定的地址。包括AWS ELB的一些负载平衡器支持此选项。如果该选项不存在或设置为`false`，Envoy将使用物理对等地址作为远程连接地址。

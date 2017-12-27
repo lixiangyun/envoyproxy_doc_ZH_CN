@@ -47,7 +47,7 @@
 	([Struct](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)) 所在节点的扩展元数据，Envoy将直接传递给管理服务器。
 
 - **locality**<br />
-	([Locality](#Locality)) 指定Envoy实例的运行位置。
+	([Locality](#locality)) 指定Envoy实例的运行位置。
 
 - **build_version**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 在金丝雀（灰度发布）期间管理服务器，知道哪个版本的Envoy正在进行测试。这将由Envoy在管理服务器RPC中设置。
@@ -137,7 +137,7 @@ Header键值对追加控制选项。
 ```
 
 - **header**<br />
-	([HeaderValue](#HeaderValue)) 控制选项所应用的Header键值对。
+	([HeaderValue](#headervalue)) 控制选项所应用的Header键值对。
 
 - **append**<br />
 	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) 是否添加的开关，如果为true（默认值），则该值将附加到现有值。
@@ -156,7 +156,7 @@ API配置源。这标识了Envoy将用来获取xDS的API类型和群集。
 ```
 
 - **api_type**<br />
-	([ApiConfigSource.ApiType](#ApiConfigSource.ApiType)) API类型。
+	([ApiConfigSource.ApiType](#apiconfigsourceapitype)) API类型。
 
 - **cluster_name**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 可以提供多个群集名称。如果定义了大于1个集群，如果发生任何类型的故障，则将循环切换。
@@ -202,13 +202,13 @@ API配置源。这标识了Envoy将用来获取xDS的API类型和群集。
 ```
 
 - **path**<br />
-	([string](#https://developers.google.com/protocol-buffers/docs/proto#scalar)) 配置从文件系统路径来源来更新配置。
+	([string](#https://developersgooglecom/protocol-buffers/docs/proto#scalar)) 配置从文件系统路径来源来更新配置。
 
 - **api_config_source**<br />
-	([ApiConfigSource](#ApiConfigSource)) API配置源。
+	([ApiConfigSource](#apiconfigsource)) API配置源。
 
 - **ads**<br />
-	([AggregatedConfigSource](#AggregatedConfigSource)) 配置使用ADS将做为配置源。将使用[引导程序](Bootstrap.md)配置中的ADS API配置源。
+	([AggregatedConfigSource](#aggregatedconfigsource)) 配置使用ADS将做为配置源。将使用[引导程序](Bootstrap.md)配置中的ADS API配置源。
 
     注意：必须选择`path`,`api_config_source`,`ads`其中一个选项配置。
 
@@ -259,3 +259,4 @@ HTTP请求方法
 ## 返回
 - [上一级](../v2APIreference.md)
 - [首页目录](../README.md)
+

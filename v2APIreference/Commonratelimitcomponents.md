@@ -45,7 +45,7 @@ API背后的想法是，如果需要，(1)/(2)/(3)和(4)/(5)可以在1个请求�
 ```
 
 - **entries**<br />
-	([RateLimitDescriptor.Entry](#RateLimitDescriptor.Entry), REQUIRED) 描述符条目列表。
+	([RateLimitDescriptor.Entry](#ratelimitdescriptorentry), REQUIRED) 描述符条目列表。
 
 ### RateLimitDescriptor.Entry
 [RateLimitDescriptor.Entry proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rls.proto#L79)

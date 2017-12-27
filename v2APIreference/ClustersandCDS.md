@@ -34,10 +34,10 @@
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 提供在所有群集中必须唯一的群集名称。在发布统计信息时，会使用集群名称。在发布任何统计信息时，集群名称将被转换为`_`。默认情况下，群集名称的最大长度限制为60个字符。可通过`--max-obj-name-len`命令行参数，提高此上限。
 
 - **type**<br />
-	([Cluster.DiscoveryType](#Cluster.DiscoveryType (Enum)))  用于解析群集的服务发现类型。
+	([Cluster.DiscoveryType](#clusterdiscoverytype-(enum)))  用于解析群集的服务发现类型。
 
 - **eds_cluster_config**<br />
-	([Cluster.EdsClusterConfig](#Cluster.EdsClusterConfig)) 用于群集的EDS更新配置。
+	([Cluster.EdsClusterConfig](#clusteredsclusterconfig)) 用于群集的EDS更新配置。
 
 - **connect_timeout**<br />
 	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 连接到该群集中主机的超时时长。
@@ -46,7 +46,7 @@
 	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 连接集群的读写缓冲区大小。如果未指定，则使用默认值（1MB）。
 
 - **lb_policy**<br />
-	([Cluster.LbPolicy](#Cluster.LbPolicy (Enum))) 在集群中选择主机时使用的负载平衡器类型。
+	([Cluster.LbPolicy](#clusterlbpolicy-(enum))) 在集群中选择主机时使用的负载平衡器类型。
 
 - **hosts**<br />
 	([Address](../v2APIreference/Networkaddresses.md)) 如果服务发现类型是`STATIC`，`STRICT_DNS`或`LOGICAL_DNS`，则需要配置。
@@ -58,7 +58,7 @@
 	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 可选，单个上游连接的最大请求数。HTTP/1.1和HTTP/2连接池都遵守此参数。如果没有指定，则没有限制。若此参数设置为1将有效地禁用保活状态的连接。
 
 - **circuit_breakers**<br />
-	([CircuitBreakers](#CircuitBreakers)) 可选，集群熔断配置。
+	([CircuitBreakers](#circuitbreakers)) 可选，集群熔断配置。
 
 - **tls_context**<br />
 	([UpstreamTlsContext](../v2APIreference/CommonTLSconfiguration.md)) 连接到上游群集的TLS配置。如果没有指定TLS配置，则新连接不会使用TLS。
@@ -77,13 +77,13 @@
 	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 指定DNS刷新率，在群集类型为`STRICT_DNS`或`LOGICAL_DNS`时，则将此值用作群集的DNS刷新率。如果未指定此设置，则此值默认为5000。对于`STRICT_DNS`和`LOGICAL_DNS`以外的群集类型，此设置将被忽略。
 
 - **dns_lookup_family**<br />
-	([Cluster.DnsLookupFamily](#Cluster.DnsLookupFamily (Enum))) DNS IP地址解析策略。 如果未指定此设置，则该值默认为`V4_ONLY`。
+	([Cluster.DnsLookupFamily](#clusterdnslookupfamily-(enum))) DNS IP地址解析策略。 如果未指定此设置，则该值默认为`V4_ONLY`。
 
 - **dns_resolvers**<br />
 	([Address](../v2APIreference/Networkaddresses.md)) 如果指定了DNS解析程序，并且群集类型是`STRICT_DNS`或`LOGICAL_DNS`，则此值用于指定群集的dns解析程序。如果未指定此设置，则该值默认为使用`/etc/resolv.conf`配置的默认解析器。对于`STRICT_DNS`和`LOGICAL_DNS`以外的其他集群类型，此设置将被忽略。
 
 - **outlier_detection**<br />
-	([Cluster.OutlierDetection](#Cluster.OutlierDetection)) 如果指定，则会为此上游群集启用异常值检测。每个配置值都可以通过运行时配置覆盖。
+	([Cluster.OutlierDetection](#clusteroutlierdetection)) 如果指定，则会为此上游群集启用异常值检测。每个配置值都可以通过运行时配置覆盖。
 
 - **cleanup_interval**<br />
 	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 从集群类型`ORIGINAL_DST`中删除过期主机的时间间隔。如果主机在这段时间内没有被用作上游目的地，则认为它们是陈旧的。随着新的连接重定向到Envoy，新的主机将按需添加到原始目标集群，从而导致集群中的主机数量随着时间而增长。没有陈旧的主机（它们被主动用作目的地）被保存在群集中，从而允许与它们的连接保持打开状态，从而节省了打开新连接所花费的等待时间。如果未指定此设置，则该值默认为5000毫秒。对于`ORIGINAL_DST`以外的其他群集类型，此设置将被忽略。
@@ -92,10 +92,10 @@
 	([BindConfig](../v2APIreference/Networkaddresses.md#BindConfig)) 用于绑定新建立的上游连接的可选配置。这将覆盖`bootstrap proto`中指定的任何`bind_config`。如果地址和端口是空的，则不执行绑定。
 
 - **lb_subset_config**<br />
-	([Cluster.LbSubsetConfig](#Cluster.LbSubsetConfig)) 配置负载平衡子集。
+	([Cluster.LbSubsetConfig](#clusterlbsubsetconfig)) 配置负载平衡子集。
 
 - **ring_hash_lb_config**<br />
-	([Cluster.RingHashLbConfig](#Cluster.RingHashLbConfig)) 可选，配置环哈希负载平衡策略。只能设置一个`ring_hash_lb_config`。
+	([Cluster.RingHashLbConfig](#clusterringhashlbconfig)) 可选，配置环哈希负载平衡策略。只能设置一个`ring_hash_lb_config`。
 
 - **transport_socket**<br />
 	([TransportSocket](../v2APIreference/Commontypes.md#TransportSocket)) 请参阅    [base.TransportSocket](../v2APIreference/Commontypes.md#TransportSocket)描述。
@@ -184,13 +184,13 @@
 }
 ```
 - **fallback_policy**<br />
-	([Cluster.LbSubsetConfig.LbSubsetFallbackPolicy](#Cluster.LbSubsetConfig.LbSubsetFallbackPolicy)) 选定路由的元数据没有响应的端口子集匹配时使用的行为。该值默认为[NO_FALLBACK](#NO_FALLBACK)。
+	([Cluster.LbSubsetConfig.LbSubsetFallbackPolicy](#clusterlbsubsetconfiglbsubsetfallbackpolicy)) 选定路由的元数据没有响应的端口子集匹配时使用的行为。该值默认为[NO_FALLBACK](#NO_FALLBACK)。
 
 - **default_subset**<br />
 	([Struct](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)) 如果`fallback_policy`为`DEFAULT_SUBSET`，则指定在回退期间使用的端点的默认子集。将`default_subset`中的每个字段与`envoy.lb`命名空间下的匹配`LbEndpoint.Metadata进行比较。没有主机匹配是有效的，在这种情况下，行为与`NO_FALLBACK`的`fallback_policy`相同。
 
 - **subset_selectors**<br />
-	([Cluster.LbSubsetConfig.LbSubsetSelector](#Cluster.LbSubsetConfig.LbSubsetSelector)) 对于每个条目，遍历`LbEndpoint.Metadata`的`envoy.lb`命名空间，并为每个唯一的key和value组合创建一个子集。例如：
+	([Cluster.LbSubsetConfig.LbSubsetSelector](#clusterlbsubsetconfiglbsubsetselector)) 对于每个条目，遍历`LbEndpoint.Metadata`的`envoy.lb`命名空间，并为每个唯一的key和value组合创建一个子集。例如：
 
     ```
 { "subset_selectors": [
@@ -240,7 +240,7 @@
 	([UInt64Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint64value)) 最小哈希环大小，即总的虚拟节点。更大的尺寸将提供更好的请求分布，因为集群中的每个主机将具有更多的虚拟节点。默认为1024.在主机总数大于最小值的情况下，每个主机将被分配一个虚拟节点。
 
 - **deprecated_v1**<br />
-	([Cluster.RingHashLbConfig.DeprecatedV1](#Cluster.RingHashLbConfig.DeprecatedV1)) 已弃用的v1配置。
+	([Cluster.RingHashLbConfig.DeprecatedV1](#clusterringhashlbconfigdeprecatedv1)) 已弃用的v1配置。
 
 ### Cluster.RingHashLbConfig.DeprecatedV1
 [Cluster.RingHashLbConfig.DeprecatedV1 proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L371)
@@ -328,7 +328,7 @@
 }
 ```
 - **thresholds**<br />
-	([CircuitBreakers.Thresholds](#CircuitBreakers.Thresholds)) 如果使用相同的`RoutingPriority`定义多个阈值，则使用列表中的第一个阈值。如果给定的`RoutingPriority`没有定义`Thresholds`，则使用默认值。
+	([CircuitBreakers.Thresholds](#circuitbreakersthresholds)) 如果使用相同的`RoutingPriority`定义多个阈值，则使用列表中的第一个阈值。如果给定的`RoutingPriority`没有定义`Thresholds`，则使用默认值。
 
 ### CircuitBreakers.Thresholds
 [CircuitBreakers.Thresholds proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/cds.proto#L421)
