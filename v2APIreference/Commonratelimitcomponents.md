@@ -1,38 +1,54 @@
-## 通用的限速API
+## 通用的限速组件
 
-### Common rate limit components
 ### RateLimitDescriptor
-[RateLimitDescriptor proto]()
+[RateLimitDescriptor proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rls.proto#L78)
 
-A RateLimitDescriptor is a list of hierarchical entries that are used by the service to determine the final rate limit key and overall allowed limit. Here are some examples of how they might be used for the domain “envoy”.
+`RateLimitDescriptor`是服务所使用的分层条目列表，用于确定最终的速率限制key和整体限制。这里有一些使用“Envoy”为域名的例子。
 
-["authenticated": "false"], ["remote_address": "10.0.0.1"]()
-What it does: Limits all unauthenticated traffic for the IP address 10.0.0.1. The configuration supplies a default limit for the remote_address key. If there is a desire to raise the limit for 10.0.0.1 or block it entirely it can be specified directly in the configuration.
+```
+["authenticated": "false"], ["remote_address": "10.0.0.1"]
+```
 
-["authenticated": "false"], ["path": "/foo/bar"]()
-What it does: Limits all unauthenticated traffic globally for a specific path (or prefix if configured that way in the service).
+功能：限制所有IP地址为`10.0.0.1`未经身份验证的流量。该配置key为`remote_address`使用默认限制。如果希望提高`10.0.0.1`的限制或完全阻止，可以直接在配置中指定。
 
-["authenticated": "false"], ["path": "/foo/bar"], ["remote_address": "10.0.0.1"]()
-What it does: Limits unauthenticated traffic to a specific path for a specific IP address. Like (1) we can raise/block specific IP addresses if we want with an override configuration.
+```
+["authenticated": "false"], ["path": "/foo/bar"]
+```
 
-["authenticated": "true"], ["client_id": "foo"]()
-### What it does: Limits all traffic for an authenticated client “foo”
+它做什么：在全局范围内为一个特定的路径（或前缀，如果在服务中配置的方式）限制所有未经身份验证的请求。
 
-["authenticated": "true"], ["client_id": "foo"], ["path": "/foo/bar"]()
-### What it does: Limits traffic to a specific path for an authenticated client “foo”
+```
+["authenticated": "false"], ["path": "/foo/bar"], ["remote_address": "10.0.0.1"]
+```
 
-The idea behind the API is that (1)/(2)/(3) and (4)/(5) can be sent in 1 request if desired. This enables building complex application scenarios with a generic backend.
+功能：将未经验证的流量限制为特定IP地址和路径。像（1）我们可以提高/阻止特定的IP地址，如果我们想要一个覆盖配置。
+
+```
+["authenticated": "true"], ["client_id": "foo"]
+```
+
+它做什么：限制一个经过身份验证的客户端“foo”的所有流量。
+
+```
+["authenticated": "true"], ["client_id": "foo"], ["path": "/foo/bar"]
+```
+
+它做什么：限制流量到一个经过验证的客户端的特定路径“foo”
+
+API背后的想法是，如果需要，(1)/(2)/(3)和(4)/(5)可以在1个请求中发送。这使得构建具有通用复杂后端应用场景的成为可能。
+
 
 ```
 {
   "entries": []
 }
 ```
-- **entries**</br>
-	([RateLimitDescriptor.Entry](#), REQUIRED) Descriptor entries.
+
+- **entries**<br />
+	([RateLimitDescriptor.Entry](#RateLimitDescriptor.Entry), REQUIRED) 描述符条目列表。
 
 ### RateLimitDescriptor.Entry
-[RateLimitDescriptor.Entry proto]()
+[RateLimitDescriptor.Entry proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rls.proto#L79)
 
 ```
 {
@@ -40,11 +56,12 @@ The idea behind the API is that (1)/(2)/(3) and (4)/(5) can be sent in 1 request
   "value": "..."
 }
 ```
-- **key**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) Descriptor key.
 
-- **value**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) Descriptor value.
+- **key**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) key描述符。
+
+- **value**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) value描述符。
 
 
 
