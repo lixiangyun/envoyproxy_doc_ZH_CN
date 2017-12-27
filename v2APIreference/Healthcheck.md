@@ -1,10 +1,10 @@
 ## 健康检查
 
-### Health check
-Health checking architecture overview.
-If health checking is configured for a cluster, additional statistics are emitted. They are documented here.
+- 健康检查[架构概述](../Introduction/Architectureoverview/Healthchecking.md)。
+- 如果为集群配置了健康检查，则会发出相应的统计信息。详见[这里](../Configurationreference/Clustermanager/Statistics.md)。
+
 ### HealthCheck
-[HealthCheck proto]()
+[HealthCheck proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/health_check.proto#L14)
 
 ```
 {
@@ -19,60 +19,52 @@ If health checking is configured for a cluster, additional statistics are emitte
   "redis_health_check": "{...}"
 }
 ```
-- **timeout**</br>
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) The time to wait for a health check response. If the timeout is reached the health check attempt will be considered a failure.
 
-- **interval**</br>
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) The interval between health checks.
+- **timeout**<br />
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 等待健康检查响应的时间。如果达到超时，则尝试健康检查将被视为失败。
 
-- **interval_jitter**</br>
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) An optional jitter amount in millseconds. If specified, during every internal Envoy will add 0 to interval_jitter to the wait time.
+- **interval**<br />
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 每次尝试健康检查之间的时间间隔。
 
-- **unhealthy_threshold**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The number of unhealthy health checks required before a host is marked unhealthy. Note that for http health checking if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately.
+- **interval_jitter**<br />
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 可选，抖动量（以毫秒为单位）。如果指定，在Envoy内部将抖动量叠加到时间间隔上。
 
-- **healthy_threshold**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The number of healthy health checks required before a host is marked healthy. Note that during startup, only a single successful health check is required to mark a host healthy.
+- **unhealthy_threshold**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 在主机被标记为不健康之前，需要进行不健康的健康检查次数。请注意，对于http运行健康检查，如果主机以503响应，此阈值将被忽略，并且主机立即被视为不健康。
 
-- **reuse_connection**</br>
-	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) Reuse health check connection between health checks. Default is true.
+- **healthy_threshold**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 主机在标记为健康之前所需的健康检查次数。请注意，在启动过程中，只需要一次成功的健康检查即可将主机标记为健康状态。
 
-- **http_health_check**</br>
-	([HealthCheck.HttpHealthCheck](#)) HTTP health check.
+- **reuse_connection**<br />
+	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) 健康检查之间复用健康检查连接。默认是`true`。
 
+- **http_health_check**<br />
+	([HealthCheck.HttpHealthCheck](#HealthCheck.HttpHealthCheck)) HTTP健康检查。
 
-Precisely one of http_health_check, tcp_health_check, redis_health_check must be set.
+- **tcp_health_check**<br />
+	([HealthCheck.TcpHealthCheck](#HealthCheck.TcpHealthCheck)) TCP健康检查
 
-- **tcp_health_check**</br>
-	([HealthCheck.TcpHealthCheck](#)) TCP health check.
+- **redis_health_check**<br />
+	([HealthCheck.RedisHealthCheck](#HealthCheck.RedisHealthCheck)) Redis健康检查
 
-
-Precisely one of http_health_check, tcp_health_check, redis_health_check must be set.
-
-- **redis_health_check**</br>
-	([HealthCheck.RedisHealthCheck](#)) Redis health check.
-
-
-Precisely one of http_health_check, tcp_health_check, redis_health_check must be set.
+    **注意：只能在`http_health_check`，`tcp_health_check`，`redis_health_check`选其中一个进行设置。**
 
 ### HealthCheck.Payload
-[HealthCheck.Payload proto]()
+[HealthCheck.Payload proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/health_check.proto#L43)
 
-Describes the encoding of the payload bytes in the payload.
+描述载荷中有效载荷的字节编码。
 
 ```
 {
   "text": "..."
 }
 ```
-- **text**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) Hex encoded payload. E.g., “000000FF”.
 
-
-Precisely one of text must be set.
+- **text**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 十六进制编码载荷，例如，“000000FF”。准确地说，必须设置一个文本。
 
 ### HealthCheck.HttpHealthCheck
-[HealthCheck.HttpHealthCheck proto]()
+[HealthCheck.HttpHealthCheck proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/health_check.proto#L55)
 
 ```
 {
@@ -80,14 +72,15 @@ Precisely one of text must be set.
   "service_name": "..."
 }
 ```
-- **path**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) Specifies the HTTP path that will be requested during health checking. For example /healthcheck.
 
-- **service_name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) An optional service name parameter which is used to validate the identity of the health checked cluster. See the architecture overview for more information.
+- **path**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 指定运行健康检查期间，所请求的HTTP路径。例如`/healthcheck`。
+
+- **service_name**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 可选，服务名称参数，用于验证运行状况检查的群集的身份。请参阅[架构概述](../Introduction/Architectureoverview/Healthchecking.md)以获取更多信息。
 
 ### HealthCheck.TcpHealthCheck
-[HealthCheck.TcpHealthCheck proto]()
+[HealthCheck.TcpHealthCheck proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/health_check.proto#L77)
 
 ```
 {
@@ -95,14 +88,15 @@ Precisely one of text must be set.
   "receive": []
 }
 ```
-- **send**</br>
-	([HealthCheck.Payload](#)) Empty payloads imply a connect-only health check.
 
-- **receive**</br>
-	([HealthCheck.Payload](#)) When checking the response, “fuzzy” matching is performed such that each binary block must be found, and in the order specified, but not necessarily contiguous.
+- **send**<br />
+	([HealthCheck.Payload](#HealthCheck.Payload)) 若有效载荷为空，意味着仅做连接的健康检查。
+
+- **receive**<br />
+	([HealthCheck.Payload](#HealthCheck.Payload)) 当检查响应时，执行模糊匹配，每个二进制块必须被找到，并且按照指定的顺序，但不一定是连续的。
 
 ### HealthCheck.RedisHealthCheck
-[HealthCheck.RedisHealthCheck proto]()
+[HealthCheck.RedisHealthCheck proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/health_check.proto#L87)
 
 ```
 {}
