@@ -1,10 +1,9 @@
 ## 服务发现
 
-### Endpoints and EDS
 ### LbEndpoint
-[LbEndpoint proto]()
+[LbEndpoint proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/eds.proto#L62)
 
-An Endpoint that Envoy can route traffic to.
+EndPoint是指Envoy可以将流量路由到的端口。
 
 ```
 {
@@ -13,24 +12,22 @@ An Endpoint that Envoy can route traffic to.
   "load_balancing_weight": "{...}"
 }
 ```
-- **endpoint**</br>
-	([Endpoint](#)) Upstream host identifier
 
-- **metadata**</br>
-	([Metadata](#)) The endpoint metadata specifies values that may be used by the load balancer to select endpoints in a cluster for a given request. The filter name should be specified as envoy.lb. An example boolean key-value pair is canary, providing the optional canary status of the upstream host. This may be matched against in a route’s ForwardAction metadata_match field to subset the endpoints considered in cluster load balancing.
+- **endpoint**<br />
+	([Endpoint](../v2APIreference/Commontypes.md)) 上游主机标识符
 
-- **load_balancing_weight**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The optional load balancing weight of the upstream host, in the range 1 - 128. Envoy uses the load balancing weight in some of the built in load balancers. The load balancing weight for an endpoint is divided by the sum of the weights of all endpoints in the endpoint’s locality to produce a percentage of traffic for the endpoint. This percentage is then further weighted by the endpoint’s locality’s load balancing weight from LocalityLbEndpoints. If unspecified, each host is presumed to have equal weight in a locality.
+- **metadata**<br />
+	([Metadata](../v2APIreference/Commontypes.md)) 负载均衡端口元数据是指可用于为请求选择群集中的端口。过滤器名称应该指定为`envoy.lb`。一个bool类型的键值对例子为`canary`，提供上游主机的可选`canary`状态。这可以在路由的`ForwardAction` `metadata_match`字段中匹配，以在集群负载平衡中考虑的端口子集。
 
+- **load_balancing_weight**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 上游主机的可选负载平衡权重，范围为1~128. 在某些内置Envoy负载平衡器中，会使用负载平衡权重。端口的负载平衡权重除以本地所有端口权重的总和，以获得端口的所占通信量百分比。然后这个百分比再由来自`LocalityLbEndpoints`的端点的本地负载平衡权重加权。如果没有指定，每个主机被假定在一个地方具有相同的权重。
 
-### Attention
-
-The limit of 128 is somewhat arbitrary, but is applied due to performance concerns with the current implementation and can be removed when this issue is fixed.
+    注意：当前128的限制是有些随意，但是考虑当前实现的性能问题而使用，若解决这个问题是可以取消这个限制。
 
 ### LocalityLbEndpoints
-[LocalityLbEndpoints proto]()
+[LocalityLbEndpoints proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/eds.proto#L100)
 
-A group of endpoints belonging to a Locality. One can have multiple LocalityLbEndpoints for a locality, but this is generally only done if the different groups need to have different load balancing weights or different priorities.
+一组端口归属一个局部负载均衡器。一个本地可以有多个局部负载均衡器，通常只有在不同的组之间需要负载平衡权重或不同的优先级时，才会使用多个组。
 
 ```
 {
@@ -40,38 +37,33 @@ A group of endpoints belonging to a Locality. One can have multiple LocalityLbEn
   "priority": "..."
 }
 ```
-- **locality**</br>
-	([Locality](#)) Identifies location of where the upstream hosts run.
 
-- **lb_endpoints**</br>
-	([LbEndpoint](#)) The group of endpoints belonging to the locality specified.
+- **locality**<br />
+	([Locality](../v2APIreference/Commontypes.md)) 标识上游主机运行的位置。
 
-- **load_balancing_weight**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) Optional: Per priority/region/zone/sub_zone weight - range 1-128. The load balancing weight for a locality is divided by the sum of the weights of all localities at the same priority level to produce the effective percentage of traffic for the locality.
+- **lb_endpoints**<br />
+	([LbEndpoint](#LbEndpoint)) 所属的端口组配置。
 
+- **load_balancing_weight**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 可选：配置每个端口组的优先级、`region`、`zone`、`sub_zone`权重，范围1~128。一个端口组的负载均衡权重除以相同优先级的所有权重之和，获得该端口组的承载业务有效百分比。
 
-Weights must be specified for either all localities in a given priority level or none.
+     必须为相同优先级的所有局部端口组指定权重，若不指定，则认为每个局部在群集中具有相同的权重。
 
-If unspecified, each locality is presumed to have equal weight in a cluster.
+     注意：当前128的限制是有些随意，但是考虑当前实现的性能问题而使用，若解决这个问题是可以取消这个限制。
 
-### Attention
+- **priority**<br />
+	([uint32](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 可选：此局部负载均衡端口组的优先级。如果未指定，则默认为最高优先级（0）。
+    
+    一般情况下，Envoy只会选择最高优先级（0）的端口。如果该优先级的所有端口不可用/不健康，Envoy将快速故障恢复至下一个最高优先级的端口组。
 
-The limit of 128 is somewhat arbitrary, but is applied due to performance concerns with the current implementation and can be removed when this issue is fixed.
-
-- **priority**</br>
-	([uint32](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Optional: the priority for this LocalityLbEndpoints. If unspecified this will default to the highest priority (0).
-
-
-Under usual circumstances, Envoy will only select endpoints for the highest priority (0). In the event all endpoints for a particular priority are unavailable/unhealthy, Envoy will fail over to selecting endpoints for the next highest priority group.
-
-Priorities should range from 0 (highest) to N (lowest) without skipping.
+     优先级应该配置为从0（最高）到N（最低），中间没有间隔。
 
 ### ClusterLoadAssignment
-[ClusterLoadAssignment proto]()
+[ClusterLoadAssignment proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/eds.proto#L244)
 
-Each route from RDS will map to a single cluster or traffic split across clusters using weights expressed in the RDS WeightedCluster.
+从RDS中获取的路由，映射到单个集群或者使用RDS集群权重实现跨集群的流量拆分。
 
-With EDS, each cluster is treated independently from a LB perspective, with LB taking place between the Localities within a cluster and at a finer granularity between the hosts within a locality. For a given cluster, the effective weight of a host is its load_balancing_weight multiplied by the load_balancing_weight of its Locality.
+使用EDS，每个集群都有独立的LB进行处理，将在集群内的产生局部LB，即在一个局部主机之间具有更细粒度的LB。对于给定的集群，主机的有效权重是其`load_balancing_weight`乘以其局部的LB权重`load_balancing_weight`。
 
 ```
 {
@@ -80,33 +72,31 @@ With EDS, each cluster is treated independently from a LB perspective, with LB t
   "policy": "{...}"
 }
 ```
-- **cluster_name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) Name of the cluster. This will be the service_name value if specified in the cluster EdsClusterConfig.
 
-- **endpoints**</br>
-	([LocalityLbEndpoints](#)) List of endpoints to load balance to.
+- **cluster_name**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 集群的名称。如果在集群[EdsClusterConfig](../v2APIreference/ClustersandCDS.md)中指定，则是`service_name`值。
 
-- **policy**</br>
-	([ClusterLoadAssignment.Policy](#)) Load balancing policy settings.
+- **endpoints**<br />
+	([LocalityLbEndpoints](#LocalityLbEndpoints)) 对应的局部端口组列表。
+
+- **policy**<br />
+	([ClusterLoadAssignment.Policy](#ClusterLoadAssignment.Policy)) 负载均衡策略设置。
 
 ### ClusterLoadAssignment.Policy
-[ClusterLoadAssignment.Policy proto]()
+[ClusterLoadAssignment.Policy proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/eds.proto#L255)
 
-Load balancing policy settings.
+负载平衡策略设置。
 
 ```
 {
   "drop_overload": "..."
 }
 ```
-- **drop_overload**</br>
-	([double](#)) Percentage of traffic (0-100) that should be dropped. This action allows protection of upstream hosts should they unable to recover from an outage or should they be unable to autoscale and hence overall incoming traffic volume need to be trimmed to protect them.
 
+- **drop_overload**<br />
+	([double](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 应该丢弃的流量（0-100）的百分比。如果上游主机无法从down机中恢复，或者无法进行自动调整，则需要对上游主机进行保护，因此需要修整整个传入流量以保护它们。
 
-### Note
-
-- **v2 API difference: This is known as maintenance mode in v1.**</br>
-
+    注意：v2 API与v1 API存在差异，在v1中被称为维护模式。
 
 ## 返回
 - [上一级](../v2APIreference.md)
