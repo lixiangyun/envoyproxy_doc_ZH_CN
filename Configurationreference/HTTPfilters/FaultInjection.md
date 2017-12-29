@@ -19,16 +19,16 @@
 ### 运行时设置
 HTTP故障注入过滤器支持以下全局运行时设置：
 
-- **fault.http.abort.abort_percent**</br>
+- **fault.http.abort.abort_percent**<br />
 如果头部匹配，将被中止请求的百分比。在配置中默认使用`abort_percent`值。如果配置不包含`abort`项，则`abort_percent`默认为0。
 
-- **fault.http.abort.http_status**</br>
+- **fault.http.abort.http_status**<br />
 将被用作请求的HTTP状态码，如果头部匹配，则请求将被中止。默认为配置中指定的`http_status `。如果配置不包含`abort`项，则`http_status`默认为0。
 
-- **fault.http.delay.fixed_delay_percent**</br>
+- **fault.http.delay.fixed_delay_percent**<br />
 如果头部匹配，请求将被延迟的百分比。默认为配置中指定的`delay_percent`，否则为0。
 
-- **fault.http.delay.fixed_duration_ms**</br>
+- **fault.http.delay.fixed_duration_ms**<br />
 延迟时间以毫秒为单位。如果未指定，则将使用配置中指定的`fixed_duration_ms`。如果在运行时和配置中缺少这个字段，则不会注入延迟。
 
 **请注意，在特定下游群集中，如果存在以下运行时配置值，则故障过滤器默认值会被覆盖。以下是下游指定的运行时配置值：**

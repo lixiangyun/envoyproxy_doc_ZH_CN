@@ -107,7 +107,7 @@ end
 
 支持以下流处理方法：
 
-- **headers()**</br>
+- **headers()**<br />
 ```
 headers = handle:headers()
 ```
@@ -115,7 +115,7 @@ headers = handle:headers()
 
  返回一个[头部对象](#头部对象API)。
 
-- **body()**</br>
+- **body()**<br />
 ```
 body = handle:body()
 ```
@@ -123,7 +123,7 @@ body = handle:body()
 
  返回一个[缓冲对象](#缓存API)。
 
-- **bodyChunks()**</br>
+- **bodyChunks()**<br />
 ```
 iterator = handle:bodyChunks()
 ```
@@ -135,7 +135,7 @@ end
 ```
 每次迭代器返回都是一个[缓冲对象](#缓存API)。
 
-- **trailers()**</br>
+- **trailers()**<br />
 ```
 trailers = handle:trailers()
 ```
@@ -143,7 +143,7 @@ trailers = handle:trailers()
 
  返回一个[头标对象](#头部对象API)。
 
-- **log*()**</br>
+- **log*()**<br />
 ```
 handle:logTrace(message)
 handle:logDebug(message)
@@ -154,7 +154,7 @@ handle:logCritical(message)
 ```
 使用Envoy的应用程序日志记录消息。参数`message`是需要记录的字符串。
 
-- **httpCall()**</br>
+- **httpCall()**<br />
 ```
 headers, body = handle:httpCall(cluster, headers, body, timeout)
 ```
@@ -162,7 +162,7 @@ headers, body = handle:httpCall(cluster, headers, body, timeout)
 
  返回是响应的`headers`，以及其`body`字符串。如果没有主体可能是`null`。
 
-- **respond()**</br>
+- **respond()**<br />
 ```
 handle:respond(headers, body)
 ```
@@ -180,20 +180,20 @@ end
 
 ### 头部对象API
 
-- **add()**</br>
+- **add()**<br />
 ```
 headers:add(key, value)
 ```
 为头部对象添加一个头部。`key`是提供头部键的字符串。`value`是一个提供头部值的字符串。
 
-- **get()**</br>
+- **get()**<br />
 ```
 headers:get(key)
 ```
 获取头部对象头部值，参数`key`为所对应的头部键。返回一个字符串作为头部值，如果没有这样的头部则返回`nil`。
 
 
-- **__pairs()**</br>
+- **__pairs()**<br />
 ```
 for key, value in pairs(headers) do
 end
@@ -202,7 +202,7 @@ end
 
     **注意：在当前的实现中，在迭代期间不能修改头部。 另外，如果需要在迭代之后修改头部，则必须完成迭代。意味着，不要使用break或其他机制提前退出循环。但这可能会在未来版本中解除这个限制。**
 
-- **remove()**</br>
+- **remove()**<br />
 ```
 headers:remove(key)
 ```

@@ -14,51 +14,51 @@
 
 支持以下命令操作符：
 
-- **%START_TIME%**</br>
-    **HTTP**</br>
-    请求开始时间，包括毫秒</br>
+- **%START_TIME%**<br />
+    **HTTP**<br />
+    请求开始时间，包括毫秒<br />
     
-    **TCP**</br>
+    **TCP**<br />
     下游连接开始时间，包括毫秒
 
-- **%BYTES_RECEIVED%**</br>
-    **HTTP**</br>
-    收到主体字节</br>
+- **%BYTES_RECEIVED%**<br />
+    **HTTP**<br />
+    收到主体字节<br />
     
-    **TCP**</br>
+    **TCP**<br />
     下行流连接时收到的字节
 
-- **%PROTOCOL%**</br>
-    **HTTP**</br>
-    协议，目前是HTTP/1.1或HTTP/2</br>
+- **%PROTOCOL%**<br />
+    **HTTP**<br />
+    协议，目前是HTTP/1.1或HTTP/2<br />
     
-    **TCP**</br>
+    **TCP**<br />
     未实现 （”-”）
 
-- **%RESPONSE_CODE%**</br>
-    **HTTP**</br>
-    HTTP响应代码。请注意，响应代码“0”表示服务器从未发送响应的开始。这通常意味着（下游）客户端连接断开了。</br>
+- **%RESPONSE_CODE%**<br />
+    **HTTP**<br />
+    HTTP响应代码。请注意，响应代码“0”表示服务器从未发送响应的开始。这通常意味着（下游）客户端连接断开了。<br />
     
-    **TCP**</br>
+    **TCP**<br />
     未实现 （”-”）
     
-- **%BYTES_SENT%**</br>
-    **HTTP**</br>
-    正文发送的字节</br>
+- **%BYTES_SENT%**<br />
+    **HTTP**<br />
+    正文发送的字节<br />
     
-    **TCP**</br>
+    **TCP**<br />
     在连接上发送到下行流字节
 
-- **%DURATION%**</br>
-    **HTTP**</br>
-    请求从开始时间到最后一个字节输出的总持续时间（以毫秒为单位）</br>
+- **%DURATION%**<br />
+    **HTTP**<br />
+    请求从开始时间到最后一个字节输出的总持续时间（以毫秒为单位）<br />
     
-    **TCP**</br>
+    **TCP**<br />
     下游连接的总持续时间（以毫秒为单位）
 
 - **%RESPONSE_FLAGS%**
     
-    有关响应或连接的其他详细信息（如果有）。对于TCP连接，说明中提到的响应码不适用。可能的值是：</br>
+    有关响应或连接的其他详细信息（如果有）。对于TCP连接，说明中提到的响应码不适用。可能的值是：<br />
 
     **HTTP and TCP**
     
@@ -79,30 +79,30 @@
         RL：该请求除了429响应代码之外，还由HTTP速率限制过滤器进行本地速率限制
     
 
-- **%UPSTREAM_HOST%**</br>
+- **%UPSTREAM_HOST%**<br />
     上游主机URL（例如：TCP连接或者tcp://ip:port）
 
-- **%UPSTREAM_CLUSTER%**</br>
+- **%UPSTREAM_CLUSTER%**<br />
     上游主机所属的上游集群
 
-- **%UPSTREAM_LOCAL_ADDRESS%**</br>
+- **%UPSTREAM_LOCAL_ADDRESS%**<br />
     上游连接的本地地址
 
-- **%DOWNSTREAM_ADDRESS%**</br>
+- **%DOWNSTREAM_ADDRESS%**<br />
     下游连接的远端地址
 
-- **%REQ(X?Y):Z%**</br>
-    **HTTP**</br>
-    一个HTTP请求头部，其中X是主HTTP头部，Y是替代头部，而Z是一个可选参数，表示截取长度为Z个字符的字符串。该值取自名为X的HTTP请求头部，如果未设置，则使用请求头部Y. 如果不存在，则使用“-”符号替代</br>
+- **%REQ(X?Y):Z%**<br />
+    **HTTP**<br />
+    一个HTTP请求头部，其中X是主HTTP头部，Y是替代头部，而Z是一个可选参数，表示截取长度为Z个字符的字符串。该值取自名为X的HTTP请求头部，如果未设置，则使用请求头部Y. 如果不存在，则使用“-”符号替代<br />
     
-    **TCP**</br>
+    **TCP**<br />
     未实现 （”-”）
 
-- **%RESP(X?Y):Z%**</br>
-    **HTTP**</br>
-    与`%REQ(X?Y):Z%`相同，但是来自HTTP响应头</br>
+- **%RESP(X?Y):Z%**<br />
+    **HTTP**<br />
+    与`%REQ(X?Y):Z%`相同，但是来自HTTP响应头<br />
     
-    **TCP**</br>
+    **TCP**<br />
     未实现 （”-”）
     
 ### 默认格式

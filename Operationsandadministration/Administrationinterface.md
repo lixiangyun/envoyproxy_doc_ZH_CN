@@ -13,15 +13,15 @@ Envoy公开了一个本地管理界面，可以用来查询和修改服务的不
 
 ### GET /clusters
 列出所有配置的[集群管理器](../Introduction/Architectureoverview/Clustermanager.md)集群。此信息包括每个群集中发现的所有上游主机以及每个主机统计信息。这对服务发现的问题调试很有用。
-- **集群管理器信息**</br>
+- **集群管理器信息**<br />
     `version_info` 字符串，上次加载的[CDS](../Configurationreference/Clustermanager/Clusterdiscoveryservice.md)服务版本信息的字符串。如果envoy没有安装CDS，将会读取`version_info::static`输出。
 
-- **集群信息**</br>
+- **集群信息**<br />
     - 所有优先级都设置[熔断](../Configurationreference/Clustermanager/Circuitbreaking.md)。
     - 如果使能了[异常值检测](../Introduction/Architectureoverview/Outlierdetection.md)，将会呈现[成功率平均值](../Introduction/Architectureoverview/Outlierdetection.md)和[逐出阈值](../Introduction/Architectureoverview/Outlierdetection.md)。如果在最后一个时间间隔内没有足够的数据来计算它们，那么这两个值都将是-1。
     - `added_via_api`标志，如果通过静态配置添加的集群，则为`false`，如果通过CDS API添加，则为`true`。
 
-- **按主机统计**</br>
+- **按主机统计**<br />
     
 |	名称	|	类型	|	描述	|
 |	 -----------------------	|	 -----------------------	|	 -----------------------	|
@@ -39,13 +39,13 @@ Envoy公开了一个本地管理界面，可以用来查询和修改服务的不
 |	canary	|	Boolean	|	主机是否是金丝雀（灰度发布）状态	|
 |	success_rate	|	Double	|	请求成功率（0-100）。 如果间隔中没有足够的请求量来计算它，则返回-1	|
 
-</br>
+<br />
 
-- **主机健康状况**</br>
-    由于一个或多个不健康的状态，主机可能是健康的或不健康的。</br>如果主机健康，则会输出`healthy`字符串。
-    如果主机不健康，则会输出以下一个或多个字符串：</br>
+- **主机健康状况**<br />
+    由于一个或多个不健康的状态，主机可能是健康的或不健康的。<br />如果主机健康，则会输出`healthy`字符串。
+    如果主机不健康，则会输出以下一个或多个字符串：<br />
     
-    **/failed_active_hc**：主机主动健康检查失败。</br>
+    **/failed_active_hc**：主机主动健康检查失败。<br />
     **/failed_outlier_check**：主机未通过异常值检测检查。
 
 
@@ -91,10 +91,10 @@ envoy 267724/RELEASE live 1571 1571 0
 ### GET /stats
 输出所有需要的统计数据。这只包计数和测量值。直方图不会输出，因为Envoy目前没有内置直方图，依赖`statsd`进行汇总。这个命令对本地调试非常有用。浏览此处获取[更多](Statisticsoverview.md)信息。
 
-- **GET /stats?format=json**</br>
+- **GET /stats?format=json**<br />
     以JSON格式的输出统计信息。这个统计信息支持编程对接。
 
-- **GET /stats?format=prometheus**</br>
+- **GET /stats?format=prometheus**<br />
     以[Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/) v0.0.4格式的输出。这可以用来与`Prometheus`服务器集成。目前，只有计数器和计量器输出。直方图将在未来版本中提供。
 
 

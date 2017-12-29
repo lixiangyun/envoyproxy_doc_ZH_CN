@@ -11,13 +11,13 @@
   ]
 }
 ```
-- **path**</br>
+- **path**<br />
 	([required](#), string) Path the access log is written to.
 
-- **format**</br>
+- **format**<br />
 	([optional](#), string) Access log format. Envoy supports custom access log formats as well as a default format.
 
-- **filter**</br>
+- **filter**<br />
 	([optional](#), object) Filter which is used to determine if the access log needs to be written.
 
 ### Filters
@@ -43,13 +43,13 @@
 ```
 Filters on HTTP response/status code.
 
-- **op**</br>
+- **op**<br />
 	([required](#), string) Comparison operator. Currently >= and = are the only supported operators.
 
-- **value**</br>
+- **value**<br />
 	([required](#), integer) Default value to compare against if runtime value is not available.
 
-- **runtime_key**</br>
+- **runtime_key**<br />
 	([optional](#), string) Runtime key to get value for comparision. This value is used if defined.
 
 ### Duration
@@ -65,13 +65,13 @@ Filters on HTTP response/status code.
 ```
 Filters on total request duration in milliseconds.
 
-- **op**</br>
+- **op**<br />
 	([required](#), string) Comparison operator. Currently >= and = are the only supported operators.
 
-- **value**</br>
+- **value**<br />
 	([required](#), integer) Default value to compare against if runtime values is not available.
 
-- **runtime_key**</br>
+- **runtime_key**<br />
 	([optional](#), string) Runtime key to get value for comparision. This value is used if defined.
 
 ### Not health check
@@ -105,7 +105,7 @@ Filters for requests that are traceable. See the tracing overview for more infor
 ```
 Filters for random sampling of requests. Sampling pivots on the header x-request-id being present. If x-request-id is present, the filter will consistently sample across multiple hosts based on the runtime key value and the value extracted from x-request-id. If it is missing, the filter will randomly sample based on the runtime key value.
 
-- **key**</br>
+- **key**<br />
 	([required](#), string) Runtime key to get the percentage of requests to be sampled. This runtime control is specified in the range 0-100 and defaults to 0.
 
 ### And
@@ -134,3 +134,4 @@ Performs a logical “or” operation on the result of each individual filter. F
 ## 返回
 - [上一级](../v1APIreference.md)
 - [首页目录](../README.md)
+

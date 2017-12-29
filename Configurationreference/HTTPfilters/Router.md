@@ -40,22 +40,22 @@
 
 在出口请求上设置此报头将导致Envoy尝试重试失败的请求（重试次数默认为1，可以通过[x-envoy-max-retries](#x-envoy-max-retries)头部或路由配置重试策略进行控制）。设置[x-envoy-retry-on](#x-envoy-retry-on)头的值表示重试策略。可以使用','分隔列表来指定一个或多个策略。支持的策略有：
 
-- **5xx**</br>
+- **5xx**<br />
    如果上游服务器响应任何5xx的响应代码，或者根本没有响应（断开/重置/读取超时），Envoy将尝试重试请求。（包括连接失败和拒绝流）
 
    注：当请求超过[x-envoy-upstream-rq-timeout-ms](#x-envoy-upstream-rq-timeout-ms)（导致504误错代码）时，Envoy将不会重试。如果您想在个别请求上尝试超长时间的重试，请使用[x-envoy-upstream-rq-per-try-timeout-ms](#x-envoy-upstream-rq-per-try-timeout-ms)。`x-envoy-upstream-rq-timeout-ms`是请求的外部时间限制，包括发生的任何重试。
 
-- **connect-failure**</br>
+- **connect-failure**<br />
    如果由于上游服务器连接失败而导致请求失败（连接超时等），Envoy将尝试重试。（包含在5xx中）
 
    注：连接失败/超时是TCP级别，而不是请求级别。这不包括通过[x-envoy-upstream-rq-timeout-ms](#x-envoy-upstream-rq-timeout-ms)或通过[路由配置](../../v1APIreference/HTTPRouteconfiguration/Route.md)指定的上游请求超时。
 
-- **retriable-4xx**</br>
+- **retriable-4xx**<br />
    如果上游服务器响应可回复的4xx响应代码，Envoy将尝试重试。目前，这个类别中唯一的响应代码是409。
 
    注：小心打开此重试类型。在某些情况下，409可能表明需要更新乐观锁版本。因此，调用者不应该重试并且需要读取，然后再尝试写入。如果在这种类型的情况下发生重试，则将总是以另一个409失败。
 
-- **refused-stream**</br>
+- **refused-stream**<br />
    如果上游服务器使用`REFUSED_STREAM`错误代码重置流，Envoy将尝试重试。此重置类型表示请求可以安全地重试。（包含在5xx中）
 重试次数可以通过[x-envoy-max-retries](#x-envoy-max-retries)头或通过[路由配置](../../v1APIreference/HTTPRouteconfiguration/Route.md)来控制。
 
@@ -66,13 +66,13 @@
 #### x-envoy-retry-grpc-on
 在出口请求上设置此报头会导致Envoy尝试重试失败的请求（重试次数默认为1，可以通过[x-envoy-max-retries](#x-envoy-max-retries)头或路由配置[重试策略](../../v1APIreference/HTTPRouteconfiguration/Route.md)进行控制）。gRPC重试当前仅支持响应头中的gRPC状态码。追踪者中的gRPC状态码不会触发重试逻辑。可以使用','分隔列表来指定一个或多个策略。支持的策略是：
 
-- **cancelled**</br>
+- **cancelled**<br />
  如果响应头中的gRPC状态码被“cancelled”（1），Envoy将尝试重试;
 
-- **deadline-exceeded**</br>
+- **deadline-exceeded**<br />
  如果响应头中的gRPC状态码是“deadline-exceeded”（4），Envoy将尝试重试;
 
-- **resource-exhausted**</br>
+- **resource-exhausted**<br />
  如果响应头中的gRPC状态码是“resource-exhausted”（8），Envoy将尝试重试;
  
 
@@ -148,13 +148,13 @@
 
 路由器过滤器支持以下运行时设置：
 
-- **upstream.base_retry_backoff_ms**</br>
+- **upstream.base_retry_backoff_ms**<br />
 指数重试退避时间粒度。默认为25ms。浏览[此处](../../Introduction/Architectureoverview/HTTProuting.md)获取更多信息。
 
-- **upstream.maintenance_mode.\<cluster name>**</br>
+- **upstream.maintenance_mode.\<cluster name>**<br />
 将导致立即返回503响应请求的百分比。这会覆盖针对`<cluster name>`集群的任何路由请求行为。这可以用于卸载，故障注入等。默认为禁用。
 
-- **upstream.use_retry**</br>
+- **upstream.use_retry**<br />
 有资格使用重试的请求百分比。在任何其他重试配置之前检查此配置，如果需要，可用于禁用所有Envoy的重试。
 
 ## 返回

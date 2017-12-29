@@ -12,13 +12,13 @@ Rate limit configuration overview.
   }
 }
 ```
-- **stat_prefix**</br>
+- **stat_prefix**<br />
 	([required](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) The prefix to use when emitting statistics.
 
-- **domain**</br>
+- **domain**<br />
 	([required](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) The rate limit domain to use in the rate limit service request.
 
-- **descriptors**</br>
+- **descriptors**<br />
 	([required](#), array) The rate limit descriptor list to use in the rate limit service request. The descriptors are specified as in the following example:
 
 ```
@@ -29,7 +29,7 @@ Rate limit configuration overview.
 ```
 
 
-- **timeout_ms**</br>
+- **timeout_ms**<br />
 	([optional](#), integer) The timeout in milliseconds for the rate limit service RPC. If not set, this defaults to 20ms.
 
 ### Next  Previous

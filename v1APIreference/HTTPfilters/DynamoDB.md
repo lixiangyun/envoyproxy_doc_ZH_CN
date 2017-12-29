@@ -7,10 +7,10 @@ DynamoDB configuration overview.
   "config": {}
 }
 ```
-- **name**</br>
+- **name**<br />
 	([required](#), string) Filter name. The only supported value is http_dynamo_filter.
 
-- **config**</br>
+- **config**<br />
 	([required](#), object) The filter does not use any configuration.
 
 

@@ -41,7 +41,7 @@ Redis过滤器将收集redis中命令的统计信息。命名空间为`redis.<st
 ### 运行配置
 Redis代理筛选器支持以下运行时设置：
 
-**redis.drain_close_enabled**</br>
+**redis.drain_close_enabled**<br />
 如果服务器正在逐出关闭，将会关闭连接的百分比，否则将尝试前置关闭。默认为100。
 
 

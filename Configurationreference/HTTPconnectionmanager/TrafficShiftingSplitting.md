@@ -79,7 +79,7 @@ Envoy匹配策略是匹配第一个路由。如果路由具有运行时配置对
 }
 ```
 
-可以使用以下运行时变量动态调整分配给每个群集的权重：</br>
+可以使用以下运行时变量动态调整分配给每个群集的权重：<br />
 `routing.traffic_split.helloworld.helloworld_v1`
 `routing.traffic_split.helloworld.helloworld_v2`
 `routing.traffic_split.helloworld.helloworld_v3`。

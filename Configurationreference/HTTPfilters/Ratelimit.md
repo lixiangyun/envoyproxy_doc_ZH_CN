@@ -81,13 +81,13 @@
 ### 运行时设置
 HTTP速率限制过滤器支持以下运行时设置：
 
-- **ratelimit.http_filter_enabled**</br>
+- **ratelimit.http_filter_enabled**<br />
 将调用速率限制服务的请求的百分比。默认为100。
 
-- **ratelimit.http_filter_enforcing**</br>
+- **ratelimit.http_filter_enforcing**<br />
 将调用速率限制服务并执行决定的请求百分比。默认为100。这可以用来测试完全执行结果之前会发生什么。
 
-- **ratelimit.`<route_key>`.http_filter_enabled**</br>
+- **ratelimit.`<route_key>`.http_filter_enabled**<br />
 将调用速率限制配置中指定的给定`route_key`的速率限制服务请求的百分比。默认为100。
 
 ## 返回

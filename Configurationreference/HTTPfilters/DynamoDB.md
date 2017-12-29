@@ -45,7 +45,7 @@ DynamoDB过滤器输出统计信息命名空间为`http.<stat_prefix>.dynamodb.`
 ### 运行时设置
 DynamoDB过滤器支持以下运行时设置：
 
-- **dynamodb.filter_enabled**</br>
+- **dynamodb.filter_enabled**<br />
 启用过滤器的请求百分比。默认是100％。
 
 ## 返回

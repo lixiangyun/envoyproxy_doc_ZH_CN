@@ -13,13 +13,13 @@ Delay specification is used to inject latency into the HTTP/gRPC/Mongo/Redis ope
   "fixed_delay": "{...}"
 }
 ```
-- **type**</br>
+- **type**<br />
 	([filter.FaultDelay.FaultDelayType](#)) Delay type to use (fixed|exponential|..). Currently, only fixed delay (step function) is supported.
 
-- **percent**</br>
+- **percent**<br />
 	([uint32](https://developers.google.com/protocol-buffers/docs/proto#scalar)) An integer between 0-100 indicating the percentage of operations/connection requests on which the delay will be injected.
 
-- **fixed_delay**</br>
+- **fixed_delay**<br />
 	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) Add a fixed delay before forwarding the operation upstream. See https://developers.google.com/protocol-buffers/docs/proto3#json for the JSON/YAML Duration mapping. For HTTP/Mongo/Redis, the specified delay will be injected before a new request/operation. For TCP connections, the proxying of the connection upstream will be delayed for the specified period. This is required if type is FIXED.
 
 
