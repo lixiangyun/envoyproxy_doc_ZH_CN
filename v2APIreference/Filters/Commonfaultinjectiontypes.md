@@ -1,6 +1,6 @@
 ## 常见故障注入类型
 
-### Common fault injection types
+
 ### filter.FaultDelay
 [filter.FaultDelay proto]()
 
@@ -28,7 +28,7 @@ Precisely one of fixed_delay must be set.
 ### filter.FaultDelay.FaultDelayType(Enum)
 [filter.FaultDelay.FaultDelayType proto]()
 
-### FIXED
+- **FIXED**<br />
 	(DEFAULT) ?Fixed delay (step function).
 
 

@@ -1,9 +1,8 @@
 ## 速率限制
 
-### Rate limit
 Rate limit configuration overview.
 
-- **filter.network.RateLimit**<br />
+### filter.network.RateLimit
 [filter.network.RateLimit proto]()
 
 ```
@@ -14,6 +13,7 @@ Rate limit configuration overview.
   "timeout": "{...}"
 }
 ```
+
 - **stat_prefix**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The prefix to use when emitting statistics.
 

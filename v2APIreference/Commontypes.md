@@ -1,5 +1,20 @@
 ## 通用类型
 
+- [Locality](#locality)
+- [Node](#node)
+- [Endpoint](#endpoint)
+- [Metadata](#metadata)
+- [RuntimeUInt32](#runtimeuint32)
+- [HeaderValue](#headervalue)
+- [HeaderValueOption](#headervalueoption)
+- [ApiConfigSource](#apiconfigsource)
+- [ApiConfigSource.ApiType (Enum)](#apiconfigsourceapitype-enum)
+- [AggregatedConfigSource](#aggregatedconfigsource)
+- [ConfigSource](#configsource)
+- [TransportSocket](#transportsocket)
+- [RoutingPriority (Enum)](#routingpriority-enum)
+- [RequestMethod (Enum)](#requestmethod-enum)
+
 ### Locality
 [Locality proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/base.proto#L16)
 
@@ -240,7 +255,7 @@ Envoy在路由和虚拟集群级别，都支持上游优先级路由。当前的
 
 - **HIGH**
 
-### RequestMethod(Enum)
+### RequestMethod (Enum)
 [RequestMethod proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/base.proto#L102)
 
 HTTP请求方法

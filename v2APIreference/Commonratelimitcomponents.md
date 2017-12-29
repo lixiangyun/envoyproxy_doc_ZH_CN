@@ -1,5 +1,8 @@
 ## 通用的限速组件
 
+- [RateLimitDescriptor](#ratelimitdescriptor)
+- [RateLimitDescriptor.Entry](#ratelimitdescriptorentry)
+
 ### RateLimitDescriptor
 [RateLimitDescriptor proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rls.proto#L78)
 

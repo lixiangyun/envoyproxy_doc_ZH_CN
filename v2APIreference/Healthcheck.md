@@ -1,7 +1,12 @@
 ## 健康检查
 
-- 健康检查[架构概述](../Introduction/Architectureoverview/Healthchecking.md)。
-- 如果为集群配置了健康检查，则会发出相应的统计信息。详见[这里](../Configurationreference/Clustermanager/Statistics.md)。
+健康检查[架构概述](../Introduction/Architectureoverview/Healthchecking.md)。如果为集群配置了健康检查，则会发出相应的统计信息。详见请参考[统计](../Configurationreference/Clustermanager/Statistics.md)相关文档。
+
+- [HealthCheck](#healthcheck)
+- [HealthCheck.Payload](#healthcheckpayload)
+- [HealthCheck.HttpHealthCheck](#healthcheckhttphealthcheck)
+- [HealthCheck.TcpHealthCheck](#healthchecktcphealthcheck)
+- [HealthCheck.RedisHealthCheck](#healthcheckredishealthcheck)
 
 ### HealthCheck
 [HealthCheck proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/health_check.proto#L14)

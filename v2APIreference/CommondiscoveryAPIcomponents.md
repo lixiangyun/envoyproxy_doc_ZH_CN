@@ -1,5 +1,8 @@
 ## 通用发现服务接口
 
+- [DiscoveryRequest](#discoveryrequest)
+- [DiscoveryResponse](#discoveryresponse)
+
 ### DiscoveryRequest
 
 [DiscoveryRequest proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/discovery.proto#L24)

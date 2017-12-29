@@ -1,5 +1,11 @@
 ## 服务发现
 
+- [LbEndpoint](#lbendpoint)
+- [LocalityLbEndpoints](#localitylbendpoints)
+- [ClusterLoadAssignment](#clusterloadassignment)
+- [ClusterLoadAssignment.Policy](#clusterloadassignmentpolicy)
+
+
 ### LbEndpoint
 [LbEndpoint proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/eds.proto#L62)
 

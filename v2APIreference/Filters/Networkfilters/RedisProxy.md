@@ -1,9 +1,12 @@
 ## Redis代理
 
-### Redis Proxy
 Redis Proxy configuration overview.
 
-- **filter.network.RedisProxy**<br />
+- [filter.network.RedisProxy](#filternetworkredisproxy)
+- [filter.network.RedisProxy.ConnPoolSettings](#filternetworkredisproxyconnpoolsettings)
+
+
+### filter.network.RedisProxy
 [filter.network.RedisProxy proto]()
 
 ```
@@ -22,7 +25,7 @@ Redis Proxy configuration overview.
 - **settings**<br />
 	([filter.network.RedisProxy.ConnPoolSettings](#), REQUIRED) Network settings for the connection pool to the upstream cluster.
 
-- **filter.network.RedisProxy.ConnPoolSettings**<br />
+### filter.network.RedisProxy.ConnPoolSettings
 [filter.network.RedisProxy.ConnPoolSettings proto]()
 
 Redis connection pool settings.

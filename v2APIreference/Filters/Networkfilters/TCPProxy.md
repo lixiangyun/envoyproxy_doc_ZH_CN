@@ -1,9 +1,13 @@
 ## TCP代理
 
-### TCP Proxy
 TCP Proxy configuration overview.
 
-- **filter.network.TcpProxy**<br />
+- [filter.network.TcpProxy](#filternetworktcpproxy)
+- [filter.network.TcpProxy.DeprecatedV1](#filternetworktcpproxydeprecatedv1)
+- [filter.network.TcpProxy.DeprecatedV1.TCPRoute](#filternetworktcpproxydeprecatedv1tcproute)
+
+
+### filter.network.TcpProxy
 [filter.network.TcpProxy proto]()
 
 ```
@@ -15,6 +19,7 @@ TCP Proxy configuration overview.
   "max_connect_attempts": "{...}"
 }
 ```
+
 - **stat_prefix**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The prefix to use when emitting statistics.
 
@@ -22,9 +27,7 @@ TCP Proxy configuration overview.
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) The upstream cluster to connect to.
 
 
-### Note
-
-Once full filter chain matching is implemented in listeners, this field will become the only way to configure the target cluster. All other matching will be done via filter chain matching rules. For very simple configurations, this field can still be used to select the cluster when no other matching rules are required. Otherwise, a deprecated_v1 configuration is required to use more complex routing in the interim.
+Note: Once full filter chain matching is implemented in listeners, this field will become the only way to configure the target cluster. All other matching will be done via filter chain matching rules. For very simple configurations, this field can still be used to select the cluster when no other matching rules are required. Otherwise, a deprecated_v1 configuration is required to use more complex routing in the interim.
 
 - **access_log**<br />
 	([filter.accesslog.AccessLog](#)) Configuration for access logs emitted by the this tcp_proxy.
@@ -35,7 +38,7 @@ Once full filter chain matching is implemented in listeners, this field will bec
 - **max_connect_attempts**<br />
 	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) The maximum number of unsuccessful connection attempts that will be made before giving up. If the parameter is not specified, 1 connection attempt will be made.
 
-- **filter.network.TcpProxy.DeprecatedV1**<br />
+### filter.network.TcpProxy.DeprecatedV1
 [filter.network.TcpProxy.DeprecatedV1 proto]()
 
 TCP Proxy filter configuration using V1 format, until Envoy gets the ability to match source/destination at the listener level (called filter chain match).
@@ -45,13 +48,15 @@ TCP Proxy filter configuration using V1 format, until Envoy gets the ability to 
   "routes": []
 }
 ```
+
 - **routes**<br />
 	([filter.network.TcpProxy.DeprecatedV1.TCPRoute](#), REQUIRED) The route table for the filter. All filter instances must have a route table, even if it is empty.
 
-- **filter.network.TcpProxy.DeprecatedV1.TCPRoute**<br />
+### filter.network.TcpProxy.DeprecatedV1.TCPRoute
 [filter.network.TcpProxy.DeprecatedV1.TCPRoute proto]()
 
 A TCP proxy route consists of a set of optional L4 criteria and the name of a cluster. If a downstream connection matches all the specified criteria, the cluster in the route is used for the corresponding upstream connection. Routes are tried in the order specified until a match is found. If no match is found, the connection is closed. A route with no criteria is valid and always produces a match.
+
 
 ```
 {
@@ -62,6 +67,7 @@ A TCP proxy route consists of a set of optional L4 criteria and the name of a cl
   "source_ports": "..."
 }
 ```
+
 - **cluster**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The cluster to connect to when a the downstream network connection matches the specified criteria.
 
@@ -76,9 +82,6 @@ A TCP proxy route consists of a set of optional L4 criteria and the name of a cl
 
 - **source_ports**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) An optional string containing a comma-separated list of port numbers or ranges. The criteria is satisfied if the source port of the downstream connection is contained in at least one of the specified ranges. If the parameter is not specified, the source port is ignored.
-
-
-
 
 
 ## 返回

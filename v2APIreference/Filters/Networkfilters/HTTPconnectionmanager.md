@@ -1,9 +1,18 @@
 ## HTTP连接管理
 
-### HTTP connection manager
+- [filter.network.HttpConnectionManager](#filternetworkhttpconnectionmanager)
+- [filter.network.HttpConnectionManager.Tracing](#filternetworkhttpconnectionmanagertracing)
+- [filter.network.HttpConnectionManager.Tracing.OperationName (Enum)](#filternetworkhttpconnectionmanagertracingoperationname-enum)
+- [filter.network.HttpConnectionManager.SetCurrentClientCertDetails](#filternetworkhttpconnectionmanagersetcurrentclientcertdetails)
+- [filter.network.HttpConnectionManager.CodecType (Enum)](#filternetworkhttpconnectionmanagercodectype-enum)
+- [filter.network.HttpConnectionManager.ForwardClientCertDetails (Enum)](#filternetworkhttpconnectionmanagerforwardclientcertdetails-enum)
+- [filter.network.Rds](#filternetworkrds)
+- [filter.network.HttpFilter](#filternetworkhttpfilter)
+
+
 HTTP connection manager configuration overview.
 
-- **filter.network.HttpConnectionManager**<br />
+### filter.network.HttpConnectionManager
 [filter.network.HttpConnectionManager proto]()
 
 ```
@@ -27,6 +36,7 @@ HTTP connection manager configuration overview.
   "set_current_client_cert_details": "{...}"
 }
 ```
+
 - **codec_type**<br />
 	([filter.network.HttpConnectionManager.CodecType](#)) Supplies the type of codec that the connection manager should use.
 
@@ -84,7 +94,7 @@ Precisely one of rds, route_config must be set.
 - **set_current_client_cert_details**<br />
 	([filter.network.HttpConnectionManager.SetCurrentClientCertDetails](#)) This field is valid only when forward_client_cert_details is APPEND_FORWARD or SANITIZE_SET and the client connection is mTLS. It specifies the fields in the client certificate to be forwarded. Note that in the x-forwarded-client-cert header, Hash is always set, and By is always set when the client certificate presents the SAN value.
 
-- **filter.network.HttpConnectionManager.Tracing**<br />
+### filter.network.HttpConnectionManager.Tracing
 [filter.network.HttpConnectionManager.Tracing proto]()
 
 ```
@@ -99,15 +109,16 @@ Precisely one of rds, route_config must be set.
 - **request_headers_for_tags**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) A list of header names used to create tags for the active span. The header name is used to populate the tag name, and the header value is used to populate the tag value. The tag is created if the specified header name is present in the request’s headers.
 
-Enum filter.network.HttpConnectionManager.Tracing.OperationName
+### filter.network.HttpConnectionManager.Tracing.OperationName (Enum)
 [filter.network.HttpConnectionManager.Tracing.OperationName proto]()
 
-### INGRESS
+- INGRESS
 	(DEFAULT) ?The HTTP listener is used for ingress/incoming requests.
 
-### EGRESS
-?The HTTP listener is used for egress/outgoing requests.
-- **filter.network.HttpConnectionManager.SetCurrentClientCertDetails**<br />
+- EGRESS
+    The HTTP listener is used for egress/outgoing requests.
+
+### filter.network.HttpConnectionManager.SetCurrentClientCertDetails (Enum)
 [filter.network.HttpConnectionManager.SetCurrentClientCertDetails proto]()
 
 ```
@@ -122,33 +133,38 @@ Enum filter.network.HttpConnectionManager.Tracing.OperationName
 - **san**<br />
 	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) Whether to forward the SAN of the client cert. Defaults to false.
 
-Enum filter.network.HttpConnectionManager.CodecType
+### filter.network.HttpConnectionManager.CodecType (Enum)
 [filter.network.HttpConnectionManager.CodecType proto]()
 
-### AUTO
+- **AUTO**<br />
 	(DEFAULT) ?For every new connection, the connection manager will determine which codec to use. This mode supports both ALPN for TLS listeners as well as protocol inference for plaintext listeners. If ALPN data is available, it is preferred, otherwise protocol inference is used. In almost all cases, this is the right option to choose for this setting.
 
-### HTTP1
-?The connection manager will assume that the client is speaking HTTP/1.1.
-### HTTP2
-?The connection manager will assume that the client is speaking HTTP/2 (Envoy does not require HTTP/2 to take place over TLS or to use ALPN. Prior knowledge is allowed).
-Enum filter.network.HttpConnectionManager.ForwardClientCertDetails
+- **HTTP1**<br />
+    The connection manager will assume that the client is speaking HTTP/1.1.
+- **HTTP2**<br />
+    The connection manager will assume that the client is speaking HTTP/2 (Envoy does not require HTTP/2 to take place over TLS or to use ALPN. Prior knowledge is allowed).
+
+### filter.network.HttpConnectionManager.ForwardClientCertDetails (Enum)
 [filter.network.HttpConnectionManager.ForwardClientCertDetails proto]()
 
 How to handle the x-forwarded-client-cert (XFCC) HTTP header.
 
-### SANITIZE
+- **SANITIZE**<br />
 	(DEFAULT) ?Do not send the XFCC header to the next hop. This is the default value.
 
-### FORWARD_ONLY
-?When the client connection is mTLS (Mutual TLS), forward the XFCC header in the request.
-### APPEND_FORWARD
-?When the client connection is mTLS, append the client certificate information to the request’s XFCC header and forward it.
-### SANITIZE_SET
-?When the client connection is mTLS, reset the XFCC header with the client certificate information and send it to the next hop.
-### ALWAYS_FORWARD_ONLY
-?Always forward the XFCC header in the request, regardless of whether the client connection is mTLS.
-- **filter.network.Rds**<br />
+- **FORWARD_ONLY**<br />
+    When the client connection is mTLS (Mutual TLS), forward the XFCC header in the request.
+    
+- **APPEND_FORWARD**<br />
+    When the client connection is mTLS, append the client certificate information to the request’s XFCC header and forward it.
+    
+- **SANITIZE_SET**<br />
+    When the client connection is mTLS, reset the XFCC header with the client certificate information and send it to the next hop.
+    
+- **ALWAYS_FORWARD_ONLY**<br />
+    Always forward the XFCC header in the request, regardless of whether the client connection is mTLS.
+
+### filter.network.Rds
 [filter.network.Rds proto]()
 
 ```
@@ -163,7 +179,7 @@ How to handle the x-forwarded-client-cert (XFCC) HTTP header.
 - **route_config_name**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The name of the route configuration. This name will be passed to the RDS API. This allows an Envoy configuration with multiple HTTP listeners (and associated HTTP connection manager filters) to use different route configurations.
 
-- **filter.network.HttpFilter**<br />
+### filter.network.HttpFilter
 [filter.network.HttpFilter proto]()
 
 ```
@@ -172,25 +188,22 @@ How to handle the x-forwarded-client-cert (XFCC) HTTP header.
   "config": "{...}"
 }
 ```
+
 - **name**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The name of the filter to instantiate. The name must match a supported filter. The built-in filters are:
-
-
-- **envoy.buffer**<br />
-- **envoy.cors**<br />
-- **envoy.fault**<br />
-- **envoy.http_dynamo_filter**<br />
-- **envoy.grpc_http1_bridge**<br />
-- **envoy.grpc_json_transcoder**<br />
-- **envoy.grpc_web**<br />
-- **envoy.health_check**<br />
-- **envoy.lua**<br />
-- **envoy.rate_limit**<br />
-- **envoy.router**<br />
-- **config**<br />
+- **envoy.buffer**
+- **envoy.cors**
+- **envoy.fault**
+- **envoy.http_dynamo_filter**
+- **envoy.grpc_http1_bridge**
+- **envoy.grpc_json_transcoder**
+- **envoy.grpc_web**
+- **envoy.health_check**
+- **envoy.lua**
+- **envoy.rate_limit**
+- **envoy.router**
+- **config**
 	([Struct](#)) Filter specific configuration which depends on the filter being instantiated. See the supported filters for further documentation.
-
-
 
 ## 返回
 - [上一级](../Networkfilters.md)

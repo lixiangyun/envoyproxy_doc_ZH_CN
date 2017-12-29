@@ -2,6 +2,13 @@
 
 注意：v2 API差异：现有`.proto`地址结构。
 
+- [Pipe](#pipe)
+- [SocketAddress](#socketaddress)
+- [SocketAddress.Protocol (Enum)](#socketaddressprotocol-enum)
+- [BindConfig](#bindconfig)
+- [Address](#address)
+- [CidrRange](#cidrrange)
+
 ### Pipe
 [Pipe proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/address.proto#L11)
 
