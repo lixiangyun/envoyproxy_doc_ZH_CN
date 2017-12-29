@@ -1,0 +1,308 @@
+
+
+
+### RouteAction.ClusterNotFoundResponseCode (Enum)
+[RouteAction.ClusterNotFoundResponseCode proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L333)
+
+- **SERVICE_UNAVAILABLE**<br />
+	(DEFAULT) HTTP状态码 - 503服务不可用。
+
+- **NOT_FOUND**<br />
+    HTTP状态码 - 404未找到。
+
+### RedirectAction
+[RedirectAction proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L548)
+
+```
+{
+  "host_redirect": "...",
+  "path_redirect": "...",
+  "response_code": "..."
+}
+```
+
+- **host_redirect**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 该主机的URL部分将与此值交换。
+
+- **path_redirect**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 路径的URL部分将与此值交换。
+
+- **response_code**<br />
+	([RedirectAction.RedirectResponseCode](#RedirectAction.RedirectResponseCode Enum)) 在重定向响应中使用的HTTP状态代码。默认响应码是MOVED_PERMANENTLY（301）。
+
+### RedirectAction.RedirectResponseCode (Enum)
+[RedirectAction.RedirectResponseCode proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L555)
+
+- **MOVED_PERMANENTLY**<br />
+	(DEFAULT) 永久转移的HTTP状态码 - 301。
+
+- **FOUND**<br />
+    Found HTTP状态码 - 302。
+
+- **SEE_OTHER**<br />
+    See Other HTTP状态码 - 303。
+
+- **TEMPORARY_REDIRECT**<br />
+    临时重定向HTTP状态码 - 307。
+
+- **PERMANENT_REDIRECT**<br />
+    永久重定向HTTP状态码 - 308。
+
+### Decorator
+[Decorator proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L577)
+
+```
+{
+  "operation": "..."
+}
+```
+
+- **operation**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 与此路由匹配的请求相关联的操作名称。如果已启用跟踪，则将使用此信息作为为此请求记录的span名称。
+
+    注意：对于入口（入站）请求或出站（出站）响应，该值可能被`x-envoy-decorator-operation`头覆盖。
+
+### VirtualCluster
+[VirtualCluster proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L606)
+
+虚拟集群是一种针对某些重要端口，指定正则表达式匹配规则的方法，例如为匹配的请求显式生成统计信息。当做前缀/路径匹配时这很有用，Envoy并不总是知道应用程序认为是一个端口。因此，Envoy不可能统一发送每个端口的统计数据。然而，系统往往具有高度关联的端口，他们希望获得“完美”的统计数据。虚拟集群统计是完美的，因为它们在下游散发，因此包含网络级别的故障。
+
+虚拟群集统计信息的[文档](../Configurationreference/HTTPfilters/Router.md)。
+
+注意：虚拟群集是一个有用的工具，但我们不建议为每个应用程序端口设置一个虚拟群集。 这既不容易维护，而且匹配和统计输出也是需要代价的。
+
+```
+{
+  "pattern": "...",
+  "name": "...",
+  "method": "..."
+}
+```
+
+- **pattern**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 指定用于匹配请求的正则表达式模式。 请求的整个路径必须匹配正则表达式。 所使用的正则表达式语法在这里定义。
+    
+    示例：
+
+    - 正则表达式 `/rides/d+` 匹配 `/rides/0` 路径
+    - 正则表达式 `/rides/d+` 匹配 `/rides/123` 路径
+    - 正则表达式 `/rides/d+` 不匹配 `/rides/123/456` 路径
+
+- **name**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 指定虚拟群集的名称。发布统计信息时会使用虚拟群集名称和虚拟主机名称。统计信息由路由器过滤器发出，并记录在[此处](../Configurationreference/HTTPfilters/Router.md#statistics)。
+
+- **method**<br />
+	([RequestMethod](../v2APIreference/Commontypes.md#requestmethod-enum))（可选）指定要匹配的HTTP方法。例如GET，PUT等
+
+### RateLimit
+[RateLimit proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L629)
+
+全局速率限制[架构概述](../Introduction/Architectureoverview/Globalratelimiting.md)。
+
+```
+{
+  "stage": "{...}",
+  "disable_key": "...",
+  "actions": []
+}
+```
+
+- **stage**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 指在过滤器中设置的阶段。速率限制配置仅适用于具有相同阶段编号的过滤器。默认的阶段编号是0。
+
+     注意：过滤器支持0~10范围的阶段编号。
+
+- **disable_key**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 在运行时禁用此速率限制的key配置。
+
+- **actions**<br />
+	([RateLimit.Action](#rateLimitaction), REQUIRED) 此速率限制应用相关的操作列表。顺序很重要，因为按顺序处理操作的，描述符是通过在该顺序中附加描述符条目来组成的。如果某个操作无法添加描述符条目，则不会为该配置生成描述符。请参阅相应的操作[文档](../Configurationreference/HTTPfilters/Ratelimit.md)。
+
+### RateLimit.Action
+[RateLimit.Action proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L642)
+
+```
+{
+  "source_cluster": "{...}",
+  "destination_cluster": "{...}",
+  "request_headers": "{...}",
+  "remote_address": "{...}",
+  "generic_key": "{...}",
+  "header_value_match": "{...}"
+}
+```
+- **source_cluster**<br />
+	([RateLimit.Action.SourceCluster](#RateLimit.Action.SourceCluster)) 基于源群集的速率限制。
+
+- **destination_cluster**<br />
+	([RateLimit.Action.DestinationCluster](#RateLimit.Action.DestinationCluster)) 基于目标群集的速率限制。
+
+- **request_headers**<br />
+	([RateLimit.Action.RequestHeaders](#RateLimit.Action.RequestHeaders)) 基于请求头的速率限制。
+
+- **remote_address**<br />
+	([RateLimit.Action.RemoteAddress](#RateLimit.Action.RemoteAddress)) 基于远程地址的速率限制。
+
+- **generic_key**<br />
+	([RateLimit.Action.GenericKey](#RateLimit.Action.GenericKey)) 基于通用密钥的速率限制。
+
+- **header_value_match**<br />
+	([RateLimit.Action.HeaderValueMatch](#RateLimit.Action.HeaderValueMatch)) 请求头的内容匹配的速率限制。
+
+    必须正确设置`source_cluster`，`destination_cluster`，`request_headers`，`remote_address`，`generic_key`，`header_value_match`其中的一个。
+
+
+### RateLimit.Action.SourceCluster
+[RateLimit.Action.SourceCluster proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L650)
+
+以下描述符条目被追加到描述符中：
+
+```
+("source_cluster", "<local service cluster>")
+```
+
+其中`<local service cluster>`源自`--service-cluster`选项。
+
+```
+{}
+```
+
+### RateLimit.Action.DestinationCluster
+[RateLimit.Action.DestinationCluster proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L669)
+
+以下描述符条目被追加到描述符中：
+
+```
+("destination_cluster", "<routed target cluster>")
+```
+
+一旦请求与路由表规则匹配，则选择以下[路由表配置](../v2APIreference/HTTProutemanagementandRDS.md)设置之一路由集群：
+
+- [cluster](#RouteAction)：表示要到达的上游集群。
+- [weighted_clusters](#RouteAction)：从一组具有权重属性的集群组中随机选择一个集群。
+- [cluster_header](#RouteAction)：指示请求的头中选择所包含目标群集。
+
+```
+{}
+```
+
+### RateLimit.Action.RequestHeaders
+[RateLimit.Action.RequestHeaders proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L678)
+
+当一个头包含一个与`header_name`匹配的关键字时，附加下面的描述符条目：
+
+```
+("<descriptor_key>", "<header_value_queried_from_header>")
+```
+
+```
+{
+  "header_name": "...",
+  "descriptor_key": "..."
+}
+```
+
+- **header_name**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 从匹配请求的头部名称。头的值用于填充`descriptor_key`的描述符条目的值。
+
+- **descriptor_key**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 在描述符条目中使用的key。
+
+### RateLimit.Action.RemoteAddress
+[RateLimit.Action.RemoteAddress proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L694)
+
+以下描述符条目被追加到描述符中，并使用来自[x-forwarded-for](../Configurationreference/HTTPconnectionmanager/HTTPheadermanipulation.md#x-forwarded-for)的可信地址填充：
+
+```
+("remote_address", "<trusted address from x-forwarded-for>")
+```
+
+```
+{}
+```
+
+### RateLimit.Action.GenericKey
+[RateLimit.Action.GenericKey proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L702)
+
+以下描述符条目被追加到描述符中：
+
+```
+("generic_key", "<descriptor_value>")
+```
+
+```
+{
+  "descriptor_value": "..."
+}
+```
+
+- **descriptor_value**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 描述符条目中使用的值。
+
+### RateLimit.Action.HeaderValueMatch
+[RateLimit.Action.HeaderValueMatch proto]()
+
+以下描述符条目被追加到描述符中：
+
+```
+("header_match", "<descriptor_value>")
+```
+
+```
+{
+  "descriptor_value": "...",
+  "expect_match": "{...}",
+  "headers": []
+}
+```
+
+- **descriptor_value**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 描述符条目中使用的值。
+
+- **expect_match**<br />
+	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) 如果设置为true，则该操作将在请求与头部匹配时附加描述符条目。如果设置为false，则该操作将在请求不匹配头部时附加描述符条目。默认值是true。
+
+- **headers**<br />
+	([HeaderMatcher](#HeaderMatcher), REQUIRED) 指定速率限制操作应匹配的一组头部字段。该动作将检查请求的头部与配置中的所有指定头。如果配置中的所有头都存在于具有相同值的请求中（或者如果值字段不在配置中则基于存在），则匹配将发生。
+
+### HeaderMatcher
+[HeaderMatcher proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L778)
+
+注意：
+
+1. 在内部，Envoy始终使用HTTP/2的`:authority`头来表示HTTP/1`Host`头。因此，如果试图在主机上匹配，则匹配`:authority`。
+2. 要使用HTTP方法进行路由，请使用HTTP/2特殊的`:method`头。这适用于HTTP/1和HTTP/2，做为Envoy标准化头。例如。
+
+```
+{
+  "name": ":method",
+  "value": "POST"
+}
+```
+
+```
+{
+  "name": "...",
+  "value": "...",
+  "regex": "{...}"
+}
+```
+
+- **name**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 指定请求的头部名称。
+
+- **value**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 指定头部的值。如果值不存在，则将匹配具有头部的请求，而不关心具体的值。
+
+- **regex**<br />
+	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) 指定匹配头部值是否采用正则表达式。默认为false。整个请求头的值必须与正则表达式匹配。如果只有请求头的值部分与正则表达式相匹配，则规定不匹配。这里定义了值字段中使用的正则表达式语法。
+
+    示例：
+    
+    - 正则表达式 `d{3}` 匹配值 `123`
+    - 正则表达式 `d{3}` 不匹配值 `1234`
+    - 正则表达式 `d{3}` 不匹配值 `123.456`
+
+## 返回
+- [上一级](../v2APIreference.md)
+- [首页目录](../README.md)
