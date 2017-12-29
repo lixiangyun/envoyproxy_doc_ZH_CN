@@ -1,12 +1,12 @@
-## HTTP路由管理&发现
+## HTTP路由管理和路由发现（RDS）
 
-
-### HTTP route management and RDS
 ### RouteConfiguration
-[RouteConfiguration proto]()
 
-### Routing architecture overview
-### HTTP router filter
+[RouteConfiguration proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L35)
+
+- [路由架构概述](../Introduction/Architectureoverview/HTTProuting.md)
+- [HTTP路由过滤器](../Configurationreference/HTTPfilters/Router.md)
+
 ```
 {
   "name": "...",
@@ -18,31 +18,32 @@
   "validate_clusters": "{...}"
 }
 ```
-- **name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) The name of the route configuration. For example, it might match route_config_name in filter.network.Rds.
 
-- **virtual_hosts**</br>
-	([VirtualHost](#)) An array of virtual hosts that make up the route table.
+- **name**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 路由配置的名称。例如，它可能会匹配[filter.network.Rds](../v2APIreference/Filters/Networkfilters/HTTPconnectionmanager.md)中的`route_config_name`。
 
-- **internal_only_headers**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Optionally specifies a list of HTTP headers that the connection manager will consider to be internal only. If they are found on external requests they will be cleaned prior to filter invocation. See x-envoy-internal for more information.
+- **virtual_hosts**<br />
+	([VirtualHost](#virtualhost)) 一组虚拟主机组成的路由表。
 
-- **response_headers_to_add**</br>
-	([HeaderValueOption](#)) Specifies a list of HTTP headers that should be added to each response that the connection manager encodes. Headers specified at this level are applied after headers from any enclosed VirtualHost or RouteAction.
+- **internal_only_headers**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) （可选）指定做为内部使用的HTTP头部字段列表。如果在外部请求中找到它们，则会在过滤器调用之前清除它们。有关更多信息，请参见[x-envoy-internal](../Configurationreference/HTTPconnectionmanager/HTTPheadermanipulation.md)。
 
-- **response_headers_to_remove**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies a list of HTTP headers that should be removed from each response that the connection manager encodes.
+- **response_headers_to_add**<br />
+	([HeaderValueOption](../v2APIreference/Commontypes.md#headervalueoption)) 指定在连接管理器编码时，为每个响应的增加HTTP头部字段列表。在这个级别指定的头部将位于内部的[VirtualHost](#virtualhost)或[RouteAction](#routeaction)的头部之后。
 
-- **request_headers_to_add**</br>
-	([HeaderValueOption](#)) Specifies a list of HTTP headers that should be added to each request routed by the HTTP connection manager. Headers specified at this level are applied after headers from any enclosed VirtualHost or RouteAction. For more information see the documentation on custom request headers.
+- **response_headers_to_remove**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 指定在连接管理器编码每个响应中需要删除的HTTP头部字段列表。
 
-- **validate_clusters**</br>
-	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) An optional boolean that specifies whether the clusters that the route table refers to will be validated by the cluster manager. If set to true and a route refers to a non-existent cluster, the route table will not load. If set to false and a route refers to a non-existent cluster, the route table will load and the router filter will return a 404 if the route is selected at runtime. This setting defaults to true if the route table is statically defined via the route_config option. This setting default to false if the route table is loaded dynamically via the rds option. Users may which to override the default behavior in certain cases (for example when using CDS with a static route table).
+- **request_headers_to_add**<br />
+	([HeaderValueOption](../v2APIreference/Commontypes.md#headervalueoption)) 指定在HTTP连接管理器路由的每个请求时，需要添加的HTTP头部字段列表。在这个级别指定的头部将位于内部的[VirtualHost](#virtualhost)或[RouteAction](#routeaction)的头部之后。有关更多信息，请参阅自定义请求的头部字段[文档](../Configurationreference/HTTPconnectionmanager/HTTPheadermanipulation.md)。
+
+- **validate_clusters**<br />
+	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) 可选的bool类型，指定路由表引用的集群是否由集群管理器验证。如果设置为true，并且路由引用了不存在的集群，则路由表将不会加载。如果设置为false，并且路由引用不存在的集群，则路由表将加载，如果在运行时选择路由，则路由器过滤器将返回404。如果路由表是通过[route_config](../v2APIreference/Filters/Networkfilters/HTTPconnectionmanager.md)选项静态定义的，则此配置默认为true。如果路由表是通过[rds](../v2APIreference/Filters/Networkfilters/HTTPconnectionmanager.md)选项动态加载的，则此设置默认为false。用户可以在某些情况下覆盖此默认行为（例如，当使用带有静态路由表的CDS时）。
 
 ### VirtualHost
-[VirtualHost proto]()
+[VirtualHost proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L87)
 
-The top level element in the routing configuration is a virtual host. Each virtual host has a logical name as well as a set of domains that get routed to it based on the incoming request’s host header. This allows a single listener to service multiple top level domain path trees. Once a virtual host is selected based on the domain, the routes are processed in order to see which upstream cluster to route to or whether to perform a redirect.
+在路由配置的顶层选项有个虚拟主机。每个虚拟主机都有一个逻辑名称以及一组根据传入请求的主机头路由到它的域。这允许单个监听端口多个顶级域服务。一旦基于域选择了虚拟主机，就会根据顺序处理那些路由匹配到哪个上游集群，并且是否执行重定向。
 
 ```
 {
@@ -58,59 +59,57 @@ The top level element in the routing configuration is a virtual host. Each virtu
   "cors": "{...}"
 }
 ```
-- **name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The logical name of the virtual host. This is used when emitting certain statistics but is not relevant for routing.
 
-- **domains**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of “.foo.com” or “-bar.foo.com”.
+- **name**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 虚拟主机的逻辑名称。用于某些统计信息，但与路由无关。
 
+- **domains**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 将与此虚拟主机相匹配的域（主机名）列表。支持通配符，例如：支持“.foo.com”或“-bar.foo.com”。
 
-### Note
+	注意：通配符将不匹配空字符串。例如“-bar.foo.com”将匹配“baz-bar.foo.com”，但不匹配“-bar.foo.com”。此外，还可以使用特殊的条目“”来匹配任何主机名。整个路由配置中只有一台虚拟主机可以匹配“*”。域名在所有虚拟主机中必须是唯一的，否则配置将无法加载。
 
-The wildcard will not match the empty string. e.g. “-bar.foo.com” will match “baz-bar.foo.com” but not “-bar.foo.com”. Additionally, a special entry “” is allowed which will match any host/authority header. Only a single virtual host in the entire route configuration can match on “*”. A domain must be unique across all virtual hosts or the config will fail to load.
+- **routes**<br />
+	([Route](#route)) 将按顺序匹配传入请求的路由列表。第一个匹配的路由将被使用。
 
-- **routes**</br>
-	([Route](#)) The list of routes that will be matched, in order, for incoming requests. The first route that matches will be used.
+- **require_tls**<br />
+	([VirtualHost.TlsRequirementType](#virtualhosttlsrequirementtype-enum)) 指定虚拟主机所提供的TLS类型。如果未指定此选项，则虚拟主机不需要TLS。
 
-- **require_tls**</br>
-	([VirtualHost.TlsRequirementType](#)) Specifies the type of TLS enforcement the virtual host expects. If this option is not specified, there is no TLS requirement for the virtual host.
+- **virtual_clusters**<br />
+	([VirtualCluster](#virtualcluster)) 为此虚拟主机定义的虚拟集群列表。虚拟集群用于进行其他统计信息收集。
 
-- **virtual_clusters**</br>
-	([VirtualCluster](#)) A list of virtual clusters defined for this virtual host. Virtual clusters are used for additional statistics gathering.
+- **rate_limits**<br />
+	([RateLimit](#ratelimit)) 指定将应用于虚拟主机的一组限速配置。
 
-- **rate_limits**</br>
-	([RateLimit](#)) Specifies a set of rate limit configurations that will be applied to the virtual host.
+- **request_headers_to_add**<br />
+	([HeaderValueOption](../v2APIreference/Commontypes.md#headervalueoption)) 指定添加到由此虚拟主机处理的每个请求的HTTP头部列表。在此级别指定的头部将应用于内部的[RouteAction](#routeaction)头部之后和封装[RouteConfiguration](#routeconfiguration)的头部之前。有关更多信息，请参阅自定义请求头的[文档](../Configurationreference/HTTPconnectionmanager/HTTPheadermanipulation.md)。
 
-- **request_headers_to_add**</br>
-	([HeaderValueOption](#)) Specifies a list of HTTP headers that should be added to each request handled by this virtual host. Headers specified at this level are applied after headers from enclosed RouteAction and before headers from the enclosing RouteConfiguration. For more information see the documentation on custom request headers.
+- **response_headers_to_add**<br />
+	([HeaderValueOption](../v2APIreference/Commontypes.md#headervalueoption)) 指定添加到由此虚拟主机处理的每个响应的HTTP头部列表。在此级别指定的头部将应用于内部的[RouteAction](#routeaction)头部之后和封装[RouteConfiguration](#routeconfiguration)的头部之前。
 
-- **response_headers_to_add**</br>
-	([HeaderValueOption](#)) Specifies a list of HTTP headers that should be added to each response handled by this virtual host. Headers specified at this level are applied after headers from enclosed RouteAction and before headers from the enclosing RouteConfiguration.
+- **response_headers_to_remove**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 指定由此虚拟主机处理的每个响应中删除的HTTP头部列表。
 
-- **response_headers_to_remove**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies a list of HTTP headers that should be removed from each response handle by this virtual host.
+- **cors**<br />
+	([CorsPolicy](#corspolicy)) 表示虚拟主机具有CORS策略。
 
-- **cors**</br>
-	([CorsPolicy](#)) Indicates that the virtual host has a CORS policy.
+### VirtualHost.TlsRequirementType (Enum)
+[VirtualHost.TlsRequirementType proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L110)
 
-Enum VirtualHost.TlsRequirementType
-[VirtualHost.TlsRequirementType proto]()
+- **NONE**<br />
+	(DEFAULT) 虚拟主机没有TLS要求。
 
-### NONE
-	(DEFAULT) ?No TLS requirement for the virtual host.
+- **EXTERNAL_ONLY**<br />
+    来自外部请求必须使用TLS。如果请求是来自外部的，并且没有使用TLS，则将发送301重定向，告诉客户端使用HTTPS。
 
-### EXTERNAL_ONLY
-?External requests must use TLS. If a request is external and it is not using TLS, a 301 redirect will be sent telling the client to use HTTPS.
-### ALL
-?All requests must use TLS. If a request is not using TLS, a 301 redirect will be sent telling the client to use HTTPS.
+- **ALL**<br />
+    所有请求都必须使用TLS。 如果请求没有使用TLS，则会发送301重定向，通知客户端使用HTTPS。
+
 ### Route
-[Route proto]()
+[Route proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L167)
 
-A route is both a specification of how to match a request as well as an indication of what to do next (e.g., redirect, forward, rewrite, etc.).
+路由既包括匹配那些请求，以及接下来需要执行的行为（例如，重定向，转发，重写等）。
 
-### Attention
-
-Envoy supports routing on HTTP method via header matching.
+注意：Envoy通过头匹配支持HTTP方法的路由。
 
 ```
 {
@@ -121,31 +120,28 @@ Envoy supports routing on HTTP method via header matching.
   "decorator": "{...}"
 }
 ```
-- **match**</br>
-	([RouteMatch](#), REQUIRED) Route matching parameters.
 
-- **route**</br>
-	([RouteAction](#)) Route request to some upstream cluster.
+- **match**<br />
+	([RouteMatch](#routematch), REQUIRED) 路由匹配参数。
 
+- **route**<br />
+	([RouteAction](#routeaction)) 将请求路由到某个上游群集。
 
-Precisely one of route, redirect must be set.
+- **redirect**<br />
+	([RedirectAction](#redirectaction)) 返回一个重定向。
+    
+    注意：路由和重定向必须选择其中一个设置。
 
-- **redirect**</br>
-	([RedirectAction](#)) Return a redirect.
+- **metadata**<br />
+	([Metadata](../v2APIreference/Commontypes.md#metadata)) 元数据字段可用于提供有关路由的其他信息。 它可以用于配置，统计和日志记录。元数据应该在与之对应的滤器命名空间下。例如，如果此元数据用于路由器过滤器，则应将过滤器名称指定为`envoy.router`。
 
-
-Precisely one of route, redirect must be set.
-
-- **metadata**</br>
-	([Metadata](#)) The Metadata field can be used to provide additional information about the route. It can be used for configuration, stats, and logging. The metadata should go under the filter namespace that will need it. For instance, if the metadata is intended for the Router filter, the filter name should be specified as envoy.router.
-
-- **decorator**</br>
-	([Decorator](#)) Decorator for the matched route.
+- **decorator**<br />
+	([Decorator](#decorator)) 匹配路由的标识符。
 
 ### WeightedCluster
-[WeightedCluster proto]()
+[WeightedCluster proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L202)
 
-Compared to the cluster field that specifies a single upstream cluster as the target of a request, the weighted_clusters option allows for specification of multiple upstream clusters along with weights that indicate the percentage of traffic to be forwarded to each cluster. The router selects an upstream cluster based on the weights.
+与指定单个上游群集作为请求目标的群集字段相比，`weighted_clusters`选项允许指定多个上游群集以及制定要转发给每个群集的流量百分比的权重。路由器将根据权重选择上游集群。
 
 ```
 {
@@ -153,14 +149,15 @@ Compared to the cluster field that specifies a single upstream cluster as the ta
   "runtime_key_prefix": "..."
 }
 ```
-- **clusters**</br>
-	([WeightedCluster.ClusterWeight](#), REQUIRED) Specifies one or more upstream clusters associated with the route.
 
-- **runtime_key_prefix**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the runtime key prefix that should be used to construct the runtime keys associated with each cluster. When the runtime_key_prefix is specified, the router will look for weights associated with each upstream cluster under the key runtime_key_prefix + “.” + cluster[i].name where cluster[i] denotes an entry in the clusters array field. If the runtime key for the cluster does not exist, the value specified in the configuration file will be used as the default weight. See the runtime documentation for how key names map to the underlying implementation.
+- **clusters**<br />
+	([WeightedCluster.ClusterWeight](#weightedclusterclusterweight), REQUIRED) 指定与路由关联的一个或多个上游群集。
+
+- **runtime_key_prefix**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 指定应该用于构造与每个集群关联的运行时key/value前缀。当指定`runtime_key_prefix`时，路由器将在`runtime_key_prefix+"."+cluster[i].name`下查找与每个上游集群相关的权重，其中`cluster[i]`表示集群组的某个集群。如果群集的运行时key不存在，则配置文件中指定的值将用作默认权重。有关键名称如何映射到底层实现，请参阅[运行时文档](../Operationsandadministration/Runtime.md)。
 
 ### WeightedCluster.ClusterWeight
-[WeightedCluster.ClusterWeight proto]()
+[WeightedCluster.ClusterWeight proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L203)
 
 ```
 {
@@ -169,17 +166,18 @@ Compared to the cluster field that specifies a single upstream cluster as the ta
   "metadata_match": "{...}"
 }
 ```
-- **name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) Name of the upstream cluster. The cluster must exist in the cluster manager configuration.
 
-- **weight**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) An integer between 0-100. When a request matches the route, the choice of an upstream cluster is determined by its weight. The sum of weights across all entries in the clusters array must add up to 100.
+- **name**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 上游群集的名称。群集必须存在于群集管理器配置中。
 
-- **metadata_match**</br>
-	([Metadata](#)) Optional endpoint metadata match criteria. Only endpoints in the upstream cluster with metadata matching that set in metadata_match will be considered. The filter name should be specified as envoy.lb.
+- **weight**<br />
+	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 一个0~100之间的整数，当请求与路由匹配时，选择上游集群的权重。集群组中所有集群的权重总和加起来必须为100。
+
+- **metadata_match**<br />
+	([Metadata](../v2APIreference/Commontypes.md#metadata)) （可选）端口元数据匹配条件，将仅考虑上游集群中具有与在`metadata_match`中设置的元数据匹配的端口，过滤器名称应该指定为`envoy.lb`。
 
 ### RouteMatch
-[RouteMatch proto]()
+[RouteMatch proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L233)
 
 ```
 {
@@ -191,38 +189,32 @@ Compared to the cluster field that specifies a single upstream cluster as the ta
   "headers": []
 }
 ```
-- **prefix**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) If specified, the route is a prefix rule meaning that the prefix must match the beginning of the :path header.
 
+- **prefix**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 如果指定，则路由采用匹配前缀规则，这意味着前缀必须匹配`:path`头部分。
 
-Precisely one of prefix, path, regex must be set.
+- **path**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 如果指定，路由是一个精确的路径规则，意味着一旦查询字符串被移除，路径必须与`:path`头完全匹配。
 
-- **path**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) If specified, the route is an exact path rule meaning that the path must exactly match the :path header once the query string is removed.
+- **regex**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 如果指定，则路由采用正则表达式规则，这意味着一旦查询字符串被移除，正则表达式必须匹配`:path`头。整个路径（不含查询字符串）必须匹配正则表达式。如果只有`:path`头的部分与正则表达式匹配，则实际规则为不匹配。这里定义了正则表达式语法。
 
+    实例:
+    - 正则表达式`/b[io]t` 匹配路径 `/bit`
+    - 正则表达式`/b[io]t` 匹配路径 `/bot`
+    - 正则表达式`/b[io]t` 不匹配路径 `/bite`
+    - 正则表达式`/b[io]t` 不匹配路径 `/bit/bot`
 
-Precisely one of prefix, path, regex must be set.
+    注意：只能选择`prefix`, `path`, `regex`其中一个设置。
 
-- **regex**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) If specified, the route is a regular expression rule meaning that the regex must match the :path header once the query string is removed. The entire path (without the query string) must match the regex. The rule will not match if only a subsequence of the :path header matches the regex. The regex grammar is defined here.
+- **case_sensitive**<br />
+	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) 表示前缀/路径匹配是否不区分大小写。默认值是true。
 
+- **runtime**<br />
+	([RuntimeUInt32](../v2APIreference/Commontypes.md#runtimeuint32)) 指定当前路由匹配另外运行时的key。设置一个0-100之间的整数，每当路由匹配时，将会产生一个0-99之间的随机数。如果该随机数<=当前设置的值（首先检查）或者该key不存在，则默认行为，则匹配该路径（假定所有路径都与路由匹配）。可以在运行时逐步进行路由的变更，而无需完整的部署配置。请参阅[流量转移](../Configurationreference/HTTPconnectionmanager/TrafficShiftingSplitting.md)文档以获取详细的说明。
 
-### Examples:
-
-### The regex /b[io]t matches the path /bit
-### The regex /b[io]t matches the path /bot
-### The regex /b[io]t does not match the path /bite
-### The regex /b[io]t does not match the path /bit/bot
-Precisely one of prefix, path, regex must be set.
-
-- **case_sensitive**</br>
-	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) Indicates that prefix/path matching should be case insensitive. The default is true.
-
-- **runtime**</br>
-	([RuntimeUInt32](#)) Indicates that the route should additionally match on a runtime key. An integer between 0-100. Every time the route is considered for a match, a random number between 0-99 is selected. If the number is <= the value found in the key (checked first) or, if the key is not present, the default value, the route is a match (assuming everything also about the route matches). A runtime route configuration can be used to roll out route changes in a gradual manner without full code/config deploys. Refer to the traffic shifting docs for additional documentation.
-
-- **headers**</br>
-	([HeaderMatcher](#)) Specifies a set of headers that the route should match on. The router will check the request’s headers against all the specified headers in the route config. A match will happen if all the headers in the route are present in the request with the same values (or based on presence if the value field is not in the config).
+- **headers**<br />
+	([HeaderMatcher](#headermatcher)) 指定路由匹配的一组头部字段。路由器将检查请求的头域中与该配置中的头部字段。如果路由配置中的所有头部字段都在请求头部匹配相同的值（或者路由配置的key存在，而value没有明确），则匹配将发生。
 
 ### CorsPolicy
 [CorsPolicy proto]()
@@ -238,552 +230,24 @@ Precisely one of prefix, path, regex must be set.
   "enabled": "{...}"
 }
 ```
-- **allow_origin**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the origins that will be allowed to do CORS requests.
 
-- **allow_methods**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the content for the access-control-allow-methods header.
+- **allow_origin**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 指定将被允许执行CORS请求的来源。
 
-- **allow_headers**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the content for the access-control-allow-headers header.
+- **allow_methods**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 指定`access-control-allow-methods`头部的内容。
 
-- **expose_headers**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the content for the access-control-expose-headers header.
+- **allow_headers**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 指定`access-control-allow-headers`头部的内容。
 
-- **max_age**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the content for the access-control-max-age header.
+- **expose_headers**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 指定`access-control-expose-headers`头部的内容。
 
-- **allow_credentials**</br>
-	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) Specifies whether the resource allows credentials.
+- **max_age**<br />
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 指定`access-control-max-age`头部的内容。
 
-- **enabled**</br>
-	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) Specifies if CORS is enabled. Defaults to true. Only effective on route.
+- **allow_credentials**<br />
+	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) 指定资源是否允许凭据。
 
-### RouteAction
-[RouteAction proto]()
-
-```
-{
-  "cluster": "...",
-  "cluster_header": "...",
-  "weighted_clusters": "{...}",
-  "cluster_not_found_response_code": "...",
-  "metadata_match": "{...}",
-  "prefix_rewrite": "...",
-  "host_rewrite": "...",
-  "auto_host_rewrite": "{...}",
-  "timeout": "{...}",
-  "retry_policy": "{...}",
-  "request_mirror_policy": "{...}",
-  "priority": "...",
-  "request_headers_to_add": [],
-  "response_headers_to_add": [],
-  "response_headers_to_remove": [],
-  "rate_limits": [],
-  "include_vh_rate_limits": "{...}",
-  "hash_policy": [],
-  "use_websocket": "{...}",
-  "cors": "{...}"
-}
-```
-- **cluster**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Indicates the upstream cluster to which the request should be routed to.
-
-
-Precisely one of cluster, cluster_header, weighted_clusters must be set.
-
-- **cluster_header**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Envoy will determine the cluster to route to by reading the value of the HTTP header named by cluster_header from the request headers. If the header is not found or the referenced cluster does not exist, Envoy will return a 404 response.
-
-
-### Attention
-
-Internally, Envoy always uses the HTTP/2 :authority header to represent the HTTP/1 Host header. Thus, if attempting to match on Host, match on :authority instead.
-
-Precisely one of cluster, cluster_header, weighted_clusters must be set.
-
-- **weighted_clusters**</br>
-	([WeightedCluster](#)) Multiple upstream clusters can be specified for a given route. The request is routed to one of the upstream clusters based on weights assigned to each cluster. See the traffic splitting for additional documentation.
-
-
-Precisely one of cluster, cluster_header, weighted_clusters must be set.
-
-- **cluster_not_found_response_code**</br>
-	([RouteAction.ClusterNotFoundResponseCode](#)) The HTTP status code to use when configured cluster is not found. The default response code is 503 Service Unavailable.
-
-- **metadata_match**</br>
-	([Metadata](#)) Optional endpoint metadata match criteria. Only endpoints in the upstream cluster with metadata matching that set in metadata_match will be considered. The filter name should be specified as envoy.lb.
-
-- **prefix_rewrite**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Indicates that during forwarding, the matched prefix (or path) should be swapped with this value. This option allows application URLs to be rooted at a different path from those exposed at the reverse proxy layer.
-
-- **host_rewrite**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Indicates that during forwarding, the host header will be swapped with this value.
-
-
-Only one of host_rewrite, auto_host_rewrite may be set.
-
-- **auto_host_rewrite**</br>
-	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) Indicates that during forwarding, the host header will be swapped with the hostname of the upstream host chosen by the cluster manager. This option is applicable only when the destination cluster for a route is of type strict_dns or logical_dns. Setting this to true with other cluster types has no effect.
-
-
-Only one of host_rewrite, auto_host_rewrite may be set.
-
-- **timeout**</br>
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) Specifies the timeout for the route. If not specified, the default is 15s.
-
-
-### Note
-
-This timeout includes all retries. See also x-envoy-upstream-rq-timeout-ms, x-envoy-upstream-rq-per-try-timeout-ms, and the retry overview.
-
-- **retry_policy**</br>
-	([RouteAction.RetryPolicy](#)) Indicates that the route has a retry policy.
-
-- **request_mirror_policy**</br>
-	([RouteAction.RequestMirrorPolicy](#)) Indicates that the route has a request mirroring policy.
-
-- **priority**</br>
-	([RoutingPriority](#)) Optionally specifies the routing priority.
-
-- **request_headers_to_add**</br>
-	([HeaderValueOption](#)) Specifies a set of headers that will be added to requests matching this route. Headers specified at this level are applied before headers from the enclosing VirtualHost and RouteConfiguration. For more information see the documentation on custom request headers.
-
-- **response_headers_to_add**</br>
-	([HeaderValueOption](#)) Specifies a set of headers that will be added to responses to requests matching this route. Headers specified at this level are applied before headers from the enclosing VirtualHost and RouteConfiguration.
-
-- **response_headers_to_remove**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies a list of HTTP headers that should be removed from each response to requests matching this route.
-
-- **rate_limits**</br>
-	([RateLimit](#)) Specifies a set of rate limit configurations that could be applied to the route.
-
-- **include_vh_rate_limits**</br>
-	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) Specifies if the rate limit filter should include the virtual host rate limits. By default, if the route configured rate limits, the virtual host rate_limits are not applied to the request.
-
-- **hash_policy**</br>
-	([RouteAction.HashPolicy](#)) Specifies a list of hash policies to use for ring hash load balancing. Each hash policy is evaluated individually and the combined result is used to route the request. The method of combination is deterministic such that identical lists of hash policies will produce the same hash. Since a hash policy examines specific parts of a request, it can fail to produce a hash (i.e. if the hashed header is not present). If (and only if) all configured hash policies fail to generate a hash, no hash will be produced for the route. In this case, the behavior is the same as if no hash policies were specified (i.e. the ring hash load balancer will choose a random backend).
-
-- **use_websocket**</br>
-	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) Indicates that a HTTP/1.1 client connection to this particular route should be allowed (and expected) to upgrade to a WebSocket connection. The default is false.
-
-
-### Attention
-
-If set to true, Envoy will expect the first request matching this route to contain WebSocket upgrade headers. If the headers are not present, the connection will be rejected. If set to true, Envoy will setup plain TCP proxying between the client and the upstream server. Hence, an upstream server that rejects the WebSocket upgrade request is also responsible for closing the associated connection. Until then, Envoy will continue to proxy data from the client to the upstream server.
-
-Redirects, timeouts and retries are not supported on routes where websocket upgrades are allowed.
-
-- **cors**</br>
-	([CorsPolicy](#)) Indicates that the route has a CORS policy.
-
-### RouteAction.RetryPolicy
-[RouteAction.RetryPolicy proto]()
-
-HTTP retry architecture overview.
-
-```
-{
-  "retry_on": "...",
-  "num_retries": "{...}",
-  "per_try_timeout": "{...}"
-}
-```
-- **retry_on**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the conditions under which retry takes place. These are the same conditions documented for x-envoy-retry-on and x-envoy-retry-grpc-on.
-
-- **num_retries**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) Specifies the allowed number of retries. This parameter is optional and defaults to 1. These are the same conditions documented for x-envoy-max-retries.
-
-- **per_try_timeout**</br>
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) Specifies a non-zero timeout per retry attempt. This parameter is optional. The same conditions documented for x-envoy-upstream-rq-per-try-timeout-ms apply.
-
-
-### Note
-
-If left unspecified, Envoy will use the global route timeout for the request. Consequently, when using a 5xx based retry policy, a request that times out will not be retried as the total timeout budget would have been exhausted.
-
-### RouteAction.RequestMirrorPolicy
-[RouteAction.RequestMirrorPolicy proto]()
-
-The router is capable of shadowing traffic from one cluster to another. The current implementation is “fire and forget,” meaning Envoy will not wait for the shadow cluster to respond before returning the response from the primary cluster. All normal statistics are collected for the shadow cluster making this feature useful for testing.
-
-During shadowing, the host/authority header is altered such that -shadow is appended. This is useful for logging. For example, cluster1 becomes cluster1-shadow.
-
-```
-{
-  "cluster": "...",
-  "runtime_key": "..."
-}
-```
-- **cluster**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) Specifies the cluster that requests will be mirrored to. The cluster must exist in the cluster manager configuration.
-
-- **runtime_key**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) If not specified, all requests to the target cluster will be mirrored. If specified, Envoy will lookup the runtime key to get the % of requests to mirror. Valid values are from 0 to 10000, allowing for increments of 0.01% of requests to be mirrored. If the runtime key is specified in the configuration but not present in runtime, 0 is the default and thus 0% of requests will be mirrored.
-
-### RouteAction.HashPolicy
-[RouteAction.HashPolicy proto]()
-
-Specifies the route’s hashing policy if the upstream cluster uses a hashing load balancer.
-
-```
-{
-  "header": "{...}",
-  "cookie": "{...}",
-  "connection_properties": "{...}"
-}
-```
-- **header**</br>
-	([RouteAction.HashPolicy.Header](#)) Header hash policy.
-
-
-Precisely one of header, cookie, connection_properties must be set.
-
-- **cookie**</br>
-	([RouteAction.HashPolicy.Cookie](#)) Cookie hash policy.
-
-
-Precisely one of header, cookie, connection_properties must be set.
-
-- **connection_properties**</br>
-	([RouteAction.HashPolicy.ConnectionProperties](#)) Connection properties hash policy.
-
-
-Precisely one of header, cookie, connection_properties must be set.
-
-### RouteAction.HashPolicy.Header
-[RouteAction.HashPolicy.Header proto]()
-
-```
-{
-  "header_name": "..."
-}
-```
-- **header_name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The name of the request header that will be used to obtain the hash key. If the request header is not present, no hash will be produced.
-
-### RouteAction.HashPolicy.Cookie
-[RouteAction.HashPolicy.Cookie proto]()
-
-### Envoy supports two types of cookie affinity:
-
-Passive. Envoy takes a cookie that’s present in the cookies header and hashes on its value.
-Generated. Envoy generates and sets a cookie with an expiration (TTL) on the first request from the client in its response to the client, based on the endpoint the request gets sent to. The client then presents this on the next and all subsequent requests. The hash of this is sufficient to ensure these requests get sent to the same endpoint. The cookie is generated by hashing the source and destination ports and addresses so that multiple independent HTTP2 streams on the same connection will independently receive the same cookie, even if they arrive at the Envoy simultaneously.
-```
-{
-  "name": "...",
-  "ttl": "{...}"
-}
-```
-- **name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The name of the cookie that will be used to obtain the hash key. If the cookie is not present and ttl below is not set, no hash will be produced.
-
-- **ttl**</br>
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) If specified, a cookie with the TTL will be generated if the cookie is not present.
-
-### RouteAction.HashPolicy.ConnectionProperties
-[RouteAction.HashPolicy.ConnectionProperties proto]()
-
-```
-{
-  "source_ip": "..."
-}
-```
-- **source_ip**</br>
-	([bool](#)) Hash on source IP address.
-
-Enum RouteAction.ClusterNotFoundResponseCode
-[RouteAction.ClusterNotFoundResponseCode proto]()
-
-### SERVICE_UNAVAILABLE
-	(DEFAULT) ?HTTP status code - 503 Service Unavailable.
-
-### NOT_FOUND
-?HTTP status code - 404 Not Found.
-### RedirectAction
-[RedirectAction proto]()
-
-```
-{
-  "host_redirect": "...",
-  "path_redirect": "...",
-  "response_code": "..."
-}
-```
-- **host_redirect**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) The host portion of the URL will be swapped with this value.
-
-- **path_redirect**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) The path portion of the URL will be swapped with this value.
-
-- **response_code**</br>
-	([RedirectAction.RedirectResponseCode](#)) The HTTP status code to use in the redirect response. The default response code is MOVED_PERMANENTLY (301).
-
-Enum RedirectAction.RedirectResponseCode
-[RedirectAction.RedirectResponseCode proto]()
-
-### MOVED_PERMANENTLY
-	(DEFAULT) ?Moved Permanently HTTP Status Code - 301.
-
-### FOUND
-?Found HTTP Status Code - 302.
-### SEE_OTHER
-?See Other HTTP Status Code - 303.
-### TEMPORARY_REDIRECT
-?Temporary Redirect HTTP Status Code - 307.
-### PERMANENT_REDIRECT
-?Permanent Redirect HTTP Status Code - 308.
-### Decorator
-[Decorator proto]()
-
-```
-{
-  "operation": "..."
-}
-```
-- **operation**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The operation name associated with the request matched to this route. If tracing is enabled, this information will be used as the span name reported for this request.
-
-
-### Note
-
-For ingress (inbound) requests, or egress (outbound) responses, this value may be overridden by the x-envoy-decorator-operation header.
-
-### VirtualCluster
-[VirtualCluster proto]()
-
-A virtual cluster is a way of specifying a regex matching rule against certain important endpoints such that statistics are generated explicitly for the matched requests. The reason this is useful is that when doing prefix/path matching Envoy does not always know what the application considers to be an endpoint. Thus, it’s impossible for Envoy to generically emit per endpoint statistics. However, often systems have highly critical endpoints that they wish to get “perfect” statistics on. Virtual cluster statistics are perfect in the sense that they are emitted on the downstream side such that they include network level failures.
-
-Documentation for virtual cluster statistics.
-
-### Note
-
-Virtual clusters are a useful tool, but we do not recommend setting up a virtual cluster for every application endpoint. This is both not easily maintainable and as well the matching and statistics output are not free.
-
-```
-{
-  "pattern": "...",
-  "name": "...",
-  "method": "..."
-}
-```
-- **pattern**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) Specifies a regex pattern to use for matching requests. The entire path of the request must match the regex. The regex grammar used is defined here.
-
-
-### Examples:
-
-### The regex /rides/d+ matches the path /rides/0
-### The regex /rides/d+ matches the path /rides/123
-### The regex /rides/d+ does not match the path /rides/123/456
-- **name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) Specifies the name of the virtual cluster. The virtual cluster name as well as the virtual host name are used when emitting statistics. The statistics are emitted by the router filter and are documented here.
-
-- **method**</br>
-	([RequestMethod](#)) Optionally specifies the HTTP method to match on. For example GET, PUT, etc.
-
-### RateLimit
-[RateLimit proto]()
-
-Global rate limiting architecture overview.
-
-```
-{
-  "stage": "{...}",
-  "disable_key": "...",
-  "actions": []
-}
-```
-- **stage**</br>
-	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) Refers to the stage set in the filter. The rate limit configuration only applies to filters with the same stage number. The default stage number is 0.
-
-
-### Note
-
-The filter supports a range of 0 - 10 inclusively for stage numbers.
-
-- **disable_key**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) The key to be set in runtime to disable this rate limit configuration.
-
-- **actions**</br>
-	([RateLimit.Action](#), REQUIRED) A list of actions that are to be applied for this rate limit configuration. Order matters as the actions are processed sequentially and the descriptor is composed by appending descriptor entries in that sequence. If an action cannot append a descriptor entry, no descriptor is generated for the configuration. See composing actions for additional documentation.
-
-### RateLimit.Action
-[RateLimit.Action proto]()
-
-```
-{
-  "source_cluster": "{...}",
-  "destination_cluster": "{...}",
-  "request_headers": "{...}",
-  "remote_address": "{...}",
-  "generic_key": "{...}",
-  "header_value_match": "{...}"
-}
-```
-- **source_cluster**</br>
-	([RateLimit.Action.SourceCluster](#)) Rate limit on source cluster.
-
-
-Precisely one of source_cluster, destination_cluster, request_headers, remote_address, generic_key, header_value_match must be set.
-
-- **destination_cluster**</br>
-	([RateLimit.Action.DestinationCluster](#)) Rate limit on destination cluster.
-
-
-Precisely one of source_cluster, destination_cluster, request_headers, remote_address, generic_key, header_value_match must be set.
-
-- **request_headers**</br>
-	([RateLimit.Action.RequestHeaders](#)) Rate limit on request headers.
-
-
-Precisely one of source_cluster, destination_cluster, request_headers, remote_address, generic_key, header_value_match must be set.
-
-- **remote_address**</br>
-	([RateLimit.Action.RemoteAddress](#)) Rate limit on remote address.
-
-
-Precisely one of source_cluster, destination_cluster, request_headers, remote_address, generic_key, header_value_match must be set.
-
-- **generic_key**</br>
-	([RateLimit.Action.GenericKey](#)) Rate limit on a generic key.
-
-
-Precisely one of source_cluster, destination_cluster, request_headers, remote_address, generic_key, header_value_match must be set.
-
-- **header_value_match**</br>
-	([RateLimit.Action.HeaderValueMatch](#)) Rate limit on the existence of request headers.
-
-
-Precisely one of source_cluster, destination_cluster, request_headers, remote_address, generic_key, header_value_match must be set.
-
-### RateLimit.Action.SourceCluster
-[RateLimit.Action.SourceCluster proto]()
-
-### The following descriptor entry is appended to the descriptor:
-
-	(["source_cluster"](#), "<local service cluster>")
-
-<local service cluster> is derived from the --service-cluster option.
-
-```
-{}
-RateLimit.Action.DestinationCluster
-[RateLimit.Action.DestinationCluster proto]
-
-The following descriptor entry is appended to the descriptor:
-
-("destination_cluster", "<routed target cluster>")
-Once a request matches against a route table rule, a routed cluster is determined by one of the following route table configuration settings:
-
-cluster indicates the upstream cluster to route to.
-weighted_clusters chooses a cluster randomly from a set of clusters with attributed weight.
-cluster_header indicates which header in the request contains the target cluster.
-{}
-RateLimit.Action.RequestHeaders
-[RateLimit.Action.RequestHeaders proto]
-
-The following descriptor entry is appended when a header contains a key that matches the header_name:
-
-("<descriptor_key>", "<header_value_queried_from_header>")
-{
-  "header_name": "...",
-  "descriptor_key": "..."
-}
-```
-- **header_name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The header name to be queried from the request headers. The header’s value is used to populate the value of the descriptor entry for the descriptor_key.
-
-- **descriptor_key**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The key to use in the descriptor entry.
-
-### RateLimit.Action.RemoteAddress
-[RateLimit.Action.RemoteAddress proto]()
-
-### The following descriptor entry is appended to the descriptor and is populated using the trusted address from x-forwarded-for:
-
-	(["remote_address"](#), "<trusted address from x-forwarded-for>")
-
-```
-{}
-RateLimit.Action.GenericKey
-[RateLimit.Action.GenericKey proto]
-
-The following descriptor entry is appended to the descriptor:
-
-("generic_key", "<descriptor_value>")
-{
-  "descriptor_value": "..."
-}
-```
-- **descriptor_value**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The value to use in the descriptor entry.
-
-### RateLimit.Action.HeaderValueMatch
-[RateLimit.Action.HeaderValueMatch proto]()
-
-### The following descriptor entry is appended to the descriptor:
-
-	(["header_match"](#), "<descriptor_value>")
-
-```
-{
-  "descriptor_value": "...",
-  "expect_match": "{...}",
-  "headers": []
-}
-```
-- **descriptor_value**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The value to use in the descriptor entry.
-
-- **expect_match**</br>
-	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) If set to true, the action will append a descriptor entry when the request matches the headers. If set to false, the action will append a descriptor entry when the request does not match the headers. The default value is true.
-
-- **headers**</br>
-	([HeaderMatcher](#), REQUIRED) Specifies a set of headers that the rate limit action should match on. The action will check the request’s headers against all the specified headers in the config. A match will happen if all the headers in the config are present in the request with the same values (or based on presence if the value field is not in the config).
-
-### HeaderMatcher
-[HeaderMatcher proto]()
-
-### Attention
-
-Internally, Envoy always uses the HTTP/2 :authority header to represent the HTTP/1 Host header. Thus, if attempting to match on Host, match on :authority instead.
-
-### Attention
-
-To route on HTTP method, use the special HTTP/2 :method header. This works for both HTTP/1 and HTTP/2 as Envoy normalizes headers. E.g.,
-
-```
-{
-  "name": ":method",
-  "value": "POST"
-}
-```
-```
-{
-  "name": "...",
-  "value": "...",
-  "regex": "{...}"
-}
-```
-- **name**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) Specifies the name of the header in the request.
-
-- **value**</br>
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the value of the header. If the value is absent a request that has the name header will match, regardless of the header’s value.
-
-- **regex**</br>
-	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) Specifies whether the header value is a regular expression or not. Defaults to false. The entire request header value must match the regex. The rule will not match if only a subsequence of the request header value matches the regex. The regex grammar used in the value field is defined here.
-
-
-### Examples:
-
-### The regex d{3} matches the value 123
-### The regex d{3} does not match the value 1234
-The regex d{3} does not match the value 123.456
-
-
-## 返回
-- [上一级](../v2APIreference.md)
-- [首页目录](../README.md)
+- **enabled**<br />
+	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) 指定是否启用CORS。默认为true。只在路由上有效。
