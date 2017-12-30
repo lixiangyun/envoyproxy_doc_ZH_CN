@@ -1,6 +1,6 @@
 # ENVOY智能代理中文参考文档 v1.5.0
 
-**目前还有V1/V2 API参考未完成，计划先翻译V2 API，预计年底完成全部。**
+**注意：目前仅剩V1 API参考未翻译，其他都基本完成。**
 
 ## 关于本文档
 - **简介**：介绍Envoy相关概念，以及总体的架构设计和常用的部署方式等
@@ -80,3 +80,5 @@
 - [发现API](v2APIreference/CommondiscoveryAPIcomponents.md)
 - [限速组件](v2APIreference/Commonratelimitcomponents.md)
 - [过滤器](v2APIreference/Filters.md)
+
+### [FAQ](FAQ.md)
