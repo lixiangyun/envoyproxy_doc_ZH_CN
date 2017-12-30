@@ -329,12 +329,12 @@
     注意：只能选择`cluster`, `cluster_header`, `weighted_clusters`其中一个设置。
 
 - **weighted_clusters**<br />
-	([WeightedCluster](#WeightedCluster)) 可以为该路由指定多个上游群集。根据每个群集的权重，将请求路由到其中一个上游群集。请参阅[流量拆分](../Configurationreference/HTTPconnectionmanager/TrafficShiftingSplitting.md)以获取详细说明。
+	([WeightedCluster](#weightedcluster)) 可以为该路由指定多个上游群集。根据每个群集的权重，将请求路由到其中一个上游群集。请参阅[流量拆分](../Configurationreference/HTTPconnectionmanager/TrafficShiftingSplitting.md)以获取详细说明。
 
     注意：只能选择`cluster`, `cluster_header`, `weighted_clusters`其中一个设置。
 
 - **cluster_not_found_response_code**<br />
-	([RouteAction.ClusterNotFoundResponseCode](#RouteAction.ClusterNotFoundResponseCode-Enum)) 未找到配置的群集时使用的HTTP状态码。默认响应码是503，服务不可用。
+	([RouteAction.ClusterNotFoundResponseCode](#routeactionclusternotfoundresponsecode-enum)) 未找到配置的群集时使用的HTTP状态码。默认响应码是503，服务不可用。
 
 - **metadata_match**<br />
 	([Metadata](../v2APIreference/Commontypes.md#metadata))（可选）端口元数据匹配条件，将仅考虑上游集群中具有与在`metadata_match`中设置的元数据匹配的端口，过滤器名称应该指定为`envoy.lb`。
@@ -358,13 +358,13 @@
     注意：该超时包括所有重试。 另请参阅[x-envoy-upstream-rq-timeout-ms](../Configurationreference/HTTPfilters/Router.md#x-envoy-upstream-rq-timeout-ms)，[x-envoy-upstream-rq-per-try-timeout-ms](../Configurationreference/HTTPfilters/Router.md#x-envoy-upstream-rq-per-try-timeout-ms)和[重试概述](../Introduction/Architectureoverview/HTTProuting.md)。
 
 - **retry_policy**<br />
-	([RouteAction.RetryPolicy](#RouteAction.RetryPolicy)) 表示该路由具有重试策略。
+	([RouteAction.RetryPolicy](#routeactionretrypolicy)) 表示该路由具有重试策略。
 
 - **request_mirror_policy**<br />
-	([RouteAction.RequestMirrorPolicy](#RouteAction.RequestMirrorPolicy)) 表示路由有请求镜像策略。
+	([RouteAction.RequestMirrorPolicy](#routeactionrequestmirrorpolicy)) 表示路由有请求镜像策略。
 
 - **priority**<br />
-	([RoutingPriority](#RoutingPriority)) 可选，指定路由的优先级。
+	([RoutingPriority](#routingpriority)) 可选，指定路由的优先级。
 
 - **request_headers_to_add**<br />
 	([HeaderValueOption](../v2APIreference/Commontypes.md#headervalueoption)) 指定将被添加到匹配此路由请求的一组头。在这个级别指定的头部将添加在`VirtualHost`和`RouteConfiguration`的头部之前。有关更多信息，请参阅自定义请求头的[文档](../Configurationreference/HTTPconnectionmanager/HTTPheadermanipulation.md)。
@@ -451,13 +451,13 @@ HTTP重试[架构概述](../Introduction/Architectureoverview/HTTProuting.md)。
 ```
 
 - **header**<br />
-	([RouteAction.HashPolicy.Header](#RouteAction.HashPolicy.Header)) Header哈希策略。
+	([RouteAction.HashPolicy.Header](#routeactionhashpolicyheader)) Header哈希策略。
 
 - **cookie**<br />
-	([RouteAction.HashPolicy.Cookie](#RouteAction.HashPolicy.Cookie)) Cookie哈希策略。
+	([RouteAction.HashPolicy.Cookie](#routeactionhashpolicycookie)) Cookie哈希策略。
 
 - **connection_properties**<br />
-	([RouteAction.HashPolicy.ConnectionProperties](#RouteAction.HashPolicy.ConnectionProperties)) 连接属性的哈希策略。
+	([RouteAction.HashPolicy.ConnectionProperties](#routeactionhashpolicyconnectionproperties)) 连接属性的哈希策略。
 
     注意：只能选择`header`, `cookie`, `connection_properties`其中一个设置。
 
@@ -537,7 +537,7 @@ Envoy支持两种类型的Cookie关联：
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 路径的URL部分将与此值交换。
 
 - **response_code**<br />
-	([RedirectAction.RedirectResponseCode](#RedirectAction.RedirectResponseCode Enum)) 在重定向响应中使用的HTTP状态代码。默认响应码是MOVED_PERMANENTLY（301）。
+	([RedirectAction.RedirectResponseCode](#redirectactionredirectresponsecode-enum)) 在重定向响应中使用的HTTP状态代码。默认响应码是MOVED_PERMANENTLY（301）。
 
 ### RedirectAction.RedirectResponseCode (Enum)
 [RedirectAction.RedirectResponseCode proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L555)
@@ -625,7 +625,7 @@ Envoy支持两种类型的Cookie关联：
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 在运行时禁用此速率限制的key配置。
 
 - **actions**<br />
-	([RateLimit.Action](#rateLimitaction), REQUIRED) 此速率限制应用相关的操作列表。顺序很重要，因为按顺序处理操作的，描述符是通过在该顺序中附加描述符条目来组成的。如果某个操作无法添加描述符条目，则不会为该配置生成描述符。请参阅相应的操作[文档](../Configurationreference/HTTPfilters/Ratelimit.md)。
+	([RateLimit.Action](#ratelimitaction), REQUIRED) 此速率限制应用相关的操作列表。顺序很重要，因为按顺序处理操作的，描述符是通过在该顺序中附加描述符条目来组成的。如果某个操作无法添加描述符条目，则不会为该配置生成描述符。请参阅相应的操作[文档](../Configurationreference/HTTPfilters/Ratelimit.md)。
 
 ### RateLimit.Action
 [RateLimit.Action proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L642)
@@ -641,22 +641,22 @@ Envoy支持两种类型的Cookie关联：
 }
 ```
 - **source_cluster**<br />
-	([RateLimit.Action.SourceCluster](#RateLimit.Action.SourceCluster)) 基于源群集的速率限制。
+	([RateLimit.Action.SourceCluster](#ratelimitactionsourcecluster)) 基于源群集的速率限制。
 
 - **destination_cluster**<br />
-	([RateLimit.Action.DestinationCluster](#RateLimit.Action.DestinationCluster)) 基于目标群集的速率限制。
+	([RateLimit.Action.DestinationCluster](#ratelimitactiondestinationcluster)) 基于目标群集的速率限制。
 
 - **request_headers**<br />
-	([RateLimit.Action.RequestHeaders](#RateLimit.Action.RequestHeaders)) 基于请求头的速率限制。
+	([RateLimit.Action.RequestHeaders](#ratelimitactionrequestheaders)) 基于请求头的速率限制。
 
 - **remote_address**<br />
-	([RateLimit.Action.RemoteAddress](#RateLimit.Action.RemoteAddress)) 基于远程地址的速率限制。
+	([RateLimit.Action.RemoteAddress](#ratelimitactionremoteaddress)) 基于远程地址的速率限制。
 
 - **generic_key**<br />
-	([RateLimit.Action.GenericKey](#RateLimit.Action.GenericKey)) 基于通用密钥的速率限制。
+	([RateLimit.Action.GenericKey](#ratelimitactiongenerickey)) 基于通用密钥的速率限制。
 
 - **header_value_match**<br />
-	([RateLimit.Action.HeaderValueMatch](#RateLimit.Action.HeaderValueMatch)) 请求头的内容匹配的速率限制。
+	([RateLimit.Action.HeaderValueMatch](#ratelimitactionheadervaluematch)) 请求头的内容匹配的速率限制。
 
     必须正确设置`source_cluster`，`destination_cluster`，`request_headers`，`remote_address`，`generic_key`，`header_value_match`其中的一个。
 
@@ -687,9 +687,9 @@ Envoy支持两种类型的Cookie关联：
 
 一旦请求与路由表规则匹配，则选择以下[路由表配置](../v2APIreference/HTTProutemanagementandRDS.md)设置之一路由集群：
 
-- [cluster](#RouteAction)：表示要到达的上游集群。
-- [weighted_clusters](#RouteAction)：从一组具有权重属性的集群组中随机选择一个集群。
-- [cluster_header](#RouteAction)：指示请求的头中选择所包含目标群集。
+- [cluster](#routeaction)：表示要到达的上游集群。
+- [weighted_clusters](#routeaction)：从一组具有权重属性的集群组中随机选择一个集群。
+- [cluster_header](#routeaction)：指示请求的头中选择所包含目标群集。
 
 ```
 {}
@@ -772,7 +772,7 @@ Envoy支持两种类型的Cookie关联：
 	([BoolValue](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#boolvalue)) 如果设置为true，则该操作将在请求与头部匹配时附加描述符条目。如果设置为false，则该操作将在请求不匹配头部时附加描述符条目。默认值是true。
 
 - **headers**<br />
-	([HeaderMatcher](#HeaderMatcher), REQUIRED) 指定速率限制操作应匹配的一组头部字段。该动作将检查请求的头部与配置中的所有指定头。如果配置中的所有头都存在于具有相同值的请求中（或者如果值字段不在配置中则基于存在），则匹配将发生。
+	([HeaderMatcher](#headermatcher), REQUIRED) 指定速率限制操作应匹配的一组头部字段。该动作将检查请求的头部与配置中的所有指定头。如果配置中的所有头都存在于具有相同值的请求中（或者如果值字段不在配置中则基于存在），则匹配将发生。
 
 ### HeaderMatcher
 [HeaderMatcher proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/rds.proto#L778)

@@ -2,9 +2,9 @@
 
 
 ### filter.FaultDelay
-[filter.FaultDelay proto]()
+[filter.FaultDelay proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/filter/fault.proto#L13)
 
-Delay specification is used to inject latency into the HTTP/gRPC/Mongo/Redis operation or delay proxying of TCP connections.
+延迟故障注入适用于在HTTP/gRPC/Mongo/Redis的操作中，提供延迟或延迟TCP连接的代理。
 
 ```
 {
@@ -13,25 +13,23 @@ Delay specification is used to inject latency into the HTTP/gRPC/Mongo/Redis ope
   "fixed_delay": "{...}"
 }
 ```
+
 - **type**<br />
-	([filter.FaultDelay.FaultDelayType](#)) Delay type to use (fixed|exponential|..). Currently, only fixed delay (step function) is supported.
+	([filter.FaultDelay.FaultDelayType](#filterfaultdelayfaultdelaytype-enum)) 要使用的延迟类型（固定|指数|..）。目前只支持固定延时（`step function`）。
 
 - **percent**<br />
-	([uint32](https://developers.google.com/protocol-buffers/docs/proto#scalar)) An integer between 0-100 indicating the percentage of operations/connection requests on which the delay will be injected.
+	([uint32](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 0到100之间的整数，表示将被注入延迟的操作/连接请求的百分比。
 
 - **fixed_delay**<br />
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) Add a fixed delay before forwarding the operation upstream. See https://developers.google.com/protocol-buffers/docs/proto3#json for the JSON/YAML Duration mapping. For HTTP/Mongo/Redis, the specified delay will be injected before a new request/operation. For TCP connections, the proxying of the connection upstream will be delayed for the specified period. This is required if type is FIXED.
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 在向上游转发操作之前添加固定延迟。有关JSON/YAML持续时间映射，请参阅[连接](https://developers.google.com/protocol-buffers/docs/proto3#json)。对于HTTP/Mongo/Redis，指定的延迟将在新的请求/操作之前被注入。对于TCP连接，连接上游的代理将在指定的时间段延迟。如果type是FIXED，则这是必需的。
 
+    注意：fixed_delay必须被设置。
 
-Precisely one of fixed_delay must be set.
-
-### filter.FaultDelay.FaultDelayType(Enum)
-[filter.FaultDelay.FaultDelayType proto]()
+### filter.FaultDelay.FaultDelayType (Enum)
+[filter.FaultDelay.FaultDelayType proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/filter/fault.proto#L14)
 
 - **FIXED**<br />
-	(DEFAULT) ?Fixed delay (step function).
-
-
+	(DEFAULT) 固定延迟（步进功能）。
 
 
 ## 返回

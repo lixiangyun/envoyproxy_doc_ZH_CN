@@ -49,7 +49,7 @@
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 提供在所有群集中必须唯一的群集名称。在发布统计信息时，会使用集群名称。在发布任何统计信息时，集群名称将被转换为`_`。默认情况下，群集名称的最大长度限制为60个字符。可通过`--max-obj-name-len`命令行参数，提高此上限。
 
 - **type**<br />
-	([Cluster.DiscoveryType](#clusterdiscoverytype-(enum)))  用于解析群集的服务发现类型。
+	([Cluster.DiscoveryType](#clusterdiscoverytype-enum)))  用于解析群集的服务发现类型。
 
 - **eds_cluster_config**<br />
 	([Cluster.EdsClusterConfig](#clusteredsclusterconfig)) 用于群集的EDS更新配置。
@@ -61,7 +61,7 @@
 	([UInt32Value](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#uint32value)) 连接集群的读写缓冲区大小。如果未指定，则使用默认值（1MB）。
 
 - **lb_policy**<br />
-	([Cluster.LbPolicy](#clusterlbpolicy-(enum))) 在集群中选择主机时使用的负载平衡器类型。
+	([Cluster.LbPolicy](#clusterlbpolicy-enum))) 在集群中选择主机时使用的负载平衡器类型。
 
 - **hosts**<br />
 	([Address](../v2APIreference/Networkaddresses.md)) 如果服务发现类型是`STATIC`，`STRICT_DNS`或`LOGICAL_DNS`，则需要配置。
@@ -92,7 +92,7 @@
 	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 指定DNS刷新率，在群集类型为`STRICT_DNS`或`LOGICAL_DNS`时，则将此值用作群集的DNS刷新率。如果未指定此设置，则此值默认为5000。对于`STRICT_DNS`和`LOGICAL_DNS`以外的群集类型，此设置将被忽略。
 
 - **dns_lookup_family**<br />
-	([Cluster.DnsLookupFamily](#clusterdnslookupfamily-(enum))) DNS IP地址解析策略。 如果未指定此设置，则该值默认为`V4_ONLY`。
+	([Cluster.DnsLookupFamily](#clusterdnslookupfamily-enum))) DNS IP地址解析策略。 如果未指定此设置，则该值默认为`V4_ONLY`。
 
 - **dns_resolvers**<br />
 	([Address](../v2APIreference/Networkaddresses.md)) 如果指定了DNS解析程序，并且群集类型是`STRICT_DNS`或`LOGICAL_DNS`，则此值用于指定群集的dns解析程序。如果未指定此设置，则该值默认为使用`/etc/resolv.conf`配置的默认解析器。对于`STRICT_DNS`和`LOGICAL_DNS`以外的其他集群类型，此设置将被忽略。

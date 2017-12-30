@@ -1,9 +1,9 @@
 ## 速率限制
 
-Rate limit configuration overview.
+速率限制[配置参考](../../../Configurationreference/Networkfilters/Ratelimit.md)。
 
 ### filter.network.RateLimit
-[filter.network.RateLimit proto]()
+[filter.network.RateLimit proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/filter/network/rate_limit.proto#L12)
 
 ```
 {
@@ -15,16 +15,16 @@ Rate limit configuration overview.
 ```
 
 - **stat_prefix**<br />
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The prefix to use when emitting statistics.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 发布统计信息时使用的前缀。
 
 - **domain**<br />
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The rate limit domain to use in the rate limit service request.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 用于速率限制服务请求中的域。
 
 - **descriptors**<br />
-	([RateLimitDescriptor](#), REQUIRED) The rate limit descriptor list to use in the rate limit service request.
+	([RateLimitDescriptor](../v2APIreference/Commonratelimitcomponents.md#ratelimitdescriptor), REQUIRED) 用于速率限制服务请求中的速率限制描述符列表。
 
 - **timeout**<br />
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) The timeout in milliseconds for the rate limit service RPC. If not set, this defaults to 20ms.
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 速率限制服务RPC的超时时间（以毫秒为单位）。如果未设置，则默认为20ms。
 
 
 ## 返回

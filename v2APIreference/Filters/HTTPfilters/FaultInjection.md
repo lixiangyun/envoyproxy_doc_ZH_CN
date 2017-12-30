@@ -1,10 +1,9 @@
 ## 故障注入
 
-### Fault Injection
-Fault Injection configuration overview.
+故障注入[配置参考](../../../Configurationreference/HTTPfilters/FaultInjection.md)。
 
-- **filter.http.FaultAbort**<br />
-[filter.http.FaultAbort proto]()
+### filter.http.FaultAbort
+[filter.http.FaultAbort proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/filter/http/fault.proto#L12)
 
 ```
 {
@@ -12,17 +11,17 @@ Fault Injection configuration overview.
   "http_status": "..."
 }
 ```
+
 - **percent**<br />
-	([uint32](https://developers.google.com/protocol-buffers/docs/proto#scalar)) An integer between 0-100 indicating the percentage of requests/operations/connections that will be aborted with the error code provided.
+	([uint32](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 一个介于0到100之间的整数，表示请求/操作/连接通过下面的状态码中止的百分比。 
 
 - **http_status**<br />
-	([uint32](https://developers.google.com/protocol-buffers/docs/proto#scalar)) HTTP status code to use to abort the HTTP request.
+	([uint32](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 用于中止HTTP请求的HTTP状态码。
 
+    注意：必须设置正确的http_status。
 
-Precisely one of http_status must be set.
-
-- **filter.http.HTTPFault**<br />
-[filter.http.HTTPFault proto]()
+### filter.http.HTTPFault
+[filter.http.HTTPFault proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/filter/http/fault.proto#L25)
 
 ```
 {
@@ -34,20 +33,19 @@ Precisely one of http_status must be set.
 }
 ```
 - **delay**<br />
-	([filter.FaultDelay](#)) If specified, the filter will inject delays based on the values in the object. At least abort or delay must be specified.
+	([filter.FaultDelay](#filterfaultdelay)) 如果指定，过滤器将根据配置的值注入延迟。必须指定中止或延迟。
 
 - **abort**<br />
-	([filter.http.FaultAbort](#)) If specified, the filter will abort requests based on the values in the object. At least abort or delay must be specified.
+	([filter.http.FaultAbort](#filterhttpfaultabort)) 如果指定，过滤器将根据配置的值中止请求。必须指定中止或延迟。
 
 - **upstream_cluster**<br />
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the name of the (destination) upstream cluster that the filter should match on. Fault injection will be restricted to requests bound to the specific upstream cluster.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 指定过滤器所匹配的（目标）上游群集的名称。故障注入将仅限于特定上游群集的请求。
 
 - **headers**<br />
-	([HeaderMatcher](#)) Specifies a set of headers that the filter should match on. The fault injection filter can be applied selectively to requests that match a set of headers specified in the fault filter config. The chances of actual fault injection further depend on the value of the percent field. The filter will check the request’s headers against all the specified headers in the filter config. A match will happen if all the headers in the config are present in the request with the same values (or based on presence if the value field is not in the config).
+	([HeaderMatcher](#headermatcher)) 指定过滤器应匹配的一组头部键值。故障注入过滤器支持根据配置中指定的一组头部匹配请求，来应用故障注入。实际故障注入的概率依赖与百分比字段的值。过滤器会根据配置中的所指定头部来检查请求。如果配置中的所有头部名称以及相应的值都存在于请求中（若没有配置头部的值，则也认为存在），则匹配将发生。
 
 - **downstream_nodes**<br />
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Faults are injected for the specified list of downstream hosts. If this setting is not set, faults are injected for all downstream nodes. Downstream node name is taken from the HTTP x-envoy-downstream-service-node header and compared against downstream_nodes list.
-
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 针对指定的下游主机列表进行注入故障。如果未设置此设置，则会为所有下游节点注入故障。下游节点名称取自HTTP的`x-envoy-downstream-service-node`头，并与下游节点列表进行比较。
 
 
 ## 返回

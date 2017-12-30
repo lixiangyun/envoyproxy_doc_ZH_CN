@@ -1,10 +1,9 @@
 ## 速率限制
 
-### Rate limit
-Rate limit configuration overview.
+速率限制[配置参考](../../../Configurationreference/HTTPfilters/Ratelimit.md)
 
-- **filter.http.RateLimit**<br />
-[filter.http.RateLimit proto]()
+### filter.http.RateLimit
+[filter.http.RateLimit proto](https://github.com/envoyproxy/data-plane-api/blob/master/api/filter/http/rate_limit.proto#L11)
 
 ```
 {
@@ -15,25 +14,18 @@ Rate limit configuration overview.
 }
 ```
 - **domain**<br />
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) The rate limit domain to use when calling the rate limit service.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar), REQUIRED) 需要调用速率限制服务时的域。
 
 - **stage**<br />
-	([uint32](https://developers.google.com/protocol-buffers/docs/proto#scalar)) Specifies the rate limit configurations to be applied with the same stage number. If not set, the default stage number is 0.
+	([uint32](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 指定要应用于的相应阶段的速率限制配置编号。如果未设置，则默认为0。
 
-
-### Note
-
-The filter supports a range of 0 - 10 inclusively for stage numbers.
+     注意：过滤器支持0到10的阶段编号。
 
 - **request_type**<br />
-	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) The type of requests the filter should apply to. The supported types are internal, external or both. A request is considered internal if x-envoy-internal is set to true. If x-envoy-internal is not set or false, a request is considered external. The filter defaults to both, and it will apply to all request types.
+	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 过滤器应该适用的请求类型。支持内部的，外部的或两者同时。如果将`x-envoy-internal`设置为true，则将请求视为内部请求。如果`x-envoy-internal`未设置或为false，则请求被视为外部。过滤器默认为两者同时，它将应用于所有的请求类型。
 
 - **timeout**<br />
-	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) The timeout in milliseconds for the rate limit service RPC. If not set, this defaults to 20ms.
-
-### Next  Previous
-
-
+	([Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)) 速率限制服务RPC的超时时间（以毫秒为单位）。如果未设置，则默认为20ms。
 
 ## 返回
 - [上一级](../HTTPfilters.md)
