@@ -11,10 +11,10 @@ The tracing configuration specifies global settings for the HTTP tracer used by 
 }
 ```
 - **http**<br />
-	([optional](#), object) Provides configuration for the HTTP tracer.
+	(optional, object) Provides configuration for the HTTP tracer.
 
 - **driver**<br />
-	([optional](#), object) Provides the driver that handles trace and span creation.
+	(optional, object) Provides the driver that handles trace and span creation.
 
 Currently LightStep and Zipkin drivers are supported.
 
@@ -29,10 +29,10 @@ Currently LightStep and Zipkin drivers are supported.
 }
 ```
 - **access_token_file**<br />
-	([required](#), string) File containing the access token to the LightStep API.
+	(required, string) File containing the access token to the LightStep API.
 
 - **collector_cluster**<br />
-	([required](#), string) The cluster manager cluster that hosts the LightStep collectors.
+	(required, string) The cluster manager cluster that hosts the LightStep collectors.
 
 ### Zipkin driver
 ```
@@ -45,10 +45,10 @@ Currently LightStep and Zipkin drivers are supported.
 }
 ```
 - **collector_cluster**<br />
-	([required](#), string) The cluster manager cluster that hosts the Zipkin collectors. Note that the Zipkin cluster must be defined under clusters in the cluster manager configuration section.
+	(required, string) The cluster manager cluster that hosts the Zipkin collectors. Note that the Zipkin cluster must be defined under clusters in the cluster manager configuration section.
 
 - **collector_endpoint**<br />
-	([optional](#), string) The API endpoint of the Zipkin service where the spans will be sent. When using a standard Zipkin installation, the API endpoint is typically /api/v1/spans, which is the default value.
+	(optional, string) The API endpoint of the Zipkin service where the spans will be sent. When using a standard Zipkin installation, the API endpoint is typically /api/v1/spans, which is the default value.
 
 
 

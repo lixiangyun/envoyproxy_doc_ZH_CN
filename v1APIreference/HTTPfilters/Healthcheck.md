@@ -12,13 +12,13 @@ Health check configuration overview.
 }
 ```
 - **pass_through_mode**<br />
-	([required](#), boolean) Specifies whether the filter operates in pass through mode or not.
+	(required, boolean) Specifies whether the filter operates in pass through mode or not.
 
 - **endpoint**<br />
-	([required](#), string) Specifies the incoming HTTP endpoint that should be considered the health check endpoint. For example /healthcheck.
+	(required, string) Specifies the incoming HTTP endpoint that should be considered the health check endpoint. For example /healthcheck.
 
 - **cache_time_ms**<br />
-	([optional](#), integer) If operating in pass through mode, the amount of time in milliseconds that the filter should cache the upstream response.
+	(optional, integer) If operating in pass through mode, the amount of time in milliseconds that the filter should cache the upstream response.
 
 ### Next  Previous
 

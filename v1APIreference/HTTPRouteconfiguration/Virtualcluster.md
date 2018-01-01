@@ -13,13 +13,13 @@ Virtual clusters are a useful tool, but we do not recommend setting up a virtual
 }
 ```
 - **pattern**<br />
-	([required](#), string) Specifies a regex pattern to use for matching requests. The entire path of the request must match the regex. The regex grammar used is defined here.
+	(required, string) Specifies a regex pattern to use for matching requests. The entire path of the request must match the regex. The regex grammar used is defined here.
 
 - **name**<br />
-	([required](#), string) Specifies the name of the virtual cluster. The virtual cluster name as well as the virtual host name are used when emitting statistics. The statistics are emitted by the router filter and are documented here.
+	(required, string) Specifies the name of the virtual cluster. The virtual cluster name as well as the virtual host name are used when emitting statistics. The statistics are emitted by the router filter and are documented here.
 
 - **method**<br />
-	([optional](#), string) Optionally specifies the HTTP method to match on. For example GET, PUT, etc.
+	(optional, string) Optionally specifies the HTTP method to match on. For example GET, PUT, etc.
 
 
 ### Examples:

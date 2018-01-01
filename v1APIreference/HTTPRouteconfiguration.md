@@ -20,20 +20,20 @@
 }
 ```
 - **validate_clusters**<br />
-	([optional](#), boolean) An optional boolean that specifies whether the clusters that the route table refers to will be validated by the cluster manager. If set to true and a route refers to a non-existent cluster, the route table will not load. If set to false and a route refers to a non-existent cluster, the route table will load and the router filter will return a 404 if the route is selected at runtime. This setting defaults to true if the route table is statically defined via the route_config option. This setting default to false if the route table is loaded dynamically via the rds option. Users may which to override the default behavior in certain cases (for example when using cds with a static route table).
+	(optional, boolean) An optional boolean that specifies whether the clusters that the route table refers to will be validated by the cluster manager. If set to true and a route refers to a non-existent cluster, the route table will not load. If set to false and a route refers to a non-existent cluster, the route table will load and the router filter will return a 404 if the route is selected at runtime. This setting defaults to true if the route table is statically defined via the route_config option. This setting default to false if the route table is loaded dynamically via the rds option. Users may which to override the default behavior in certain cases (for example when using cds with a static route table).
 
 - **virtual_hosts**<br />
-	([required](#), array) An array of virtual hosts that make up the route table.
+	(required, array) An array of virtual hosts that make up the route table.
 
 - **internal_only_headers**<br />
-	([optional](#), array) Optionally specifies a list of HTTP headers that the connection manager will consider to be internal only. If they are found on external requests they will be cleaned prior to filter invocation. See x-envoy-internal for more information. Headers are specified in the following form:
+	(optional, array) Optionally specifies a list of HTTP headers that the connection manager will consider to be internal only. If they are found on external requests they will be cleaned prior to filter invocation. See x-envoy-internal for more information. Headers are specified in the following form:
 
 
 ```
 ["header1", "header2"]
 ```
 - **response_headers_to_add**<br />
-	([optional](#), array) Optionally specifies a list of HTTP headers that should be added to each response that the connection manager encodes. Headers are specified in the following form:
+	(optional, array) Optionally specifies a list of HTTP headers that should be added to each response that the connection manager encodes. Headers are specified in the following form:
 
 
 ```
@@ -43,14 +43,14 @@
 ]
 ```
 - **response_headers_to_remove**<br />
-	([optional](#), array) Optionally specifies a list of HTTP headers that should be removed from each response that the connection manager encodes. Headers are specified in the following form:
+	(optional, array) Optionally specifies a list of HTTP headers that should be removed from each response that the connection manager encodes. Headers are specified in the following form:
 
 
 ```
 ["header1", "header2"]
 ```
 - **request_headers_to_add**<br />
-	([optional](#), array) Specifies a list of HTTP headers that should be added to each request forwarded by the HTTP connection manager. Headers are specified in the following form:
+	(optional, array) Specifies a list of HTTP headers that should be added to each request forwarded by the HTTP connection manager. Headers are specified in the following form:
 
 
 ```

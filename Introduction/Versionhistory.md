@@ -1,5 +1,153 @@
 ### 历史版本
 
+### 1.5.0
+- access log: added fields for UPSTREAM_LOCAL_ADDRESS and DOWNSTREAM_ADDRESS.
+- admin: added JSON output for stats admin endpoint.
+- admin: added basic Prometheus output for stats admin endpoint. Histograms are not currently output.
+- admin: added version_info to the /clusters admin endpoint.
+- config: the v2 API is now considered production ready.
+- config: added --v2-config-only CLI flag.
+- cors: added CORS filter.
+- health check: added x-envoy-immediate-health-check-fail header support.
+- health check: added reuse_connection option.
+- http: added per-listener stats.
+- http: end-to-end HTTP flow control is now complete across both connections, streams, and filters.
+- load balancer: added subset load balancer.
+- load balancer: added ring size and hash configuration options. This used to be configurable via runtime. The runtime configuration was deleted without deprecation as we are fairly certain no one is using it.
+- log: added the ability to optionally log to a file instead of stderr via the --log-path option.
+- listeners: added drain_type option.
+- lua: added experimental Lua filter.
+- mongo filter: added fault injection.
+- mongo filter: added “drain close” support.
+- outlier detection: added HTTP gateway failure type. See DEPRECATED.md for outlier detection stats deprecations in this release.
+- redis: the redis proxy filter is now considered production ready.
+- redis: added “drain close” functionality.
+- router: added x-envoy-overloaded support.
+- router: added regex route matching.
+- router: added custom request headers for upstream requests.
+- router: added downstream IP hashing for HTTP ketama routing.
+- router: added cookie hashing.
+- router: added start_child_span option to create child span for egress calls.
+- router: added optional upstream logs.
+- router: added complete custom append/override/remove support of request/response headers.
+- router: added support to specify response code during redirect.
+- router: added configuration to return either a 404 or 503 if the upstream cluster does not exist.
+- runtime: added comment capability.
+- server: change default log level (-l) to info.
+- stats: maximum stat/name sizes and maximum number of stats are now variable via the --max-obj-name-len and --max-stats options.
+- tcp proxy: added access logging.
+- tcp proxy: added configurable connect retries.
+- tcp proxy: enable use of outlier detector.
+- tls: added SNI support.
+- tls: added support for specifying TLS session ticket keys.
+- tls: allow configuration of the min and max TLS protocol versions.
+- tracing: added custom trace span decorators.
+- Many small bug fixes and performance improvements not listed.
+
+### 1.4.0
+- macOS is now supported. (A few features are missing such as hot restart and original destination routing).
+- YAML is now directly supported for config files.
+- Added /routes admin endpoint.
+- End-to-end flow control is now supported for TCP proxy, HTTP/1, and HTTP/2. HTTP flow control that includes filter buffering is incomplete and will be implemented in 1.5.0.
+- Log verbosity compile time flag added.
+- Hot restart compile time flag added.
+- Original destination cluster and load balancer added.
+- WebSocket is now supported.
+- Virtual cluster priorities have been hard removed without deprecation as we are reasonably sure no one is using this feature.
+- Route validate_clusters option added.
+- x-envoy-downstream-service-node header added.
+- x-forwarded-client-cert header added.
+- Initial HTTP/1 forward proxy support for absolute URLs has been added.
+- HTTP/2 codec settings are now configurable.
+- gRPC/JSON transcoder filter added.
+- gRPC web filter added.
+- Configurable timeout for the rate limit service call in the network and HTTP rate limit filters.
+- x-envoy-retry-grpc-on header added.
+- LDS API added.
+- TLS require_client_certificate option added.
+- Configuration check tool added.
+- JSON schema check tool added.
+- Config validation mode added via the --mode option.
+- --local-address-ip-version option added.
+- IPv6 support is now complete.
+- UDP statsd_ip_address option added.
+- Per-cluster DNS resolvers added.
+- Fault filter enhancements and fixes.
+- Several features are deprecated as of the 1.4.0 release. They will be removed at the beginning of the 1.5.0 release cycle. We explicitly call out that the HttpFilterConfigFactory filter API has been deprecated in favor of NamedHttpFilterConfigFactory.
+- Many small bug fixes and performance improvements not listed.
+
+### 1.3.0
+- As of this release, we now have an official breaking change policy. Note that there are numerous breaking configuration changes in this release. They are not listed here. Future releases will adhere to the policy and have clear documentation on deprecations and changes.
+- Bazel is now the canonical build system (replacing CMake). There have been a huge number of changes to the development/build/test flow. See /bazel/README.md and /ci/README.md for more information.
+- Outlier detection has been expanded to include success rate variance, and all parameters are now configurable in both runtime and in the JSON configuration.
+- TCP level listener and cluster connections now have configurable receive buffer limits at which point connection level back pressure is applied. Full end to end flow control will be available in a future release.
+- Redis health checking has been added as an active health check type. Full Redis support will be documented/supported in 1.4.0.
+- TCP health checking now supports a “connect only” mode that only checks if the remote server can be connected to without writing/reading any data.
+- BoringSSL is now the only supported TLS provider. The default cipher suites and ECDH curves have been updated with more modern defaults for both listener and cluster connections.
+- The header value match rate limit action has been expanded to include an expect match parameter.
+- Route level HTTP rate limit configurations now do not inherit the virtual host level configurations by default. The include_vh_rate_limits to inherit the virtual host level options if desired.
+- HTTP routes can now add request headers on a per route and per virtual host basis via the request_headers_to_add option.
+- The example configurations have been refreshed to demonstrate the latest features.
+- per_try_timeout_ms can now be configured in a route’s retry policy in addition to via the x-envoy-upstream-rq-per-try-timeout-ms HTTP header.
+- HTTP virtual host matching now includes support for prefix wildcard domains (e.g., *.lyft.com).
+- The default for tracing random sampling has been changed to 100% and is still configurable in runtime.
+- HTTP tracing configuration has been extended to allow tags to be populated from arbitrary HTTP headers.
+- The HTTP rate limit filter can now be applied to internal, external, or all requests via the request_type option.
+- Listener binding now requires specifying an address field. This can be used to bind a listener to both a specific address as well as a port.
+- The MongoDB filter now emits a stat for queries that do not have $maxTimeMS set.
+- The MongoDB filter now emits logs that are fully valid JSON.
+- The CPU profiler output path is now configurable.
+- A watchdog system has been added that can kill the server if a deadlock is detected.
+- A route table checking tool has been added that can be used to test route tables before use.
+- We have added an example repo that shows how to compile/link a custom filter.
+- Added additional cluster wide information related to outlier detection to the /clusters admin endpoint.
+- Multiple SANs can now be verified via the verify_subject_alt_name setting. Additionally, URI type SANs can be verified.
+- HTTP filters can now be passed opaque configuration specified on a per route basis.
+- By default Envoy now has a built in crash handler that will print a back trace. This behavior can be disabled if desired via the --define=signal_trace=disabled Bazel option.
+- Zipkin has been added as a supported tracing provider.
+- Numerous small changes and fixes not listed here.
+
+### 1.2.0
+- Cluster discovery service (CDS) API.
+- Outlier detection (passive health checking).
+- Envoy configuration is now checked against a JSON schema.
+- Ring hash consistent load balancer, as well as HTTP consistent hash routing based on a policy.
+- Vastly enhanced global rate limit configuration via the HTTP rate limiting filter.
+- HTTP routing to a cluster retrieved from a header.
+- Weighted cluster HTTP routing.
+- Auto host rewrite during HTTP routing.
+- Regex header matching during HTTP routing.
+- HTTP access log runtime filter.
+- LightStep tracer parent/child span association.
+- Route discovery service (RDS) API.
+- HTTP router x-envoy-upstream-rq-timeout-alt-response header support.
+- use_original_dst and bind_to_port listener options (useful for iptables based transparent proxy support).
+- TCP proxy filter route table support.
+- Configurable stats flush interval.
+- Various third party library upgrades, including using BoringSSL as the default SSL provider.
+- No longer maintain closed HTTP/2 streams for priority calculations. Leads to substantial memory savings for large meshes.
+- Numerous small changes and fixes not listed here.
+### 1.1.0
+- Switch from Jannson to RapidJSON for our JSON library (allowing for a configuration schema in 1.2.0).
+- Upgrade recommended version of various other libraries.
+- Configurable DNS refresh rate for DNS service discovery types.
+- Upstream circuit breaker configuration can be overridden via runtime.
+- Zone aware routing support.
+- Generic header matching routing rule.
+- HTTP/2 graceful connection draining (double GOAWAY).
+- DynamoDB filter per shard statistics (pre-release AWS feature).
+- Initial release of the fault injection HTTP filter.
+- HTTP rate limit filter enhancements (note that the configuration for HTTP rate limiting is going to be overhauled in 1.2.0).
+- Added refused-stream retry policy.
+- Multiple priority queues for upstream clusters (configurable on a per route basis, with separate connection pools, circuit breakers, etc.).
+- Added max connection circuit breaking to the TCP proxy filter.
+- Added CLI options for setting the logging file flush interval as well as the drain/shutdown time during hot restart.
+- A very large number of performance enhancements for core HTTP/TCP proxy flows as well as a few new configuration flags to allow disabling expensive features if they are not needed (specifically request ID generation and dynamic response code stats).
+- Support Mongo 3.2 in the Mongo sniffing filter.
+- Lots of other small fixes and enhancements not listed.
+
+### 1.0.0
+- Initial open source release.
 
 ### 返回
 - [简介](../Introduction.md)

@@ -1,5 +1,6 @@
-### Client TLS authentication
-Client TLS authentication configuration overview.
+### TLS客户端身份认证
+
+TLS客户端身份认证[配置参考](../../Configurationreference/Networkfilters/ClientTLSauthentication.md)。
 
 ```
 {
@@ -12,29 +13,27 @@ Client TLS authentication configuration overview.
   }
 }
 ```
+
 - **auth_api_cluster**<br />
-	([required](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) The cluster manager cluster that runs the authentication service. The filter will connect to the service every 60s to fetch the list of principals. The service must support the expected REST API.
+	(required, string) 所运行的身份验证服务的群集名称。过滤器将每60秒连接到该服务以获取身份信息。该服务必须支持预期的[REST API](../../Configurationreference/Networkfilters/ClientTLSauthentication.md)。
 
 - **stat_prefix**<br />
-	([required](https://developers.google.com/protocol-buffers/docs/proto#scalar), string) The prefix to use when emitting statistics.
+	(required, string) 发布统计信息时使用的前缀。
 
 - **refresh_delay_ms**<br />
-	([optional](#), integer) Time in milliseconds between principal refreshes from the authentication service. Default is 60000 (60s). The actual fetch time will be this value plus a random jittered value between 0-refresh_delay_ms milliseconds.
+	(optional, integer) 验证服务的身份信息刷新间隔（以毫秒为单位）。默认是60000（60s）。实际的提取时间将是这个值加0到`refresh_delay_ms`毫秒之间的随机抖动值。
 
 - **ip_white_list**<br />
-	([optional](#), array) An optional list of IP address and subnet masks that should be white listed for access by the filter. If no list is provided, there is no IP white list. The list is specified as in the following example:
+	(optional, array) 一个可选的IP地址和子网掩码列表，提供白名单列表给过滤器使用。如果没有提供列表，则没有IP白名单。该列表如下例所示：
 
-
-```
-[
-  "192.168.3.0/24",
-  "50.1.2.3/32",
-  "10.15.0.0/16",
-  "2001:abcd::/64"
-]
-```
-
-
+    ```
+    [
+      "192.168.3.0/24",
+      "50.1.2.3/32",
+      "10.15.0.0/16",
+      "2001:abcd::/64"
+    ]
+    ```
 
 ## 返回
 - [上一级](../Networkfilters.md)

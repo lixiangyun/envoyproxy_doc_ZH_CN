@@ -13,27 +13,27 @@
 }
 ```
 - **alpn_protocols**<br />
-	([optional](#), string) Supplies the list of ALPN protocols that connections should request. In practice this is likely to be set to a single value or not set at all:
+	(optional, string) Supplies the list of ALPN protocols that connections should request. In practice this is likely to be set to a single value or not set at all:
 
 
 “h2” If upstream connections should use HTTP/2. In the current implementation this must be set alongside the http2 cluster features option. The two options together will use ALPN to tell a server that expects ALPN that Envoy supports HTTP/2. Then the http2 feature will cause new connections to use HTTP/2.
 - **cert_chain_file**<br />
-	([optional](#), string) The certificate chain file that should be served by the connection. This is used to provide a client side TLS certificate to an upstream host.
+	(optional, string) The certificate chain file that should be served by the connection. This is used to provide a client side TLS certificate to an upstream host.
 
 - **private_key_file**<br />
-	([optional](#), string) The private key that corresponds to the certificate chain file.
+	(optional, string) The private key that corresponds to the certificate chain file.
 
 - **ca_cert_file**<br />
-	([optional](#), string) A file containing certificate authority certificates to use in verifying a presented server certificate.
+	(optional, string) A file containing certificate authority certificates to use in verifying a presented server certificate.
 
 - **verify_certificate_hash**<br />
-	([optional](#), string) If specified, Envoy will verify (pin) the hash of the presented server certificate.
+	(optional, string) If specified, Envoy will verify (pin) the hash of the presented server certificate.
 
 - **verify_subject_alt_name**<br />
-	([optional](#), array) An optional list of subject alt names. If specified, Envoy will verify that the server certificate’s subject alt name matches one of the specified values.
+	(optional, array) An optional list of subject alt names. If specified, Envoy will verify that the server certificate’s subject alt name matches one of the specified values.
 
 - **cipher_suites**<br />
-	([optional](#), string) If specified, the TLS connection will only support the specified cipher list. If not specified, the default list:
+	(optional, string) If specified, the TLS connection will only support the specified cipher list. If not specified, the default list:
 
 ```
 [ECDHE-ECDSA-AES128-GCM-SHA256|ECDHE-ECDSA-CHACHA20-POLY1305]
@@ -60,10 +60,10 @@
 will be used.
 
 - **ecdh_curves**<br />
-	([optional](#), string) If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves (X25519, P-256) will be used.
+	(optional, string) If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves (X25519, P-256) will be used.
 
 - **sni**<br />
-	([optional](#), string) If specified, the string will be presented as the SNI during the TLS handshake.
+	(optional, string) If specified, the string will be presented as the SNI during the TLS handshake.
 
 
 

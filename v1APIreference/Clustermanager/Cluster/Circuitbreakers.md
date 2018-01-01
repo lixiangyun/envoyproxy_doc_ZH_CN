@@ -10,10 +10,10 @@ Circuit breaking settings can be specified individually for each defined priorit
 }
 ```
 - **default**<br />
-	([optional](#), object) Settings object for default priority.
+	(optional, object) Settings object for default priority.
 
 - **high**<br />
-	([optional](#), object) Settings object for high priority.
+	(optional, object) Settings object for high priority.
 
 ### Per priority settings
 ```
@@ -25,16 +25,16 @@ Circuit breaking settings can be specified individually for each defined priorit
 }
 ```
 - **max_connections**<br />
-	([optional](#), integer) The maximum number of connections that Envoy will make to the upstream cluster. If not specified, the default is 1024. See the circuit breaking overview for more information.
+	(optional, integer) The maximum number of connections that Envoy will make to the upstream cluster. If not specified, the default is 1024. See the circuit breaking overview for more information.
 
 - **max_pending_requests**<br />
-	([optional](#), integer) The maximum number of pending requests that Envoy will allow to the upstream cluster. If not specified, the default is 1024. See the circuit breaking overview for more information.
+	(optional, integer) The maximum number of pending requests that Envoy will allow to the upstream cluster. If not specified, the default is 1024. See the circuit breaking overview for more information.
 
 - **max_requests**<br />
-	([optional](#), integer) The maximum number of parallel requests that Envoy will make to the upstream cluster. If not specified, the default is 1024. See the circuit breaking overview for more information.
+	(optional, integer) The maximum number of parallel requests that Envoy will make to the upstream cluster. If not specified, the default is 1024. See the circuit breaking overview for more information.
 
 - **max_retries**<br />
-	([optional](#), integer) The maximum number of parallel retries that Envoy will allow to the upstream cluster. If not specified, the default is 3. See the circuit breaking overview for more information.
+	(optional, integer) The maximum number of parallel retries that Envoy will allow to the upstream cluster. If not specified, the default is 3. See the circuit breaking overview for more information.
 
 
 
