@@ -1,14 +1,9 @@
 ## HTTP路由配置
 
-- [虚拟主机](HTTPRouteconfiguration/Virtualhost.md)
-- [路由](HTTPRouteconfiguration/Route.md)
-- [虚拟集群](HTTPRouteconfiguration/Virtualcluster.md)
-- [速率限制配置](HTTPRouteconfiguration/Ratelimitconfiguration.md)
-- [路由发现服务](HTTPRouteconfiguration/RoutediscoveryserviceRDS.md)
+- HTTP路由[架构概述](../Introduction/Architectureoverview/HTTProuting.md)
+- HTTP路由[过滤器](../Configurationreference/HTTPfilters/Router.md)
 
-### HTTP Route configuration
-### Routing architecture overview
-### HTTP router filter
+
 ```
 {
   "validate_clusters": "...",
@@ -20,7 +15,7 @@
 }
 ```
 - **validate_clusters**<br />
-	(optional, boolean) An optional boolean that specifies whether the clusters that the route table refers to will be validated by the cluster manager. If set to true and a route refers to a non-existent cluster, the route table will not load. If set to false and a route refers to a non-existent cluster, the route table will load and the router filter will return a 404 if the route is selected at runtime. This setting defaults to true if the route table is statically defined via the route_config option. This setting default to false if the route table is loaded dynamically via the rds option. Users may which to override the default behavior in certain cases (for example when using cds with a static route table).
+	(optional, boolean) 一个可选的布尔值，指定路由表引用的集群是否由集群管理器验证。如果设置为true，并且路由引用了不存在的集群，则路由表将不会加载。如果设置为false，并且路由引用不存在的集群，则路由表将加载，如果在运行时选择路由，则路由器过滤器将返回404。如果路由表是通过route_config选项静态定义的，则此设置默认为true。如果路由表是通过rds选项动态加载的，则此设置默认为false。用户可以在某些情况下重写默认行为（例如，当使用静态路由表时使用cds）。
 
 - **virtual_hosts**<br />
 	(required, array) An array of virtual hosts that make up the route table.
@@ -60,6 +55,13 @@
 ]
 ```
 For more information see the documentation on custom request headers.
+
+
+- [虚拟主机](HTTPRouteconfiguration/Virtualhost.md)
+- [路由](HTTPRouteconfiguration/Route.md)
+- [虚拟集群](HTTPRouteconfiguration/Virtualcluster.md)
+- [速率限制配置](HTTPRouteconfiguration/Ratelimitconfiguration.md)
+- [路由发现服务](HTTPRouteconfiguration/RoutediscoveryserviceRDS.md)
 
 
 ## 返回

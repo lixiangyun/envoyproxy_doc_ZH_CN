@@ -30,7 +30,7 @@ TCP代理[配置参考](../../Configurationreference/Networkfilters/TCPproxy.md)
 	(required, array) 组成路由表的一组路由条目。
 
 ### Route
-TCP代理路由由一组可选的L4标准和一个集群的名称组成。如果下游连接符合所有指定的条件，则路由中的集群将用于相应的上游连接。按照指定的顺序尝试路由，直到找到匹配项。如果找不到匹配，则连接关闭。没有标准的路线是有效的，并且总是产生一个匹配。
+TCP代理的路由是由一组可选的标准L4和一个集群的名称组成。如果下游连接符合所有指定的条件，则路由中的集群将用于相应的上游连接。按照指定的顺序进行路由尝试，直到找到匹配的路由。如果找不到匹配，则连接关闭。并不是始终有相应的路由，以及对应的匹配。
 
 ```
 {
@@ -42,53 +42,49 @@ TCP代理路由由一组可选的L4标准和一个集群的名称组成。如果
 }
 ```
 - **cluster**<br />
-	(required, string) The cluster to connect to when a the downstream network connection matches the specified criteria.
+	(required, string) 符合指定条件时要连接的下游群集。
 
 - **destination_ip_list**<br />
-	(optional, array) An optional list of IP address subnets in the form “ip_address/xx”. The criteria is satisfied if the destination IP address of the downstream connection is contained in at least one of the specified subnets. If the parameter is not specified or the list is empty, the destination IP address is ignored. The destination IP address of the downstream connection might be different from the addresses on which the proxy is listening if the connection has been redirected. Example:
+	(optional, array) 可选，包含IP地址子网的列表，格式为“ip_address/xx”。如果下游连接的目标IP地址包含在至少一个指定的子网中，则条件匹配。如果未指定参数或列表为空，则将忽略目标IP地址。如果连接已被重定向，则下游连接的目标IP地址可能与代理正在监听的地址不同。例：
 
-```
-[
-  "192.168.3.0/24",
-  "50.1.2.3/32",
-  "10.15.0.0/16",
-  "2001:abcd::/64"
-]
-```
+    ```
+    [
+      "192.168.3.0/24",
+      "50.1.2.3/32",
+      "10.15.0.0/16",
+      "2001:abcd::/64"
+    ]
+    ```
 
 
 - **destination_ports**<br />
-	(optional, string) An optional string containing a comma-separated list of port numbers or ranges. The criteria is satisfied if the destination port of the downstream connection is contained in at least one of the specified ranges. If the parameter is not specified, the destination port is ignored. The destination port address of the downstream connection might be different from the port on which the proxy is listening if the connection has been redirected. Example:
+	(optional, string) 包含`.`分隔符的端口号或端口范围列表。如果下游连接的目标端口至少包含在一个指定范围内，则条件匹配。如果未指定参数，则将忽略目标端口。如果连接已被重定向，下游连接的目标端口地址可能与代理正在监听的端口不同。例：
 
-```
-{
-  "destination_ports": "1-1024,2048-4096,12345"
-}
-```
+    ```
+    {
+      "destination_ports": "1-1024,2048-4096,12345"
+    }
+    ```
+
 - **source_ip_list**<br />
-	(optional, array) An optional list of IP address subnets in the form “ip_address/xx”. The criteria is satisfied if the source IP address of the downstream connection is contained in at least one of the specified subnets. If the parameter is not specified or the list is empty, the source IP address is ignored. Example:
+	(optional, array) 可选，包含IP地址子网的列表，格式为“ip_address/xx”。如果下游连接的源IP地址包含在至少一个指定的子网中，则条件匹配。如果未指定参数或列表为空，则将忽略源IP地址。例：
 
-
-
-```
-[
-  "192.168.3.0/24",
-  "50.1.2.3/32",
-  "10.15.0.0/16",
-  "2001:abcd::/64"
-]
-```
-
-
-
+    ```
+    [
+      "192.168.3.0/24",
+      "50.1.2.3/32",
+      "10.15.0.0/16",
+      "2001:abcd::/64"
+    ]
+    ```
 - **source_ports**<br />
-	(optional, string) An optional string containing a comma-separated list of port numbers or ranges. The criteria is satisfied if the source port of the downstream connection is contained in at least one of the specified ranges. If the parameter is not specified, the source port is ignored. Example:
-
-```
-{
-  "source_ports": "1-1024,2048-4096,12345"
-}
-```
+	(optional, string) 可选，包含`.`分隔的端口号或端口范围列表。如果下游连接的源端口包含在至少一个指定范围内，则条件匹配。如果未指定参数，则源端口将被忽略。例：
+    
+    ```
+    {
+      "source_ports": "1-1024,2048-4096,12345"
+    }
+    ```
 
 
 ## 返回
