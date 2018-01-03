@@ -1,5 +1,6 @@
-### Rate limit
-Rate limit configuration overview.
+### 速率限制
+
+速率限制[配置参考](../../Configurationreference/Networkfilters/Ratelimit.md)。
 
 ```
 {
@@ -13,28 +14,39 @@ Rate limit configuration overview.
 }
 ```
 - **stat_prefix**<br />
-	(required, string) The prefix to use when emitting statistics.
+	(required, string) 发布统计信息时使用的前缀。
 
 - **domain**<br />
-	(required, string) The rate limit domain to use in the rate limit service request.
+	(required, string) 用于速率限制服务请求中的限制
+	域。
 
 - **descriptors**<br />
-	(required, array) The rate limit descriptor list to use in the rate limit service request. The descriptors are specified as in the following example:
+	(required, array) 用于速率限制服务请求中的速率限制描述符列表。描述符按照以下示例进行指定：
 
-```
-[
-  [{"key": "hello", "value": "world"}, {"key": "foo", "value": "bar"}],
-  [{"key": "foo2", "value": "bar2"}]
-]
-```
-
+    ```
+    [
+        [
+            {
+                "key": "hello",
+                "value": "world"
+            },
+            {
+                "key": "foo",
+                "value": "bar"
+            }
+        ],
+        [
+            {
+                "key": "foo2",
+                "value": "bar2"
+            }
+        ]
+    ]
+    ```
 
 - **timeout_ms**<br />
-	(optional, integer) The timeout in milliseconds for the rate limit service RPC. If not set, this defaults to 20ms.
+	(optional, integer) 速率限制服务RPC的超时时间（以毫秒为单位）。如果未设置，则默认为20ms。
 
-### Next  Previous
-
- 
 
 ## 返回
 - [上一级](../Networkfilters.md)

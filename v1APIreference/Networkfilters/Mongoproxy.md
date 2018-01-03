@@ -1,5 +1,5 @@
-### Mongo proxy
-MongoDB configuration overview.
+### Mongo代理
+MongoDB[配置参考](../../Configurationreference/Networkfilters/Mongoproxy.md)。
 
 ```
 {
@@ -12,16 +12,16 @@ MongoDB configuration overview.
 }
 ```
 - **stat_prefix**<br />
-	(required, string) The prefix to use when emitting statistics.
+	(required, string) 用于发布统计信息时所使用的前缀。
 
 - **access_log**<br />
-	(optional, string) The optional path to use for writing Mongo access logs. If not access log path is specified no access logs will be written. Note that access log is also gated by runtime.
+	(optional, string) 用于Mongo访问日志的文件系统路径。如果未指定访问日志的路径，则不会写入访问日志。请注意，访问日志也受运行时配置控制。
 
 - **fault**<br />
-	(optional, object) If specified, the filter will inject faults based on the values in the object.
+	(optional, object) 如果指定，过滤器将根据`object`中的值注入故障。
 
 ### Fault configuration
-Configuration for MongoDB fixed duration delays. Delays are applied to the following MongoDB operations: Query, Insert, GetMore, and KillCursors. Once an active delay is in progress, all incoming data up until the timer event fires will be a part of the delay.
+MongoDB提供持续固定时间延迟的配置。适用于以下MongoDB操作：`Query`，`Insert`，`GetMore`和`KillCursors`。一旦配置延时并且生效，在定时器触发之前，所有输入数据的时间，也将成为延迟时间的一部分。
 
 ```
 {
@@ -32,12 +32,10 @@ Configuration for MongoDB fixed duration delays. Delays are applied to the follo
 }
 ```
 - **percent**<br />
-	(required, integer) Probability of an eligible MongoDB operation to be affected by the injected fault when there is no active fault. Valid values are integers in a range of [0, 100].
+	(required, integer) 当没有故障时，正常的MongoDB操作的受到故障注入的影响的概率。有效值是[0，100]范围内的整数。
 
 - **duration_ms**<br />
-	(required, integer) Non-negative delay duration in milliseconds.
-
-
+	(required, integer) 非负整数，持续延迟的时间（以毫秒为单位）。
 
 ## 返回
 - [上一级](../Networkfilters.md)

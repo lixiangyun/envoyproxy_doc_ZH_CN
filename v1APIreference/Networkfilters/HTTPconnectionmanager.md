@@ -122,13 +122,13 @@
 }
 ```
 - **operation_name**<br />
-	(required, string) Span name will be derived from operation_name. “ingress” and “egress” are the only supported values.
+	(required, string) span的名称从`operation_name`中获取。目前仅支持“ingress” 和 “egress”。 
 
 - **request_headers_for_tags**<br />
-	(optional, array) A list of header names used to create tags for the active span. The header name is used to populate the tag name, and the header value is used to populate the tag value. The tag is created if the specified header name is present in the request’s headers.
+	(optional, array) 用于为活跃的span创建头部名称的列表。`header`名称用于填充`tag`名称，`header`值用于填充`tag`值。如果指定的`header`名称出现在请求头中，则会创建该`tag`。
 
 ### Filters
-HTTP filter architecture overview.
+HTTP过滤器[架构概述](../../Introduction/Architectureoverview/HTTPfilters.md)。
 
 ```
 {
@@ -137,10 +137,10 @@ HTTP filter architecture overview.
 }
 ```
 - **name**<br />
-	(required, string) The name of the filter to instantiate. The name must match a supported filter.
+	(required, string) 要实例化的过滤器的名称。该名称必须与支持的过滤器匹配。
 
 - **config**<br />
-	(required, object) Filter specific configuration which depends on the filter being instantiated. See the supported filters for further documentation.
+	(required, object) 指定的过滤器配置，这取决于被实例化的过滤器类型。有关更多文档，请参阅支持的[过滤器](../../Configurationreference/HTTPfilters.md)。
 
 
 

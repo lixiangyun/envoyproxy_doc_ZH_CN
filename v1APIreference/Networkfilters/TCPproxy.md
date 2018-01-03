@@ -1,5 +1,5 @@
-### TCP proxy
-TCP proxy configuration overview.
+### TCP代理
+TCP代理[配置参考](../../Configurationreference/Networkfilters/TCPproxy.md)
 
 ```
 {
@@ -12,13 +12,13 @@ TCP proxy configuration overview.
 }
 ```
 - **route_config**<br />
-	(required, object) The route table for the filter. All filter instances must have a route table, even if it is empty.
+	(required, object) 过滤器的路由表。所有的过滤器实例都必须有一个路由表，即使它是空的。
 
 - **stat_prefix**<br />
-	(required, string) The prefix to use when emitting statistics.
+	(required, string) 发布统计信息时使用的前缀。
 
 - **access_log**<br />
-	(optional, array) Configuration for access logs emitted by the this tcp_proxy.
+	(optional, array) 由此`tcp_proxy`发出的访问日志配置。
 
 ### Route Configuration
 ```
@@ -27,10 +27,10 @@ TCP proxy configuration overview.
 }
 ```
 - **routes**<br />
-	(required, array) An array of route entries that make up the route table.
+	(required, array) 组成路由表的一组路由条目。
 
 ### Route
-A TCP proxy route consists of a set of optional L4 criteria and the name of a cluster. If a downstream connection matches all the specified criteria, the cluster in the route is used for the corresponding upstream connection. Routes are tried in the order specified until a match is found. If no match is found, the connection is closed. A route with no criteria is valid and always produces a match.
+TCP代理路由由一组可选的L4标准和一个集群的名称组成。如果下游连接符合所有指定的条件，则路由中的集群将用于相应的上游连接。按照指定的顺序尝试路由，直到找到匹配项。如果找不到匹配，则连接关闭。没有标准的路线是有效的，并且总是产生一个匹配。
 
 ```
 {
