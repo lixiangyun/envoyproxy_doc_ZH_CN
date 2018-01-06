@@ -1,5 +1,6 @@
 ### Virtual host
-The top level element in the routing configuration is a virtual host. Each virtual host has a logical name as well as a set of domains that get routed to it based on the incoming request’s host header. This allows a single listener to service multiple top level domain path trees. Once a virtual host is selected based on the domain, the routes are processed in order to see which upstream cluster to route to or whether to perform a redirect.
+
+虚拟主机是路由配置中的顶层配置。每个虚拟主机都有一个逻辑名称以及一组域列表，会根据传入请求的主机头路由到对应的域。这允许为单个监听器配置多个顶级域的路径树。一旦基于域选择了虚拟主机，就会进行路由处理，以便查找并路由到相应上游集群或者是否执行重定向。
 
 ```
 {
@@ -13,43 +14,43 @@ The top level element in the routing configuration is a virtual host. Each virtu
 }
 ```
 - **name**<br />
-	(required, string) The logical name of the virtual host. This is used when emitting certain statistics but is not relevant for forwarding. By default, the maximum length of the name is limited to 60 characters. This limit can be increased by setting the --max-obj-name-len command line argument to the desired value.
+	(required, string) 虚拟主机的逻辑名称。这在发送某些统计信息时使用，但与转发无关。默认情况下，名称的最大长度限制为60个字符。可通过`--max-obj-name-len`命令行参数设置为所需的值，以提高此限制。
 
 - **domains**<br />
-	(required, array) A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of “*.foo.com” or “*-bar.foo.com”. Note that the wildcard will not match the empty string. e.g. “*-bar.foo.com” will match “baz-bar.foo.com” but not “-bar.foo.com”. Additionally, a special entry “*” is allowed which will match any host/authority header. Only a single virtual host in the entire route configuration can match on “*”. A domain must be unique across all virtual hosts or the config will fail to load.
+	(required, array) 将与此虚拟主机相匹配的域（主机/机构头）的列表。支持通配符匹配主机，如“*.foo.com”或“*-bar.foo.com”。请注意，通配符不匹配空字符串。例如“*-bar.foo.com”将匹配“baz-bar.foo.com”，但不匹配“-bar.foo.com”。另外，允许一个特殊的“*”匹配任何主机/机构头。整个路由配置中只有一台虚拟主机可以匹配“*”。域名在所有虚拟主机中必须是唯一的，否则配置将无法加载。
 
 - **routes**<br />
-	(required, array) The list of routes that will be matched, in order, for incoming requests. The first route that matches will be used.
+	(required, array) 路由列表，将按配置顺序匹配传入请求。第一条匹配的路由将被使用。
 
 - **cors**<br />
-	(optional, object) Specifies the virtual host’s CORS policy.
+	(optional, object) 指定虚拟主机的CORS策略。
 
 - **require_ssl**<br />
-	(optional, string) Specifies the type of TLS enforcement the virtual host expects. Possible values are:
+	(optional, string) 指定虚拟主机所期望的TLS认证的配置类型。可能的值有：
+    - **all**<br />
+    所有请求都必须使用TLS。如果请求不使用TLS，则会发送302重定向，通知客户端使用HTTPS。
+    - **external_only**<br />
+    来自外部请求必须使用TLS。如果请求是来自外部的，并且它没有使用TLS，则会发送302重定向，通知客户端使用HTTPS。
 
-
-- **all**<br />
-All requests must use TLS. If a request is not using TLS, a 302 redirect will be sent telling the client to use HTTPS.
-- **external_only**<br />
-External requests must use TLS. If a request is external and it is not using TLS, a 302 redirect will be sent telling the client to use HTTPS.
-If this option is not specified, there is no TLS requirement for the virtual host.
+    如果未指定此选项，则虚拟主机没有TLS要求。
 
 - **virtual_clusters**<br />
-	(optional, array) A list of virtual clusters defined for this virtual host. Virtual clusters are used for additional statistics gathering.
+	(optional, array) 为此虚拟主机定义的虚拟集群列表。虚拟集群用于进行其他统计信息收集。
 
 - **rate_limits**<br />
-	(optional, array) Specifies a set of rate limit configurations that will be applied to the virtual host.
+	(optional, array) 应用于虚拟主机的一组速率限制配置。
 
 - **request_headers_to_add**<br />
-	(optional, array) Specifies a list of HTTP headers that should be added to each request handled by this virtual host. Headers are specified in the following form:
+	(optional, array) 指定此虚拟主机要添加到每个请求的HTTP头部列表。以下面的形式指定：
+    ```
+    [
+      {"key": "header1", "value": "value1"},
+      {"key": "header2", "value": "value2"}
+    ]
+    ```
+有关更多信息，请参阅[自定义请求头部](../../Configurationreference/HTTPconnectionmanager/HTTPheadermanipulation.md)的文档。
 
 
-```
-[
-  {"key": "header1", "value": "value1"},
-  {"key": "header2", "value": "value2"}
-]
-```
-For more information see the documentation on custom request headers.
-
-
+## 返回
+- [上一级](../HTTPRouteconfiguration.md)
+- [首页目录](../../README.md)

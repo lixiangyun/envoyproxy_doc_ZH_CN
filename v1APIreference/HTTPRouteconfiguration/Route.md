@@ -1,9 +1,8 @@
 ### Route
-A route is both a specification of how to match a request as well as in indication of what to do next (e.g., redirect, forward, rewrite, etc.).
 
-### Attention
+路由指定请求如何匹配相应的路径以及接下来要做什么（例如，重定向，转发，重写等）的规范。
 
-Envoy supports routing on HTTP method via header matching.
+注意：Envoy支持通过匹配HTTP头中的方法进行路由。
 
 ```
 {
@@ -36,7 +35,7 @@ Envoy supports routing on HTTP method via header matching.
 }
 ```
 - **prefix**<br />
-	(sometimes required, string) If specified, the route is a prefix rule meaning that the prefix must match the beginning of the :path header. One of prefix, path, or regex must be specified.
+	(sometimes required, string) 如果指定，则路由是前缀规则，这意味着前缀必须匹配路径头的开头。必须指定前缀，路径或正则表达式之一。
 
 - **path**<br />
 	(sometimes required, string) If specified, the route is an exact path rule meaning that the path must exactly match the :path header once the query string is removed. One of prefix, path, or regex must be specified.
@@ -44,13 +43,13 @@ Envoy supports routing on HTTP method via header matching.
 - **regex**<br />
 	(sometimes required, string) If specified, the route is a regular expression rule meaning that the regex must match the :path header once the query string is removed. The entire path (without the query string) must match the regex. The rule will not match if only a subsequence of the :path header matches the regex. The regex grammar is defined here. One of prefix, path, or regex must be specified.
 
+    示例：
 
-### Examples:
-
-### The regex /b[io]t matches the path /bit
-### The regex /b[io]t matches the path /bot
-### The regex /b[io]t does not match the path /bite
-### The regex /b[io]t does not match the path /bit/bot
+    - 正则表达式 /b[io]t 匹配路径 /bit
+    - 正则表达式 /b[io]t 匹配路径 /bot
+    - 正则表达式 /b[io]t 不匹配路径 /bite
+    - 正则表达式 /b[io]t 不匹配路径 /bit/bot
+    
 - **cors**<br />
 	(optional, object) Specifies the route’s CORS policy.
 
@@ -328,3 +327,6 @@ Settings on a route take precedence over settings on the virtual host.
 - **max_age**<br />
 	(optional, string) The content for the access-control-max-age header. Value in seconds for how long the response to the preflight request can be cached.
 
+## 返回
+- [上一级](../HTTPRouteconfiguration.md)
+- [首页目录](../../README.md)

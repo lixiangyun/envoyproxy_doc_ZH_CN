@@ -1,9 +1,8 @@
 ### Virtual cluster
-A virtual cluster is a way of specifying a regex matching rule against certain important endpoints such that statistics are generated explicitly for the matched requests. The reason this is useful is that when doing prefix/path matching Envoy does not always know what the application considers to be an endpoint. Thus, it’s impossible for Envoy to generically emit per endpoint statistics. However, often systems have highly critical endpoints that they wish to get “perfect” statistics on. Virtual cluster statistics are perfect in the sense that they are emitted on the downstream side such that they include network level failures.
 
-### Note
+虚拟集群是一种通过正则表达式匹配相应端口的方法，例如为匹配的请求显式生成一些统计信息。在使用前缀/路径匹配时很有用，Envoy并不总是知道应用程序认为是一个端口。因此，Envoy不可能统往每个端口发送统计数据。然而，系统中往往需要具有高度关联性的端口，他们希望获得“完美”的统计数据。虚拟集群统计是完美的，针对下游散发，包含了网络级别的故障。
 
-Virtual clusters are a useful tool, but we do not recommend setting up a virtual cluster for every application endpoint. This is both not easily maintainable as well as the matching and statistics output are not free.
+注意：虚拟集群是一个有用的工具，但我们不建议为每个应用程序端口设置一个虚拟集群。因为这不容易维护，因为匹配和统计输出是由代价的。
 
 ```
 {
@@ -13,20 +12,22 @@ Virtual clusters are a useful tool, but we do not recommend setting up a virtual
 }
 ```
 - **pattern**<br />
-	(required, string) Specifies a regex pattern to use for matching requests. The entire path of the request must match the regex. The regex grammar used is defined here.
+	(required, string) 指定用于匹配请求的正则表达式模型。整个请求的路径必须与正则表达式匹配。所使用的正则表达式语法都在这里定义。
 
 - **name**<br />
-	(required, string) Specifies the name of the virtual cluster. The virtual cluster name as well as the virtual host name are used when emitting statistics. The statistics are emitted by the router filter and are documented here.
+	(required, string) 指定的虚拟群集名称。发布统计信息时会使用虚拟群集名称和虚拟主机名称。统计信息将由路由器过滤器发出，并记录在此处。
 
 - **method**<br />
-	(optional, string) Optionally specifies the HTTP method to match on. For example GET, PUT, etc.
+	(optional, string) （可选）指定要匹配的HTTP方法。例如GET，PUT等
 
+    示例：
 
-### Examples:
+    - 正则表达式 /rides/d+ 匹配路径 /rides/0
+    - 正则表达式 /rides/d+ 匹配路径 /rides/123
+    - 正则表达式 /rides/d+ 不匹配路径 /rides/123/456
 
-### The regex /rides/d+ matches the path /rides/0
-### The regex /rides/d+ matches the path /rides/123
-### The regex /rides/d+ does not match the path /rides/123/456
-Documentation for virtual cluster statistics.
+虚拟集群统计信息的[文档](../../Configurationreference/HTTPfilters/Router.md#统计)。
 
-
+## 返回
+- [上一级](../HTTPRouteconfiguration.md)
+- [首页目录](../../README.md)
