@@ -1,6 +1,5 @@
 ## Runtime
 
-### Runtime
 Runtime configuration overview.
 
 ```

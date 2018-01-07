@@ -1,5 +1,5 @@
-### Rate limit configuration
-Global rate limiting architecture overview.
+### 速率限制配置
+全局速率限制[架构概述](../../Introduction/Architectureoverview/Globalratelimiting.md)。
 
 ```
 {
@@ -9,16 +9,15 @@ Global rate limiting architecture overview.
 }
 ```
 - **stage**<br />
-	(optional, integer) Refers to the stage set in the filter. The rate limit configuration only applies to filters with the same stage number. The default stage number is 0.
+	(optional, integer) 指在过滤器中设置的阶段。速率限制配置仅适用于具有相同阶段编号的过滤器。默认的阶段编号是0。
 
-
-NOTE: The filter supports a range of 0 - 10 inclusively for stage numbers.
+    注意：对于阶段编号，过滤器支持0-10的范围。
 
 - **disable_key**<br />
-	(optional, string) The key to be set in runtime to disable this rate limit configuration.
+	(optional, string) 在运行时设置的key，用于禁用此速率限制配置。
 
 - **actions**<br />
-	(required, array) A list of actions that are to be applied for this rate limit configuration. Order matters as the actions are processed sequentially and the descriptor is composed by appending descriptor entries in that sequence. If an action cannot append a descriptor entry, no descriptor is generated for the configuration. See composing actions for additional documentation.
+	(required, array) 将应用于此速率限制配置的操作列表。顺序很重要，因为这些操作是按顺序处理的，描述符是通过在该顺序中附加描述符条目来组成的。如果某个操作无法附加描述符条目，则不会为该配置生成描述符。请参阅相关[操作文档](../../Configurationreference/HTTPfilters/Ratelimit.md)。
 
 ### Actions
 ```
@@ -27,7 +26,7 @@ NOTE: The filter supports a range of 0 - 10 inclusively for stage numbers.
 }
 ```
 - **type**<br />
-	(required, string) The type of rate limit action to perform. The currently supported action types are source_cluster, destination_cluster , request_headers, remote_address, generic_key and header_value_match.
+	(required, string) 要执行的速率限制操作的类型。当前支持的操作类型是`source_cluster`，`destination_cluster`，`request_headers`，`remote_address`，`generic_key`和`header_value_match`。
 
 ### Source Cluster
 ```
@@ -35,11 +34,13 @@ NOTE: The filter supports a range of 0 - 10 inclusively for stage numbers.
   "type": "source_cluster"
 }
 ```
-### The following descriptor entry is appended to the descriptor:
+以下描述符条目被追加到描述符中：
 
-	(["source_cluster"](#), "<local service cluster>")
+```
+("source_cluster", "<local service cluster>")
+```
 
-<local service cluster> is derived from the --service-cluster option.
+`<local service cluster>` 是从 `--service-cluster` 选项派生出来的.
 
 ### Destination Cluster
 ```
@@ -47,15 +48,18 @@ NOTE: The filter supports a range of 0 - 10 inclusively for stage numbers.
   "type": "destination_cluster"
 }
 ```
-### The following descriptor entry is appended to the descriptor:
+以下描述符条目被追加到描述符中：
 
-	(["destination_cluster"](#), "<routed target cluster>")
+```
+("destination_cluster", "<routed target cluster>")
+```
 
-### Once a request matches against a route table rule, a routed cluster is determined by one of the following route table configuration settings:
+一旦请求与路由表规则匹配，路由的集群就由以下路由表配置设置之一确定：
 
-cluster indicates the upstream cluster to route to.
-weighted_clusters chooses a cluster randomly from a set of clusters with attributed weight.
-cluster_header indicates which header in the request contains the target cluster.
+- [cluster](../../v1APIreference/HTTPRouteconfiguration/Route.md#cluster) 指定要路由到的上游群集。
+- [weighted_clusters](../../v1APIreference/HTTPRouteconfiguration/Route.md#weighted_clusters) 从一组具有权重属性的集群组中随机选择一个集群。
+- [cluster_header](../../v1APIreference/HTTPRouteconfiguration/Route.md#cluster_header) 指定从请求中的头部获取目标群集。
+
 ### Request Headers
 ```
 {
@@ -65,14 +69,16 @@ cluster_header indicates which header in the request contains the target cluster
 }
 ```
 - **header_name**<br />
-	(required, string) The header name to be queried from the request headers. The header’s value is used to populate the value of the descriptor entry for the descriptor_key.
+	(required, string) 要从请求头中查询的该头的名称。头的值用于填充`descriptor_key`的描述符条目的值。
 
 - **descriptor_key**<br />
-	(required, string) The key to use in the descriptor entry.
+	(required, string) 在描述符条目中使用的关键。
 
-### The following descriptor entry is appended when a header contains a key that matches the header_name:
+当一个头包含一个与`header_name`匹配的关键字时，附加下面的描述符条目：
 
-	(["<descriptor_key>"](#), "<header_value_queried_from_header>")
+```
+("<descriptor_key>", "<header_value_queried_from_header>")
+```
 
 ### Remote Address
 ```
@@ -80,9 +86,11 @@ cluster_header indicates which header in the request contains the target cluster
   "type": "remote_address"
 }
 ```
-### The following descriptor entry is appended to the descriptor and is populated using the trusted address from x-forwarded-for:
+以下描述符条目被追加到描述符中，并使用来自[x-forwarded-for](../../Configurationreference/HTTPconnectionmanager/HTTPheadermanipulation.md#x-forwarded-for)的可信地址填充：
 
-	(["remote_address"](#), "<trusted address from x-forwarded-for>")
+```
+("remote_address", "<trusted address from x-forwarded-for>")
+```
 
 ### Generic Key
 ```
@@ -92,11 +100,13 @@ cluster_header indicates which header in the request contains the target cluster
 }
 ```
 - **descriptor_value**<br />
-	(required, string) The value to use in the descriptor entry.
+	(required, string) 描述符条目中使用的值。
 
-### The following descriptor entry is appended to the descriptor:
+以下描述符条目被追加到描述符中：
 
-	(["generic_key"](#), "<descriptor_value>")
+```
+("generic_key", "<descriptor_value>")
+```
 
 ### Header Value Match
 ```
@@ -108,17 +118,19 @@ cluster_header indicates which header in the request contains the target cluster
 }
 ```
 - **descriptor_value**<br />
-	(required, string) The value to use in the descriptor entry.
+	(required, string) 描述符条目中使用的值。
 
 - **expect_match**<br />
-	(optional, boolean) If set to true, the action will append a descriptor entry when the request matches the headers. If set to false, the action will append a descriptor entry when the request does not match the headers. The default value is true.
+	(optional, boolean) 如果设置为true，则该操作将在请求与头部匹配时附加描述符条目。如果设置为false，则该操作将在请求与头部不匹配时附加描述符条目。默认值是true。
 
-- **headers**<br />
-	(required, array) Specifies a set of headers that the rate limit action should match on. The action will check the request’s headers against all the specified headers in the config. A match will happen if all the headers in the config are present in the request with the same values (or based on presence if the value field is not in the config).
+- **[headers](../../v1APIreference/HTTPRouteconfiguration/Route.md#headers)**<br />
+	(required, array) 指定速率限制操作应匹配的一组头。将检查请求的头部与配置中所有指定的头部。如果配置中的所有报头都存在于具有相同值的请求中（或者如果没有配置`value`字段，则认为存在），则匹配将发生。
 
-The following descriptor entry is appended to the descriptor: .. code-block:: cpp
+以下描述符条目被追加到描述符中`: .. code-block:: cpp`
 
-	([“header_match”](#), “<descriptor_value>”)
+```
+(“header_match”, “<descriptor_value>”)
+```
 
 ## 返回
 - [上一级](../HTTPRouteconfiguration.md)

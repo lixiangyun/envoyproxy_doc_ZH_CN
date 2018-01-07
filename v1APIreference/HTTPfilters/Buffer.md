@@ -1,5 +1,5 @@
 ### Buffer
-Buffer configuration overview.
+缓冲区[配置概述](../../Configurationreference/HTTPfilters/Buffer.md)。
 
 ```
 {
@@ -11,12 +11,10 @@ Buffer configuration overview.
 }
 ```
 - **max_request_bytes**<br />
-	(required, integer) The maximum request size that the filter will buffer before the connection manager will stop buffering and return a 413 response.
+	(required, integer) 在连接管理器停止缓冲并返回413响应之前，过滤器将缓冲的最大请求大小。
 
 - **max_request_time_s**<br />
-	(required, integer) The maximum number of seconds that the filter will wait for a complete request before returning a 408 response.
-
-
+	(required, integer) 过滤器在返回408响应之前等待完整请求的最大秒数。
 
 
 ## 返回

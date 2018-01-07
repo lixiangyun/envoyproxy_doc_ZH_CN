@@ -1,5 +1,5 @@
-### CORS filter
-Cors configuration overview.
+### CORS过滤器
+Cors过滤器的[配置概述](../../Configurationreference/HTTPfilters/CORSfilter.md)。
 
 ```
 {

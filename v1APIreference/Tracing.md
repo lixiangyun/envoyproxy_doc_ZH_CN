@@ -1,6 +1,5 @@
 ## Tracing
 
-### Tracing
 The tracing configuration specifies global settings for the HTTP tracer used by Envoy. The configuration is defined on the server’s top level configuration. Envoy may support other tracers in the future, but right now the HTTP tracer is the only one supported.
 
 ```

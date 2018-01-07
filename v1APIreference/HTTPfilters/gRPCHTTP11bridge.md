@@ -1,6 +1,6 @@
-### gRPC HTTP/1.1 bridge
+### gRPC HTTP/1.1 桥接
 
-gRPC HTTP/1.1 bridge configuration overview.
+gRPC HTTP/1.1 桥接的[配置概述](../../Configurationreference/HTTPfilters/gRPCHTTP11bridge.md)。
 
 ```
 {

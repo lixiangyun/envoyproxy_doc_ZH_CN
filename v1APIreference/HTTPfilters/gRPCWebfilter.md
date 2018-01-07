@@ -1,6 +1,6 @@
-## gRPC-Web filter
+## gRPC-Web过滤器
 
-gRPC-Web filter configuration overview.
+gRPC-Web过滤器[配置概述](../../Configurationreference/HTTPfilters/gRPCWebfilter.md)。
 
 ```
 {

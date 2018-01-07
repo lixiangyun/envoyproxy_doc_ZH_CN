@@ -1,5 +1,5 @@
 ### DynamoDB
-DynamoDB configuration overview.
+DynamoDB[配置概述](../../Configurationreference/HTTPfilters/DynamoDB.md)。
 
 ```
 {
@@ -8,12 +8,10 @@ DynamoDB configuration overview.
 }
 ```
 - **name**<br />
-	(required, string) Filter name. The only supported value is http_dynamo_filter.
+	(required, string) 过滤器名称。目前唯一支持的值是`http_dynamo_filter`。
 
 - **config**<br />
-	(required, object) The filter does not use any configuration.
-
-
+	(required, object) 该过滤器不使用任何配置。
 
 
 ## 返回
