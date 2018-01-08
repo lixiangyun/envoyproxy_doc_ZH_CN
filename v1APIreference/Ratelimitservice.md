@@ -1,5 +1,5 @@
-### Rate limit service
-Rate limit configuration overview.
+### 速率限制服务
+速率限制[配置概述](../Configurationreference/Ratelimitservice.md)。
 
 ```
 {
@@ -10,18 +10,13 @@ Rate limit configuration overview.
 }
 ```
 - **type**<br />
-	(required, string) Specifies the type of rate limit service to call. Currently the only supported option is grpc_service which specifies Lyft’s global rate limit service and associated IDL.
+	(required, string) 指定要调用的速率限制服务的类型。目前唯一支持的选项是`grpc_service`，它指定了Lyft的全局速率限制服务和关联的IDL。
 
 - **config**<br />
-	(required, object) Specifies type specific configuration for the rate limit service.
-
+	(required, object) 特定速率限制服务类型的配置。
 
 - **cluster_name**<br />
-	(required, string) Specifies the cluster manager cluster name that hosts the rate limit service. The client will connect to this cluster when it needs to make rate limit service requests.
-
-
-
-
+	(required, string) 指定所承载的速率限制服务的群集名称。当需要进行速率限制服务请求时，客户端将连接到该群集。
 
 ## 返回
 - [上一级](../v1APIreference.md)
