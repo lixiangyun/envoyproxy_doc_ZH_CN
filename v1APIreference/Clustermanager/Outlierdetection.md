@@ -1,5 +1,5 @@
-### Outlier detection
-Outlier detection architecture overview.
+### 异常值检测
+异常值检测[架构概述](../../Introduction/Architectureoverview/Outlierdetection.md)。
 
 ```
 {
@@ -7,9 +7,7 @@ Outlier detection architecture overview.
 }
 ```
 - **event_log_path**<br />
-	(optional, string) Specifies the path to the outlier event log.
-
-
+	(optional, string) 指定异常事件日志的路径。
 
 ## 返回
 - [上一级](../Clustermanager.md)
