@@ -1,5 +1,5 @@
-## Rate limit
-Rate limit configuration overview.
+## 速率限制
+速率限制[配置概述](../../Configurationreference/HTTPfilters/Ratelimit.md)。
 
 ```
 {
@@ -13,21 +13,18 @@ Rate limit configuration overview.
 }
 ```
 - **domain**<br />
-	(required, string) The rate limit domain to use when calling the rate limit service.
+	(required, string) 调用速率限制服务时使用的域。
 
 - **stage**<br />
-	(optional, integer) Specifies the rate limit configurations to be applied with the same stage number. If not set, the default stage number is 0.
+	(optional, integer) 指定要应用于相同阶段编号的速率限制配置。如果未设置，则默认阶段编号为0。
 
-
-NOTE: The filter supports a range of 0 - 10 inclusively for stage numbers.
+    注意:对于阶段编号，过滤器支持0-10的范围。
 
 - **request_type**<br />
-	(optional, string) The type of requests the filter should apply to. The supported types are internal, external or both. A request is considered internal if x-envoy-internal is set to true. If x-envoy-internal is not set or false, a request is considered external. The filter defaults to both, and it will apply to all request types.
+	(optional, string) 该过滤器适用的请求类型。支持的类型有`internal`，`external`或者`both`。如果将`x-envoy-internal`设置为`true`，则将请求视为内部请求。如果`x-envoy-internal`未设置或为`false`，则请求被视为外部。过滤器默认为`both`，它将应用于所有的请求类型。
 
 - **timeout_ms**<br />
-	(optional, integer) The timeout in milliseconds for the rate limit service RPC. If not set, this defaults to 20ms.
-
-
+	(optional, integer) 速率限制服务的RPC超时时间（以毫秒为单位）。如果未设置，则默认为20ms。
 
 
 ## 返回
