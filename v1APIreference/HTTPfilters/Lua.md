@@ -1,5 +1,5 @@
 ## Lua
-Lua configuration overview.
+Lua[配置概述](../../Configurationreference/HTTPfilters/Lua.md)。
 
 ```
 {
@@ -10,8 +10,7 @@ Lua configuration overview.
 }
 ```
 - **inline_code**<br />
-	(required, string) The Lua code that Envoy will execute. This can be a very small script that further loads code from disk if desired. Note that if JSON configuration is used, the code must be properly escaped. YAML configuration may be easier to read since YAML supports multi-line strings so complex scripts can be easily expressed inline in the configuration.
-
+	(required, string) Envoy将执行的Lua代码。这可以是一个非常小的脚本，如果需要，可以从磁盘进一步加载代码。请注意，如果使用JSON配置，则代码必须能够正确转义。YAML配置可能更容易阅读，因为YAML支持多行字符串，可以很容易地在配置中内联表示复杂的脚本。
 
 ## 返回
 - [上一级](../HTTPfilters.md)
