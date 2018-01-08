@@ -1,6 +1,6 @@
-## Runtime
+## 运行时配置
 
-Runtime configuration overview.
+运行时[配置概述](../Configurationreference/Runtime.md)。
 
 ```
 {
@@ -10,15 +10,13 @@ Runtime configuration overview.
 }
 ```
 - **symlink_root**<br />
-	(required, string) The implementation assumes that the file system tree is accessed via a symbolic link. An atomic link swap is used when a new tree should be switched to. This parameter specifies the path to the symbolic link. Envoy will watch the location for changes and reload the file system tree when they happen.
+	(required, string) 当前的实现是假定文件系统目录是通过符号链接方式进行访问。在切换到新文件目录时，应该使用原子链接交换。此参数是指定链接符号的路径。Envoy将观察连接是否更改，并在发生更改时重新加载文件目录树。
 
 - **subdirectory**<br />
-	(required, string) Specifies the subdirectory to load within the root directory. This is useful if multiple systems share the same delivery mechanism. Envoy configuration elements can be contained in a dedicated subdirectory.
+	(required, string) 指定在根目录中加载的子目录。如果有多个系统的运行时配置共享相同的链接交换机制，这很有用。Envoy配置元素可以包含在一个专用的子目录中。
 
 - **override_subdirectory**<br />
-	(optional, string) Specifies an optional subdirectory to load within the root directory. If specified and the directory exists, configuration values within this directory will override those found in the primary subdirectory. This is useful when Envoy is deployed across many different types of servers. Sometimes it is useful to have a per service cluster directory for runtime configuration. See below for exactly how the override directory is used.
-
-
+	(optional, string) 指定在根目录中加载的可选子目录。如果指定并且目录存在，则此目录中的配置值将覆盖在主子目录中找到的值。当Envoy跨多种不同类型的服务器部署时，这是非常有用的。有时为运行时配置提供每个服务集群目录是有用的。请参阅下面，明确如何使用覆盖目录。
 
 ## 返回
 - [上一级](../v1APIreference.md)
