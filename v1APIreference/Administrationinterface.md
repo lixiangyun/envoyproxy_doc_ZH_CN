@@ -1,5 +1,5 @@
-## Administration interface
-Administration interface operations documentation.
+## 管理接口
+管理接口[操作文档](../Operationsandadministration/Administrationinterface.md)。
 
 ```
 {
@@ -9,14 +9,13 @@ Administration interface operations documentation.
 }
 ```
 - **access_log_path**<br />
-	(required, string) The path to write the access log for the administration server. If no access log is desired specify ‘/dev/null’.
+	(required, string) 管理服务器的访问日志的路径。如果不需要访问日志，则指定"/dev/null"。
 
 - **profile_path**<br />
-	(optional, string) The cpu profiler output path for the administration server. If no profile path is specified, the default is ‘/var/log/envoy/envoy.prof’.
+	(optional, string) 管理服务器的cpu分析器的文件路径。如果配置未指定，则默认路径为"/var/log/envoy/envoy.prof"。
 
 - **address**<br />
-	(required, string) The TCP address that the administration server will listen on, e.g., “tcp://127.0.0.1:1234”. Note, “tcp://0.0.0.0:1234” is the wild card match for any IPv4 address with port 1234.
-
+	(required, string) 管理服务器将监听的TCP地址，例如"tcp://127.0.0.1:1234"。请注意，"tcp://0.0.0.0:1234"将匹配任何带有端口1234的IPv4地址。
 
 
 ## 返回
