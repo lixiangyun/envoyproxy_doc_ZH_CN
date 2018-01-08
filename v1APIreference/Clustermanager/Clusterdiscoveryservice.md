@@ -1,28 +1,32 @@
-### Cluster discovery service
+### 集群发现服务(CDS)
 ```
 {
   "cluster": "{...}",
   "refresh_delay_ms": "..."
 }
 ```
-- **cluster**<br />
-	(required, object) A standard definition of an upstream cluster that hosts the cluster discovery service. The cluster must run a REST service that implements the CDS HTTP API.
+- **[clusters](../../v1APIreference/Clustermanager/Cluster.md)**<br />
+	(required, object) 承载群集发现服务的上游群集的定义。群集必须实现并运行CDS HTTP API的REST服务。
 
 - **refresh_delay_ms**<br />
-	(optional, integer) The delay, in milliseconds, between fetches to the CDS API. Envoy will add an additional random jitter to the delay that is between zero and refresh_delay_ms milliseconds. Thus the longest possible refresh delay is 2 * refresh_delay_ms. Default value is 30000ms (30 seconds).
+	(optional, integer) 每次从CDS API刷新的延迟（以毫秒为单位）。Envoy将在`0-refresh_delay_ms`之间，添加一个额外的随机抖动。因此，最长可能的刷新延迟是2*refresh_delay_ms。默认值是30000ms（30秒）。
 
 ### REST API
-### GET /v1/clusters/(string: service_cluster)/(string: service_node)
-Asks the discovery service to return all clusters for a particular service_cluster and service_node. service_cluster corresponds to the --service-cluster CLI option. service_node corresponds to the --service-node CLI option. Responses use the following JSON schema:
+
+```
+GET /v1/clusters/(string: service_cluster)/(string: service_node)
+```
+
+集群发现服务返回`service_cluster`和`service_node`的所有群集定义。`service_cluster`对应于`--service-cluster`CLI选项。`service_node`对应于`--service-node`CLI选项。使用以下JSON格式响应:
 
 ```
 {
   "clusters": []
 }
 ```
-- **clusters**<br />
-	(required, array) A list of clusters that will be dynamically added/modified within the cluster manager. Envoy will reconcile this list with the clusters that are currently loaded and either add/modify/remove clusters as necessary. Note that any clusters that are statically defined within the Envoy configuration cannot be modified via the CDS API.
 
+- **[clusters](../../v1APIreference/Clustermanager/Cluster.md)**<br />
+	(required, array) 将在集群管理器中动态添加/修改的集群列表。Envoy将协调此列表与当前加载的集群，并根据需要添加/修改/删除集群。请注意，在Envoy配置中静态定义的任何群集，都不能通过CDS API进行修改。
 
 
 ## 返回
