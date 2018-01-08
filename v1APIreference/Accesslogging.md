@@ -1,5 +1,7 @@
-### Access logging
-### Configuration
+## 访问日志
+
+### 配置项
+
 ```
 {
   "access_log": [
@@ -12,24 +14,25 @@
 }
 ```
 - **path**<br />
-	(required, string) Path the access log is written to.
+	(required, string) 写入访问日志的路径。
 
 - **format**<br />
-	(optional, string) Access log format. Envoy supports custom access log formats as well as a default format.
+	(optional, string) 访问日志格式。Envoy支持[自定义访问日志格式](../Configurationreference/Accesslogging.md)以及[默认格式](../Configurationreference/Accesslogging.md)。
 
 - **filter**<br />
-	(optional, object) Filter which is used to determine if the access log needs to be written.
+	(optional, object) 用于明确是否需要写入的访问日志过滤器。
 
-### Filters
-### Envoy supports the following access log filters:
+### 过滤器
+Envoy支持以下访问日志过滤器：
 
-### Status code
-### Duration
-### Not health check
-### Traceable
-### Runtime
-### And
-### Or
+- [Status code](#status-code)
+- [Duration](#duration)
+- [Not health check](#not-health-check)
+- [Traceable](#traceable)
+- [Runtime](#runtime)
+- [And](#and)
+- [Or](#or)
+
 ### Status code
 ```
 {
@@ -41,16 +44,16 @@
   }
 }
 ```
-Filters on HTTP response/status code.
+基于HTTP响应/状态代码的过滤器。
 
 - **op**<br />
-	([required](#), string) Comparison operator. Currently >= and = are the only supported operators.
+	(required, string) 比较运算符。目前仅支持`>=`和`=`运算符。
 
 - **value**<br />
-	(required, integer) Default value to compare against if runtime value is not available.
+	(required, integer) 如果运行时值不可用，则使用默认值进行比较。
 
 - **runtime_key**<br />
-	(optional, string) Runtime key to get value for comparision. This value is used if defined.
+	(optional, string) 运行时的key，用于获取比较值。如果定义，则使用此值。
 
 ### Duration
 ```
@@ -63,16 +66,16 @@ Filters on HTTP response/status code.
   }
 }
 ```
-Filters on total request duration in milliseconds.
+请求持续的总时间过滤器，以毫秒为单位。
 
 - **op**<br />
-	([required](#), string) Comparison operator. Currently >= and = are the only supported operators.
+	(required, string) 比较运算符。目前仅支持`>=`和`=`运算符。
 
 - **value**<br />
-	(required, integer) Default value to compare against if runtime values is not available.
+	(required, integer) 如果运行时值不可用，则使用默认值进行比较。
 
 - **runtime_key**<br />
-	(optional, string) Runtime key to get value for comparision. This value is used if defined.
+	(optional, string) 运行时的key，用于获取比较值。如果定义，则使用此值。
 
 ### Not health check
 ```
@@ -82,7 +85,7 @@ Filters on total request duration in milliseconds.
   }
 }
 ```
-Filters for requests that are not health check requests. A health check request is marked by the health check filter.
+筛选健康检查失败的请求。健康检查的请求由健康检查过滤器进行标记。
 
 ### Traceable
 ```
@@ -92,7 +95,7 @@ Filters for requests that are not health check requests. A health check request 
   }
 }
 ```
-Filters for requests that are traceable. See the tracing overview for more information on how a request becomes traceable.
+筛选可跟踪的请求。请参阅[跟踪概述](../Introduction/Architectureoverview/Tracing.md)，以获取有关请求如何使能跟踪的详细信息。
 
 ### Runtime
 ```
@@ -103,10 +106,10 @@ Filters for requests that are traceable. See the tracing overview for more infor
   }
 }
 ```
-Filters for random sampling of requests. Sampling pivots on the header x-request-id being present. If x-request-id is present, the filter will consistently sample across multiple hosts based on the runtime key value and the value extracted from x-request-id. If it is missing, the filter will randomly sample based on the runtime key value.
+使用随机采样请求。在`x-request-id`头存在的情况下进行采样。如果存在`x-request-id`，则过滤器将根据运行时键值和从`x-request-id`提取的值在多个主机上持续采样。如果缺失，过滤器将根据运行时键值随机采样。
 
 - **key**<br />
-	(required, string) Runtime key to get the percentage of requests to be sampled. This runtime control is specified in the range 0-100 and defaults to 0.
+	(required, string) 通过运行时key获取要采样的请求的百分比。此运行时值控制在`0-100`范围内，默认为0。
 
 ### And
 ```
@@ -117,7 +120,7 @@ Filters for random sampling of requests. Sampling pivots on the header x-request
   }
 }
 ```
-Performs a logical “and” operation on the result of each filter in filters. Filters are evaluated sequentially and if one of them returns false, the filter returns false immediately.
+对过滤器中每个过滤器的结果执行逻辑"和"运算。过滤器将按顺序进行评估，如果其中一个返回false，则过滤器立即返回false。
 
 ### Or
 ```
@@ -128,7 +131,7 @@ Performs a logical “and” operation on the result of each filter in filters. 
   }
 }
 ```
-Performs a logical “or” operation on the result of each individual filter. Filters are evaluated sequentially and if one of them returns true, the filter returns true immediately.
+对每个单独的过滤器的结果执行逻辑"或"操作。过滤器将按顺序进行评估，如果其中一个返回true，则过滤器会立即返回true。
 
 
 ## 返回
