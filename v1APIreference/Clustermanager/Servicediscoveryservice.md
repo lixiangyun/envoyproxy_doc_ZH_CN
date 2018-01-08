@@ -1,5 +1,5 @@
-## Service discovery service
-Service discovery service architecture overview.
+## 服务发现服务(SDS)
+服务发现服务[架构概述]。
 
 ```
 {
@@ -7,27 +7,34 @@ Service discovery service architecture overview.
   "refresh_delay_ms": "{...}"
 }
 ```
+
 - **cluster**<br />
-	(required, object) A standard definition of an upstream cluster that hosts the service discovery service. The cluster must run a REST service that implements the SDS HTTP API.
+	(required, object) 承载服务发现服务的上游群集的标准定义。该群集必须实现和运行SDS HTTP API的REST服务。
 
 - **refresh_delay_ms**<br />
-	(required, integer) The delay, in milliseconds, between fetches to the SDS API for each configured SDS cluster. Envoy will add an additional random jitter to the delay that is between zero and refresh_delay_ms milliseconds. Thus the longest possible refresh delay is 2 * refresh_delay_ms.
+	(required, integer) 每次访问SDS群集的API延迟（以毫秒为单位）。Envoy将在`0~refresh_delay_ms`之间，添加一个额外的随机抖动。因此，最长可能的延迟是`2*refresh_delay_ms`。
 
 ### REST API
-### Envoy expects the service discovery service to expose the following API (See Lyft’s reference implementation):
 
-### GET /v1/registration/(string: service_name)
-Asks the discovery service to return all hosts for a particular service_name. service_name corresponds to the service_name cluster parameter. Responses use the following JSON schema:
+Envoy希望服务发现服务提供一下API（请参阅Lyft的[参考实现](https://github.com/lyft/discovery)）：
+
+```
+GET /v1/registration/(string: service_name)
+```
+
+请求发现服务返回指定`service_name`的所有主机。`service_name`对应于群集参数`service_name`。使用以下JSON格式响应：
 
 ```
 {
   "hosts": []
 }
 ```
-- **hosts**<br />
-	(required, array) A list of hosts that make up the service.
 
-### Host JSON
+- **hosts**<br />
+	(required, array) 组成该服务的主机列表。
+
+### Host(JSON)
+
 ```
 {
   "ip_address": "...",
@@ -40,19 +47,19 @@ Asks the discovery service to return all hosts for a particular service_name. se
 }
 ```
 - **ip_address**<br />
-	(required, string) The IP address of the upstream host.
+	(required, string) 上游主机的IP地址。
 
 - **port**<br />
-	(required, integer) The port of the upstream host.
+	(required, integer) 上游主机的端口。
 
 - **az**<br />
-	(optional, string) The optional zone of the upstream host. Envoy uses the zone for various statistics and load balancing tasks documented elsewhere.
+	(optional, string) 可选的上游主机的区域。Envoy使用该区域记录相应的各种统计和负载平衡任务。
 
 - **canary**<br />
-	(optional, boolean) The optional canary status of the upstream host. Envoy uses the canary status for various statistics and load balancing tasks documented elsewhere.
+	(optional, boolean) 可选的上游主机金丝雀（灰度发布）状态。 Envoy将Canary状态用于相应的各种统计和负载平衡任务。
 
 - **load_balancing_weight**<br />
-	(optional, integer) The optional load balancing weight of the upstream host, in the range 1 - 100. Envoy uses the load balancing weight in some of the built in load balancers.
+	(optional, integer) 可选的上游主机负载平衡权重，范围为1-100. Envoy在某些内置负载平衡器中会使用到负载平衡权重。
 
 
 ## 返回
