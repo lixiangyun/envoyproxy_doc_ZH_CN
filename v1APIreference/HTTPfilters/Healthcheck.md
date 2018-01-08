@@ -1,5 +1,5 @@
-## Health check
-Health check configuration overview.
+## 健康检查
+健康检查[配置概述](../../Configurationreference/HTTPfilters/Healthcheck.md)。
 
 ```
 {
@@ -12,17 +12,13 @@ Health check configuration overview.
 }
 ```
 - **pass_through_mode**<br />
-	(required, boolean) Specifies whether the filter operates in pass through mode or not.
+	(required, boolean) 指定过滤器是否在通过模式下运行。
 
 - **endpoint**<br />
-	(required, string) Specifies the incoming HTTP endpoint that should be considered the health check endpoint. For example /healthcheck.
+	(required, string) 指定健康检查的HTTP API端口。例如`/healthcheck`。
 
 - **cache_time_ms**<br />
-	(optional, integer) If operating in pass through mode, the amount of time in milliseconds that the filter should cache the upstream response.
-
-### Next  Previous
-
-
+	(optional, integer) 如果在通过模式下运行，则过滤器将缓存上游响应的时间（以毫秒为单位）。
 
 ## 返回
 - [上一级](../HTTPfilters.md)
