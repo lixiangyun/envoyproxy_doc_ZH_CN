@@ -1,6 +1,5 @@
-## Tracing
-
-The tracing configuration specifies global settings for the HTTP tracer used by Envoy. The configuration is defined on the server’s top level configuration. Envoy may support other tracers in the future, but right now the HTTP tracer is the only one supported.
+## 跟踪
+跟踪配置指定了Envoy使用的HTTP跟踪器的全局设置。在服务的顶层配置上定义。未来，Envoy可能会支持其他跟踪器，但现在HTTP跟踪器是唯一支持的跟踪器。
 
 ```
 {
@@ -9,15 +8,16 @@ The tracing configuration specifies global settings for the HTTP tracer used by 
   }
 }
 ```
+
 - **http**<br />
-	(optional, object) Provides configuration for the HTTP tracer.
+	(optional, object) 提供HTTP跟踪器的配置。
 
 - **driver**<br />
-	(optional, object) Provides the driver that handles trace and span creation.
+	(optional, object) 提供处理跟踪和创建span的驱动程序。
 
-Currently LightStep and Zipkin drivers are supported.
+目前支持LightStep和Zipkin驱动程序。
 
-### LightStep driver
+### LightStep跟踪驱动
 ```
 {
   "type": "lightstep",
@@ -27,13 +27,14 @@ Currently LightStep and Zipkin drivers are supported.
   }
 }
 ```
+
 - **access_token_file**<br />
-	(required, string) File containing the access token to the LightStep API.
+	(required, string) 包含访问到LightStep API的令牌文件。
 
 - **collector_cluster**<br />
-	(required, string) The cluster manager cluster that hosts the LightStep collectors.
+	(required, string) 承载LightStep集群的集群管理器。
 
-### Zipkin driver
+### Zipkin跟踪驱动
 ```
 {
   "type": "zipkin",
@@ -43,12 +44,12 @@ Currently LightStep and Zipkin drivers are supported.
   }
 }
 ```
+
 - **collector_cluster**<br />
-	(required, string) The cluster manager cluster that hosts the Zipkin collectors. Note that the Zipkin cluster must be defined under clusters in the cluster manager configuration section.
+	(required, string) 承载Zipkin集群的群集管理器。请注意，Zipkin集群必须在集群管理器定义相应的集群配置。
 
 - **collector_endpoint**<br />
-	(optional, string) The API endpoint of the Zipkin service where the spans will be sent. When using a standard Zipkin installation, the API endpoint is typically /api/v1/spans, which is the default value.
-
+	(optional, string) 将span发送的Zipkin服务的API端口。当安装标准的Zipkin时，API端口通常是/api/v1/span，同时也是默认值。
 
 
 ## 返回
