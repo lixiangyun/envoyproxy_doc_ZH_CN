@@ -86,8 +86,8 @@ Envoy可以选择生成异常值逐出事件日志。这在日常操作中非常
     如果`action`是`eject`，并且`type`是`SuccessRate`，指定逐出事件的成功率阈值。
 
 ### 配置参考
-- [集群管理全局配置]()
-- [每个群集配置](../../Configurationreference/Clustermanager/Cluster.md)
+- [集群管理全局配置](../../v1APIreference/Clustermanager/Outlierdetection.md)
+- [每个群集配置](../../v1APIreference/Clustermanager/Cluster/Outlierdetection.md)
 - [运行时设置](../../Configurationreference/Clustermanager/Runtime.md)
 - [统计参考](../../Configurationreference/Clustermanager/Statistics.md)
 
