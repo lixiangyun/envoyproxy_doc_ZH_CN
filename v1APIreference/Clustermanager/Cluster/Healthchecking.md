@@ -1,6 +1,8 @@
-### Health checking
-Health checking architecture overview.
-If health checking is configured for a cluster, additional statistics are emitted. They are documented here.
+### 健康检查
+
+- 健康检查[架构概述](../../../Introduction/Architectureoverview/Healthchecking.md)。
+- 如果为集群配置了健康检查，则会发出相应的统计信息。并且记录在[这里](../../../Configurationreference/Clustermanager/Statistics.md)。
+
 ```
 {
   "type": "...",
@@ -15,44 +17,45 @@ If health checking is configured for a cluster, additional statistics are emitte
   "service_name": "..."
 }
 ```
+
 - **type**<br />
-	(required, string) The type of health checking to perform. Currently supported types are http, redis, and tcp. See the architecture overview for more information.
+	(required, string) 健康检查的类型。目前支持的类型有`http`，`redis`和`tcp`。请参阅[架构概述](../../../Introduction/Architectureoverview/Healthchecking.md)以获取更多信息。
 
 - **timeout_ms**<br />
-	(required, integer) The time in milliseconds to wait for a health check response. If the timeout is reached the health check attempt will be considered a failure.
+	(required, integer) 等待健康检查响应的时间（以毫秒为单位）。如果达到超时时间，则该健康检查将被视为失败。
 
 - **interval_ms**<br />
-	(required, integer) The interval between health checks in milliseconds.
+	(required, integer) 每次健康检查的时间间隔，以毫秒为单位。
 
 - **unhealthy_threshold**<br />
-	(required, integer) The number of unhealthy health checks required before a host is marked unhealthy. Note that for http health checking if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately.
+	(required, integer) 在主机被标记为不健康之前，需要进行健康检查次数。请注意，对于`http`健康检查类型，如果主机响应503，则此阈值将被忽略，并且主机立即被视为不健康。
 
 - **healthy_threshold**<br />
-	(required, integer) The number of healthy health checks required before a host is marked healthy. Note that during startup, only a single successful health check is required to mark a host healthy.
+	(required, integer) 在主机被标记为健康之前，需要进行健康检查次数。请注意，在启动过程中，只需要一次成功的健康检查即可将主机标记为健康状态。
 
 - **path**<br />
-	(sometimes required, string) This parameter is required if the type is http. It species the HTTP path that will be requested during health checking. For example /healthcheck.
+	(sometimes required, string) 如果是`http`类型，则此参数是必需的。它会在健康检查过程中，请求的`HTTP`路径。例如`/healthcheck`。
 
 - **send**<br />
-	(sometimes required, array) This parameter is required if the type is tcp. It specifies the bytes to send for a health check request. It is an array of hex byte strings specified as in the following example:
+	(sometimes required, array) 如果是`tcp`类型，则此参数是必需的。它指定了为健康检查请求发送的字节。如下例所示，它是一个十六进制字符串数组：
 
+    ```
+    [
+      {"binary": "01"},
+      {"binary": "000000FF"}
+    ]
+    ```
 
-```
-[
-  {"binary": "01"},
-  {"binary": "000000FF"}
-]
-```
-The array is allowed to be empty in the case of “connect only” health checking.
+    在"connect only"健康检查的情况下，数组允许为空。
 
 - **receive**<br />
-	(sometimes required, array) This parameter is required if the type is tcp. It specified the bytes that are expected in a successful health check response. It is an array of hex byte strings specified similarly to the send parameter. The array is allowed to be empty in the case of “connect only” health checking.
+	(sometimes required, array) 如果是tcp类型，则此参数是必需的。它指定了成功的健康检查响应中预期的字节。它是一个与`send`参数指定类似的十六进制字符串数组。 在"connect only"健康检查的情况下，数组允许为空。
 
 - **interval_jitter_ms**<br />
-	(optional, integer) An optional jitter amount in millseconds. If specified, during every internal Envoy will add 0 to interval_jitter_ms milliseconds to the wait time.
+	(optional, integer) 可选的抖动量（以毫秒为单位）。如果指定的话，Enovy在每个间隔内，都会添加0到`interval_jitter_ms`的等待时间。
 
 - **service_name**<br />
-	(optional, string) An optional service name parameter which is used to validate the identity of the health checked cluster. See the architecture overview for more information.
+	(optional, string) 可选的服务名称参数，用于验证健康检查的群集的身份。请参阅[架构概述](../../../Introduction/Architectureoverview/Healthchecking.md)以获取更多信息。
 
 
 ## 返回
