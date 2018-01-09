@@ -1,7 +1,9 @@
-### Circuit breakers
-Circuit breaking architecture overview.
-Priority routing architecture overview.
-Circuit breaking settings can be specified individually for each defined priority. How the different priorities are used are documented in the sections of the configuration guide that use them.
+### 熔断
+
+- 熔断[架构概述](../../../Introduction/Architectureoverview/Circuitbreaking.md)。
+- 优先级路由[架构概述](../../../Introduction/Architectureoverview/HTTProuting.md#优先级路由)。
+
+可以为每个优先级的定义单独指定熔断设置。关于不同优先级如何使用，详见[配置指南]章节。
 
 ```
 {
@@ -9,13 +11,15 @@ Circuit breaking settings can be specified individually for each defined priorit
   "high": "{...}"
 }
 ```
+
 - **default**<br />
-	(optional, object) Settings object for default priority.
+	(optional, object) 设置默认优先级的配置对象。
 
 - **high**<br />
-	(optional, object) Settings object for high priority.
+	(optional, object) 设置高优先级的配置对象。
 
-### Per priority settings
+### 优先级设置
+
 ```
 {
   "max_connections": "...",
@@ -24,18 +28,20 @@ Circuit breaking settings can be specified individually for each defined priorit
   "max_retries": "...",
 }
 ```
+
 - **max_connections**<br />
-	(optional, integer) The maximum number of connections that Envoy will make to the upstream cluster. If not specified, the default is 1024. See the circuit breaking overview for more information.
+	(optional, integer) Envoy将允许上游群集的最大连接数。如果未指定，则默认值为1024。
 
 - **max_pending_requests**<br />
-	(optional, integer) The maximum number of pending requests that Envoy will allow to the upstream cluster. If not specified, the default is 1024. See the circuit breaking overview for more information.
+	(optional, integer) Envoy将允许上游集群的最大待处理请求数。如果未指定，则默认值为1024。
 
 - **max_requests**<br />
-	(optional, integer) The maximum number of parallel requests that Envoy will make to the upstream cluster. If not specified, the default is 1024. See the circuit breaking overview for more information.
+	(optional, integer) Envoy将对上游群集执行的最大并行请求数。如果未指定，则默认值为1024。
 
 - **max_retries**<br />
-	(optional, integer) The maximum number of parallel retries that Envoy will allow to the upstream cluster. If not specified, the default is 3. See the circuit breaking overview for more information.
+	(optional, integer) Envoy允许上游集群执行的最大并行重试次数。如果未指定，则默认值为3。
 
+有关更多信息，请参阅[熔断概述](../../../Introduction/Architectureoverview/Circuitbreaking.md)。
 
 
 ## 返回
