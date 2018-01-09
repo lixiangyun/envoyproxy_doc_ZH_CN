@@ -1,4 +1,5 @@
-### TLS context
+### TLS上下文
+
 ```
 {
   "alpn_protocols": "...",
@@ -12,59 +13,58 @@
   "sni": "..."
 }
 ```
+
 - **alpn_protocols**<br />
-	(optional, string) Supplies the list of ALPN protocols that connections should request. In practice this is likely to be set to a single value or not set at all:
+	(optional, string) 提供请求连接的ALPN协议列表。在实践中，这可能会被设置为一个单一的值或根本不设置：
 
+    - "h2"：指定上游连接使用HTTP/2。在当前的实现中，这必须与集群的`http2`[功能选项](../Cluster.md#features)一起设置。这两个选项一起使用ALPN，来告诉Envoy服务器，期望支持HTTP/2的ALPN。然后http2功能将导致新的连接使用HTTP/2。
 
-“h2” If upstream connections should use HTTP/2. In the current implementation this must be set alongside the http2 cluster features option. The two options together will use ALPN to tell a server that expects ALPN that Envoy supports HTTP/2. Then the http2 feature will cause new connections to use HTTP/2.
 - **cert_chain_file**<br />
-	(optional, string) The certificate chain file that should be served by the connection. This is used to provide a client side TLS certificate to an upstream host.
+	(optional, string) 用于连接使用的证书文件链。这用于上游主机提供给客户端的TLS证书。
 
 - **private_key_file**<br />
-	(optional, string) The private key that corresponds to the certificate chain file.
+	(optional, string) 与证书文件链相对应的私钥。
 
 - **ca_cert_file**<br />
-	(optional, string) A file containing certificate authority certificates to use in verifying a presented server certificate.
+	(optional, string) 包含证书颁发机构的证书文件，用于验证服务器提供的证书。
 
 - **verify_certificate_hash**<br />
-	(optional, string) If specified, Envoy will verify (pin) the hash of the presented server certificate.
+	(optional, string) 如果指定，Envoy将验证（pin）所服务器提供的证书哈希。
 
 - **verify_subject_alt_name**<br />
-	(optional, array) An optional list of subject alt names. If specified, Envoy will verify that the server certificate’s subject alt name matches one of the specified values.
+	(optional, array) 可选的标题替代名称列表。如果指定，Envoy将验证服务器证书的`alt`标题名称是否与指定值之一匹配。
 
 - **cipher_suites**<br />
-	(optional, string) If specified, the TLS connection will only support the specified cipher list. If not specified, the default list:
+	(optional, string) 如果指定，连接将支持指定的[加密套件列表](https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#Cipher-suite-configuration)。如果未指定，则默认列表：
 
 ```
 [ECDHE-ECDSA-AES128-GCM-SHA256|ECDHE-ECDSA-CHACHA20-POLY1305]
-```
-```
 [ECDHE-RSA-AES128-GCM-SHA256|ECDHE-RSA-CHACHA20-POLY1305]
+ECDHE-ECDSA-AES128-SHA256
+ECDHE-RSA-AES128-SHA256
+ECDHE-ECDSA-AES128-SHA
+ECDHE-RSA-AES128-SHA
+AES128-GCM-SHA256
+AES128-SHA256
+AES128-SHA
+ECDHE-ECDSA-AES256-GCM-SHA384
+ECDHE-RSA-AES256-GCM-SHA384
+ECDHE-ECDSA-AES256-SHA384
+ECDHE-RSA-AES256-SHA384
+ECDHE-ECDSA-AES256-SHA
+ECDHE-RSA-AES256-SHA
+AES256-GCM-SHA384
+AES256-SHA256
+AES256-SHA
 ```
-### ECDHE-ECDSA-AES128-SHA256
-### ECDHE-RSA-AES128-SHA256
-### ECDHE-ECDSA-AES128-SHA
-### ECDHE-RSA-AES128-SHA
-### AES128-GCM-SHA256
-### AES128-SHA256
-### AES128-SHA
-### ECDHE-ECDSA-AES256-GCM-SHA384
-### ECDHE-RSA-AES256-GCM-SHA384
-### ECDHE-ECDSA-AES256-SHA384
-### ECDHE-RSA-AES256-SHA384
-### ECDHE-ECDSA-AES256-SHA
-### ECDHE-RSA-AES256-SHA
-### AES256-GCM-SHA384
-### AES256-SHA256
-### AES256-SHA
-will be used.
+
+将会被使用；
 
 - **ecdh_curves**<br />
-	(optional, string) If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves (X25519, P-256) will be used.
+	(optional, string) 如果指定，TLS连接将只支持指定的ECDH曲线算法。如果未指定，将使用默认（X25519，P-256）曲线算法。
 
 - **sni**<br />
-	(optional, string) If specified, the string will be presented as the SNI during the TLS handshake.
-
+	(optional, string) 如果指定，则字符串将在TLS握手期间作为SNI呈现。
 
 
 ## 返回
