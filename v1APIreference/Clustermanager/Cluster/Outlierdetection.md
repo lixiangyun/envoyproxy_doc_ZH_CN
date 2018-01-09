@@ -1,4 +1,5 @@
-### Outlier detection
+### 异常值检测
+
 ```
 {
   "consecutive_5xx": "...",
@@ -14,41 +15,42 @@
   "success_rate_stdev_factor" : "..."
 }
 ```
+
 - **consecutive_5xx**<br />
-	(optional, integer) The number of consecutive 5xx responses before a consecutive 5xx ejection occurs. Defaults to 5.
+	(optional, integer) 发生连续5xx逐出主机之前，连续5xx响应的数量。默认为5。
 
 - **consecutive_gateway_failure**<br />
-	(optional, integer) The number of consecutive “gateway errors” (502, 503 and 504 responses), including those raised by Envoy for connection errors, before a consecutive gateway failure ejection occurs. Defaults to 5.
+	(optional, integer) 逐出之前连续发生的连续“gateway errors”数量，包括（502,503,504状态或连接错误，映射到其中一个状态代码）默认为5。
 
 - **interval_ms**<br />
-	(optional, integer) The time interval between ejection analysis sweeps. This can result in both new ejections as well as hosts being returned to service. Defaults to 10000ms or 10s.
+	(optional, integer) 每次异常值分析扫描的时间间隔，这可能导致新抛出异常以及主机被重新添加到服务集群。默认为10000ms或10s。
 
 - **base_ejection_time_ms**<br />
-	(optional, integer) The base time that a host is ejected for. The real time is equal to the base time multiplied by the number of times the host has been ejected. Defaults to 30000ms or 30s.
+	(optional, integer) 主机被逐出的基准时间。实际时间等于基本时间乘以主机被逐出的次数。默认为30000ms或30s。
 
 - **max_ejection_percent**<br />
-	(optional, integer) The maximum % of hosts in an upstream cluster that can be ejected due to outlier detection. Defaults to 10%.
+	(optional, integer) 由于异常检测而逐出的主机占上游群集的最大百分比。默认为10％。
 
 - **enforcing_consecutive_5xx**<br />
-	(optional, integer) The % chance that a host will be actually ejected when an outlier status is detected through consecutive 5xx. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100 with 1% granularity.
+	(optional, integer) 当通过连续5xx检测到异常状态时，主机实际被逐出的几率百分比。这个设置可以用来禁止逐出或者缓慢地加速。默认为100。
 
 - **enforcing_consecutive_gateway_failure**<br />
-	(optional, integer) The % chance that a host will be actually ejected when an outlier status is detected through consecutive gateway failure. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 0 with 1% granularity.
+	(optional, integer) 当通过连续的网关故障检测到异常状态时，主机实际被逐出的几率百分比。这个设置可以用来禁止逐出或者缓慢地加速。默认为0。
 
 - **enforcing_success_rate**<br />
-	(optional, integer) The % chance that a host will be actually ejected when an outlier status is detected through success rate statistics. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100 with 1% granularity.
+	(optional, integer) 通过成功率统计检测到异常状态时，主机实际被逐出的几率百分比。这个设置可以用来禁止逐出或者缓慢地加速。默认为100。
 
 - **success_rate_minimum_hosts**<br />
-	(optional, integer) The number of hosts in a cluster that must have enough request volume to detect success rate outliers. If the number of hosts is less than this setting, outlier detection via success rate statistics is not performed for any host in the cluster. Defaults to 5.
+	(optional, integer) 必须具有足够的请求量来检测成功率异常值的群集中的主机数量。如果主机数量小于此设置，则不会为群集中的任何主机执行通过成功率统计信息的异常值检测。默认为5。
 
 - **success_rate_request_volume**<br />
-	(optional, integer) The minimum number of total requests that must be collected in one interval (as defined by interval_ms above) to include this host in success rate based outlier detection. If the volume is lower than this setting, outlier detection via success rate statistics is not performed for that host. Defaults to 100.
+	(optional, integer) 在一个时间间隔内（如上述定义的时间间隔）必须收集的最小请求总数，以便将此主机包含在基于成功率的异常值检测中。如果低于此设置，则不会为该主机执行通过成功率统计的异常值检测。默认为100。
 
 - **success_rate_stdev_factor**<br />
-	(optional, integer) This factor is used to determine the ejection threshold for success rate outlier ejection. The ejection threshold is used as a measure to determine when a particular host has fallen below an acceptable success rate. The ejection threshold is the difference between the mean success rate, and the product of this factor and the standard deviation of the mean success rate: mean - (stdev * success_rate_stdev_factor). This factor is divided by a thousand to get a double. That is, if the desired factor is 1.9, the runtime value should be 1900. Defaults to 1900.
+	(optional, integer) 这个因子被用来确定异常逐出成功率的阈值。逐出阈值是平均成功率与该因子与平均成功率的标准偏差的乘积之差：`mean-(stdev* success_rate_stdev_factor)`。这个因子除以一千得到一个两位小数值。也就是说，如果期望的因子是1.9，运行时间值应该是1900，默认为1900。
 
-Each of the above configuration values can be overridden via runtime values.
 
+上述每个配置值都可以通过运行时值覆盖。
 
 ## 返回
 - [上一级](../Cluster.md)
