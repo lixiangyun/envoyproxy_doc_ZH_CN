@@ -42,7 +42,7 @@
 - **cipher_suites**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 如果指定，则TLS监听器将仅支持指定的密码套件。如果未指定，则默认列表：
 
-    ```
+```
 [ECDHE-ECDSA-AES128-GCM-SHA256|ECDHE-ECDSA-CHACHA20-POLY1305]
 [ECDHE-RSA-AES128-GCM-SHA256|ECDHE-RSA-CHACHA20-POLY1305]
 ECDHE-ECDSA-AES128-SHA256
@@ -62,7 +62,7 @@ AES256-GCM-SHA384
 AES256-SHA256
 AES256-SHA
 ```
-    将会被使用。
+将会被使用。
 
 - **ecdh_curves**<br />
 	([string](https://developers.google.com/protocol-buffers/docs/proto#scalar)) 如果指定，TLS连接将只支持指定的ECDH密钥交换。如果未指定，将使用默认（X25519，P-256）。
