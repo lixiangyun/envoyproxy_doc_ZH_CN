@@ -2,6 +2,10 @@
 
 **注意：水平有限，仅供参考，如果有任何疑问或者建议，请提交[issue](https://github.com/lixiangyun/envoyproxy_doc_ZH_CN/issues)讨论。**
 
+## 文档下载
+- [pdf下载](https://legacy.gitbook.com/download/pdf/book/lixiangyun/envoy)
+- [mobi下载](https://legacy.gitbook.com/download/mobi/book/lixiangyun/envoy)
+- [epub下载](https://legacy.gitbook.com/download/epub/book/lixiangyun/envoy)
 
 **版权申明**
 - 未经版权所有者明确授权，禁止发行本文档及其被实质上修改的版本。 
